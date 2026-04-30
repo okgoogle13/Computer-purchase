@@ -1,0 +1,5 @@
+.DS_Store
+*.zip
+_Archive_Legacy_Data/
+node_modules/
+.env
