@@ -37,7 +37,7 @@ $$V_{total} = V_{weights} + V_{KV\_cache} + V_{overhead}$$
 | Component | Minimum Requirement | Preferred for Growth |
 | :--- | :--- | :--- |
 | **VRAM** | 12GB (Entry), 16GB (Developer) | 24GB+ (Standard) |
-| **Bandwidth** | TODO: REQUIRED_METRIC_MISSING - Specify GB/s for 3090/4090/5090 | TODO: REQUIRED_METRIC_MISSING |
+| **Bandwidth** | TODO: REQUIRED_METRIC_MISSING - Specify GB/s for 3090/4090/5090 | TODO: REQUIRED_METRIC_MISSING - Specify target GB/s memory bandwidth for future-proofing. |
 | **System RAM** | 32GB | 64GB - 128GB (for weights offloading) |
 | **PSU** | 850W (Single GPU) | 1000W - 1300W (Dual GPU growth) |
 | **PCIe** | One x16 Slot | Dual x16 (x8/x8 electrical) |
@@ -80,7 +80,7 @@ $$V_{total} = V_{weights} + V_{KV\_cache} + V_{overhead}$$
 
 **Architecture Comparison**:
 *   **NVIDIA CUDA**: Standard for local LLM inference; high performance on INT4/MXFP4.
-*   **Apple Unified Memory**: Separate "quiet" route; 64GB+ unified memory allows running larger models that exceed 24GB consumer GPU limits, but with potentially different memory-bandwidth characteristics.
+*   **Apple Unified Memory**: Separate "quiet" route; 64GB+ unified memory allows running larger models that exceed 24GB consumer GPU limits. TODO: REQUIRED_METRIC_MISSING - Extract memory bandwidth specifications from Apple product cards to compare directly with NVIDIA CUDA performance.
 
 **Sources**: `Local LLM GPU VRAM Analysis.md` §2, §5.
 
@@ -88,7 +88,7 @@ $$V_{total} = V_{weights} + V_{KV\_cache} + V_{overhead}$$
 
 ## 5. Total Cost of Ownership (TCO)
 
-**Assumptions**: 3-year horizon. AUD pricing. used/refurbished vs. new.
+**Assumptions**: 3-year horizon. AUD pricing. used/refurbished vs. new. *Note: The used RTX 3090 CapEx split ($1,100 base + $1,100 GPU) is an estimate; the source (`Local LLM GPU VRAM Analysis.md`) only explicitly confirms the $2,200 total.*
 
 | Component | Used RTX 3090 Build | New RTX 4090 Build | New RTX 5090 Build |
 | :--- | :--- | :--- | :--- |
