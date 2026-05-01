@@ -1,5 +1,13 @@
 # VRAM Architecture Specification for Local AI (v1)
 
+## Project Goal & Rationale
+
+**The Overarching Goal**: The user requires a new computer. 
+**The Project Purpose**: To collate and synthesize extensive hardware research into a coherent, cohesive, comprehensive analysis and a structured, logical decision-making framework.
+**The Rationale**: This thorough analysis stage is necessary to mitigate post-purchase cognitive dissonance. It empowers the user to confidently shortlist the best-value product propositions for their needs and lock in a purchase soon.
+
+---
+
 ## 1. Workload Definitions
 
 This section defines the computational and memory characteristics of local AI workloads in 2026.

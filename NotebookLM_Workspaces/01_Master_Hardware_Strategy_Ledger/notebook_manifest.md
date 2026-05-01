@@ -1,6 +1,14 @@
 # NotebookLM Operational Manifest
 
-This document details the structure and source mapping for the 7 NotebookLM lanes.
+## Project Goal & Rationale
+
+**The Overarching Goal**: The user requires a new computer. 
+**The Project Purpose**: To collate and synthesize extensive hardware research into a coherent, cohesive, comprehensive analysis and a structured, logical decision-making framework.
+**The Rationale**: This thorough analysis stage is necessary to mitigate post-purchase cognitive dissonance. It empowers the user to confidently shortlist the best-value product propositions for their needs and lock in a purchase soon.
+
+---
+
+This document details the structure and source mapping for the 7 NotebookLM lanes that support the above goal.
 
 ## 1. Notebook List & Source Mapping
 
