@@ -1,0 +1,6 @@
+Machine,VRAM Adequacy,GPU Compute Tier,CPU Multi-core Sustained,System RAM Capacity,PSU Headroom for Current GPU,CPU/GPU PCIe Bottleneck Risk,PCIe Slot Layout Clarity,PSU Connector Availability,Intake Airflow Volume,Sustained Thermal Stability,Second PCIe x16 Slot Usability,Chassis Clearance for 2nd GPU,PSU Wattage Ceiling,Price per GB VRAM,Enterprise Pedigree,Warranty Coverage
+Gaming_PC_16GB_Compact,5,6,8,5,8,10,5,5,0,0,0,0,5,5,0,8
+Used_Workstation_24GB,8,8,10,10,10,10,10,10,10,10,10,10,8,8,10,0
+Boutique_Build_24GB,8,8,8,8,10,10,10,10,8,8,10,10,10,5,5,8
+Cheap_Prebuilt_16GB,5,6,5,5,5,5,5,5,5,5,0,0,0,5,0,8
+Dream_Machine_48GB,10,10,10,10,10,10,10,10,10,10,10,10,10,0,10,10

@@ -53,12 +53,12 @@ Use this as a checklist when evaluating whether a machine is cohesive.
 | 2× NVMe + SATA bays | Strong |
 | No NVMe / HDD-only | Reject or upgrade immediately |
 
-## Compatibility Confidence Caps
+## Atomic Dimension Score Caps
 
 | Missing detail | Cap |
 |---|---:|
-| PSU wattage unknown | Compatibility confidence max 7/15 |
-| Motherboard model / slot layout unknown | Upgrade path max 5/10 |
-| Case GPU clearance unknown | Thermals/noise max 6/10 |
-| GPU VRAM unclear | Workload fit max 12/25 |
-| Warranty unclear | Reliability max 2/5 |
+| PSU wattage unknown | `PSU Headroom` capped at 0/10 |
+| Motherboard model / slot layout unknown | `PCIe Slot Layout Clarity` capped at 0/10, `Second PCIe x16 Slot Usability` max 5/10 |
+| Case GPU clearance unknown | `Chassis Clearance for 2nd GPU` max 5/10, `Sustained Thermal Stability` max 5/10 |
+| GPU VRAM unclear | `VRAM Adequacy` capped at 5/10 |
+| Warranty unclear | `Warranty Coverage` capped at 0/10 |

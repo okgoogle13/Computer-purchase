@@ -193,18 +193,30 @@ Reward systems that can accept:
 
 Penalise systems that require a total rebuild to reach the stated target.
 
-## Scoring Rubric – 100 pts
+## Scoring Rubric (Atomic Dimensions)
 
-| Category | Points | What to assess |
-|---|---:|---|
-| **Workload Fit – AI / Heavy Compute** | 25 | Current VRAM, CUDA support, GPU class, RAM, storage, CPU suitability. |
-| **Component Synergy** | 20 | CPU/GPU/PSU/cooling/storage/RAM balance as a system. |
-| **Compatibility Confidence** | 15 | PSU details, PCIe layout, power connectors, case clearance, documentation quality. |
-| **Thermals / Noise Potential** | 10 | Airflow, fan layout, chassis type, sustained workload suitability. |
-| **Upgrade Path** | 10 | Second GPU, RAM ceiling, storage, PSU replacement, PCIe expandability. |
-| **Value for Money** | 15 | AUD price relative to usable VRAM, platform quality, warranty, upgrade cost. |
-| **Power Efficiency / Reliability** | 5 | Enterprise stability, efficiency, mature platform, warranty safety. |
-| **Total** | **100** | |
+Evaluate each candidate on the following atomic dimensions. Score each out of 10 points based on the facts provided in the listing.
+
+| Category / UX Grouping | Subcriterion | Scale (0-10) Guidelines |
+|---|---|---|
+| **Workload Fit** | `VRAM Adequacy` | 10: 48GB+, 8: 24GB, 5: 16GB, 0: <16GB |
+| | `GPU Compute Tier` | 10: RTX 4090/A6000, 8: RTX 3090, 6: RTX 4080/5070Ti |
+| | `CPU Multi-core Sustained` | 10: High-end Threadripper/Xeon W, 8: Modern i9/R9, 5: i7/R7 |
+| | `System RAM Capacity` | 10: 128GB+, 8: 64GB, 5: 32GB, 0: <32GB |
+| **Component Synergy** | `PSU Headroom for Current GPU` | 10: 30%+ headroom over spikes, 5: adequate, 0: unsafe/unknown |
+| | `CPU/GPU PCIe Bottleneck Risk` | 10: Full x16 Gen4+, 5: Shared lanes/older Gen, 0: Severe bottleneck |
+| **Compatibility** | `PCIe Slot Layout Clarity` | 10: Full motherboard diagram/specs, 5: Text description only, 0: Unknown |
+| | `PSU Connector Availability` | 10: Native cables listed, 5: Adapters needed, 0: Unknown cables |
+| **Thermals/Noise** | `Intake Airflow Volume` | 10: High static pressure/mesh, 5: Standard airflow, 0: Solid glass/blocked |
+| | `Sustained Thermal Stability` | 10: Blower/workstation layout, 5: Standard open-air, 0: Compact case |
+| **Upgrade Path** | `Second PCIe x16 Slot Usability` | 10: True x16/x8 clear, 5: Shared x4/partially blocked, 0: None/blocked |
+| | `Chassis Clearance for 2nd GPU` | 10: 320mm+ with spacing, 5: Tight but possible, 0: No room |
+| | `PSU Wattage Ceiling` | 10: 1200W+ (Multi-GPU ready), 8: 1000W, 5: 850W, 0: Proprietary <800W |
+| **Value/Reliability** | `Price per GB VRAM` | 10: Excellent value (<$150/GB), 5: Average, 0: Very expensive |
+| | `Enterprise Pedigree` | 10: Dell Precision/HP Z, 5: Quality custom, 0: Unknown OEM/cheap prebuilt |
+| | `Warranty Coverage` | 10: 3yr+ Onsite, 8: 1yr Return, 0: No warranty |
+
+*Note: Final weighting will be handled by external correlation-aware aggregation.*
 
 ## Hard Scoring Rules
 

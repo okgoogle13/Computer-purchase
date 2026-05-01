@@ -8,14 +8,23 @@ Use this exact Markdown structure for each candidate.
 
 **Headline verdict:** [1–2 lines. Example: “Strong single-GPU refurb, weak multi-GPU future.”]
 
-**Score:** [X] / 100 overall
-- Workload fit: [X] / 25
-- Component synergy: [X] / 20
-- Compatibility confidence: [X] / 15
-- Thermals / noise: [X] / 10
-- Upgrade path: [X] / 10
-- Value: [X] / 15
-- Efficiency / reliability: [X] / 5
+**Score (Atomic Dimensions - Unweighted):**
+- VRAM Adequacy: [X] / 10
+- GPU Compute Tier: [X] / 10
+- CPU Multi-core Sustained: [X] / 10
+- System RAM Capacity: [X] / 10
+- PSU Headroom for Current GPU: [X] / 10
+- CPU/GPU PCIe Bottleneck Risk: [X] / 10
+- PCIe Slot Layout Clarity: [X] / 10
+- PSU Connector Availability: [X] / 10
+- Intake Airflow Volume: [X] / 10
+- Sustained Thermal Stability: [X] / 10
+- Second PCIe x16 Slot Usability: [X] / 10
+- Chassis Clearance for 2nd GPU: [X] / 10
+- PSU Wattage Ceiling: [X] / 10
+- Price per GB VRAM: [X] / 10
+- Enterprise Pedigree: [X] / 10
+- Warranty Coverage: [X] / 10
 
 **Classification**
 - Expansion class: [Growth Platform / Single-24GB-GPU Candidate / Single-GPU Value Exception / Portable Value Exception / Unified-Memory Exception / Modular Exception / Rejected Benchmark]
