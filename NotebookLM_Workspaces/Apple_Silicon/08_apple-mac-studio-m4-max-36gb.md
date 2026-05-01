@@ -1,3 +1,4 @@
+<!-- TAGS: #AppleSilicon #UnifiedMemory #VRAM-36GB #New #PrimaryWorkstation #AgenticAI #NeedsReview -->
 <!-- PRODUCT CARD START: Apple Mac Studio M4 Max 36GB -->
 ### [90 / 100] — Apple Mac Studio M4 Max 36GB
 

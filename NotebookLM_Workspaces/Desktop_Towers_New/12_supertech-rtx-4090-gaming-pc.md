@@ -1,3 +1,4 @@
+<!-- TAGS: #DesktopTower #NVIDIA #VRAM-24GB #New #SingleGPU #PrimaryWorkstation #AgenticAI #ImageGeneration #NeedsReview -->
 <!-- PRODUCT CARD START: Supertech RTX 4090 Gaming PC -->
 ### [92 / 100] — Supertech RTX 4090 Gaming PC
 

@@ -1,3 +1,4 @@
+<!-- TAGS: #Component #NVIDIA #VRAM-24GB #Used #NeedsReview -->
 <!-- PRODUCT CARD START: MSI RTX 3090 AERO 24GB standalone GPU -->
 ### [77 / 100] — MSI RTX 3090 AERO 24GB standalone GPU
 

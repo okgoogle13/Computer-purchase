@@ -1,3 +1,4 @@
+<!-- TAGS: #CustomBuild #DesktopTower #NVIDIA #VRAM-24GB #Refurbished #Bundle #Expandable #PrimaryWorkstation #SecondaryLaptop #AgenticAI #Shortlist -->
 <!-- PRODUCT CARD START: Refurb 3090 Tower + Thin Client -->
 ### [80 / 100] — Refurb 3090 Tower + Thin Client
 

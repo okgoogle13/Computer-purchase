@@ -1,3 +1,4 @@
+<!-- TAGS: #Laptop #NVIDIA #VRAM-16GB #New #SingleGPU #AgenticAI #Coding #Travel #NonUpgradeable #NeedsReview -->
 ---
 id: msi-stealth-16-ai-studio-rtx-4090
 category: laptop

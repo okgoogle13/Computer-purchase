@@ -1,3 +1,4 @@
+<!-- TAGS: #Strategy #Cloud_First #Remote_GPU #Laptop #NeedsReview -->
 <!-- PRODUCT CARD START: Normal laptop + remote GPU rental -->
 ### [77 / 100] — Normal laptop + remote GPU rental
 

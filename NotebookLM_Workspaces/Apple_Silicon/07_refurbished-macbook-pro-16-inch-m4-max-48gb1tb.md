@@ -1,3 +1,4 @@
+<!-- TAGS: #AppleSilicon #UnifiedMemory #VRAM-48GB #Laptop #Refurbished #Travel #SecondaryLaptop #Coding #NonUpgradeable -->
 <!-- PRODUCT CARD START: Refurbished MacBook Pro 16-inch M4 Max 48GB/1TB -->
 ### [84 / 100] — Refurbished MacBook Pro 16-inch M4 Max 48GB/1TB
 

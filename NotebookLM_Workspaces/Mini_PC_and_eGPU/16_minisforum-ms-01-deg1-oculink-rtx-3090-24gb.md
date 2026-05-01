@@ -1,3 +1,4 @@
+<!-- TAGS: #MiniPC #OCuLink #eGPU #NVIDIA #VRAM-24GB #New #Expandable #AgenticAI #ConditionalBuy -->
 <!-- PRODUCT CARD START: Minisforum MS-01 + DEG1 OCuLink + RTX 3090 24GB -->
 ### [90 / 100] — Minisforum MS-01 + DEG1 OCuLink + RTX 3090 24GB
 

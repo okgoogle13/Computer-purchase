@@ -1,3 +1,4 @@
+<!-- TAGS: #AppleSilicon #UnifiedMemory #VRAM-64GB #Refurbished #PrimaryWorkstation #AgenticAI #NeedsReview -->
 <!-- PRODUCT CARD START: Refurb Mac Studio M2 Ultra 64GB -->
 ### [75 / 100] — Refurb Mac Studio M2 Ultra 64GB
 

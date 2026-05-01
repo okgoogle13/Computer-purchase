@@ -1,3 +1,4 @@
+<!-- TAGS: #Laptop #NVIDIA #VRAM-16GB #New #SingleGPU #AgenticAI #Coding #NonUpgradeable #NeedsReview -->
 ---
 id: lenovo-legion-pro-7i-rtx-4090
 category: laptop

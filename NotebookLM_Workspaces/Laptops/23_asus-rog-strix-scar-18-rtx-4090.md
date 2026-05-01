@@ -1,3 +1,4 @@
+<!-- TAGS: #Laptop #NVIDIA #VRAM-16GB #New #SingleGPU #AgenticAI #Coding #NonUpgradeable #NeedsReview -->
 ---
 id: asus-rog-strix-scar-18-rtx-4090
 category: laptop

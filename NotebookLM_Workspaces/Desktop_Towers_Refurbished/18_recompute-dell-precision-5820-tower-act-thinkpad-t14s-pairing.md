@@ -1,3 +1,4 @@
+<!-- TAGS: #Workstation #NVIDIA #VRAM-24GB #Refurbished #Bundle #Expandable #PCIe-x16x16 #PrimaryWorkstation #SecondaryLaptop #AgenticAI #Shortlist -->
 <!-- PRODUCT CARD START: Recompute Dell Precision 5820 Tower + ACT ThinkPad T14s pairing -->
 ### [90 / 100] — Recompute Dell Precision 5820 Tower + ACT ThinkPad T14s pairing
 

@@ -1,3 +1,4 @@
+<!-- TAGS: #AppleSilicon #UnifiedMemory #VRAM-48GB #Laptop #OpenBox #Travel #SecondaryLaptop #Coding #NonUpgradeable -->
 <!-- PRODUCT CARD START: Apple MacBook Pro 16 M3 Max 48GB open box -->
 ### [90 / 100] — Apple MacBook Pro 16 M3 Max 48GB open box
 

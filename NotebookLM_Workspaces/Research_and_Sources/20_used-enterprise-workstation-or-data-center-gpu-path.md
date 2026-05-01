@@ -1,3 +1,4 @@
+<!-- TAGS: #Strategy #Workstation #NVIDIA #VRAM-24GB #Used #NeedsReview -->
 <!-- PRODUCT CARD START: Used enterprise workstation or data-center GPU path -->
 ### [75 / 100] — Used enterprise workstation or data-center GPU path
 

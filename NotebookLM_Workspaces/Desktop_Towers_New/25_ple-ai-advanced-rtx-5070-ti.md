@@ -1,3 +1,4 @@
+<!-- TAGS: #DesktopTower #NVIDIA #VRAM-16GB #New #SingleGPU #PrimaryWorkstation #Coding #NeedsReview -->
 ---
 id: ple-ai-advanced-rtx-5070-ti
 category: desktop

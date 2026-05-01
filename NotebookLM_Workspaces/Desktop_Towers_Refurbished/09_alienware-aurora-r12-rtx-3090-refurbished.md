@@ -1,3 +1,4 @@
+<!-- TAGS: #DesktopTower #NVIDIA #VRAM-24GB #Refurbished #SingleGPU #PrimaryWorkstation #AgenticAI #ImageGeneration #Shortlist -->
 <!-- PRODUCT CARD START: Alienware Aurora R12 RTX 3090 refurbished -->
 ### [95 / 100] — Alienware Aurora R12 RTX 3090 refurbished
 

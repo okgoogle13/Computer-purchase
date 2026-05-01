@@ -1,3 +1,4 @@
+<!-- TAGS: #DesktopTower #NVIDIA #VRAM-16GB #Refurbished #SingleGPU #PrimaryWorkstation #NeedsReview -->
 ---
 id: acer-predator-orion-7000-rtx-4080-super
 category: desktop

@@ -1,3 +1,4 @@
+<!-- TAGS: #AppleSilicon #UnifiedMemory #VRAM-48GB #Laptop #New #Travel #SecondaryLaptop #Coding #NonUpgradeable -->
 <!-- PRODUCT CARD START: Apple MacBook Pro 14 M4 Pro 48GB -->
 ### [90 / 100] — Apple MacBook Pro 14 M4 Pro 48GB
 

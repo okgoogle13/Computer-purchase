@@ -10,24 +10,25 @@ import os
 # The "never buy" configurations that define misalignment for this user.
 # If a criterion highly correlates with these machines being ranked well,
 # it is flagged as misaligned for the expandable AI workstation goal.
+# (e.g. they lack expansion, lack VRAM, etc.)
 NEVER_BUY_MACHINES = [
-    "Gaming_PC_16GB_Compact",
-    "Prebuilt_SFF_No_Upgrade"
+    "PLE_RTX_5070_Ti_16GB",
+    "Lenovo_Legion_RTX_4090_16GB",
+    "MSI_RTX_4080_Super_16GB"
+]
+
+PREFERRED_WORKSTATIONS = [
+    "Custom_RTX_3090_24GB_Desktop",
+    "Dell_Precision_Dual_A5000"
 ]
 
 # Manual Weight Overrides (Tool, not Law)
 # Set minimum weights for dimensions that are critical to YOU.
-# Remaining weight pool (after satisfying these minimums) is distributed via whitening.
 MANUAL_MIN_WEIGHTS = {
     "VRAM Adequacy": 0.20,
-    "Second PCIe x16 Slot Usability": 0.10,
-    "PSU Headroom for Current GPU": 0.05
 }
 
-# Regularization parameter for the covariance matrix
 LAMBDA_REG = 0.1
-
-# Minimum sample size before falling back to simpler pruning
 MIN_SAMPLE_SIZE = 4
 
 # ---------------------------------------------------------
@@ -36,161 +37,183 @@ MIN_SAMPLE_SIZE = 4
 
 def check_misalignment(df):
     """
-    Flags criteria that score 'never buy' machines higher than the mean of preferred machines.
+    Flags criteria that consistently push a 'Never Buy' machine above a preferred workstation.
     """
-    print("\n--- MISALIGNMENT CHECK ---")
-    if len(df) == 0:
-        return []
+    print("\n--- TIGHTENED MISALIGNMENT CHECK ---")
     
-    flagged = []
     never_buys = df[df['Machine'].isin(NEVER_BUY_MACHINES)]
-    others = df[~df['Machine'].isin(NEVER_BUY_MACHINES)]
+    preferred = df[df['Machine'].isin(PREFERRED_WORKSTATIONS)]
     
-    if len(never_buys) == 0 or len(others) == 0:
-        print("Not enough labeled data to run misalignment check.")
-        return flagged
+    if len(never_buys) == 0 or len(preferred) == 0:
+        print("Not enough labeled data to run pairwise misalignment check.")
+        return [], []
     
-    never_buy_means = never_buys.mean(numeric_only=True)
-    other_means = others.mean(numeric_only=True)
+    suspect_criteria = []
     
-    for col in never_buy_means.index:
-        if never_buy_means[col] > other_means[col]:
-            print(f"[!] FLAG: '{col}' rewards 'Never Buy' machines more than preferred machines.")
-            print(f"    (Never Buy avg: {never_buy_means[col]:.1f} vs Preferred avg: {other_means[col]:.1f})")
-            print(f"    -> ACTION: Consider rewriting or deleting this criterion. It is not aligned with your preferences.")
-            flagged.append(col)
-            
-    if not flagged:
-        print("No misaligned criteria detected.")
+    score_cols = [c for c in df.columns if c not in ['Machine', 'Type']]
+    
+    for col in score_cols:
+        pairwise_fails = 0
+        total_pairs = len(never_buys) * len(preferred)
         
-    return flagged
+        for _, nb_row in never_buys.iterrows():
+            for _, pref_row in preferred.iterrows():
+                # If NeverBuy scores strictly better than Preferred on this metric
+                if nb_row[col] > pref_row[col]:
+                    pairwise_fails += 1
+                    
+        fail_rate = pairwise_fails / total_pairs
+        
+        if fail_rate > 0.5: # If it fails more than 50% of the time
+            suspect_criteria.append((col, fail_rate))
+            
+    # Print Buckets
+    confirmed_misaligned = [] # To be filled by user later, but we can simulate the lists
+    suspect_misaligned = []
+    
+    if suspect_criteria:
+        print("\n[SUSPECT MISALIGNMENT - Review Manually]")
+        print("These criteria often reward gaming PCs/Never Buys more than your preferred workstations.")
+        print("Do NOT auto-invert. Decide if they are useful but overweighted, or genuinely wrong for you.")
+        for col, rate in suspect_criteria:
+            print(f" - {col} (Fails {rate*100:.0f}% of pairs)")
+            suspect_misaligned.append(col)
+    else:
+        print("No suspect criteria detected.")
+        
+    print("\n[CONFIRMED MISALIGNED - Rewritten/Removed]")
+    print("(None currently configured. Edit this script or policy to handle them.)")
+        
+    return suspect_misaligned, confirmed_misaligned
 
 def compute_whitened_weights(df_scores):
-    """
-    Computes correlation-aware (whitened) weights.
-    Returns a dictionary of {criterion: weight}.
-    """
-    print("\n--- CORRELATION-AWARE WEIGHTING (WHITENING) ---")
+    print("\n--- CORRELATION-AWARE WEIGHTING (WHITENING) DETAILS ---")
     criteria = df_scores.columns
     n_samples = len(df_scores)
     
-    print(f"Sample size: {n_samples} candidates")
+    print(f"Number of candidates used: {n_samples}")
+    print(f"Regularization Lambda: {LAMBDA_REG}")
+    
+    print("\nCriteria Means and Standard Deviations:")
+    for c in criteria:
+        print(f" - {c}: Mean={df_scores[c].mean():.2f}, Std={df_scores[c].std():.2f}")
     
     if n_samples < MIN_SAMPLE_SIZE:
-        print(f"WARNING: Sample size < {MIN_SAMPLE_SIZE}. Covariance may be unstable.")
-        print("Fallback: Using equal weights for now. Add more candidates to enable whitening.")
+        print(f"WARNING: Sample size < {MIN_SAMPLE_SIZE}. Falling back to equal weights.")
         return {c: 1.0 / len(criteria) for c in criteria}
     
-    # Standardize scores
+    # 1. Standardize rubric columns
     std_devs = df_scores.std()
-    # Avoid division by zero for constant columns
-    std_devs = std_devs.replace(0, 1)
+    std_devs = std_devs.replace(0, 1) # Avoid div zero
     df_std = (df_scores - df_scores.mean()) / std_devs
     
-    # Estimate Covariance Matrix Sigma
+    # 2. Estimate Covariance Matrix Sigma
     Sigma = df_std.cov().values
     
-    # Regularize: Sigma_lambda = Sigma + lambda * I
+    # 3. Regularize: Sigma_lambda = Sigma + lambda * I
     Sigma_lambda = Sigma + LAMBDA_REG * np.eye(len(criteria))
     
     try:
-        # Inverse square root transform
+        # Compute eigenvalues
         eigvals, eigvecs = np.linalg.eigh(Sigma_lambda)
-        # Ensure positive eigenvalues
+        
+        print("\nCovariance Matrix Eigenvalues:")
+        print(np.array2string(eigvals, precision=2, floatmode='fixed'))
+        
+        # 4. Compute Sigma_lambda^{-1/2}
         eigvals = np.maximum(eigvals, 1e-6)
         inv_sqrt_Sigma = eigvecs @ np.diag(1.0 / np.sqrt(eigvals)) @ eigvecs.T
         
-        # Whitened-uniform weights are row sums of inv_sqrt_Sigma (normalized)
+        # 5. Set weights proportional to Sigma_lambda^{-1/2} * 1 (row sums)
         raw_weights = np.sum(inv_sqrt_Sigma, axis=1)
-        raw_weights = np.maximum(raw_weights, 0) # ensure positive
+        raw_weights = np.maximum(raw_weights, 0)
         
-        # Normalize to sum to 1
+        # Normalize
         weights = raw_weights / np.sum(raw_weights)
         
     except np.linalg.LinAlgError:
         print("ERROR: Linear algebra computation failed. Falling back to equal weights.")
         weights = np.ones(len(criteria)) / len(criteria)
         
+    print("\nConfirmation: Using whitened-uniform weighting logic as requested.")
     return dict(zip(criteria, weights))
 
 def apply_manual_overrides(whitened_weights):
-    """
-    Applies the manual minimum weights to the whitened weights.
-    Redistributes the remaining weight pool proportionally.
-    """
     print("\n--- APPLYING MANUAL OVERRIDES ---")
     final_weights = {}
     remaining_pool = 1.0
     
-    # Apply minimums
     for c, w in MANUAL_MIN_WEIGHTS.items():
         if c in whitened_weights:
             final_weights[c] = w
             remaining_pool -= w
-            print(f"Override: {c} forced to min weight {w:.2f}")
+            print(f"Override: '{c}' forced to exactly {w:.2f} (or minimum)")
             
-    if remaining_pool <= 0:
-        print("WARNING: Manual minimums sum to >= 1.0. Normalizing overrides directly.")
-        total = sum(final_weights.values())
-        return {c: w/total for c, w in final_weights.items()}
-        
-    # Redistribute remainder to non-overridden criteria based on whitened ratio
     non_override_pool = sum(w for c, w in whitened_weights.items() if c not in final_weights)
-    
-    if non_override_pool == 0:
-        non_override_pool = 1.0 # fallback
+    if non_override_pool == 0: non_override_pool = 1.0
         
     for c, w in whitened_weights.items():
         if c not in final_weights:
-            adj_w = (w / non_override_pool) * remaining_pool
-            final_weights[c] = adj_w
+            final_weights[c] = (w / non_override_pool) * remaining_pool
             
     return final_weights
 
 def rank_candidates(csv_path="candidates_scores.csv"):
     if not os.path.exists(csv_path):
-        print(f"Dataset {csv_path} not found. Please create it or run with mocked data.")
+        print(f"Dataset {csv_path} not found.")
         return
         
     df = pd.read_csv(csv_path)
-    if 'Machine' not in df.columns:
-        print("Error: CSV must have a 'Machine' column.")
-        return
-        
-    # Score columns
-    score_cols = [c for c in df.columns if c != 'Machine']
+    score_cols = [c for c in df.columns if c not in ['Machine', 'Type']]
     df_scores = df[score_cols]
     
-    # 1. Misalignment
     check_misalignment(df)
     
-    # 2. Whitened Weights
     w_weights = compute_whitened_weights(df_scores)
-    
-    # 3. Manual Overrides
     final_weights = apply_manual_overrides(w_weights)
     
-    print("\n--- FINAL WEIGHTS ---")
+    print("\n--- FINAL WEIGHT VECTOR (Post-Whitening & Overrides) ---")
     for c, w in sorted(final_weights.items(), key=lambda item: item[1], reverse=True):
-        print(f"{c}: {w:.3f} ({w*100:.1f}%)")
+        print(f"{c:32s}: {w:.4f} ({w*100:.1f}%)")
         
-    # 4. Score Calculation
-    df['Final_Score'] = 0.0
+    df['New_Score'] = 0.0
+    df['Old_Score'] = 0.0
+    
+    old_weight = 1.0 / len(score_cols)
     for c in score_cols:
-        df['Final_Score'] += df[c] * final_weights.get(c, 0)
+        df['New_Score'] += df[c] * final_weights.get(c, 0)
+        df['Old_Score'] += df[c] * old_weight
         
-    # Standardize to 100 point scale
-    df['Final_Score_100'] = df['Final_Score'] * 10
+    df['New_Score'] = df['New_Score'] * 10
+    df['Old_Score'] = df['Old_Score'] * 10
     
-    df_ranked = df.sort_values(by='Final_Score_100', ascending=False).reset_index(drop=True)
+    df_new = df.sort_values(by='New_Score', ascending=False).reset_index()
+    df_old = df.sort_values(by='Old_Score', ascending=False).reset_index()
     
-    print("\n=== FINAL RANKING ===")
-    for idx, row in df_ranked.iterrows():
-        print(f"{idx+1}. {row['Machine']} - Score: {row['Final_Score_100']: .1f}/100")
-
-    print("\nSee 'ranking_feedback_loop.py' to compare this with a naive equal-weight ranking.")
-    return df_ranked
-
+    print("\n=== OLD VS NEW RANKING DIFF ===")
+    print(f"{'Machine':30s} | {'Old Rank':>8s} | {'New Rank':>8s} | {'Delta':>5s} | {'Old Score':>9s} | {'New Score':>9s}")
+    print("-" * 85)
+    
+    for new_rank, row in df_new.iterrows():
+        machine = row['Machine']
+        old_rank = df_old[df_old['Machine'] == machine].index[0]
+        delta = old_rank - new_rank
+        delta_str = f"+{delta}" if delta > 0 else str(delta)
+        
+        # Calculate top contributors for New Score
+        contributions = {c: row[c] * final_weights.get(c, 0) for c in score_cols}
+        sorted_contrib = sorted(contributions.items(), key=lambda item: item[1], reverse=True)
+        top_pos = ", ".join([f"{c}" for c, v in sorted_contrib[:3]])
+        top_neg = ", ".join([f"{c}" for c, v in sorted_contrib[-3:]])
+        
+        print(f"{machine:30s} | {old_rank+1:8d} | {new_rank+1:8d} | {delta_str:>5s} | {row['Old_Score']:9.1f} | {row['New_Score']:9.1f}")
+        print(f"  + Top Pos: {top_pos}")
+        print(f"  - Top Neg: {top_neg}")
+        
+        if row['Type'] == 'NeverBuy' and new_rank < 2:
+            print(f"  [!] STILL FAILING: NeverBuy machine ranked too high!")
+        if row['Type'] == 'NeverBuy' and delta < 0:
+            print(f"  [FIXED]: NeverBuy machine correctly dropped in rank.")
+            
 if __name__ == "__main__":
-    print("Welcome to the Personal RRD Rubric Weighting Engine.")
-    rank_candidates("candidates_scores.csv")
+    rank_candidates()

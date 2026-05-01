@@ -1,3 +1,4 @@
+<!-- TAGS: #AppleSilicon #UnifiedMemory #VRAM-64GB #New #EducationConfig #PrimaryWorkstation #AgenticAI #Shortlist -->
 <!-- PRODUCT CARD START: Mac Studio M4 Max 64GB/1TB Education config -->
 ### [90 / 100] — Mac Studio M4 Max 64GB/1TB Education config
 

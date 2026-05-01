@@ -1,3 +1,4 @@
+<!-- TAGS: #Workstation #NVIDIA #VRAM-24GB #Refurbished #Used #Expandable #PCIe-x16x16 #PrimaryWorkstation #AgenticAI #Shortlist -->
 ---
 id: hp-z4-g4-rtx-3090-refurbished
 category: desktop

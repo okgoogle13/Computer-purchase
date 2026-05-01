@@ -1,3 +1,4 @@
+<!-- TAGS: #DesktopTower #NVIDIA #VRAM-16GB #New #SingleGPU #PrimaryWorkstation #NeedsReview -->
 ---
 id: scorptec-eclipse-rtx-5070-ti
 category: desktop

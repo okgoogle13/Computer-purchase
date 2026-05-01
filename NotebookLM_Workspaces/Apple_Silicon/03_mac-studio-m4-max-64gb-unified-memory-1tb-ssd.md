@@ -1,3 +1,4 @@
+<!-- TAGS: #AppleSilicon #UnifiedMemory #VRAM-64GB #New #PrimaryWorkstation #AgenticAI #NeedsReview -->
 <!-- PRODUCT CARD START: Mac Studio M4 Max 64GB unified memory, 1TB SSD -->
 ### [75 / 100] — Mac Studio M4 Max 64GB unified memory, 1TB SSD
 

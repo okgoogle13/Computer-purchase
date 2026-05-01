@@ -1,3 +1,4 @@
+<!-- TAGS: #Component #NVIDIA #VRAM-24GB #Used #CustomBuild #NeedsReview -->
 <!-- PRODUCT CARD START: Mike PC MSI RTX 3090 AERO 24GB GPU build route -->
 ### [92 / 100] — Mike PC MSI RTX 3090 AERO 24GB GPU build route
 

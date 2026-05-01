@@ -1,3 +1,4 @@
+<!-- TAGS: #AppleSilicon #UnifiedMemory #VRAM-64GB #New #PrimaryWorkstation #AgenticAI #ImageGeneration #Shortlist -->
 <!-- PRODUCT CARD START: Apple Mac Studio M4 Max 64GB -->
 ### [90 / 100] — Apple Mac Studio M4 Max 64GB
 

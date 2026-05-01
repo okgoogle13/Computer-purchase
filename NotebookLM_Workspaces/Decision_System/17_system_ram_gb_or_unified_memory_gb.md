@@ -1,3 +1,4 @@
+<!-- TAGS: #DecisionAxis #RAM #UnifiedMemory #VRAM-Reference -->
 <!-- PRODUCT CARD START: System_RAM_GB_or_Unified_Memory_GB -->
 ### [90 / 100] — System_RAM_GB_or_Unified_Memory_GB
 
