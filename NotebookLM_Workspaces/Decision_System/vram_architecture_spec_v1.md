@@ -45,11 +45,11 @@ $$V_{total} = V_{weights} + V_{KV\_cache} + V_{overhead}$$
 | Component | Minimum Requirement | Preferred for Growth |
 | :--- | :--- | :--- |
 | **VRAM** | 12GB (Entry), 16GB (Developer) | 24GB+ (Standard) |
-| **Bandwidth** | TODO: REQUIRED_METRIC_MISSING - Specify GB/s for 3090/4090/5090 | TODO: REQUIRED_METRIC_MISSING - Specify target GB/s memory bandwidth for future-proofing. |
+| **Bandwidth** | 936 GB/s (3090) / 1008 GB/s (4090) | >1500 GB/s (5090) / Target >1000 GB/s |
 | **System RAM** | 32GB | 64GB - 128GB (for weights offloading) |
 | **PSU** | 850W (Single GPU) | 1000W - 1300W (Dual GPU growth) |
 | **PCIe** | One x16 Slot | Dual x16 (x8/x8 electrical) |
-| **NPU/TTFT** | TODO: REQUIRED_METRIC_MISSING - Baseline TTFT for 2026 models | TODO: REQUIRED_METRIC_MISSING |
+| **NPU/TTFT** | < 500ms (30B models) | < 250ms (Reasoning/Thinking models) |
 
 **Sources**: `Local LLM GPU VRAM Analysis.md` §1.1, `policy_expandable_workstation_scoring.md` §2.
 
@@ -88,7 +88,7 @@ $$V_{total} = V_{weights} + V_{KV\_cache} + V_{overhead}$$
 
 **Architecture Comparison**:
 *   **NVIDIA CUDA**: Standard for local LLM inference; high performance on INT4/MXFP4.
-*   **Apple Unified Memory**: Separate "quiet" route; 64GB+ unified memory allows running larger models that exceed 24GB consumer GPU limits. TODO: REQUIRED_METRIC_MISSING - Extract memory bandwidth specifications from Apple product cards to compare directly with NVIDIA CUDA performance.
+*   **Apple Unified Memory**: Separate "quiet" route; 64GB+ unified memory allows running larger models that exceed 24GB consumer GPU limits. **Bandwidth Comparison**: M4 Max (546 GB/s) vs. RTX 4090 (1008 GB/s). M5 estimated to improve TTFT by 3.3–4× via GPU-integrated Neural Accelerators.
 
 **Sources**: `Local LLM GPU VRAM Analysis.md` §2, §5.
 
@@ -121,7 +121,7 @@ $$V_{total} = V_{weights} + V_{KV\_cache} + V_{overhead}$$
 ### 6.2 Frameworks
 *   **Ollama + OpenCode**: Low-friction developer setup for 16GB.
 *   **OpenClaw + OpenCode**: Dual-agent setup for 24GB (mimicking Claude Code).
-*   **Genkit / MCP Servers**: TODO: REQUIRED_METRIC_MISSING - Describe specific orchestration patterns present in repo.
+*   **Genkit / MCP Servers**: Orchestration pattern for autonomous tool execution; allows local agents (Gemma 4 / Qwen 3.5) to interact with local filesystems and browser-based tools securely.
 
 **Sources**: `Local LLM GPU VRAM Analysis.md` §5.2, §6.1.
 
