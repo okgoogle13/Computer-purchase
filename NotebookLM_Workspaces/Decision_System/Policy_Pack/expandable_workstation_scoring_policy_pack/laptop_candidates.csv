@@ -1,0 +1,10 @@
+Machine,Type,VRAM_Adequacy,GPU_Compute_Tier,Sustained_TGP_Rating,Thermal_Reputation,RAM_Ceiling,Storage_Expandability,AU_Retailer_Confidence,Price_AUD_Competitiveness,Display_Usability,Portability_Penalty
+ASUS_ROG_Scar17_RTX4090_16GB,Preferred,5,8,9,9,10,7,8,9,8,6
+ASUS_ROG_Scar18_RTX4090_16GB,Preferred,5,8,9,9,10,10,7,4,10,3
+Lenovo_Legion_Pro7i_RTX4090_16GB,Preferred,5,8,9,7,10,8,9,8,5,7
+MSI_Stealth16_RTX4090_16GB,Borderline,5,6,5,5,3,7,6,4,5,8
+Dell_Alienware_m18_RTX4090_16GB,OutOfScope,5,8,8,6,10,8,5,3,10,2
+ASUS_ROG_Scar18_2025_RTX5090_24GB,Target-UNVERIFIED,0,0,0,0,0,0,0,0,0,0
+Lenovo_Legion_Pro9i_RTX5090_24GB,Target-UNVERIFIED,0,0,0,0,0,0,0,0,0,0
+MSI_Raider_A18_HX_RTX5090_24GB,Target-UNVERIFIED,0,0,0,0,0,0,0,0,0,0
+MSI_Titan_GT77_RTX5090_24GB,Target-UNVERIFIED,0,0,0,0,0,0,0,0,0,0

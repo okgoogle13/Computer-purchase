@@ -104,12 +104,13 @@ Any current 13"+ high-end RTX gaming/workstation model meeting VRAM and price co
 - Standard Ryzen with discrete dGPU does NOT qualify for this path.
 
 #### Brands and Families in Scope
-All brands — any laptop using a qualifying Strix Halo SoC is in scope. Candidates include:
+All brands — any laptop using a qualifying Strix Halo SoC is in scope. Confirmed candidates:
 - ASUS TUF A16 (Strix Halo)
 - ASUS ROG Zephyrus / Flow variants (Strix Halo)
-- Lenovo Legion / ThinkPad AMD variants (Strix Halo)
-- HP OMEN / Spectre AMD variants (Strix Halo)
+- HP OMEN / Spectre AMD variants (Strix Halo) — AU availability UNKNOWN
 - Any other 2024–2026 laptop with confirmed Strix Halo silicon
+
+> **Excluded (no product):** Lenovo — no Strix Halo laptop exists in the Lenovo lineup.
 
 #### Exclusions (Path 1B)
 - Any AMD device with < 32 GB unified memory.
