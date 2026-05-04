@@ -6,6 +6,11 @@ name: Acer Predator Orion 7000 — RTX 4080 Super (Refurbished)
 gpu: NVIDIA GeForce RTX 4080 (16 GB)
 vram: 16 GB
 score: 82
+track: track_1.5
+category: refurbished_gaming_desktop
+price_performance_vs_track1: CALCULATE (desktop_price / laptop_comparable_price)
+vram_advantage_vs_track1: CALCULATE (desktop_vram - laptop_vram_gpu_available)
+portability_penalty: true
 ---
 
 # Acer Predator Orion 7000 — RTX 4080 Super (Refurbished)

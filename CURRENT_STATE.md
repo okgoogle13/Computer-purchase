@@ -25,6 +25,11 @@ Three pathways — do NOT delay Track 1 purchase for Track 2:
 - **Pathway B:** Refurbished enterprise workstation (Dell Precision, HP Z-series, ThinkStation). ≥ 2018, ≥ 16 GB VRAM/GPU.
 - **Pathway C:** Unified memory mini PC (Strix Halo, ≥ 64 GB unified). Minisforum AI X1 Pro and equivalents.
 
+### Track 1.5 (Refurbished Gaming Desktop — Single GPU): ACTIVE
+- Alienware Aurora R12 (RTX 3090) — price/performance leader
+- Acer Predator Orion — under review (awaiting price/spec confirmation)
+- Gate: Must beat Track 1 laptops on $/VRAM by ≥15% to justify loss of portability
+
 ## 4. Immediate Next Tasks (Current Sprint)
 1. **Track 1 AMD audit:** Identify and create blank product card shells for AMD Strix Halo laptop candidates in `Laptops/`.
 2. **Track 2 Pathway C audit:** Create blank card shells for Strix Halo mini PC candidates in `Mini_PC_and_eGPU/`.
@@ -33,6 +38,6 @@ Three pathways — do NOT delay Track 1 purchase for Track 2:
 5. **Unified data-ready checklist:** Produce a markdown table of all UNKNOWN fields across Track 1 and Track 2 requiring manual lookup.
 
 ## 5. Deferred / Out of Scope
-* **Apple Silicon / Unified Memory (Apple):** Still deferred. AMD Strix Halo is the active unified-memory path.
+* **AMD Strix Halo unified-memory devices active across Track 1 (laptops) and Track 2 Pathway C (mini PCs). Track 2 all pathways now active in parallel with Track 1. Apple Silicon remains archived.**
 * **AMD ROCm deep-dive:** General AMD viability noted; deep troubleshooting deferred until a specific AMD card reaches finals.
 * **DIY self-build (parts sourcing):** Out of scope for Track 2. Track 2 Pathway A = AU system integrator only.

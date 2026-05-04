@@ -4,7 +4,7 @@
 
 - **Category**: Workstation / Secondary Laptop
 - **Condition**: UNKNOWN
-- **Price (AUD)**: $3,558
+- **Price (AUD)**: $3,558 (⚠️ FLAG FOR REVIEW: Includes ThinkPad T14s. Find unbundled tower-only price or mark "bundle only")
 - **Vendor**: UNKNOWN
 - **URL**: UNKNOWN
 
