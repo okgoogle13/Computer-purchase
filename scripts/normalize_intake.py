@@ -67,6 +67,8 @@ ENUM_CONDITION = {
     "used": "Used",
     "refurbished": "Refurbished",
     "open box": "Open Box",
+    "pre-owned": "Refurbished",
+    "ex-demo": "Open Box",
 }
 
 ENUM_AU_STOCK = {

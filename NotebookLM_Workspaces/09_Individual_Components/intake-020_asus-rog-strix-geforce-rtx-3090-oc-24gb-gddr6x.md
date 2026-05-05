@@ -1,4 +1,4 @@
-<!-- TAGS: #Component #NVIDIA #VRAM-24GB #ConditionUnknown #TrackUnknown #Unverified #AUStock-Unknown -->
+<!-- TAGS: #Component #NVIDIA #VRAM-24GB #Refurbished #TrackUnknown #Unverified #AUStock-Unknown -->
 <!-- INTAKE: batch=2026-05-05_notebooklm_batch1_processed date=2026-05-05 route=Standalone component -->
 ---
 id: asus-rog-strix-geforce-rtx-3090-oc-24gb-gddr6x
@@ -10,7 +10,7 @@ gpu: RTX 3090
 vram: 24 GB
 unified_memory: UNKNOWN
 price_aud: $1591.98 AUD
-condition: UNKNOWN
+condition: Refurbished
 au_stock: UNKNOWN
 verification: Unverified
 status: Active
@@ -33,7 +33,7 @@ score: UNKNOWN — pending manual review
 - **Price (AUD):** $1591.98 AUD
 - **Retailer:** grayfox319
 - **URL:** UNKNOWN
-- **Condition:** UNKNOWN
+- **Condition:** Refurbished
 - **Source batch:** 2026-05-05_notebooklm_batch1_processed (ingested 2026-05-05)
 
 ## Key Specs

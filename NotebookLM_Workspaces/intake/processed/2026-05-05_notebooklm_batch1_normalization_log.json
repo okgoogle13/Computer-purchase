@@ -1,32 +1,14 @@
 {
-  "run_timestamp": "2026-05-06T01:38:35.035446",
+  "run_timestamp": "2026-05-06T02:52:03.591709",
   "input_file": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/intake/raw/2026-05-05_notebooklm_batch1.csv",
   "counts": {
     "parsed_good": 73,
     "manual_review": 0,
     "after_dedup": 72,
     "duplicates_removed": 1,
-    "warnings_total": 7
+    "warnings_total": 3
   },
   "warnings": [
-    {
-      "type": "enum_invalid",
-      "field": "condition",
-      "row": "ASUS ROG Strix GeForce RTX 3090 OC 24GB GDDR6X",
-      "original": "Pre-owned"
-    },
-    {
-      "type": "enum_invalid",
-      "field": "condition",
-      "row": "Gaming PC Jonsbo MOD 5 ASRock x570 Aqua",
-      "original": "Pre-owned"
-    },
-    {
-      "type": "enum_invalid",
-      "field": "condition",
-      "row": "Specialized EVGA 3090 Custom Build",
-      "original": "Pre-owned"
-    },
     {
       "type": "mini_pc_discrete_gpu_flag",
       "row": "Minisforum AI X1 Pro + DEG2 + RTX 5070 Ti",
@@ -36,12 +18,6 @@
       "type": "mini_pc_discrete_gpu_flag",
       "row": "Minisforum X1 Lite + DEG1 + RTX 5070 Ti",
       "msg": "Mini PC with apparent discrete GPU — confirm if unified-memory device"
-    },
-    {
-      "type": "enum_invalid",
-      "field": "condition",
-      "row": "PLE Sidekick RTX 4070 Super EX-DEMO",
-      "original": "Ex-Demo"
     },
     {
       "type": "duplicate_removed",

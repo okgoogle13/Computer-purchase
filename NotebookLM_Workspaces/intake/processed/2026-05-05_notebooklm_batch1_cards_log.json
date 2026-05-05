@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-05-06T01:38:35.291742",
+  "run_timestamp": "2026-05-06T02:52:53.815886",
   "input_file": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/intake/processed/2026-05-05_notebooklm_batch1_processed.csv",
   "counts": {
     "total_rows": 72,
@@ -166,8 +166,8 @@
       "index": 23,
       "item": "Gaming PC Jonsbo MOD 5 ASRock x570 Aqua",
       "action": "overwrite",
-      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-023_gaming-pc-jonsbo-mod-5-asrock-x570-aqua.md",
-      "route": "Desktop (uncategorised)"
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-023_gaming-pc-jonsbo-mod-5-asrock-x570-aqua.md",
+      "route": "Refurb desktop"
     },
     {
       "index": 24,
@@ -250,8 +250,8 @@
       "index": 35,
       "item": "Specialized EVGA 3090 Custom Build",
       "action": "overwrite",
-      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-035_specialized-evga-3090-custom-build.md",
-      "route": "Desktop (uncategorised)"
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-035_specialized-evga-3090-custom-build.md",
+      "route": "Refurb desktop"
     },
     {
       "index": 36,
@@ -355,8 +355,8 @@
       "index": 50,
       "item": "PLE Sidekick RTX 4070 Super EX-DEMO",
       "action": "overwrite",
-      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-050_ple-sidekick-rtx-4070-super-ex-demo.md",
-      "route": "Desktop (uncategorised)"
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-050_ple-sidekick-rtx-4070-super-ex-demo.md",
+      "route": "Refurb desktop"
     },
     {
       "index": 51,
