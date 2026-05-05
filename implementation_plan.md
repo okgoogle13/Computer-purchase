@@ -27,7 +27,7 @@ Create a pristine working environment by moving legacy data and establishing the
    - `NotebookLM_Workspaces/01_Master_Hardware_Strategy_Ledger/`
    - `NotebookLM_Workspaces/02_Expandable_Workstations/`
    - `NotebookLM_Workspaces/03_Single_GPU_Desktop_Value/`
-   - `NotebookLM_Workspaces/04_Portable_Value_Laptops/`
+   - `NotebookLM_Workspaces/04_Portable_Value_04_Laptops_Mainline/`
    - `NotebookLM_Workspaces/05_Apple_Unified_Memory/`
    - `NotebookLM_Workspaces/06_Mini_PC_eGPU/`
    - `NotebookLM_Workspaces/07_Secondary_Laptop_Ergonomics/`

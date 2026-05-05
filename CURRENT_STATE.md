@@ -31,10 +31,10 @@ Three pathways — do NOT delay Track 1 purchase for Track 2:
 - Gate: Must beat Track 1 laptops on $/VRAM by ≥15% to justify loss of portability
 
 ## 4. Immediate Next Tasks (Current Sprint)
-1. **Track 1 AMD audit:** Identify and create blank product card shells for AMD Strix Halo laptop candidates in `Laptops/`.
-2. **Track 2 Pathway C audit:** Create blank card shells for Strix Halo mini PC candidates in `Mini_PC_and_eGPU/`.
-3. **Track 2 Pathway A:** Populate `Decision_System/track2_pathway_a_build_spec.md` with a confirmed base build spec.
-4. **Track 2 Pathway B audit:** Review `Desktop_Towers_Refurbished/` cards against new gate conditions (age, PCIe slots, PSU, GPU VRAM).
+1. **Track 1 AMD audit:** Identify and create blank product card shells for AMD Strix Halo laptop candidates in `04_Laptops_Mainline/`.
+2. **Track 2 Pathway C audit:** Create blank card shells for Strix Halo mini PC candidates in `06_Mini_PCs_and_eGPU/`.
+3. **Track 2 Pathway A:** Populate `01_Research_Methods_and_Decision_System/track2_pathway_a_build_spec.md` with a confirmed base build spec.
+4. **Track 2 Pathway B audit:** Review `02_Refurbished_Desktop_Towers/` cards against new gate conditions (age, PCIe slots, PSU, GPU VRAM).
 5. **Unified data-ready checklist:** Produce a markdown table of all UNKNOWN fields across Track 1 and Track 2 requiring manual lookup.
 
 ## 5. Deferred / Out of Scope

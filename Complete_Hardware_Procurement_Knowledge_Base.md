@@ -35,7 +35,7 @@ The content is organized as follows:
 
 # Directory Structure
 ```
-Apple_Silicon/
+05_Apple_Silicon_Systems/
   01_apple-mac-studio-m4-max-64gb.md
   02_mac-studio-m4-max-64gb1tb-education-config.md
   03_mac-studio-m4-max-64gb-unified-memory-1tb-ssd.md
@@ -44,13 +44,13 @@ Apple_Silicon/
   06_apple-macbook-pro-16-m3-max-48gb-open-box.md
   07_refurbished-macbook-pro-16-inch-m4-max-48gb1tb.md
   08_apple-mac-studio-m4-max-36gb.md
-Components/
+09_Individual_Components/
   11_mike-pc-msi-rtx-3090-aero-24gb-gpu-build-route.md
   14_msi-rtx-3090-aero-24gb-standalone-gpu.md
-Custom_Builds/
+08_Custom_Builds/
   10_custom-rtx-3090-24gb-desktop-refurbished-thinkpad-bundle.md
   13_refurb-3090-tower-thin-client.md
-Decision_System/
+01_Research_Methods_and_Decision_System/
   Policy_Pack/
     expandable_workstation_scoring_policy_pack/
       HOW_TO_MAINTAIN_RUBRIC.md
@@ -67,22 +67,22 @@ Decision_System/
   vram_orchestrator_notes.md
   vram_spec_patch_suggestions.md
   vram_spec_validation_report.md
-Desktop_Towers_New/
+03_New_Desktop_Systems/
   12_supertech-rtx-4090-gaming-pc.md
   25_ple-ai-advanced-rtx-5070-ti.md
   27_scorptec-eclipse-rtx-5070-ti.md
-Desktop_Towers_Refurbished/
+02_Refurbished_Desktop_Towers/
   09_alienware-aurora-r12-rtx-3090-refurbished.md
   18_recompute-dell-precision-5820-tower-act-thinkpad-t14s-pairing.md
   26_acer-predator-orion-7000-rtx-4080-super.md
   28_hp-z4-g4-rtx-3090-refurbished.md
   29_dell-precision-tower-7910-rtx-3090.md
-Laptops/
+04_Laptops_Mainline/
   21_lenovo-legion-pro-7i-rtx-4090.md
   22_asus-rog-strix-scar-17-rtx-4090.md
   23_asus-rog-strix-scar-18-rtx-4090.md
   24_msi-stealth-16-ai-studio-rtx-4090.md
-Mini_PC_and_eGPU/
+06_Mini_PCs_and_eGPU/
   16_minisforum-ms-01-deg1-oculink-rtx-3090-24gb.md
 Research_and_Sources/
   15_normal-laptop-remote-gpu-rental.md
@@ -92,7 +92,7 @@ workspace_redesign_proposal.md
 
 # Files
 
-## File: Apple_Silicon/01_apple-mac-studio-m4-max-64gb.md
+## File: 05_Apple_Silicon_Systems/01_apple-mac-studio-m4-max-64gb.md
 ````markdown
 <!-- TAGS: #AppleSilicon #UnifiedMemory #VRAM-64GB #New #PrimaryWorkstation #AgenticAI #ImageGeneration #Shortlist -->
 <!-- PRODUCT CARD START: Apple Mac Studio M4 Max 64GB -->

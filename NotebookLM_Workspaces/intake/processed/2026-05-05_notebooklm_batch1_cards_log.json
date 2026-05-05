@@ -1,0 +1,516 @@
+{
+  "run_timestamp": "2026-05-06T01:27:05.888652",
+  "input_file": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/intake/processed/2026-05-05_notebooklm_batch1_processed.csv",
+  "counts": {
+    "total_rows": 72,
+    "written": 72,
+    "skipped": 0,
+    "errored": 0
+  },
+  "entries": [
+    {
+      "index": 1,
+      "item": "Dual RTX 3090 24GB GPU Pro Workstation (Pure 501 Black)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-001_dual-rtx-3090-24gb-gpu-pro-workstation-pure-501-black.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 2,
+      "item": "Supertech Computers RTX 4090 Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-002_supertech-computers-rtx-4090-gaming-pc.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 3,
+      "item": "Dell Precision 5820 Tower Bundle",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-003_dell-precision-5820-tower-bundle.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 4,
+      "item": "HP Z4 G4 Workstation (Refurbished Base)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-004_hp-z4-g4-workstation-refurbished-base.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 5,
+      "item": "Dell Precision T7910 (Refurbished Base)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-005_dell-precision-t7910-refurbished-base.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 6,
+      "item": "Alienware Aurora R12 (Refurbished)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-006_alienware-aurora-r12-refurbished.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 7,
+      "item": "PLE AI Advanced RTX 5070 Ti Desktop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-007_ple-ai-advanced-rtx-5070-ti-desktop.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 8,
+      "item": "Evatech Y40K RTX 4080 Super Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-008_evatech-y40k-rtx-4080-super-gaming-pc.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 9,
+      "item": "Lenovo Legion Pro 7i",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-009_lenovo-legion-pro-7i.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 10,
+      "item": "MSI Raider 18 HX AI A2XWJG",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-010_msi-raider-18-hx-ai-a2xwjg.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 11,
+      "item": "Dell Alienware m18 R2 / Area-51",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-011_dell-alienware-m18-r2-area-51.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 12,
+      "item": "Razer Blade 18",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-012_razer-blade-18.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 13,
+      "item": "MSI Crosshair 18 HX AI",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-013_msi-crosshair-18-hx-ai.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 14,
+      "item": "Lenovo ThinkPad T14 / T14s (Refurbished)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-014_lenovo-thinkpad-t14-t14s-refurbished.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 15,
+      "item": "Dell Latitude 7330 2-in-1 (Refurbished)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-015_dell-latitude-7330-2-in-1-refurbished.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 16,
+      "item": "OKINOS Studio Pro - RTX 5070 Ti/3090",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-016_okinos-studio-pro-rtx-5070-ti3090.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 17,
+      "item": "Budget build",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/08_Custom_Builds/intake-017_budget-build.md",
+      "route": "DIY / Custom build"
+    },
+    {
+      "index": 18,
+      "item": "Mid-range build",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/08_Custom_Builds/intake-018_mid-range-build.md",
+      "route": "DIY / Custom build"
+    },
+    {
+      "index": 19,
+      "item": "Pro build",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/08_Custom_Builds/intake-019_pro-build.md",
+      "route": "DIY / Custom build"
+    },
+    {
+      "index": 20,
+      "item": "ASUS ROG Strix GeForce RTX 3090 OC 24GB GDDR6X",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-020_asus-rog-strix-geforce-rtx-3090-oc-24gb-gddr6x.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 21,
+      "item": "NVIDIA GeForce RTX 3090 24GB 2SLOT Turbo Blower",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-021_nvidia-geforce-rtx-3090-24gb-2slot-turbo-blower.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 22,
+      "item": "Gaming PC Intel i9-12th Gen NVIDIA RTX 3090",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-022_gaming-pc-intel-i9-12th-gen-nvidia-rtx-3090.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 23,
+      "item": "Gaming PC Jonsbo MOD 5 ASRock x570 Aqua",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-023_gaming-pc-jonsbo-mod-5-asrock-x570-aqua.md",
+      "route": "Desktop (uncategorised)"
+    },
+    {
+      "index": 24,
+      "item": "Skytech Prism 4 Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-024_skytech-prism-4-gaming-pc.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 25,
+      "item": "HP OMEN 45L GT22-3090 Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-025_hp-omen-45l-gt22-3090-gaming-pc.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 26,
+      "item": "CLX Horus Gaming Desktop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-026_clx-horus-gaming-desktop.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 27,
+      "item": "Gigabyte Radeon RX 9070 XT Gaming OC Ice 16G",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-027_gigabyte-radeon-rx-9070-xt-gaming-oc-ice-16g.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 28,
+      "item": "Dual RTX 4090 24GB GPU Pro Workstation",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-028_dual-rtx-4090-24gb-gpu-pro-workstation.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 29,
+      "item": "Dual RTX 5090 32GB GPU Pro Workstation",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-029_dual-rtx-5090-32gb-gpu-pro-workstation.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 30,
+      "item": "GIGABYTE AORUS GeForce RTX 5090 Master Ice 32G",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-030_gigabyte-aorus-geforce-rtx-5090-master-ice-32g.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 31,
+      "item": "ZOTAC Gaming GeForce RTX 5090 Solid OC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-031_zotac-gaming-geforce-rtx-5090-solid-oc.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 32,
+      "item": "TOPAZ SNOW PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-032_topaz-snow-pc.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 33,
+      "item": "VISION ONYX PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-033_vision-onyx-pc.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 34,
+      "item": "Lenovo ThinkStation P330 Tiny Desktop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-034_lenovo-thinkstation-p330-tiny-desktop.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 35,
+      "item": "Specialized EVGA 3090 Custom Build",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-035_specialized-evga-3090-custom-build.md",
+      "route": "Desktop (uncategorised)"
+    },
+    {
+      "index": 36,
+      "item": "Alienware 16 Area-51 new config",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-036_alienware-16-area-51-new-config.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 37,
+      "item": "Thermaltake Horizon Xtreme tower + X1 Carbon",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-037_thermaltake-horizon-xtreme-tower-x1-carbon.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 38,
+      "item": "Minisforum AI X1 Pro + DEG2 + RTX 5070 Ti",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/06_Mini_PCs_and_eGPU/intake-038_minisforum-ai-x1-pro-deg2-rtx-5070-ti.md",
+      "route": "Mini PC / eGPU"
+    },
+    {
+      "index": 39,
+      "item": "Minisforum X1 Lite + DEG1 + RTX 5070 Ti",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/06_Mini_PCs_and_eGPU/intake-039_minisforum-x1-lite-deg1-rtx-5070-ti.md",
+      "route": "Mini PC / eGPU"
+    },
+    {
+      "index": 40,
+      "item": "Recompute Dell Precision 5820 Tower + ACT ThinkPad",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-040_recompute-dell-precision-5820-tower-act-thinkpad.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 41,
+      "item": "ACT Dell 3650 + A4000",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-041_act-dell-3650-a4000.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 42,
+      "item": "HP Z4 G4 + used 3090",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-042_hp-z4-g4-used-3090.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 43,
+      "item": "PLE Pixel 5070 Ti",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-043_ple-pixel-5070-ti.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 44,
+      "item": "Scorptec Eclipse RTX 5070 Ti Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-044_scorptec-eclipse-rtx-5070-ti-gaming-pc.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 45,
+      "item": "MSI Stealth A16 5080",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-045_msi-stealth-a16-5080.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 46,
+      "item": "Acer Predator Orion 7000 RTX 4080 refurbished",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-046_acer-predator-orion-7000-rtx-4080-refurbished.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 47,
+      "item": "Alienware Aurora R12 RTX 3090 refurbished",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-047_alienware-aurora-r12-rtx-3090-refurbished.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 48,
+      "item": "Metrocom Custom 5700X RTX 4070 Super",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-048_metrocom-custom-5700x-rtx-4070-super.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 49,
+      "item": "Nebula PC Titan Ryzen 7 7800X3D RTX 5070",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-049_nebula-pc-titan-ryzen-7-7800x3d-rtx-5070.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 50,
+      "item": "PLE Sidekick RTX 4070 Super EX-DEMO",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-050_ple-sidekick-rtx-4070-super-ex-demo.md",
+      "route": "Desktop (uncategorised)"
+    },
+    {
+      "index": 51,
+      "item": "Acer Predator Helios 18 RTX 4090 refurbished",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-051_acer-predator-helios-18-rtx-4090-refurbished.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 52,
+      "item": "Acer Predator Helios Neo 16S AI RTX 5060",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-052_acer-predator-helios-neo-16s-ai-rtx-5060.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 53,
+      "item": "ERAZER Major X20 RTX 4070",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-053_erazer-major-x20-rtx-4070.md",
+      "route": "Laptop"
+    },
+    {
+      "index": 54,
+      "item": "CONSTELLAR ONYX PC \u2014 RTX 4080 SUPER",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-054_constellar-onyx-pc-rtx-4080-super.md",
+      "route": "Desktop (uncategorised)"
+    },
+    {
+      "index": 55,
+      "item": "Scorptec 32-Core Compute Platform",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-055_scorptec-32-core-compute-platform.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 56,
+      "item": "Scorptec Blackwell PRO Workstation",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-056_scorptec-blackwell-pro-workstation.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 57,
+      "item": "ASRock Radeon RX 7900 XTX Phantom Gaming 24GB OC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-057_asrock-radeon-rx-7900-xtx-phantom-gaming-24gb-oc.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 58,
+      "item": "NVIDIA RTX PRO 6000",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-058_nvidia-rtx-pro-6000.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 59,
+      "item": "HP Z8 FURY G5 Workstation",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-059_hp-z8-fury-g5-workstation.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 60,
+      "item": "NVIDIA RTX 6000 96GB GDDR7 Professional Video Card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-060_nvidia-rtx-6000-96gb-gddr7-professional-video-card.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 61,
+      "item": "AMD Radeon Pro W7900 48GB ECC GDDR6",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-061_amd-radeon-pro-w7900-48gb-ecc-gddr6.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 62,
+      "item": "Allied M.O.A.B-A: RTX 5090 32GB Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-062_allied-moab-a-rtx-5090-32gb-gaming-pc.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 63,
+      "item": "Scorptec Vengeance RTX 5090 Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-063_scorptec-vengeance-rtx-5090-gaming-pc.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 64,
+      "item": "AETHER : LVL 10 ICE MAX RTX 5090 Desktop PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/03_New_Desktop_Systems/intake-064_aether-lvl-10-ice-max-rtx-5090-desktop-pc.md",
+      "route": "New desktop"
+    },
+    {
+      "index": 65,
+      "item": "Dell OptiPlex 5060 SFF",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-065_dell-optiplex-5060-sff.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 66,
+      "item": "Dell Precision 5820 Tower Workstation (32GB RAM)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/02_Refurbished_Desktop_Towers/intake-066_dell-precision-5820-tower-workstation-32gb-ram.md",
+      "route": "Refurb desktop"
+    },
+    {
+      "index": 67,
+      "item": "EVGA FTW3 Ultra RTX 3090",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-067_evga-ftw3-ultra-rtx-3090.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 68,
+      "item": "Intel Arc Pro B70",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-068_intel-arc-pro-b70.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 69,
+      "item": "NVIDIA RTX 5000 Ada 32GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-069_nvidia-rtx-5000-ada-32gb.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 70,
+      "item": "NVIDIA RTX 2000 Ada 16GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/09_Individual_Components/intake-070_nvidia-rtx-2000-ada-16gb.md",
+      "route": "Standalone component"
+    },
+    {
+      "index": 71,
+      "item": "GPD WIN 5",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/06_Mini_PCs_and_eGPU/intake-071_gpd-win-5.md",
+      "route": "Mini PC / eGPU"
+    },
+    {
+      "index": 72,
+      "item": "HP ZBook Ultra 14 G1a",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/NotebookLM_Workspaces/04_Laptops_Mainline/intake-072_hp-zbook-ultra-14-g1a.md",
+      "route": "Laptop"
+    }
+  ]
+}

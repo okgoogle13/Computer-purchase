@@ -2,7 +2,7 @@
 
 **Role:** Hardware-research and organisation helper inside the Antigravity IDE.
 Keep decisions simple. Do NOT design the perfect system.
-Operate on repo files only. No web or browser searches.
+Browser access and web searches are permitted for verification and data gathering.
 
 ---
 
@@ -15,9 +15,9 @@ Operate on repo files only. No web or browser searches.
 
 ## GLOBAL CONSTRAINTS
 
-- **No web or browser access.** Do NOT open retailer sites or search engines. Do NOT call any browsing / web-search tools.
-- **Work ONLY with:** existing markdown product cards, CSVs, policy/spec docs, scripts and templates in this repo.
-- **Unknown values:** Never guess or invent real-world specs or prices. Leave fields as `UNKNOWN` and flag them in audit/checklist output.
+- **Browser access permitted.** Use the **Vercel Agent Browser (`agent-browser`)** CLI as the default for web research to ensure token utilization efficiency (via compact DOM snapshots). Use headless browser instances for all scraping and verification tasks to minimize overhead.
+- **Work with:** existing markdown product cards, CSVs, policy/spec docs, scripts, templates in this repo, and external web sources.
+- **Unknown values:** Use `agent-browser` to search for real-world specs or prices when they are unknown. Update fields dynamically.
 - **Responsibilities:**
   - Audit and sync product cards vs CSVs.
   - Create and normalise product card shells.
@@ -25,7 +25,7 @@ Operate on repo files only. No web or browser searches.
   - Rebuild the mega-bundle.
   - Apply documented patches to spec/policy docs.
   - Draft decision logs and checklists.
-  - Never fetch new data from the internet.
+  - Fetch new data from the internet to complete missing details.
 
 ---
 
@@ -48,10 +48,10 @@ Both paths are active simultaneously.
 - **Intermediate sizes (14–16"):** In scope; evaluated on VRAM, build quality, and resale value.
 
 #### VRAM
-- **Minimum:** 16 GB VRAM.
-- **Preferred:** 24 GB VRAM.
-- A 16 GB card at 17–18" = standard eligible candidate.
-- A 16 GB card at < 15" = requires offsetting strengths (build quality, price, resale) to remain competitive.
+- **Minimum:** 8 GB VRAM.
+- **Preferred:** 12 GB or higher (16 GB - 24 GB optimal for larger LLMs).
+- A 12 GB+ card at 17–18" = standard eligible candidate.
+- An 8 GB card = requires significant offsetting strengths (build quality, price, resale) to remain competitive for LLM workloads.
 
 #### Brands and Families in Scope
 
@@ -63,7 +63,7 @@ Both paths are active simultaneously.
 **ASUS**
 - ROG Strix Scar 17
 - ROG Strix Scar 18
-- Any ROG model at 13"+ meeting the 16 GB VRAM floor
+- Any ROG model at 13"+ meeting the 8 GB VRAM floor
 
 **MSI**
 Any current 13"+ high-end RTX gaming/workstation model meeting VRAM and price constraints, including:
@@ -71,7 +71,7 @@ Any current 13"+ high-end RTX gaming/workstation model meeting VRAM and price co
 - MSI Titan 17/18
 - MSI Stealth 16/17/18
 - MSI Vector 16/17/18
-- Other MSI 13"+ models with ≥ 16 GB VRAM
+- Other MSI 13"+ models with ≥ 8 GB VRAM
 
 
 #### AMD Discrete GPU Laptops
@@ -79,11 +79,11 @@ AMD discrete GPU laptops evaluate under same rules as NVIDIA:
 - HP OMEN Max (Ryzen AI 9 HX 375 + RTX 5070/5090)
 - Tag as: architecture:discrete_gpu_amd, track_eligibility:track_1_nvidia_path
 - Move cards from Strix_Halo_AMD/ to Gaming_Laptops_AMD_Discrete/
-- Apply ≥16 GB VRAM floor, 16"+ screen size
+- Apply ≥8 GB VRAM floor, 16"+ screen size
 
 #### Exclusions (Path 1A)
 - Any laptop with less than 13" screen size.
-- Any laptop with less than 16 GB discrete VRAM.
+- Any laptop with less than 8 GB discrete VRAM.
 - Any brand/model family outside the three listed above, unless explicitly expanded.
 
 #### Lenovo Legion Pro 7i vs 9i / Pro 9i Value Rule
@@ -101,7 +101,7 @@ AMD discrete GPU laptops evaluate under same rules as NVIDIA:
 - 17–18" scoring bonus applies equally to this path.
 
 #### Unified Memory
-- **Minimum:** 32 GB (≈ equivalent to 16 GB discrete VRAM in GPU-accessible terms, given ~60–75%
+- **Minimum:** 16 GB (≈ equivalent to 8 GB discrete VRAM in GPU-accessible terms, given ~60–75%
   allocation to GPU workloads).
 - **Preferred:** 64 GB.
 - **Optimal:** 96–128 GB.
@@ -124,7 +124,7 @@ AMD Strix Halo laptops (any brand):
 - ASUS TUF A16: NO Strix Halo variant exists (discrete GPU only)
 - ASUS ROG Zephyrus G16: NO Strix Halo variant exists (discrete GPU only)
 - HP OMEN Max: Uses Strix Point (discrete GPU), NOT Strix Halo
-- Any AMD device with < 32 GB unified memory.
+- Any AMD device with < 16 GB unified memory.
 - Any AMD device using a non-unified architecture (discrete dGPU with standard Ryzen iGPU).
 - Apple Silicon (separate category, currently deferred).
 
@@ -132,9 +132,9 @@ AMD Strix Halo laptops (any brand):
 
 ### Track 1 — Price Band
 
-- **Total budget range (AUD):** 0–4,000
-- **Preferred sweet spot (AUD):** 2,500–3,500
-- Only consider 3,500–4,000 AUD if: GPU/unified memory is top-tier, build quality and thermals are
+- **Total budget range (AUD):** 0–4,500
+- **Preferred sweet spot (AUD):** 2,500–4,000
+- Only consider 4,000–4,500 AUD if: GPU/unified memory is top-tier, build quality and thermals are
   clearly superior, and there is a strong resale story.
 
 ### Track 1 — Scoring Bonuses and Flags
@@ -149,14 +149,14 @@ AMD Strix Halo laptops (any brand):
 
 ## TRACK 1 — AGENT RESPONSIBILITIES (REPO-ONLY)
 
-- Audit `laptop_candidates.csv` against `Laptops/*.md`:
+- Audit `laptop_candidates.csv` against `04_Laptops_Mainline/*.md`:
   - Map every CSV row to a card file (or flag "NO CARD EXISTS").
   - Map every card file to a CSV row (or flag "NOT IN CSV").
   - Flag UNKNOWN / placeholder fields.
 - For missing candidates within allowed scope: create BLANK product card shells using
   `template_product_card_output.md` with all spec fields set to UNKNOWN.
-- Produce a "data-ready checklist" — a markdown table of all fields requiring manual web lookup.
-- Do NOT attempt to fill UNKNOWN fields from the internet.
+- Produce a "data-ready checklist" — a markdown table of all fields requiring web lookup, and use the browser agent to fill them.
+- Actively attempt to fill UNKNOWN fields using the internet.
 
 ---
 
@@ -166,7 +166,7 @@ Mark a candidate as **"GOOD ENOUGH — STOP SEARCHING"** when ALL of the followi
 
 **Path 1A (NVIDIA):**
 - In stock in AU from a credible retailer.
-- ≥ 16 GB VRAM (24 GB preferred; RTX 5090 24 GB optimal; RTX 4090 16 GB acceptable fallback).
+- ≥ 8 GB VRAM (12 GB+ preferred; RTX 4080/4090/5080/5090 optimal).
 - Supports at least 32–64 GB RAM (installed or clearly upgradable).
 - At least 2 TB SSD (installed or clearly upgradable).
 - Price within the 0–4,000 AUD budget.
@@ -175,7 +175,7 @@ Mark a candidate as **"GOOD ENOUGH — STOP SEARCHING"** when ALL of the followi
 **Path 1B (AMD Strix Halo):**
 - In stock in AU from a credible retailer.
 - Confirmed Strix Halo SoC.
-- ≥ 32 GB unified memory (64 GB preferred).
+- ≥ 16 GB unified memory (32 GB+ preferred).
 - Price within the 0–4,000 AUD budget.
 - No disqualifying thermal flag.
 - No disqualifying ROCm software compatibility gap for target workloads.
@@ -200,7 +200,7 @@ Do NOT expand scope beyond the listed families/SoC requirements unless explicitl
 - Lenovo Legion Tower (5i/7i series)
 
 **GPU Requirements:**
-- Minimum 16 GB VRAM (same as Track 1 NVIDIA path)
+- Minimum 8 GB VRAM (same as Track 1 NVIDIA path)
 - Target: RTX 3090 (24 GB), RTX 4080/4090, or equivalent
 
 **Age Limit:** Maximum 6 years old (≥ 2020 manufacture date)
@@ -214,7 +214,7 @@ Example: Alienware R12 with RTX 3090 (24 GB) @ $2,500 AUD beats TUF A14 (32 GB u
 
 **Go/No-Go Gates:**
 - [ ] Chassis ≥ 2020 (confirm manufacture date or CPU generation)
-- [ ] GPU confirmed ≥ 16 GB VRAM
+- [ ] GPU confirmed ≥ 8 GB VRAM
 - [ ] PSU wattage confirmed sufficient for installed GPU (or upgradable)
 - [ ] Price threshold test passed (see above)
 - [ ] AU stock/listing confirmed at credible seller
@@ -229,12 +229,12 @@ Example: Alienware R12 with RTX 3090 (24 GB) @ $2,500 AUD beats TUF A14 (32 GB u
 **Agent Responsibilities:**
 - Maintain cards in `Desktop_Gaming_Refurbished/` folder
 - For each card: confirm age, GPU VRAM, PSU spec, price/performance vs Track 1
-- Flag UNKNOWN for: exact manufacture date, PSU wattage, warranty terms
-- Do NOT add new cards from web searches — use existing cards only
+- Use web searches to resolve UNKNOWN fields for: exact manufacture date, PSU wattage, warranty terms
+- You may add new cards from web searches if they meet the criteria
 
 **Exclusions:**
 - Custom/SI builds (those go to Track 2 Pathway A)
-- Desktops with <16 GB VRAM
+- Desktops with <8 GB VRAM
 - Pre-2020 platforms (thermal/efficiency penalty too high)
 
 ## TRACK 2 — WORKSTATION (ACTIVE — THREE PATHWAYS)
@@ -255,7 +255,7 @@ It is likely a **medium-term** outcome.
 DIY self-sourced parts build.
 
 **Go/No-Go Gates (ALL must pass before any action is taken):**
-- [ ] Confirmed build spec exists in repo at `Decision_System/track2_pathway_a_build_spec.md`
+- [ ] Confirmed build spec exists in repo at `01_Research_Methods_and_Decision_System/track2_pathway_a_build_spec.md`
       (CPU, motherboard, RAM, PSU, GPU, case — all named, no UNKNOWN fields).
 - [ ] Target GPU(s) availability in AU market confirmed (flag UNKNOWN until manually verified).
 - [ ] Build spec confirmed to support target GPU(s): PCIe slots, lane allocation, PSU wattage,
@@ -282,9 +282,9 @@ Create `track2_pathway_a_build_spec.md` with confirmed components:
 - Case: (TBD — must fit dual 3-slot GPUs)
 
 **Agent Responsibilities:**
-- Maintain confirmed build spec at `Decision_System/track2_pathway_a_build_spec.md`.
-- All UNKNOWN fields (prices, stock) must be flagged — never invented.
-- Do NOT contact integrators or browse their websites.
+- Maintain confirmed build spec at `01_Research_Methods_and_Decision_System/track2_pathway_a_build_spec.md`.
+- Use the browser agent to look up UNKNOWN fields (prices, stock) from integrator websites.
+- You may browse integrator websites to confirm specs and prices.
 
 ---
 
@@ -300,20 +300,20 @@ or has confirmed empty PCIe slot(s) and PSU headroom to accept target GPU(s).
 - [ ] Chassis manufacture date confirmed ≥ 2018 (flag UNKNOWN if not stated on card).
 - [ ] PCIe slot count and lane allocation confirmed for target GPU configuration.
 - [ ] PSU wattage confirmed sufficient for GPU(s), or PSU upgrade confirmed possible and costed.
-- [ ] GPU(s) confirmed ≥ 16 GB VRAM per card — either pre-installed or separately available in
+- [ ] GPU(s) confirmed ≥ 8 GB VRAM per card — either pre-installed or separately available in
       AU used/refurbished market.
 - [ ] Total cost (unit + any GPU additions) within AUD budget.
 - [ ] No disqualifying thermal flag (inadequate airflow for dual-GPU sustained load).
 - [ ] No ECC-only memory constraint that would prevent standard GPU driver operation.
 
-**GPU Rules:** Same as Pathway A — 16 GB VRAM minimum per GPU, any make/model.
+**GPU Rules:** Same as Pathway A — 8 GB VRAM minimum per GPU, any make/model.
 
 **Agent Responsibilities:**
-- Existing cards in `Desktop_Towers_Refurbished/` are the primary candidates.
+- Existing cards in `02_Refurbished_Desktop_Towers/` are the primary candidates.
 - For each card: verify age, PCIe slot spec, PSU spec, GPU compatibility. Flag UNKNOWN for any
   missing field.
 - Flag for review: Dell Precision 5820 bundle ($3,558 includes ThinkPad T14s) — find unbundled tower-only price or mark "bundle only".
-- Do NOT add new candidates from the internet.
+- You may add new candidates from the internet.
 
 ---
 
@@ -323,12 +323,12 @@ or has confirmed empty PCIe slot(s) and PSU headroom to accept target GPU(s).
 architecturally equivalent high-bandwidth unified-memory SoC, where system RAM is simultaneously
 GPU VRAM.
 
-**Unified Memory Floor:** 64 GB minimum. 96–128 GB preferred.
+**Unified Memory Floor:** 32 GB minimum. 64–128 GB preferred.
 
 **Go/No-Go Gates (ALL must pass before any action is taken):**
 - [ ] Device confirmed to use a unified-memory SoC (Strix Halo or equivalent — not a standard
       iGPU + discrete GPU combo).
-- [ ] Unified memory ≥ 64 GB confirmed from spec sheet (not estimated).
+- [ ] Unified memory ≥ 32 GB confirmed from spec sheet (not estimated).
 - [ ] AU stock confirmed at credible retailer.
 - [ ] Price within AUD budget.
 - [ ] No disqualifying thermal flag (passive-only or inadequate cooling for sustained inference
@@ -353,17 +353,17 @@ GPU VRAM.
 - ASUS NUC 14 Pro AI (Intel Core Ultra, NOT Strix Halo)
 
 **Agent Responsibilities:**
-- Maintain candidate cards in `Mini_PC_and_eGPU/` (existing lane).
-- For each candidate: confirm SoC model, unified memory config, AU availability. Flag all UNKNOWN.
-- Do NOT add candidates from the internet.
+- Maintain candidate cards in `06_Mini_PCs_and_eGPU/` (existing lane).
+- For each candidate: confirm SoC model, unified memory config, AU availability. Use the internet to resolve UNKNOWN fields.
+- You may add new candidates from the internet.
 
 ---
 
 ## TRACK 2 — AGENT RESPONSIBILITIES (REPO-ONLY)
 
-- **Pathway A:** Maintain and update `Decision_System/track2_pathway_a_build_spec.md`.
-- **Pathway B:** Audit `Desktop_Towers_Refurbished/*.md` cards against all gate conditions.
-- **Pathway C:** Audit and/or create candidate shells in `Mini_PC_and_eGPU/`.
+- **Pathway A:** Maintain and update `01_Research_Methods_and_Decision_System/track2_pathway_a_build_spec.md`.
+- **Pathway B:** Audit `02_Refurbished_Desktop_Towers/*.md` cards against all gate conditions.
+- **Pathway C:** Audit and/or create candidate shells in `06_Mini_PCs_and_eGPU/`.
 - Produce a unified Track 2 data-ready checklist: a markdown table of all UNKNOWN fields across
-  all three pathways requiring manual verification before gates can be cleared.
-- Do NOT attempt to fill UNKNOWN fields from the internet.
+  all three pathways requiring verification, and use the browser to fill them before gates can be cleared.
+- Actively use the internet to resolve and fill UNKNOWN fields.
