@@ -149,6 +149,72 @@ PROFILES = {
             "PSU_Wattage_Ceiling":  "10=1200W+(multi-GPU), 8=1000W, 5=850W, 0=proprietary<800W",
         },
     },
+
+    # ──────────────────────────────────────────────────────────────────────────
+    # MERGED PROFILE
+    # Goal: rank candidates from build_shortlist.py across ALL categories
+    #       (laptops, desktops, mini PCs, components) using a single shared
+    #       8-column schema. Designed to work directly with the shortlist CSV
+    #       output of scripts/build_shortlist.py.
+    #
+    # Usage:
+    #   python rubric_weighting_engine.py --profile merged \
+    #       --csv NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist.csv
+    # ──────────────────────────────────────────────────────────────────────────
+    "merged": {
+        "DEFAULT_CSV": "NotebookLM_Workspaces/intake/shortlist/shortlist.csv",
+
+        # Populate these after your first shortlist run — move specific
+        # intake IDs here once you have identified strong/weak candidates.
+        "NEVER_BUY_MACHINES":  [],
+        "PREFERRED_MACHINES":  [],
+
+        # Stage 1 — hard-fail rules
+        # Verification_Confidence < 1 means the card has essentially no data.
+        "HARD_FAIL_RULES": {
+            "VRAM_Adequacy":           2,   # < 8 GB effective — below absolute floor
+            "Verification_Confidence": 1,   # == 0 — no data at all, cannot score
+        },
+        "HARD_FAIL_SCORE_CAP": 30.0,
+
+        # Stage 1 — soft gate
+        # If a candidate has poor verification confidence AND poor value, do not
+        # let price-to-perf rescue it from the bottom.
+        "SOFT_GATE_COLS":      ["Verification_Confidence", "Value_Score"],
+        "SOFT_GATE_THRESHOLD":  3.0,
+        "GATED_BEHIND_SOFT":   ["Price_to_Perf"],
+
+        # Stage 2 — weight minimums
+        # VRAM is always the primary constraint; verification is required for
+        # a recommendation to be actionable.
+        "MANUAL_MIN_WEIGHTS": {
+            "VRAM_Adequacy":            0.22,  # VRAM ceiling is the dominant constraint
+            "Verification_Confidence":  0.12,  # unverified data must not rank highly
+            "Value_Score":              0.10,  # price/VRAM ratio matters for budget
+        },
+
+        # Stage 2 — good-enough stop condition
+        # Cross-category: any machine scoring >=70 that also has confirmed
+        # verification and solid VRAM is good enough to stop searching.
+        "GOOD_ENOUGH_THRESHOLD": 70.0,
+        "GOOD_ENOUGH_REQUIREMENTS": {
+            "VRAM_Adequacy":            5,   # >= 16 GB effective
+            "Verification_Confidence":  7,   # verified or near-verified
+            "Value_Score":              5,   # at least average value
+        },
+
+        # Criterion scale reference
+        "SCALE_NOTES": {
+            "VRAM_Adequacy":           "10=48GB+/128GB-unified, 8=24GB/64GB, 5=16GB, 2=8GB, 0=<8GB",
+            "GPU_Compute_Tier":        "10=RTX5090/4090/Pro, 8=RTX3090/5080/4090M, 6=RTX5070Ti/4080",
+            "Value_Score":             "10=exceptional $/GB VRAM (<$100/GB), 5=average, 0=poor",
+            "Price_to_Perf":           "10=best-in-class overall value, 5=fair market, 0=overpriced",
+            "Condition_Risk":          "10=New+warranty, 8=OpenBox, 6=Refurb+warranty, 4=Used, 0=Unknown",
+            "Verification_Confidence": "10=AU stock+URL+specs confirmed, 5=needs verification, 2=unverified, 0=no data",
+            "Sustained_TGP_Rating":    "10=>=175W (laptops), 8=150W, 5=100W, 0=N/A (desktops/components OK at 0)",
+            "Portability_Score":       "10=<2kg, 7=2-2.5kg, 4=2.5-3kg, 1=3kg+, 0=N/A (non-mobile OK at 0)",
+        },
+    },
 }
 
 

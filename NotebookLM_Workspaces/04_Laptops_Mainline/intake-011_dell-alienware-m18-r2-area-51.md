@@ -1,17 +1,17 @@
-<!-- TAGS: #Laptop #NVIDIA #VRAM-24GB #Refurbished #TrackUnknown #Unverified #AUStock-Unknown -->
+<!-- TAGS: #Laptop #NVIDIA #VRAM-24GB #Refurbished #Track1 #Pathway1A #Unverified #AUStock-Yes -->
 <!-- INTAKE: batch=2026-05-05_notebooklm_batch1_processed date=2026-05-05 route=Laptop -->
 ---
 id: dell-alienware-m18-r2-area-51
 category: laptop
-track: UNKNOWN
-pathway: UNKNOWN
+track: 1
+pathway: 1A
 name: Dell Alienware m18 R2 / Area-51
 gpu: RTX 5090 Mobile
 vram: 24 GB
 unified_memory: UNKNOWN
 price_aud: $4499 AUD
 condition: Refurbished
-au_stock: UNKNOWN
+au_stock: Yes
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
@@ -23,11 +23,11 @@ score: UNKNOWN — pending manual review
 > Do not treat prices, availability, or specs as confirmed until cross-checked with the retailer.
 
 ## Track Status
-- **Track:** UNKNOWN
-- **Pathway:** UNKNOWN
+- **Track:** 1
+- **Pathway:** 1A
 - **Status:** Active
-- **AU Stock Confirmed:** UNKNOWN
-- **GOOD ENOUGH check:** PENDING — confirm AU stock, price, and key specs below
+- **AU Stock Confirmed:** Yes
+- **GOOD ENOUGH check:** PENDING — confirm price and key specs below
 
 ## Overview
 - **Price (AUD):** $4499 AUD

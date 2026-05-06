@@ -112,9 +112,11 @@ Examples:
 
 ## What this script does NOT do
 
-- It does not create product card `.md` files (that is `intake_to_cards.py` — not yet built)
-- It does not write to `laptop_candidates.csv` or any existing tracker
+- It does not create product card `.md` files (that is `intake_to_cards.py` — Phase 1)
+- It does not rank or score the candidates (that is `build_shortlist.py` and `rubric_weighting_engine.py` — Phases 2 and 3)
 - It does not commit to git
+
+For the full end-to-end workflow, read `README_pipeline.md`.
 
 This is a preprocessing layer only. Review the processed CSV before any further automation.
 

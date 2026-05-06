@@ -1,17 +1,17 @@
-<!-- TAGS: #Desktop #NVIDIA #VRAM-24GB #Refurbished #TrackUnknown #Unverified #AUStock-Unknown -->
+<!-- TAGS: #Desktop #NVIDIA #VRAM-24GB #Refurbished #Track2 #PathwayB #Unverified #AUStock-Mixed -->
 <!-- INTAKE: batch=2026-05-05_notebooklm_batch1_processed date=2026-05-05 route=Refurb desktop -->
 ---
 id: hp-z4-g4-used-3090
 category: desktop
-track: UNKNOWN
-pathway: UNKNOWN
+track: 2
+pathway: B
 name: HP Z4 G4 + used 3090
 gpu: RTX 3090
 vram: 24 GB
 unified_memory: UNKNOWN
 price_aud: $2800 AUD
 condition: Refurbished
-au_stock: UNKNOWN
+au_stock: Mixed
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
@@ -23,11 +23,11 @@ score: UNKNOWN — pending manual review
 > Do not treat prices, availability, or specs as confirmed until cross-checked with the retailer.
 
 ## Track Status
-- **Track:** UNKNOWN
-- **Pathway:** UNKNOWN
+- **Track:** 2
+- **Pathway:** B
 - **Status:** Active
-- **AU Stock Confirmed:** UNKNOWN
-- **GOOD ENOUGH check:** PENDING — confirm AU stock, price, and key specs below
+- **AU Stock Confirmed:** Mixed
+- **GOOD ENOUGH check:** PENDING — confirm price and key specs below
 
 ## Overview
 - **Price (AUD):** $2800 AUD

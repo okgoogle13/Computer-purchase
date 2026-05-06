@@ -1,9 +1,9 @@
-<!-- TAGS: #Desktop #NVIDIA #VRAM-24GB #Refurbished #TrackUnknown #Unverified #AUStock-Unknown -->
+<!-- TAGS: #Desktop #NVIDIA #VRAM-24GB #Refurbished #Track1.5 #Unverified #AUStock-Yes -->
 <!-- INTAKE: batch=2026-05-05_notebooklm_batch1_processed date=2026-05-05 route=Refurb desktop -->
 ---
 id: alienware-aurora-r12-refurbished
 category: desktop
-track: UNKNOWN
+track: 1.5
 pathway: UNKNOWN
 name: Alienware Aurora R12 (Refurbished)
 gpu: RTX 3090
@@ -11,7 +11,7 @@ vram: 24 GB
 unified_memory: UNKNOWN
 price_aud: $3884 AUD
 condition: Refurbished
-au_stock: UNKNOWN
+au_stock: Yes
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
@@ -23,11 +23,11 @@ score: UNKNOWN — pending manual review
 > Do not treat prices, availability, or specs as confirmed until cross-checked with the retailer.
 
 ## Track Status
-- **Track:** UNKNOWN
+- **Track:** 1.5
 - **Pathway:** UNKNOWN
 - **Status:** Active
-- **AU Stock Confirmed:** UNKNOWN
-- **GOOD ENOUGH check:** PENDING — confirm AU stock, price, and key specs below
+- **AU Stock Confirmed:** Yes
+- **GOOD ENOUGH check:** PENDING — confirm price and key specs below
 
 ## Overview
 - **Price (AUD):** $3884 AUD

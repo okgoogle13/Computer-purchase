@@ -1,15 +1,15 @@
-<!-- TAGS: #Laptop #NVIDIA #VRAM-16GB #Refurbished #TrackUnknown #Unverified #AUStock-Unknown -->
-<!-- INTAKE: batch=2026-05-05_notebooklm_batch1_processed date=2026-05-05 route=Laptop -->
+<!-- TAGS: #Desktop #NVIDIA #VRAM-24GB #Refurbished #TrackUnknown #Unverified #AUStock-Unknown -->
+<!-- INTAKE: batch=2026-05-05_notebooklm_batch1_processed date=2026-05-05 route=Refurb desktop -->
 ---
-id: acer-predator-helios-18-rtx-4090-refurbished
-category: laptop
+id: specialized-evga-3090-custom-build
+category: desktop
 track: UNKNOWN
 pathway: UNKNOWN
-name: Acer Predator Helios 18 RTX 4090 refurbished
-gpu: RTX 4090 Mobile
-vram: 16 GB
+name: Specialized EVGA 3090 Custom Build
+gpu: RTX 3090
+vram: 24 GB
 unified_memory: UNKNOWN
-price_aud: $4449 AUD
+price_aud: $2953 AUD
 condition: Refurbished
 au_stock: UNKNOWN
 verification: Unverified
@@ -17,7 +17,7 @@ status: Active
 score: UNKNOWN — pending manual review
 ---
 
-# Acer Predator Helios 18 RTX 4090 refurbished
+# Specialized EVGA 3090 Custom Build
 
 > ⚠️ **INTAKE CARD — sourced from AI batch export. All fields require manual verification.**
 > Do not treat prices, availability, or specs as confirmed until cross-checked with the retailer.
@@ -30,27 +30,27 @@ score: UNKNOWN — pending manual review
 - **GOOD ENOUGH check:** PENDING — confirm AU stock, price, and key specs below
 
 ## Overview
-- **Price (AUD):** $4449 AUD
-- **Retailer:** Acer AU Clearance
-- **URL:** [https://store.acer.com/en-au/clearances/laptop](https://store.acer.com/en-au/clearances/laptop)
+- **Price (AUD):** $2953 AUD
+- **Retailer:** Tech Junction
+- **URL:** UNKNOWN
 - **Condition:** Refurbished
 - **Source batch:** 2026-05-05_notebooklm_batch1_processed (ingested 2026-05-05)
 
 ## Key Specs
-- **GPU:** RTX 4090 Mobile
-- **VRAM:** 16 GB
+- **GPU:** RTX 3090
+- **VRAM:** 24 GB
 - **Unified Memory:** UNKNOWN
-- **CPU:** i9-14900HX
-- **RAM:** 32 GB
+- **CPU:** Core i9-12900K
+- **RAM:** 16 GB
 - **Storage:** UNKNOWN
 - **PSU / Charger:** UNKNOWN
 - **Warranty (AU):** UNKNOWN
 
 ## Source Notes
-Desktop Replacement
+Custom built using EVGA 3090
 
 ## AI Capability Summary
-Solid — 16 GB VRAM handles 13B–20B Q4 natively; 34B requires offloading.
+Strong — 24 GB VRAM handles 30B–34B Q4 models natively.
 
 ## Verification Checklist
 - [ ] Confirm AU stock from named retailer with URL

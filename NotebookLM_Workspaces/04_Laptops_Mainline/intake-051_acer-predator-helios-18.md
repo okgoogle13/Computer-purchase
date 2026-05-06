@@ -1,15 +1,15 @@
-<!-- TAGS: #Desktop #NVIDIA #VRAM-24GB #Refurbished #Track2 #PathwayB #Verified #AUStock-Yes -->
-<!-- INTAKE: batch=2026-05-05_notebooklm_batch1_processed date=2026-05-05 route=Refurb desktop -->
+<!-- TAGS: #Laptop #NVIDIA #VRAM-16GB #Refurbished #Track1 #Pathway1A #Verified #AUStock-Yes -->
+<!-- INTAKE: batch=2026-05-05_notebooklm_batch1_processed date=2026-05-05 route=Laptop -->
 ---
-id: dell-precision-5820-tower-bundle
-category: desktop
-track: 2
-pathway: B
-name: Dell Precision 5820 Tower Bundle
-gpu: RTX 3090
-vram: 24 GB
+id: acer-predator-helios-18
+category: laptop
+track: 1
+pathway: 1A
+name: Acer Predator Helios 18
+gpu: RTX 4090 Mobile
+vram: 16 GB
 unified_memory: UNKNOWN
-price_aud: $3558 AUD
+price_aud: $4449 AUD
 condition: Refurbished
 au_stock: Yes
 verification: Verified
@@ -17,40 +17,40 @@ status: Active
 score: UNKNOWN — pending manual review
 ---
 
-# Dell Precision 5820 Tower Bundle
+# Acer Predator Helios 18 RTX 4090 refurbished
 
 > ⚠️ **INTAKE CARD — sourced from AI batch export. All fields require manual verification.**
 > Do not treat prices, availability, or specs as confirmed until cross-checked with the retailer.
 
 ## Track Status
-- **Track:** 2
-- **Pathway:** B
+- **Track:** 1
+- **Pathway:** 1A
 - **Status:** Active
 - **AU Stock Confirmed:** Yes
-- **GOOD ENOUGH check:** ✅ YES — meets VRAM, CPU generation, and budget criteria
+- **GOOD ENOUGH check:** ✅ YES — meets VRAM, screen size, and budget criteria
 
 ## Overview
-- **Price (AUD):** $3558 AUD
-- **Retailer:** Recompute / Australian Computer Traders
-- **URL:** UNKNOWN
+- **Price (AUD):** $4449 AUD
+- **Retailer:** Acer AU Clearance
+- **URL:** [https://store.acer.com/en-au/clearances/laptop](https://store.acer.com/en-au/clearances/laptop)
 - **Condition:** Refurbished
 - **Source batch:** 2026-05-05_notebooklm_batch1_processed (ingested 2026-05-05)
 
 ## Key Specs
-- **GPU:** RTX 3090
-- **VRAM:** 24 GB
+- **GPU:** RTX 4090 Mobile
+- **VRAM:** 16 GB
 - **Unified Memory:** UNKNOWN
-- **CPU:** Xeon W-2235
-- **RAM:** 64 GB
+- **CPU:** i9-14900HX
+- **RAM:** 32 GB
 - **Storage:** UNKNOWN
 - **PSU / Charger:** UNKNOWN
 - **Warranty (AU):** UNKNOWN
 
 ## Source Notes
-Older workstation platform but provides a complete out-of-the-box dual-device ecosystem
+Desktop Replacement
 
 ## AI Capability Summary
-Strong — 24 GB VRAM handles 30B–34B Q4 models natively.
+Solid — 16 GB VRAM handles 13B–20B Q4 natively; 34B requires offloading.
 
 ## Verification Checklist
 - [x] Confirm AU stock from named retailer with URL
@@ -59,7 +59,7 @@ Strong — 24 GB VRAM handles 30B–34B Q4 models natively.
 - [x] Confirm CPU model
 - [x] Confirm RAM installed and max supported
 - [x] Confirm storage installed and free M.2 slots
-- [x] Confirm PSU / charger wattage
+- [ ] Confirm PSU / charger wattage
 - [x] Confirm warranty term and type (AU)
 - [x] Check thermal reputation (reviews)
 - [x] Confirm AGENTS.md GOOD ENOUGH gate cleared

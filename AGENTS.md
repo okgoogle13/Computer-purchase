@@ -6,6 +6,24 @@ Browser access and web searches are permitted for verification and data gatherin
 
 ---
 
+## TERMINOLOGY
+
+### Tracks and Paths / Pathways
+- `track` (CSV) is the high-level decision rail, usually a small integer (e.g. 1, 2).  
+- `pathway` (CSV) is the specific branch within a track (e.g. "1A", "1B", "2A").  
+- In prose we refer to these as “Path 1A”, “Path 1B”, etc.  
+- When you see or say “Track 1A” or “Track 2B”, interpret that as:  
+  - `track = 1` and `pathway = "1A"`, or  
+  - `track = 2` and `pathway = "2B"`, respectively.  
+- The **Track** concept is always the broader category; **Path / Pathway** is the specific branch within that Track.
+
+### Machine vs item_name
+- `item_name` is the canonical identifier in the intake and shortlist CSVs.  
+- Some processing steps and reports also use a derived `Machine` label; this should always be consistent with `item_name` (optionally plus extra context, such as retailer or config suffix).  
+- When referring to a “machine” in prompts or conversations, assume it refers to the underlying `item_name`, and treat `Machine` as a reporting/alias field tied back to that `item_name`.
+
+---
+
 ## SCOPE
 
 - **Track 1:** Active laptop purchase. One decision. GOOD ENOUGH → buy.
@@ -26,6 +44,27 @@ Browser access and web searches are permitted for verification and data gatherin
   - Apply documented patches to spec/policy docs.
   - Draft decision logs and checklists.
   - Fetch new data from the internet to complete missing details.
+
+---
+
+## PIPELINE AND POLICY (5-PHASE WORKFLOW)
+
+This repository enforces a strict 5-phase execution path to go from raw web data to a mathematical purchase decision. 
+
+**Policy Source of Truth:**
+All scripts read hardware constraints (budgets, VRAM floors, soft penalty behaviors) from the machine-readable config: `config/procurement_policy.json`. Do not hard-code these limits in scripts.
+
+1. **Phase 1: Intake & Verification** (`normalize_intake.py` + `intake_to_cards.py`)
+   - Clean raw AI exports and generate markdown product cards.
+2. **Phase 2: Shortlist** (`build_shortlist.py`)
+   - Filter out junk (out of stock, under VRAM floor). Applies soft-penalties to over-budget items unless they qualify for an `exceptional_override`.
+3. **Phase 3: Live Pricing Enrichment** (`enrich_shortlist_pricing.py`)
+   - Scaffold the CSV for live pricing checks. 
+   - *Agent action:* Use `scripts/prompt_templates/browser_pricing_lookup.md` in the Vercel Browser Agent to hunt down stackable coupons, student discounts, and cashback.
+4. **Phase 4: Manual Scoring**
+   - *Agent action:* Fill in the 0–10 score columns in the enriched CSV based on the newly discovered `effective_best_price_aud`.
+5. **Phase 5: Score & Rank** (`rubric_weighting_engine.py`)
+   - Run the engine with `--profile merged`. Buy the candidate that ranks #1 and hits `[GOOD ENOUGH]`.
 
 ---
 
@@ -367,3 +406,51 @@ GPU VRAM.
 - Produce a unified Track 2 data-ready checklist: a markdown table of all UNKNOWN fields across
   all three pathways requiring verification, and use the browser to fill them before gates can be cleared.
 - Actively use the internet to resolve and fill UNKNOWN fields.
+
+---
+
+## SCORING RUBRIC CHEATSHEET (VRAM, PRICE/PERF, ETC.)
+
+**VRAM_Adequacy (0–10)**  
+- 0 = Below hard minimum VRAM for the target workload in this Track/Path.  
+- 5 = Meets the minimum VRAM requirement, but with little headroom.  
+- 10 = Meets or exceeds the “ideal” VRAM tier defined for this Track/Path (comfortable headroom).  
+- Example:  
+  - For a Track 1A GPU workload where the minimum is 16 GB and the ideal is 24 GB:  
+    - 8 GB → 0  
+    - 16 GB → ~5  
+    - 24 GB or more → 9–10
+
+**Price_to_Perf (0–10)**  
+- 0 = Clearly poor value for money vs alternatives in the same Track/Path.  
+- 5 = Acceptable value (roughly average) for this segment.  
+- 10 = Excellent value (significantly better price/performance than typical options for this Track/Path).  
+- Use the same formula or comparison logic implemented in `rubric_weighting_engine.py`, but this section documents the intent in plain language.
+
+**Value_Score (0–10)**  
+- Aggregated view of cost vs capability for the intended workload.  
+- 0 = Fails either capability or cost constraints badly.  
+- 5 = Meets both capability and cost constraints at baseline.  
+- 10 = Strongly meets or exceeds capability while staying comfortably within budget.
+
+**Condition_Risk (0–10)**  
+- 0 = Extremely high risk (e.g. unknown vendor, no warranty, poor condition).  
+- 5 = Acceptable risk (standard refurb or used, clear but limited warranty).  
+- 10 = Minimal risk (new or near-new from trusted vendor, strong warranty).
+
+**Verification_Confidence (0–10)**  
+- 0 = Almost nothing verified; key specs uncertain.  
+- 5 = Most important specs have at least one independent verification.  
+- 10 = All critical specs and price are cross-verified and documented.
+
+**Sustained_TGP_Rating (0–10)**  
+- 0 = Clear thermal/Power-limit issues vs workload expectations.  
+- 5 = Meets baseline TGP and thermal headroom for the expected workloads.  
+- 10 = Excellent sustained TGP/thermals for long-running workloads in this Track/Path.
+
+**Portability_Score (0–10)**  
+- 0 = Not reasonably portable for the intended use (very heavy, bulky, low battery if relevant).  
+- 5 = Acceptably portable (within stated thresholds for weight, size, battery).  
+- 10 = Very portable while still meeting capability requirements.
+
+These are **interpretive guardrails** for humans and LLMs. The exact formulas and thresholds live in `rubric_weighting_engine.py`, but this section documents the intent, so scorers apply the rubric consistently.
