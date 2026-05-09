@@ -73,7 +73,7 @@ def main():
     print(f"   1. Use the prompt template in `scripts/prompt_templates/browser_pricing_lookup.md`")
     print(f"      to instruct your Vercel Browser Agent to look up live prices.")
     print(f"   2. Fill in the new pricing columns in the enriched CSV.")
-    print(f"   3. Score the candidates and run `rubric_weighting_engine.py --profile merged`")
+    print(f"   3. Fill the MCDA columns and run `rubric_weighting_engine.py --csv <scored_csv>`")
 
 if __name__ == "__main__":
     main()

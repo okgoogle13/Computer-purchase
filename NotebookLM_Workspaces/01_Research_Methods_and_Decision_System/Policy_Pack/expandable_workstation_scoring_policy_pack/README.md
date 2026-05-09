@@ -1,24 +1,23 @@
-# Expandable Workstation Scoring Policy Pack
+# CareerCopilot MCDA Policy Pack
 
-Generated: 2026-04-29
+Generated from the simplified `AGENTS.md` policy.
 
 ## Purpose
 
-This pack upgrades the scoring system so NotebookLM evaluates desktops as cohesive expandable AI workstations, not just as isolated CPU/GPU spec lists.
+This pack supports outcome-driven hardware scoring for CareerCopilot:
 
-## Files
+- buy one Track 1 laptop ASAP when GOOD_ENOUGH,
+- keep a narrow 12 GB Track 1A bargain exception visible,
+- use Track 1.5 only as a value fallback,
+- keep Track 2 deferred unless an escalation trigger fires.
 
-1. `policy_expandable_workstation_scoring.md`
-2. `template_product_card_output.md`
-3. `prompt_notebooklm_executor.md`
-4. `prompt_synergy_config_advisor.md`
-5. `rubric_component_synergy_matrix.md`
+The bargain exception can improve `Price_Value`, but it must reduce `Performance_Headroom`,
+`Future_Proof`, and `Track2_Avoidance`. Below 12 GB discrete VRAM cannot clear GOOD_ENOUGH.
 
-## Recommended NotebookLM Use
+## Active Files
 
-Upload all five files into the relevant NotebookLM notebook:
+- `rubric_weighting_engine.py` - fixed-weight MCDA ranking engine.
+- `template_product_card_output.md` - current product card template.
+- `HOW_TO_MAINTAIN_RUBRIC.md` - maintenance notes.
 
-- `02 — Expandable Workstations`
-- optionally also `01 — Master Hardware Strategy + Ledger`
-
-Then upload product listing sources and run the executor prompt.
+Older workstation-specific rubric files in this folder are historical references unless explicitly reopened.

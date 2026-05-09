@@ -1,6 +1,6 @@
 # Hardware Procurement Pipeline — 5 Phases
 
-This repository implements a strict 5-phase data pipeline to turn raw AI hardware research into objective, mathematically ranked purchase recommendations, driven by the `config/procurement_policy.json` source of truth.
+This repository implements a strict 5-phase data pipeline to turn raw AI hardware research into outcome-driven, MCDA-ranked purchase recommendations, driven by `AGENTS.md` and `config/procurement_policy.json`.
 
 ---
 
@@ -48,18 +48,18 @@ python scripts/enrich_shortlist_pricing.py NotebookLM_Workspaces/intake/shortlis
 ## 📝 Phase 4 — Manual Scoring
 **Goal:** Evaluate the surviving, enriched candidates against the rubric.
 
-**Human Step:** Open the enriched CSV. Fill in the 0–10 score columns (`VRAM_Adequacy`, `GPU_Compute_Tier`, `Value_Score`, etc.) based on your research and the newly found `effective_best_price_aud`.
+**Human Step:** Open the enriched CSV. Fill in the 0–10 MCDA columns (`Performance_Headroom`, `Price_Value`, `Future_Proof`, `Portability`, `Track2_Avoidance`) based on verified evidence and the newly found `effective_best_price_aud`.
 
 ---
 
 ## 🏆 Phase 5 — Score & Rank
-**Goal:** Apply the 2-stage "Whitened" scoring engine to the shortlisted candidates to output a final ranked decision.
+**Goal:** Apply the fixed-weight CareerCopilot MCDA engine to the shortlisted candidates to output a final ranked decision.
 
 **Script:** `rubric_weighting_engine.py`
 
 **Workflow:**
 ```bash
-python scripts/rubric_weighting_engine.py --profile merged \
+python NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/Policy_Pack/expandable_workstation_scoring_policy_pack/rubric_weighting_engine.py \
     --csv NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist_pricing_enriched.csv
 ```
-**Outcome:** Buy the machine that hits `#1` and is flagged `[GOOD ENOUGH — stop searching]`.
+**Outcome:** Buy the highest-ranked machine that is flagged `GOOD_ENOUGH`, or apply the Track Escalation Rule if none clears policy.

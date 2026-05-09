@@ -3,18 +3,18 @@
 ---
 id: msi-crosshair-18-hx-ai
 category: laptop
-track: UNKNOWN
-pathway: UNKNOWN
+track: 1
+pathway: 1A
 name: MSI Crosshair 18 HX AI
 gpu: RTX 5070 Mobile
-vram: 16 GB
+vram: 8 GB (Verified)
 unified_memory: UNKNOWN
-price_aud: UNKNOWN
+price_aud: $3385 AUD (Ref: 2026-05-06)
 condition: New
-au_stock: UNKNOWN
-verification: Unverified
-status: Active
-score: UNKNOWN — pending manual review
+au_stock: Yes
+verification: Verified
+status: Rejected
+score: 0.0 (Below VRAM Floor)
 ---
 
 # MSI Crosshair 18 HX AI

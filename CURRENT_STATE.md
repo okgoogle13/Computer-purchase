@@ -1,43 +1,84 @@
-# Current State & Sprint Focus
+# Current State
 
-**Last Updated:** 2026-05-04
+**Last Updated:** 2026-05-09
 
-## 1. Latest Completed Milestones
-* **Structure:** Transitioned from a flat research folder into a strict 7-lane hardware evaluation workspace.
-* **Automation:** Completed `tag_product_cards.py` and `sort_product_cards.sh` to automate classification of hardware candidates.
-* **Policy Hardening:** Resolved all technical metric TODOs in the VRAM Architecture Spec.
-* **Ingestion Assets:** Generated the `Complete_Hardware_Procurement_Knowledge_Base.md` mega-bundle as an experimental single-file NotebookLM ingestion method.
-* **Strategy Refinement (2026-05-04):** Expanded Track 1 to include AMD Strix Halo unified-memory laptops (all brands, no screen floor, 32 GB minimum). Activated Track 2 as a parallel research track with three defined pathways. Relaxed NVIDIA screen size floor to 13"+.
+## Decision Frame
 
-## 2. Current Architecture Choice
-**Status: LOCKED.** Proceeding with the **3-Notebook execution workflow** (Policy Brain + Desktop Arena + Mobile Arena). The filesystem lanes remain the source of truth. The mega-bundle is a secondary/fallback option. *We will not pursue both workflows simultaneously to prevent context drift.*
+The repository now uses the simplified CareerCopilot hardware policy in `AGENTS.md`.
 
-## 3. Active Tracks
+Primary objective:
 
-### Track 1 — Laptop (PRIORITY — buy as soon as GOOD ENOUGH candidate confirmed)
-Two active paths:
-- **Path 1A (NVIDIA):** 13"+ screen floor, 16 GB VRAM minimum, 17–18" scoring bonus. Brands: Lenovo Legion, ASUS ROG, MSI.
-- **Path 1B (AMD Strix Halo):** No screen floor, 32 GB unified memory minimum (64 GB preferred), all brands. ASUS TUF A16 and equivalents in scope.
+- Buy one Track 1 laptop that helps ship CareerCopilot MVP in Q3 2026.
+- Prefer enough headroom for Q4 2026 advanced features.
+- Defer Track 2 unless no viable Track 1 candidate exists or a verified Track 2 unicorn is immediately available.
 
-### Track 2 — Workstation (ACTIVE — medium-term, parallel to Track 1)
-Three pathways — do NOT delay Track 1 purchase for Track 2:
-- **Pathway A:** AU system integrator custom/configurable build (Scorptec, Mwave, Centre.com). Requires confirmed build spec.
-- **Pathway B:** Refurbished enterprise workstation (Dell Precision, HP Z-series, ThinkStation). ≥ 2018, ≥ 16 GB VRAM/GPU.
-- **Pathway C:** Unified memory mini PC (Strix Halo, ≥ 64 GB unified). Minisforum AI X1 Pro and equivalents.
+## Active Policy
 
-### Track 1.5 (Refurbished Gaming Desktop — Single GPU): ACTIVE
-- Alienware Aurora R12 (RTX 3090) — price/performance leader
-- Acer Predator Orion — under review (awaiting price/spec confirmation)
-- Gate: Must beat Track 1 laptops on $/VRAM by ≥15% to justify loss of portability
+- Track 1 budget cap: 5,000 AUD.
+- Track 1A discrete laptop floor: 16 GB VRAM.
+- Track 1B Strix Halo floor: 16 GB unified memory.
+- Track 1.5 desktop alternative floor: 16 GB VRAM.
+- Track 2 is trigger-based, not a default buying lane.
 
-## 4. Immediate Next Tasks (Current Sprint)
-1. **Track 1 AMD audit:** Identify and create blank product card shells for AMD Strix Halo laptop candidates in `04_Laptops_Mainline/`.
-2. **Track 2 Pathway C audit:** Create blank card shells for Strix Halo mini PC candidates in `06_Mini_PCs_and_eGPU/`.
-3. **Track 2 Pathway A:** Populate `01_Research_Methods_and_Decision_System/track2_pathway_a_build_spec.md` with a confirmed base build spec.
-4. **Track 2 Pathway B audit:** Review `02_Refurbished_Desktop_Towers/` cards against new gate conditions (age, PCIe slots, PSU, GPU VRAM).
-5. **Unified data-ready checklist:** Produce a markdown table of all UNKNOWN fields across Track 1 and Track 2 requiring manual lookup.
+## Active Scoring
 
-## 5. Deferred / Out of Scope
-* **AMD Strix Halo unified-memory devices active across Track 1 (laptops) and Track 2 Pathway C (mini PCs). Track 2 all pathways now active in parallel with Track 1. Apple Silicon remains archived.**
-* **AMD ROCm deep-dive:** General AMD viability noted; deep troubleshooting deferred until a specific AMD card reaches finals.
-* **DIY self-build (parts sourcing):** Out of scope for Track 2. Track 2 Pathway A = AU system integrator only.
+Final decisions use fixed-weight MCDA:
+
+- Performance_Headroom: 25%
+- Price_Value: 20%
+- Future_Proof: 20%
+- Portability: 20%
+- Track2_Avoidance: 15%
+
+## Current Leaderboard (Track 1)
+
+1.  **ASUS ProArt PX13 HN6306 (Strix Halo)**
+    - Score: **10.0**
+    - Key Spec: **128GB Unified Memory**
+    - Effective Price: **$4,319.10** (JB Hi-Fi + 10% Student Discount)
+    - Form Factor: 13.3" 2-in-1 Flip Laptop
+
+2.  **ASUS ROG Flow Z13 (2026) GZ302EA**
+    - Score: **9.2**
+    - Key Spec: **32GB Unified Memory**
+    - Price: **$3,824.00**
+    - Form Factor: 13.4" Detachable Tablet
+
+3.  **HP ZBook Ultra 14 G1a (Strix Halo)**
+    - Score: **8.9**
+    - Key Spec: **32GB Unified Memory**
+    - Price: **$4,200.00**
+    - Form Factor: 14" Traditional Laptop
+
+4.  **Lenovo Legion 9i Gen 10 (Lenovo Direct)**
+    - Score: **6.5** (Adjusted with ~$4,300 effective price)
+    - Key Spec: **16GB VRAM (RTX 5080) / 64GB RAM**
+    - Price: **$4,300.00** (Effective via EDU + TopCashback)
+    - Form Factor: 18" Desktop Replacement
+
+5.  **MSI Raider GE68 HX 13V (RTX 4090)**
+    - Score: **7.85**
+    - Key Spec: **16GB VRAM (RTX 4090)**
+    - Price: **$2,899.00**
+    - Form Factor: 16" Performance Laptop
+
+## Top Track 2 Unicorn
+
+- **HP Z2 Mini G1a AI (Strix Halo)**
+  - Price: **$3,395.00**
+  - Key Spec: **32GB Unified (Expandable to 128GB)**
+  - Use Case: Maximum non-portable value.
+
+## Immediate Work
+
+1. Regenerate the shortlist using the updated policy config.
+2. Enrich live pricing for viable Track 1 candidates first.
+3. Fill MCDA factor scores only after price, AU stock, warranty, and thermal evidence are checked.
+4. Run the MCDA ranking engine and recommend the highest-ranked GOOD_ENOUGH candidate.
+5. Apply Track Escalation Rule only if no Track 1 candidate clears gates or a verified Track 2 unicorn appears.
+
+## Deferred
+
+- Track 2 Pathway A/B/C build-out is deferred until a trigger fires.
+- Apple Silicon remains out of scope unless the user explicitly reopens it.
+- Archive and historical research files should not be treated as active policy.

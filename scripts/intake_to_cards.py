@@ -74,12 +74,17 @@ CONDITION_TAG_MAP = {
 
 # Track → track tags
 TRACK_TAG_MAP = {
-    "track1a":  "#Track1A",
-    "track1b":  "#Track1B",
+    "1":        "#Track1",
+    "track1":   "#Track1",
+    "track1a":  "#Track1 #Path1A",
+    "track1b":  "#Track1 #Path1B",
+    "1.5":      "#Track1-5",
     "track1.5": "#Track1-5",
-    "track2a":  "#Track2A",
-    "track2b":  "#Track2B",
-    "track2c":  "#Track2C",
+    "2":        "#Track2",
+    "track2":   "#Track2",
+    "track2a":  "#Track2 #PathwayA",
+    "track2b":  "#Track2 #PathwayB",
+    "track2c":  "#Track2 #PathwayC",
 }
 
 # VRAM threshold tags
@@ -162,6 +167,11 @@ def build_tags(row: dict) -> str:
 
     track_key = (row.get("track") or "").strip().lower()
     tags.append(TRACK_TAG_MAP.get(track_key, "#TrackUnknown"))
+    pathway_key = (row.get("pathway") or "").strip().upper()
+    if pathway_key in {"1A", "1B"} and f"#Path{pathway_key}" not in tags:
+        tags.append(f"#Path{pathway_key}")
+    elif pathway_key in {"A", "B", "C"} and f"#Pathway{pathway_key}" not in tags:
+        tags.append(f"#Pathway{pathway_key}")
 
     vstatus = (row.get("verification_status") or "").strip()
     if vstatus == "Verified":        tags.append("#Verified")
@@ -206,6 +216,7 @@ def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> s
     gpu      = fmt(row.get("gpu_model"))
     vram     = fmt(row.get("vram_gb"))
     unified  = fmt(row.get("unified_memory_gb"))
+    screen   = fmt(row.get("screen_size_in"))
     ram      = fmt(row.get("ram_gb"))
     cpu      = fmt(row.get("cpu_model"))
     cond     = fmt(row.get("condition"))
@@ -221,6 +232,7 @@ def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> s
     price_str = f"${price} AUD" if price != "UNKNOWN" else "UNKNOWN"
     vram_str  = f"{vram} GB" if vram != "UNKNOWN" else "UNKNOWN"
     unified_str = f"{unified} GB" if unified != "UNKNOWN" else "UNKNOWN"
+    screen_str = f"{screen} in" if screen != "UNKNOWN" else "UNKNOWN"
     ram_str   = f"{ram} GB" if ram != "UNKNOWN" else "UNKNOWN"
 
     # --- Frontmatter + tag comment ---
@@ -236,6 +248,8 @@ def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> s
         f"gpu: {gpu}",
         f"vram: {vram_str}",
         f"unified_memory: {unified_str}",
+        f"screen_size_in: {screen}",
+        "thermal_flag: UNKNOWN",
         f"price_aud: {price_str}",
         f"condition: {cond}",
         f"au_stock: {au_stock}",
@@ -284,11 +298,13 @@ def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> s
         f"- **GPU:** {gpu}",
         f"- **VRAM:** {vram_str}",
         f"- **Unified Memory:** {unified_str}",
+        f"- **Screen Size:** {screen_str}",
         f"- **CPU:** {cpu}",
         f"- **RAM:** {ram_str}",
         "- **Storage:** UNKNOWN",
         "- **PSU / Charger:** UNKNOWN",
         "- **Warranty (AU):** UNKNOWN",
+        "- **Thermal risk:** UNKNOWN",
         "",
     ]
 
@@ -311,7 +327,7 @@ def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> s
             elif v >= 16:
                 ai_cap = "Solid — 16 GB VRAM handles 13B–20B Q4 natively; 34B requires offloading."
             elif v >= 8:
-                ai_cap = "Baseline — 8 GB VRAM sufficient for 7B Q4; larger models require significant offload."
+                ai_cap = "Below current Track 1 discrete floor — 8 GB VRAM is not enough for the streamlined CareerCopilot buying policy."
         except ValueError:
             pass
 
@@ -329,16 +345,26 @@ def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> s
     ram_known     = ram != "UNKNOWN"
 
     lines += [
+        "## MCDA Scores",
+        "- **Performance_Headroom:** UNKNOWN",
+        "- **Price_Value:** UNKNOWN",
+        "- **Future_Proof:** UNKNOWN",
+        "- **Portability:** UNKNOWN",
+        "- **Track2_Avoidance:** UNKNOWN",
+        "- **MCDA_Total:** UNKNOWN",
+        "",
         "## Verification Checklist",
         checkbox("Confirm AU stock from named retailer with URL", au_confirmed),
         checkbox("Confirm price in AUD",                         price_known),
         checkbox("Confirm GPU model and VRAM",                   gpu_known),
+        checkbox("Confirm screen size where applicable",         screen != "UNKNOWN"),
         checkbox("Confirm CPU model",                            cpu_known),
         checkbox("Confirm RAM installed and max supported",      ram_known),
         checkbox("Confirm storage installed and free M.2 slots", False),
         checkbox("Confirm PSU / charger wattage",                False),
         checkbox("Confirm warranty term and type (AU)",          False),
         checkbox("Check thermal reputation (reviews)",           False),
+        checkbox("Confirm CareerCopilot outcome fit",            False),
         checkbox("Confirm AGENTS.md GOOD ENOUGH gate cleared",   False),
         "",
     ]

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(agent-browser)",
+      "Skill(agent-browser:*)",
+      "Bash(grep -E \"\\\\.\\(py|sh|md\\)$\")"
+    ]
+  }
+}

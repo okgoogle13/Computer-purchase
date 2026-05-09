@@ -6,15 +6,15 @@ category: laptop
 track: 1
 pathway: 1A
 name: Dell Alienware m18 R2 / Area-51
-gpu: RTX 5090 Mobile
-vram: 24 GB
+gpu: RTX 5090 Mobile (Conflict)
+vram: 24 GB (Conflict)
 unified_memory: UNKNOWN
-price_aud: $4499 AUD
+price_aud: $4499 AUD (Unverified)
 condition: Refurbished
-au_stock: Yes
+au_stock: UNKNOWN
 verification: Unverified
-status: Active
-score: UNKNOWN — pending manual review
+status: Parked
+score: UNKNOWN
 ---
 
 # Dell Alienware m18 R2 / Area-51

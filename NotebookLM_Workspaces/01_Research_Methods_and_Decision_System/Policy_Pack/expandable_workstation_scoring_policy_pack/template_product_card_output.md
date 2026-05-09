@@ -1,68 +1,76 @@
-# Template – Product Card Output
+# Template - Product Card Output
 
-Use this exact Markdown structure for each candidate.
+Use this structure for new candidate cards.
 
 ```markdown
-<!-- PRODUCT CARD START: [Machine name or short label] -->
-### [Machine name or short label]
+<!-- PRODUCT CARD START: [item_name] -->
+---
+id: [slug]
+category: [laptop | desktop | mini pc | component | ...]
+track: [1 | 1.5 | 2 | UNKNOWN]
+pathway: [1A | 1B | A | B | C | UNKNOWN]
+name: [item_name]
+gpu: [GPU model or UNKNOWN]
+vram: [GB or UNKNOWN]
+unified_memory: [GB or UNKNOWN]
+screen_size_in: [inches or UNKNOWN]
+thermal_flag: [Clear | Flagged | Disqualifying | UNKNOWN]
+price_aud: [AUD or UNKNOWN]
+condition: [New | Refurbished | Open Box | Used | UNKNOWN]
+au_stock: [Yes | No | UNKNOWN]
+verification: [Verified | Needs Verification | Unverified]
+status: [Active | Watchlist | Out of Stock | Superseded]
+score: UNKNOWN - pending MCDA scoring
+---
 
-**Headline verdict:** [1–2 lines. Example: “Strong single-GPU refurb, weak multi-GPU future.”]
+# [item_name]
 
-**Score (Atomic Dimensions - Unweighted):**
-- VRAM Adequacy: [X] / 10
-- GPU Compute Tier: [X] / 10
-- CPU Multi-core Sustained: [X] / 10
-- System RAM Capacity: [X] / 10
-- PSU Headroom for Current GPU: [X] / 10
-- CPU/GPU PCIe Bottleneck Risk: [X] / 10
-- PCIe Slot Layout Clarity: [X] / 10
-- PSU Connector Availability: [X] / 10
-- Intake Airflow Volume: [X] / 10
-- Sustained Thermal Stability: [X] / 10
-- Second PCIe x16 Slot Usability: [X] / 10
-- Chassis Clearance for 2nd GPU: [X] / 10
-- PSU Wattage Ceiling: [X] / 10
-- Price per GB VRAM: [X] / 10
-- Enterprise Pedigree: [X] / 10
-- Warranty Coverage: [X] / 10
+## Outcome Fit
+- **CareerCopilot MVP:** UNKNOWN
+- **Q4 advanced features:** UNKNOWN
+- **Track2_Avoidance:** UNKNOWN
 
-**Classification**
-- Expansion class: [Growth Platform / Single-24GB-GPU Candidate / Single-GPU Value Exception / Portable Value Exception / Unified-Memory Exception / Modular Exception / Rejected Benchmark]
-- VRAM strategy fit: [48GB+ Growth Target / Single 24GB Target / 16GB Compromise / Rejected]
-- Recommendation: [Strong buy / Conditional buy (if X) / Niche buy / Not recommended for expandable AI workstation]
+## Track Status
+- **Track:** [1 | 1.5 | 2 | UNKNOWN]
+- **Pathway:** [1A | 1B | A | B | C | UNKNOWN]
+- **GOOD ENOUGH check:** PENDING
 
-**Key specs (from listing)**
-- CPU:
-- RAM (capacity, type, slots used/free):
-- Storage (NVMe, SATA, total bays):
-- GPU (if included, else “not included”):
-- Motherboard notes (chipset, slots, PCIe layout if known):
-- PSU (model, wattage, efficiency, connectors if known):
-- Case / form factor (size, GPU clearance, fan positions if known):
-- Warranty / seller terms:
+## Overview
+- **Price (AUD):** UNKNOWN
+- **Retailer:** UNKNOWN
+- **URL:** UNKNOWN
+- **Condition:** UNKNOWN
+- **AU Stock:** UNKNOWN
+- **Warranty / ACL:** UNKNOWN
 
-**Synergy analysis**
-- CPU ↔ GPU balance:
-- PSU ↔ GPU(s) / CPU headroom:
-- Cooling ↔ workload:
-- Case ↔ GPU length / airflow:
-- Platform ↔ upgrade path:
+## Key Specs
+- **GPU:** UNKNOWN
+- **VRAM:** UNKNOWN
+- **Unified Memory:** UNKNOWN
+- **Screen Size:** UNKNOWN
+- **CPU:** UNKNOWN
+- **RAM:** UNKNOWN
+- **Storage:** UNKNOWN
+- **PSU / Charger:** UNKNOWN
+- **Thermal risk:** UNKNOWN
 
-**Best-fit use case**
-[Short paragraph describing who this is actually good for and at what budget/performance tradeoff.]
+## MCDA Scores
+- **Performance_Headroom:** UNKNOWN
+- **Price_Value:** UNKNOWN
+- **Future_Proof:** UNKNOWN
+- **Portability:** UNKNOWN
+- **Track2_Avoidance:** UNKNOWN
+- **MCDA_Total:** UNKNOWN
 
-**Rejected or risky points**
-- [Bottleneck, imbalance, or risk]
-- [Unknown that meaningfully affects scoring]
-- [Platform limitation for future dual-GPU or high-TDP upgrades]
+## Verification Checklist
+- [ ] Confirm current AU stock from named seller with URL
+- [ ] Confirm current price or effective best price
+- [ ] Confirm VRAM or unified memory
+- [ ] Confirm screen size where applicable
+- [ ] Confirm warranty / ACL coverage
+- [ ] Check sustained thermal risk
+- [ ] Confirm CareerCopilot outcome fit
+- [ ] Confirm AGENTS.md GOOD ENOUGH gate cleared
 
-**Overall recommendation**
-[Strong buy / Conditional buy (if X) / Niche buy / Not recommended for expandable AI workstation]
-
-**Verification required before purchase**
-- [PSU model / wattage / connectors]
-- [Motherboard PCIe slot layout]
-- [Case GPU clearance]
-- [Warranty / return policy]
-<!-- PRODUCT CARD END: [Machine name or short label] -->
+<!-- PRODUCT CARD END: [item_name] -->
 ```

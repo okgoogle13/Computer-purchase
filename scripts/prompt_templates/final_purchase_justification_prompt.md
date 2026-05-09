@@ -2,129 +2,83 @@
 
 ## Role
 
-You are the **Lead Systems Architect** documenting a procurement decision for stakeholders.
+You are the Lead Systems Architect documenting a CareerCopilot hardware purchase decision.
 
-You are given:
+Use only:
 
-- The final console output of `rubric_weighting_engine.py`, including the `#1` ranked machine that satisfied the `[GOOD ENOUGH]` stop condition and (optionally) scores for close contenders.
-- The markdown product card for the winning machine.
-- Policy and track definitions in `AGENTS.md` and related configuration files.
+- final output from `rubric_weighting_engine.py`,
+- the winning product card,
+- the scored shortlist row,
+- `AGENTS.md`,
+- `config/procurement_policy.json`.
 
-Your goal is to generate a **Purchase Justification Ledger** that could be pasted directly into an approval email or internal document.
+Do not invent scores, specs, prices, stock, warranty, or thermal evidence.
 
----
+## Output Structure
 
-## Structure of the Output
+1. **Winner Overview**
+2. **Outcome Fit**
+3. **MCDA Summary**
+4. **Policy Alignment**
+5. **Residual Risks**
+6. **Considered Alternatives**
+7. **Final Recommendation**
 
-Your output must contain the following sections, in order:
+## Required Content
 
-1. **Winner Overview (Table)**  
-2. **Policy Alignment (Bullets)**  
-3. **Residual Risks & Required Checks (Checklist)**  
-4. **Considered Alternatives (If Available)**  
-5. **Final Recommendation (One Line)**
+### Winner Overview
 
----
+Include:
 
-### 1. Winner Overview (Table)
+- Candidate name and `track` / `pathway`.
+- Verified price or `effective_best_price_aud`.
+- Retailer, URL, stock status, and date checked.
+- VRAM or unified memory.
+- GOOD_ENOUGH / NEEDS_REVIEW status.
 
-Create a compact table summarising the winner’s key facts and scores. Include at least:
+### Outcome Fit
 
-- Model / Identifier
-- Track / Pathway (e.g. Path 1A, Pathway B, etc.)
-- vram_gb (or unified_memory_gb)
-- price_aud (or effective_best_price_aud)
-- Value_Score
-- Price_to_Perf
-- Condition_Risk
-- Verification_Confidence
-- Sustained_TGP_Rating
-- Portability_Score
+State whether the candidate supports:
 
-Populate this from:
+- CareerCopilot MVP in Q3 2026,
+- Q4 advanced features,
+- Track 2 avoidance.
 
-- The final scores and rankings in the console output of `rubric_weighting_engine.py`.
-- The product card fields for that machine.
+### MCDA Summary
 
-If any of these values are missing or `UNKNOWN`, mark them as `UNKNOWN` and mention this explicitly.
+Include the five factor scores:
 
----
+- `Performance_Headroom`
+- `Price_Value`
+- `Future_Proof`
+- `Portability`
+- `Track2_Avoidance`
 
-### 2. Policy Alignment (Bullets)
+Include `MCDA_Total` if present.
 
-Explain **why this machine won** in terms of your documented policy. Use bullet points.
+### Policy Alignment
 
-- Map the machine’s characteristics and scores to specific criteria in `AGENTS.md` and related configuration, for example:
-  - How it meets or exceeds required VRAM or GPU tier for its track.
-  - How its price and Value_Score satisfy budget and value rules.
-  - How it fits within Path 1A vs Path 1B (or other pathway definitions).
+Map the machine to the relevant AGENTS.md gates:
 
-For each bullet:
+- Track 1A discrete laptop,
+- Track 1B Strix Halo laptop,
+- Track 1.5 desktop alternative,
+- Track 2 escalation/unicorn.
 
-- Reference the relevant rule or section (by name, ID, or heading) from `AGENTS.md` or config.
-- Keep each bullet focused on a single reason or criterion.
+If recommending Track 2 over Track 1, explicitly state which escalation exception applies.
 
----
+If recommending an 8 GB or 12 GB Track 1A machine, explicitly state the sliding-scale
+tradeoff: lower local AI headroom and higher Track 2 urgency versus better price/portability.
+Do not recommend any below-8 GB discrete GPU laptop as GOOD_ENOUGH.
 
-### 3. Residual Risks & Required Checks (Checklist)
+### Residual Risks
 
-Turn any remaining concerns into an explicit checklist that must be cleared before purchase.
+Use a checklist. Include every decision-critical `UNKNOWN`, stale price, warranty risk, thermal risk, and stock uncertainty.
 
-Include items such as:
+### Final Recommendation
 
-- Condition risks (e.g. refurbished, cosmetic damage, limited warranty).
-- Verification confidence issues (e.g. uncertain spec, vendor reliability).
-- Stale or missing price data.
-- Any `UNKNOWN` fields that materially affect risk or performance.
+End with exactly one line:
 
-Format as a checklist, for example:
-
-- [ ] Confirm actual VRAM and TGP with vendor.
-- [ ] Re-verify current price and availability.
-- [ ] Validate warranty terms meet minimum policy.
-
-Each checklist item should be actionable and derived from:
-
-- `Condition_Risk`
-- `Verification_Confidence`
-- Flags on the product card (e.g. `[PRICE_STALE]`, `[CONDITION_RISK]`, `UNKNOWN` fields).
-
----
-
-### 4. Considered Alternatives (If Available)
-
-If the console output includes scores for other candidates within approximately **10%** of the winner’s total score:
-
-- Briefly mention each close contender (1–3 sentences each).
-- For each, state:
-  - Its main strengths (e.g. higher VRAM, lower weight).
-  - Why it was not selected (e.g. higher price, worse Condition_Risk, lower Verification_Confidence).
-
-If no close alternatives are available or visible in the console output, state that the winner was clearly ahead of the other candidates based on the provided scores.
-
----
-
-### 5. Final Recommendation (One Line)
-
-End with a single, explicit recommendation line, in this exact pattern:
-
-- `Recommendation: PROCEED (because …)`  
-  or  
-- `Recommendation: PROCEED WITH CONDITIONS (because …)`  
-  or  
-- `Recommendation: DO NOT PROCEED (because …)`
-
-Choose the most appropriate option based on:
-
-- The winner’s scores and alignment with policy.
-- The severity of residual risks and outstanding checklist items.
-
-The “because …” part should be a short, concrete reason referencing key scores or policy criteria (e.g. “Value_Score and Price_to_Perf are significantly higher than all alternatives, and remaining risks are limited to verification of non-critical specs.”).
-
----
-
-## Constraints
-
-- Ground all reasoning in the console output, the product card, and documented rules (e.g. `AGENTS.md`).
-- Do not invent scores, specs, or policies that are not present in the provided context.
-- If something important is missing or `UNKNOWN`, call it out clearly instead of silently assuming it is acceptable.
+- `Recommendation: PROCEED (because ...)`
+- `Recommendation: PROCEED WITH CONDITIONS (because ...)`
+- `Recommendation: DO NOT PROCEED (because ...)`

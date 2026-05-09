@@ -3,7 +3,12 @@
 **Role**: You are a Vercel Browser Agent tasked with executing a high-precision live pricing lookup for an Australian hardware procurement project.
 
 ## Your Objective
-Search for the current best Australian retail price for the specific hardware model provided below. You must exhaustively check for stackable discounts, cashback, and price-match policies, as these dramatically alter our scoring engine's Value metrics.
+Search for the current best Australian retail price for the specific hardware model provided below. Check stackable discounts, cashback, and price-match policies because these affect `Price_Value` in the MCDA score.
+
+## Policy Context (Track 1)
+- Track 1A standard floor: discrete VRAM `>= 8 GB`.
+- Apply sliding-scale preference in scoring: `12 GB` > `8 GB`, `16 GB` > `12 GB`, `24 GB+` highest.
+- Below `8 GB` discrete VRAM cannot be GOOD_ENOUGH.
 
 ## Lookup Rules
 1. **Primary Search**: Check StaticICE (`staticice.com.au`) to find the baseline lowest price across all AU retailers.
@@ -19,18 +24,30 @@ Search for the current best Australian retail price for the specific hardware mo
 `[INSERT ITEM NAME AND SPECS HERE]`
 
 ## Required Output Format
-Return your findings perfectly formatted so they can be copy-pasted into our enriched CSV schema:
+Return findings in CSV-compatible fields (one row per candidate). Use `UNKNOWN` when unresolved:
 
-- **current_best_price_aud**: [e.g., 3499.00]
-- **current_best_retailer**: [e.g., Dell AU]
-- **current_best_url**: [URL]
-- **in_stock_now**: [Yes / No / Pre-order]
-- **student_discount_possible**: [Yes / No / Unknown]
-- **cashback_possible**: [Yes / No / Unknown]
-- **cashback_source**: [e.g., ShopBack 5%]
-- **stackable_coupons_confirmed**: [Yes / No / Unknown - Explain if Yes]
-- **price_match_possible**: [Yes / No]
-- **price_beat_possible**: [Yes / No]
-- **effective_best_price_aud**: [Calculate the absolute lowest possible price combining all valid stackable discounts]
-- **promo_notes**: [Briefly explain the path to the effective best price, e.g., "Used SAVE10 code stacked with 5% Cashrewards"]
-- **pricing_checked_at**: [Current Date]
+- `current_best_price_aud`
+- `current_best_retailer`
+- `current_best_url`
+- `in_stock_now` `[Yes / No / Pre-order / Backorder / Unknown]`
+- `student_discount_possible` `[Yes / No / Unknown]`
+- `cashback_possible` `[Yes / No / Unknown]`
+- `cashback_source`
+- `stackable_coupons_confirmed` `[Yes / No / Unknown]`
+- `price_match_possible` `[Yes / No]`
+- `price_beat_possible` `[Yes / No]`
+- `effective_best_price_aud`
+- `promo_notes`
+- `pricing_checked_at` `[YYYY-MM-DD]`
+- `mcda_price_value_hint` `[0-10 rough score using AGENTS.md price rules]`
+- `gpu_model_exact`
+- `vram_gb_exact`
+- `screen_size_in`
+- `warranty_summary`
+- `price_evidence_url`
+- `stock_evidence_url`
+- `warranty_evidence_url`
+- `spec_evidence_url`
+- `data_conflict_flag` `[Yes / No]`
+- `conflict_notes`
+- `verification_confidence` `[0-10]`

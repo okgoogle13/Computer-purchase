@@ -39,7 +39,8 @@ status, notes
 
 | Field | Allowed values |
 |---|---|
-| `track` | `Track1A`, `Track1B`, `Track1.5`, `Track2A`, `Track2B`, `Track2C`, `UNKNOWN` |
+| `track` | `1`, `1.5`, `2`, `UNKNOWN` |
+| `pathway` | `1A`, `1B`, `A`, `B`, `C`, `UNKNOWN` |
 | `category` | `Laptop`, `Desktop`, `Component`, `DIY Build`, `Mini PC`, `eGPU`, `UNKNOWN` |
 | `condition` | `New`, `Used`, `Refurbished`, `Open Box`, `UNKNOWN` |
 | `au_stock_confirmed` | `Yes`, `No`, `UNKNOWN` |
@@ -113,7 +114,7 @@ Examples:
 ## What this script does NOT do
 
 - It does not create product card `.md` files (that is `intake_to_cards.py` — Phase 1)
-- It does not rank or score the candidates (that is `build_shortlist.py` and `rubric_weighting_engine.py` — Phases 2 and 3)
+- It does not rank or score the candidates (that is `build_shortlist.py` and `rubric_weighting_engine.py` — later phases)
 - It does not commit to git
 
 For the full end-to-end workflow, read `README_pipeline.md`.

@@ -5,7 +5,7 @@ build_shortlist.py — Phase 2 of the hardware procurement pipeline.
 Scans all intake-*.md product cards, applies AGENTS.md hard-gate filters,
 and emits two CSVs:
 
-  shortlist.csv  — candidates that passed all gates, with blank score columns
+  shortlist.csv  — candidates that passed all gates, with blank MCDA columns
                    ready to be manually filled and fed into rubric_weighting_engine.py
   rejected.csv   — filtered-out rows with the reason for rejection
 
@@ -18,8 +18,8 @@ Usage:
 
 Output folder: NotebookLM_Workspaces/intake/shortlist/
 
-After filling in the score columns (0-10), run:
-    python scripts/rubric_weighting_engine.py --profile merged \\
+After filling in the MCDA columns (0-10), run:
+    python NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/Policy_Pack/expandable_workstation_scoring_policy_pack/rubric_weighting_engine.py \\
         --csv NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist.csv
 """
 
@@ -66,16 +66,14 @@ WORKSTATION_GPU_KEYWORDS = [
     "QUADRO", "RADEON PRO W", "ARC PRO",
 ]
 
-# Merged score columns — filled manually after shortlisting
+# MCDA score columns — filled manually after live pricing verification.
 SCORE_COLUMNS = [
-    "VRAM_Adequacy",          # 10=48GB+/128GB unified, 8=24GB, 5=16GB, 2=8GB, 0=<8GB
-    "GPU_Compute_Tier",       # 10=RTX5090/4090 Pro, 8=RTX3090/4090M/5080, 6=RTX5070Ti/4080
-    "Value_Score",            # 10=exceptional price/VRAM ratio, 5=average, 0=poor
-    "Price_to_Perf",          # 10=best-in-class overall value, 5=fair, 0=overpriced
-    "Condition_Risk",         # 10=New+warranty, 8=OpenBox, 6=Refurb+warranty, 4=Used, 0=Unknown
-    "Verification_Confidence",# 10=AU stock+URL confirmed, 5=needs verification, 2=unverified
-    "Sustained_TGP_Rating",   # 10=>=175W, 8=150W, 6=120W, 0=N/A (desktop/component)
-    "Portability_Score",      # 10=<2kg, 7=2-2.5kg, 4=2.5-3kg, 1=3kg+, 0=N/A (non-mobile)
+    "Performance_Headroom",  # 25%: local AI capacity/headroom for MVP + Q4
+    "Price_Value",           # 20%: value against budget and alternatives
+    "Future_Proof",          # 20%: Q4 runway and resale/useful life
+    "Portability",           # 20%: laptop/field practicality; desktops score low unless Track 2 trigger applies
+    "Track2_Avoidance",      # 15%: likelihood this purchase avoids/defer Track 2
+    "MCDA_Total",            # computed by rubric_weighting_engine.py
 ]
 
 
@@ -166,6 +164,36 @@ def parse_vram(vram_str: str) -> float | None:
         return None
 
 
+def parse_screen_size(md_text: str, item_name: str) -> float | None:
+    """Extract a likely laptop screen size in inches from card text."""
+    patterns = [
+        r"\*\*Display:\*\*[^\n]*?(\d{2}(?:\.\d)?)\s*(?:-|–)?\s*(?:inch|in\b|\")",
+        r"\*\*Screen(?: Size)?:\*\*[^\n]*?(\d{2}(?:\.\d)?)\s*(?:-|–)?\s*(?:inch|in\b|\")",
+        r"\b(\d{2}(?:\.\d)?)\s*(?:-|–)?\s*inch\b",
+    ]
+    haystack = f"{item_name}\n{md_text}"
+    for pattern in patterns:
+        match = re.search(pattern, haystack, re.IGNORECASE)
+        if not match:
+            continue
+        value = float(match.group(1))
+        if 10 <= value <= 20:
+            return value
+    return None
+
+
+def parse_thermal_flag(md_text: str) -> str:
+    """Return Disqualifying, Flagged, Clear, or UNKNOWN from card evidence."""
+    text = md_text.lower()
+    if "no disqualifying thermal" in text or "thermals clear" in text:
+        return "Clear"
+    if "disqualifying thermal" in text or "thermal flag: disqualifying" in text:
+        return "Disqualifying"
+    if "thermal concern" in text or "thermal flag" in text or "throttl" in text:
+        return "Flagged"
+    return "UNKNOWN"
+
+
 # ---------------------------------------------------------------------------
 # Policy Evaluator
 # ---------------------------------------------------------------------------
@@ -188,10 +216,13 @@ def evaluate_policy(row: dict, config: dict) -> dict:
     unified_val    = row["_unified_float"]
 
     # Load thresholds from config
-    budget_cap        = config.get("budget_cap_aud", 4500.0)
+    budget_cap        = config.get("budget_cap_aud", 5000.0)
     behavior          = config.get("shortlist_behavior", {})
     exc_vram          = config.get("exceptional_overrides", {}).get("vram_threshold_gb", 24.0)
     exc_max_budget    = config.get("exceptional_overrides", {}).get("max_override_budget_aud", 6000.0)
+    bargain           = config.get("track1_bargain_exception", {})
+    bargain_vram      = float(bargain.get("minimum_vram_gb", 12.0))
+    bargain_price_cap = float(bargain.get("max_effective_price_aud", 3500.0))
 
     hard_reject_reason = None
     soft_penalty_notes = []
@@ -207,7 +238,7 @@ def evaluate_policy(row: dict, config: dict) -> dict:
     # Gate 2: VRAM floor (Complete Systems only)
     if row["Category_Group"] == "Complete_System":
         if profile in ("Laptop", "Mini PC", "Apple Silicon"):
-            floor_dis = config.get("laptop_discrete_minimum_vram_gb", 8.0)
+            floor_dis = config.get("laptop_discrete_minimum_vram_gb", 16.0)
             floor_uni = config.get("laptop_unified_minimum_vram_gb", 16.0)
             effective_vram = vram_val or 0
             effective_unified = unified_val or 0
@@ -215,14 +246,38 @@ def evaluate_policy(row: dict, config: dict) -> dict:
             # If both are known or partially known and fail:
             if vram_val is not None or unified_val is not None:
                 if effective_vram < floor_dis and effective_unified < floor_uni:
-                    msg = f"Below VRAM floor: vram={vram_val} GB, unified={effective_unified} GB (need ≥{floor_dis} GB discrete or ≥{floor_uni} GB unified)"
-                    if behavior.get("below_vram_floor_action") == "hard_reject":
-                        hard_reject_reason = msg
-                        return {"hard_reject_reason": hard_reject_reason, "soft_penalty_notes": [], "exceptional_override": None, "shortlist_reason": "", "over_budget": False}
+                    if profile == "Laptop" and vram_val is not None and bargain_vram <= vram_val < floor_dis:
+                        if price_val is None or price_val <= bargain_price_cap:
+                            soft_penalty_notes.append(
+                                f"Track 1A bargain exception candidate: {vram_val} GB VRAM below standard {floor_dis} GB floor; "
+                                f"requires effective price ≤${bargain_price_cap:,.0f} AUD and Price_Value ≥8"
+                            )
+                            # Keep candidate visible for live pricing and MCDA.
+                            pass
+                        else:
+                            msg = (
+                                f"Below standard VRAM floor and not a bargain: {vram_val} GB discrete "
+                                f"(need ≥{floor_dis} GB, or ≥{bargain_vram} GB at ≤${bargain_price_cap:,.0f} AUD)"
+                            )
+                            if behavior.get("below_vram_floor_action") == "hard_reject":
+                                hard_reject_reason = msg
+                                return {"hard_reject_reason": hard_reject_reason, "soft_penalty_notes": [], "exceptional_override": None, "shortlist_reason": "", "over_budget": False}
+                            soft_penalty_notes.append(msg)
+                        # Do not also apply the normal below-floor message.
+                        continue_below_floor = False
                     else:
-                        soft_penalty_notes.append(msg)
+                        continue_below_floor = True
+                    if not continue_below_floor:
+                        pass
+                    else:
+                        msg = f"Below VRAM floor: vram={vram_val} GB, unified={effective_unified} GB (need ≥{floor_dis} GB discrete or ≥{floor_uni} GB unified)"
+                        if behavior.get("below_vram_floor_action") == "hard_reject":
+                            hard_reject_reason = msg
+                            return {"hard_reject_reason": hard_reject_reason, "soft_penalty_notes": [], "exceptional_override": None, "shortlist_reason": "", "over_budget": False}
+                        else:
+                            soft_penalty_notes.append(msg)
         elif profile in ("Desktop",):
-            floor_desk = config.get("desktop_minimum_vram_gb", 8.0)
+            floor_desk = config.get("desktop_minimum_vram_gb", 16.0)
             if vram_val is not None and vram_val < floor_desk:
                 msg = f"Below VRAM floor: {vram_val} GB discrete (need ≥{floor_desk} GB)"
                 if behavior.get("below_vram_floor_action") == "hard_reject":
@@ -277,7 +332,7 @@ def evaluate_policy(row: dict, config: dict) -> dict:
 # Row builder
 # ---------------------------------------------------------------------------
 
-def build_row(fm: dict, intake_info: dict, source_path: Path) -> dict:
+def build_row(fm: dict, intake_info: dict, source_path: Path, md_text: str) -> dict:
     """Build a fully annotated shortlist row from a card's frontmatter."""
 
     # Raw field extraction
@@ -300,6 +355,8 @@ def build_row(fm: dict, intake_info: dict, source_path: Path) -> dict:
     price_float, price_unknown = parse_price(price_raw)
     vram_float     = parse_vram(vram_raw)
     unified_float  = parse_vram(unified_raw)
+    screen_size     = parse_screen_size(md_text, item_name)
+    thermal_flag    = parse_thermal_flag(md_text)
     cat_group      = classify_category_group(profile, gpu_model)
 
     # Intake ID from filename
@@ -323,6 +380,8 @@ def build_row(fm: dict, intake_info: dict, source_path: Path) -> dict:
         "gpu_model":            gpu_model,
         "vram_gb":              vram_float if vram_float is not None else "UNKNOWN",
         "unified_memory_gb":    unified_float if unified_float is not None else "UNKNOWN",
+        "screen_size_in":       screen_size if screen_size is not None else "UNKNOWN",
+        "thermal_flag":         thermal_flag,
         "price_aud":            price_float if price_float is not None else "UNKNOWN",
         "Price_Unknown":        "Yes" if price_unknown else "",
         "condition":            condition,
@@ -364,7 +423,7 @@ def scan_intake_cards(batch_filter: str | None, profile_filter: str | None) -> l
             if not fm:
                 continue  # skip unparseable cards
 
-            row = build_row(fm, intake_info, md_path)
+            row = build_row(fm, intake_info, md_path, text)
 
             # Batch filter
             if batch_filter and batch_filter not in row["batch"]:
@@ -386,6 +445,7 @@ def scan_intake_cards(batch_filter: str | None, profile_filter: str | None) -> l
 SHORTLIST_FIELDNAMES = [
     "intake_id", "item_name", "status", "profile", "category", "Category_Group",
     "track", "pathway", "gpu_model", "vram_gb", "unified_memory_gb",
+    "screen_size_in", "thermal_flag",
     "price_aud", "Over_Budget", "Price_Unknown",
     "condition", "retailer", "verification_status", "au_stock", 
     "batch", "source_file", "exceptional_override", "shortlist_reason", "soft_penalty_notes",

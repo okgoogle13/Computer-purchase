@@ -45,12 +45,52 @@ NUM_COLS = len(CANONICAL_HEADER)  # 19
 # ---------------------------------------------------------------------------
 
 ENUM_TRACK = {
-    "track1a": "Track1A",
-    "track1b": "Track1B",
-    "track1.5": "Track1.5",
-    "track2a": "Track2A",
-    "track2b": "Track2B",
-    "track2c": "Track2C",
+    "1": "1",
+    "track1": "1",
+    "track 1": "1",
+    "1.5": "1.5",
+    "track1.5": "1.5",
+    "track 1.5": "1.5",
+    "2": "2",
+    "track2": "2",
+    "track 2": "2",
+    # Backward-compatible combined lane values. Pathway is split later.
+    "track1a": "1",
+    "track 1a": "1",
+    "1a": "1",
+    "track1b": "1",
+    "track 1b": "1",
+    "1b": "1",
+    "track2a": "2",
+    "track 2a": "2",
+    "2a": "2",
+    "track2b": "2",
+    "track 2b": "2",
+    "2b": "2",
+    "track2c": "2",
+    "track 2c": "2",
+    "2c": "2",
+}
+
+ENUM_PATHWAY = {
+    "1a": "1A",
+    "track1a": "1A",
+    "track 1a": "1A",
+    "1b": "1B",
+    "track1b": "1B",
+    "track 1b": "1B",
+    "a": "A",
+    "2a": "A",
+    "track2a": "A",
+    "track 2a": "A",
+    "b": "B",
+    "2b": "B",
+    "track2b": "B",
+    "track 2b": "B",
+    "c": "C",
+    "2c": "C",
+    "track2c": "C",
+    "track 2c": "C",
 }
 
 ENUM_CATEGORY = {
@@ -270,6 +310,46 @@ def normalize_enum(
     return fallback
 
 
+def split_combined_track_pathway(track_raw: str, pathway_raw: str, warnings: list, row_id: str) -> tuple[str, str]:
+    """Normalize legacy Track1A/Track2B style values into track + pathway."""
+    track_key = (track_raw or "").strip().lower().replace(" ", "")
+    pathway_key = (pathway_raw or "").strip().lower().replace(" ", "")
+
+    inferred_pathway = None
+    if track_key in ("track1a", "1a"):
+        inferred_pathway = "1A"
+    elif track_key in ("track1b", "1b"):
+        inferred_pathway = "1B"
+    elif track_key in ("track2a", "2a"):
+        inferred_pathway = "A"
+    elif track_key in ("track2b", "2b"):
+        inferred_pathway = "B"
+    elif track_key in ("track2c", "2c"):
+        inferred_pathway = "C"
+
+    track = normalize_enum(track_raw, ENUM_TRACK, "track", warnings, row_id)
+    pathway = normalize_enum(pathway_raw, ENUM_PATHWAY, "pathway", warnings, row_id)
+
+    if inferred_pathway and pathway == "UNKNOWN":
+        pathway = inferred_pathway
+        warnings.append({
+            "type": "pathway_inferred_from_track",
+            "row": row_id,
+            "track_original": track_raw,
+            "pathway_inferred": pathway,
+        })
+    elif inferred_pathway and pathway != inferred_pathway:
+        warnings.append({
+            "type": "track_pathway_disagreement",
+            "row": row_id,
+            "track_original": track_raw,
+            "pathway_original": pathway_raw,
+            "pathway_from_track": inferred_pathway,
+        })
+
+    return track, pathway
+
+
 # ---------------------------------------------------------------------------
 # Header detection
 # ---------------------------------------------------------------------------
@@ -466,8 +546,8 @@ def normalize_row(fields: list, warnings: list) -> dict:
         d[field] = normalize_numeric(d[field], field, warnings, row_id)
 
     # Step 5: enum fields
-    d["track"] = normalize_enum(
-        d["track"], ENUM_TRACK, "track", warnings, row_id
+    d["track"], d["pathway"] = split_combined_track_pathway(
+        d["track"], d["pathway"], warnings, row_id
     )
     d["category"] = normalize_enum(
         d["category"], ENUM_CATEGORY, "category", warnings, row_id

@@ -14,7 +14,7 @@ condition: Refurbished
 au_stock: Yes
 verification: Verified
 status: Active
-score: UNKNOWN — pending manual review
+score: 9.2 (MCDA Estimated)
 ---
 
 # Acer Predator Helios 18 RTX 4090 refurbished
@@ -42,9 +42,9 @@ score: UNKNOWN — pending manual review
 - **Unified Memory:** UNKNOWN
 - **CPU:** i9-14900HX
 - **RAM:** 32 GB
-- **Storage:** UNKNOWN
-- **PSU / Charger:** UNKNOWN
-- **Warranty (AU):** UNKNOWN
+- **Storage:** 4TB (2x2TB RAID) SSD
+- **PSU / Charger:** 330W GaN
+- **Warranty (AU):** 1-year Limited (Acer AU Refurbished)
 
 ## Source Notes
 Desktop Replacement
@@ -59,7 +59,7 @@ Solid — 16 GB VRAM handles 13B–20B Q4 natively; 34B requires offloading.
 - [x] Confirm CPU model
 - [x] Confirm RAM installed and max supported
 - [x] Confirm storage installed and free M.2 slots
-- [ ] Confirm PSU / charger wattage
+- [x] Confirm PSU / charger wattage
 - [x] Confirm warranty term and type (AU)
 - [x] Check thermal reputation (reviews)
 - [x] Confirm AGENTS.md GOOD ENOUGH gate cleared
