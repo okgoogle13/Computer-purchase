@@ -63,11 +63,57 @@ Use the repository's 5-phase workflow:
 
 1. **Intake:** normalize raw exports and generate product cards.
 2. **Shortlist:** filter below-floor, unavailable, or obviously unsuitable candidates.
-3. **Live Pricing:** verify current AU price, stock, discounts, cashback, and coupons.
+3. **Live Pricing:**
+   - **Phase 3a Schema Scaffold:** `scripts/enrich_shortlist_pricing.py` adds pricing metadata columns only. No web lookup and no inferred values.
+   - **Phase 3b Live Verification Fill:** `scripts/fill_shortlist_live_pricing.py` fills queued rows with current AU pricing and seller/source evidence.
 4. **Manual Scoring:** fill MCDA score fields from verified evidence.
 5. **Rank and Decide:** recommend the highest-scoring GOOD ENOUGH candidate.
 
 Scripts must read hard thresholds from `config/procurement_policy.json`. Do not hard-code script thresholds.
+
+### Pricing Metadata and Source/Seller Risk
+
+Phase 3 pricing metadata fields include:
+
+- `source_platform`
+- `seller_class`
+- `seller_risk_score`
+- `current_best_price_aud`
+- `current_best_retailer`
+- `current_best_url`
+- `in_stock_now`
+- `student_discount_possible`
+- `cashback_possible`
+- `cashback_source`
+- `stackable_coupons_confirmed`
+- `price_match_possible`
+- `price_beat_possible`
+- `effective_best_price_aud`
+- `promo_notes`
+- `pricing_checked_at`
+- `warranty_months_confirmed`
+- `acl_covered`
+
+`source_platform` and `seller_class` must be populated during live verification and are used by ranking output to apply transparent risk-aware score adjustment. Leave unknown values as `UNKNOWN`; do not guess.
+
+### Safe Source Hierarchy (Track 1)
+
+For Track 1 buy-path decisions, source priority is:
+
+1. `MANUFACTURER_AU`
+2. `MAJOR_RETAILER_AU`
+3. `AMAZON_AU`
+4. `EBAY_AU`
+5. `GUMTREE_AU` / `FB_MARKETPLACE` fallback only
+6. `GRAY_IMPORT` only when explicitly accepted as higher risk
+
+`GUMTREE_AU` and `FB_MARKETPLACE` are bargain-lane or fallback sources, not default buy-path sources for primary recommendations.
+
+### File Responsibilities
+
+- `scripts/enrich_shortlist_pricing.py` owns pricing schema scaffolding only.
+- `scripts/fill_shortlist_live_pricing.py` owns live pricing fill for queued rows.
+- `NotebookLM_Workspaces/.../rubric_weighting_engine.py` owns MCDA weighting + policy status + explicit risk-adjusted output columns.
 
 ## Outcome Checklist
 
@@ -92,12 +138,14 @@ Scope:
 - Lenovo Legion / Legion Pro.
 - ASUS ROG.
 - MSI high-performance gaming or creator laptops.
+- Alienware (Approved Exception - 2026-05-09).
 
 Named exceptions require explicit user approval unless already present in the repo.
 
 Outcome:
 
-- `8 GB VRAM` is the minimum for Track 1A eligibility.
+- `8 GB VRAM` is the hard minimum for Track 1A eligibility.
+- `12 GB VRAM` is the discovery floor for active secondary-market scans.
 - `24 GB VRAM` is preferred for Q4 features and Track 2 avoidance.
 - `12 GB` and `16 GB` should score progressively better than `8 GB`.
 
@@ -287,8 +335,9 @@ Score each factor from 0 to 10.
 - 2-3: 8 GB discrete GPU. Entry-level local AI headroom.
 - 4-5: 12 GB discrete GPU. Better but still constrained for larger local models.
 - 6-7: 16 GB discrete GPU. Strong mainstream local AI tier.
-- 8-10: 24 GB+ discrete GPU or very high unified memory.
-- 10: Strong Q4 headroom, such as 24 GB VRAM or high unified-memory capacity.
+- 8-10: 24 GB+ discrete GPU tier.
+- Unified-memory capacity is an advantage, but it is not equivalent to discrete-GPU compute throughput by default.
+- Strix Halo / Radeon 8060S default cap: `Performance_Headroom <= 7` unless workload-specific CareerCopilot benchmark evidence shows higher real throughput.
 
 **Price_Value**
 
@@ -296,6 +345,7 @@ Score each factor from 0 to 10.
 - 8-10: Bargain exception pricing, if the low price is verified and the capability tradeoff is explicit.
 - 5: Fair market value.
 - 0: At budget cap with weak differentiation.
+- A score of `10` requires excellent value versus current verified alternatives, not merely being under 5,000 AUD.
 
 **Future_Proof**
 
@@ -319,6 +369,21 @@ Score each factor from 0 to 10.
 - 3-5: 12 GB tier may defer Track 2 briefly.
 - 1-3: 8 GB tier likely increases Track 2 urgency.
 - 0: Track 2 likely still required soon.
+- Strix Halo caps by unified memory, unless benchmark evidence supports higher:
+  - 32 GB unified: `5-6`
+  - 64 GB unified: `7`
+  - 128 GB unified: `8`
+
+### Review-Risk Penalties
+
+Apply negative scoring pressure (typically `-1` to `-2` on affected factors) when credible reviews report:
+
+- Loud sustained fan behavior, coil whine, or sustained thermal constraint in compact chassis.
+- Weak display quality for the class.
+- Poor battery endurance in real creator/dev workloads.
+- Uncertain ROCm or toolchain compatibility for CareerCopilot local AI workflows.
+
+Use these as scoring modifiers, not automatic disqualifiers, unless thermal risk is sustained and disqualifying under track gates.
 
 ## Recommendation Format
 

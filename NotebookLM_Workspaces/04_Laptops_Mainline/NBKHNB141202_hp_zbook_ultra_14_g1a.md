@@ -10,10 +10,10 @@ unified_memory_gb: 32
 ram_gb: 32
 ssd_gb: 512
 screen_inches: 14.0
-price_aud: 4200.00
-effective_best_price_aud: 4200.00
-retailer: PB Tech (User Verified)
-url: https://www.pbtech.com/au/product/NBKHNB141202/HP-ZBook-Ultra-14-G1a-14-WUXGA-Mobile-Workstation
+price_aud: 3699.00
+effective_best_price_aud: 3699.00
+retailer: JW Computers
+url: https://www.jw.com.au/product/hp-zb-ultra-14-g1a-14-ai-max-390-32g-512g-w11p
 status: BUY_CANDIDATE
 date_verified: 2026-05-07
 ---
@@ -26,7 +26,7 @@ date_verified: 2026-05-07
 - **Unified Memory:** 32GB LPDDR5x-8533 MT/s (Onboard).
 - **Storage:** 512GB PCIe Gen4 SSD (Requires upgrade for CareerCopilot).
 - **Display:** 14" WUXGA (1920x1200) IPS 400 nits.
-- **Price:** $4,849.57 AUD at PB Tech.
+- **Price:** $3,699.00 AUD at JW Computers.
 - **Warranty:** 3Y NBD Onsite (Professional grade).
 
 ## Gate Assessment (Track 1B)
@@ -37,11 +37,11 @@ date_verified: 2026-05-07
 
 ## Decision State
 **BUY_CANDIDATE**
-This is the first verified Track 1B (Strix Halo) candidate in the repository. It meets all gates but carries significant thermal and software ecosystem risk (ROCm). It is recommended for users prioritizing portability and unified memory over raw CUDA performance.
+This is a credible Track 1B Strix Halo option. It meets core gates but carries thermal and software ecosystem risk (ROCm), and should be scored with capped Track2_Avoidance expectations for 32GB unified memory.
 
 ## Performance Profile (CareerCopilot)
 - **MVP Workload:** Strong. 32GB unified memory allows for larger LLM context windows than typical 8GB/12GB consumer laptops.
-- **Q4 Advanced Features:** Strong. Strix Halo architecture provides a long runway for AI workloads.
+- **Q4 Advanced Features:** Moderate to strong. 32GB unified memory helps, but runway is below 64GB/128GB tiers.
 - **Portability:** Excellent (14" chassis, ~1.4kg).
 - **Upgradability:** Memory is onboard (LPDDR5x). 32GB is fixed.
 

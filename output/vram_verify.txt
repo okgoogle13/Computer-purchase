@@ -1,0 +1,35 @@
+# VRAM Verification Log — market_scan_2026-05-09
+# Generated: 2026-05-10
+# Method: GPU model lookup via TechPowerUp (manual step required for flagged entries)
+
+RTX 4080 Laptop GPU — CONFIRMED 12GB GDDR6 (mkt-001, mkt-002, mkt-003)
+  Source: NVIDIA spec sheet + listing titles explicitly state "12GB"
+
+RTX 4070 Laptop GPU — CONFIRMED 8GB GDDR6 (mkt-004, mkt-005, mkt-006, mkt-007)
+  Source: NVIDIA spec sheet; some listing titles confirm "8GB"
+  NOTE: Below 12GB threshold in plan. Marked WATCH in CSV.
+  All RTX 4070 entries are for VALUE/WATCH only — below 12GB preference.
+
+RTX 3080 Ti Laptop GPU — CONFIRMED 16GB GDDR6 (mkt-008, mkt-009)
+  Source: NVIDIA spec sheet; laptop variant of 3080 Ti has 16GB GDDR6
+  TechPowerUp verification URL: https://www.techpowerup.com/gpu-specs/geforce-rtx-3080-ti-laptop-gpu.c3855
+
+RTX 3080 Laptop GPU — mkt-010 VRAM_VERIFY REQUIRED
+  ThinkPad P1 Gen4 with "RTX 3080 16GB" — may be:
+  - NVIDIA RTX A4000 Laptop GPU (16GB GDDR6) — Quadro/Pro series
+  - NVIDIA GeForce RTX 3080 Laptop GPU (8GB or 16GB depending on TDP)
+  ACTION: Check https://www.notebookcheck.net/Lenovo-ThinkPad-P1-Gen-4.573568.0.html
+  or the exact GPU model at TechPowerUp before purchase decision.
+
+# Sites that blocked scraping (manual verification required):
+BLOCKED: Dell.com/en-au/outlet (Access Denied — bot detection)
+BLOCKED: Gumtree.com.au (HTTP error — geographic or bot block)
+BLOCKED: Scorptec.com.au (Cloudflare CAPTCHA)
+
+# Recommended manual checks (30 min):
+1. Dell Outlet AU: Filter Alienware gaming laptops <$5000 (exclude m18-r2, Area-51 18")
+   URL: https://www.dell.com/en-au/outlet/gaming-laptops
+2. Gumtree Melbourne: Search "RTX 4080 laptop" in VIC — local pickup may yield $2000-3000 deals
+   URL: https://www.gumtree.com.au/s-computers-iphone-ipad-electronics/victoria
+3. Scorptec ex-demo: Check https://www.scorptec.com.au/product/laptops
+4. Facebook Marketplace Melbourne: RTX 4080 laptop — often $2500-4000 cash

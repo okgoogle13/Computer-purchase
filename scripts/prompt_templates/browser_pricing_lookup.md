@@ -10,44 +10,70 @@ Search for the current best Australian retail price for the specific hardware mo
 - Apply sliding-scale preference in scoring: `12 GB` > `8 GB`, `16 GB` > `12 GB`, `24 GB+` highest.
 - Below `8 GB` discrete VRAM cannot be GOOD_ENOUGH.
 
-## Lookup Rules
-1. **Primary Search**: Check StaticICE (`staticice.com.au`) to find the baseline lowest price across all AU retailers.
-2. **Direct OEM Stores**: Check the direct manufacturer store (Dell Australia, Lenovo Australia, HP Australia).
-3. **Discount & Stackability Hunt (CRITICAL)**:
-   - Check if **Student Discounts** or **Education Stores** apply.
-   - Check for **Cashback** (e.g., Cashrewards, ShopBack).
-   - Check for **Promo Codes** explicitly confirming if they are **stackable**. (e.g., Dell often allows a coupon code to stack with cashback).
-   - Look for **Price Match** or **Price Beat** policies (e.g., Officeworks 5% price beat).
-4. **Availability**: Confirm the item is actually "In Stock" or has a realistic ship date (not "Special Order - ETA Unknown").
+## Source Priority Order (Highest Trust First)
+1. **Manufacturer AU store pages** (`MANUFACTURER_AU`)
+2. **Major AU retailers / authorised resellers** (`MAJOR_RETAILER_AU`)
+3. **Amazon Australia** (`AMAZON_AU`)
+4. **eBay Australia listings** (`EBAY_AU`)
+5. **Gumtree** (`GUMTREE_AU`)
+6. **Facebook Marketplace** (`FB_MARKETPLACE`)
+7. **Gray import marketplaces/stores** (`GRAY_IMPORT`)
+
+Always prefer safer AU sources when prices are close. Treat Gumtree and Facebook Marketplace as higher-risk bargain inputs that require explicit caution.
+
+## Seller and Source Classification Rules
+- `source_platform` enum:
+  - `MANUFACTURER_AU`
+  - `MAJOR_RETAILER_AU`
+  - `AMAZON_AU`
+  - `EBAY_AU`
+  - `GUMTREE_AU`
+  - `FB_MARKETPLACE`
+  - `GRAY_IMPORT`
+- `seller_class` enum:
+  - `OFFICIAL_STORE`
+  - `AUTHORISED_RESELLER`
+  - `EBAY_POWER_SELLER`
+  - `REFURB_SELLER`
+  - `PRIVATE_SELLER`
+  - `GRAY_MARKET`
+- Use `PRIVATE_SELLER` for Gumtree/FB and person-to-person marketplace listings unless clear business proof exists.
+- Use `GRAY_MARKET` for parallel import sellers without clear AU warranty path.
+- Assign conservative risk for non-official channels and note risks in `promo_notes`.
 
 ## Target Item
 `[INSERT ITEM NAME AND SPECS HERE]`
 
-## Required Output Format
-Return findings in CSV-compatible fields (one row per candidate). Use `UNKNOWN` when unresolved:
+## Required Output Contract (JSON Only)
+Return a single JSON object for one candidate. Use `UNKNOWN` when unresolved. Do not include extra fields.
 
-- `current_best_price_aud`
-- `current_best_retailer`
-- `current_best_url`
-- `in_stock_now` `[Yes / No / Pre-order / Backorder / Unknown]`
-- `student_discount_possible` `[Yes / No / Unknown]`
-- `cashback_possible` `[Yes / No / Unknown]`
-- `cashback_source`
-- `stackable_coupons_confirmed` `[Yes / No / Unknown]`
-- `price_match_possible` `[Yes / No]`
-- `price_beat_possible` `[Yes / No]`
-- `effective_best_price_aud`
-- `promo_notes`
-- `pricing_checked_at` `[YYYY-MM-DD]`
-- `mcda_price_value_hint` `[0-10 rough score using AGENTS.md price rules]`
-- `gpu_model_exact`
-- `vram_gb_exact`
-- `screen_size_in`
-- `warranty_summary`
-- `price_evidence_url`
-- `stock_evidence_url`
-- `warranty_evidence_url`
-- `spec_evidence_url`
-- `data_conflict_flag` `[Yes / No]`
-- `conflict_notes`
-- `verification_confidence` `[0-10]`
+```json
+{
+  "candidate_id": "string",
+  "source_platform": "MANUFACTURER_AU|MAJOR_RETAILER_AU|AMAZON_AU|EBAY_AU|GUMTREE_AU|FB_MARKETPLACE|GRAY_IMPORT",
+  "seller_class": "OFFICIAL_STORE|AUTHORISED_RESELLER|EBAY_POWER_SELLER|REFURB_SELLER|PRIVATE_SELLER|GRAY_MARKET",
+  "seller_risk_score": "0-10_or_UNKNOWN",
+  "current_best_price_aud": "number_or_UNKNOWN",
+  "current_best_retailer": "string_or_UNKNOWN",
+  "current_best_url": "url_or_UNKNOWN",
+  "in_stock_now": "Yes|No|Pre-order|Backorder|Unknown",
+  "student_discount_possible": "Yes|No|Unknown",
+  "cashback_possible": "Yes|No|Unknown",
+  "cashback_source": "string_or_UNKNOWN",
+  "stackable_coupons_confirmed": "Yes|No|Unknown",
+  "price_match_possible": "Yes|No|Unknown",
+  "price_beat_possible": "Yes|No|Unknown",
+  "effective_best_price_aud": "number_or_UNKNOWN",
+  "promo_notes": "string_or_UNKNOWN",
+  "pricing_checked_at": "YYYY-MM-DD",
+  "warranty_months_confirmed": "integer_or_UNKNOWN",
+  "acl_covered": "Yes|No|Unknown"
+}
+```
+
+## Lookup Rules
+1. Check StaticICE (`staticice.com.au`) for baseline AU pricing spread.
+2. Validate direct AU manufacturer stores and major AU retailers for trusted floor pricing.
+3. Hunt stackable value: student/education discounts, cashback (Cashrewards/ShopBack), coupon stackability, price-match, and price-beat policy.
+4. Confirm live stock status with realistic fulfilment timing.
+5. Capture warranty evidence quality and Australian Consumer Law coverage confidence.

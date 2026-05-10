@@ -1,14 +1,16 @@
-Machine,Type,track,pathway,vram_gb,unified_memory_gb,screen_size_in,price_aud,au_stock,Performance_Headroom,Price_Value,Future_Proof,Portability,Track2_Avoidance,MCDA_Total
-Custom_RTX3090_24GB_Tower,Reference,2,A,24,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,,,,,
-Dell_Precision_T7920_Dual_A5000,Reference,2,B,48,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,,,,,
-HP_Z8_G4_Workstation_RTX3090,Reference,2,B,24,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,,,,,
-Used_EVGA_3090_Boutique_Tower,Reference,1.5,UNKNOWN,24,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,,,,,
-Mac_Studio_M4_Max_64GB,Deferred,2,C,UNKNOWN,64,UNKNOWN,UNKNOWN,UNKNOWN,,,,,,
-PLE_RTX5070Ti_16GB_Desktop,Reference,1.5,UNKNOWN,16,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,,,,,
-MSI_RTX4080S_16GB_Prebuilt,Reference,1.5,UNKNOWN,16,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,,,,,
-Lenovo_Legion_RTX4090_16GB_Laptop,Reference,1,1A,16,UNKNOWN,16,UNKNOWN,UNKNOWN,,,,,,
-Dell_Alienware_m18_RTX4090_Laptop,Reference,1,1A,16,UNKNOWN,18,UNKNOWN,UNKNOWN,,,,,,
-MSI_Vector_A18_RTX5070Ti_12GB,Rejected,1,1A,12,UNKNOWN,18,UNKNOWN,UNKNOWN,,,,,,
-RTX4080S_Refurb_MidTower_Generic,Reference,1.5,UNKNOWN,16,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,,,,,
-Threadripper_Boutique_No_GPU,Deferred,2,A,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,,,,,
-Mac_Mini_M4_Pro_24GB_Unified,Deferred,2,C,UNKNOWN,24,UNKNOWN,UNKNOWN,UNKNOWN,,,,,,
+Machine,Type,track,pathway,vram_gb,unified_memory_gb,screen_size_in,price_aud,au_stock,Performance_Headroom,Price_Value,Future_Proof,Portability,Track2_Avoidance,MCDA_Total,Policy_Status,Policy_Blockers
+Alienware_M18_R2_4090_16GB_mkt013,Laptop,1,1A,16,UNKNOWN,18,4726,No,9,5,9,3,10,7.150,NEEDS_REVIEW,AU stock not confirmed
+Alienware_M18_R2_4090_16GB_mkt014,Laptop,1,1A,16,UNKNOWN,18,4685,No,9,5,9,3,10,7.150,NEEDS_REVIEW,AU stock not confirmed
+Alienware_M18_R2_4080_12GB_mkt012,Laptop,1,1A,12,UNKNOWN,18,3814,No,7,8,7,3,8,6.550,NEEDS_REVIEW,AU stock not confirmed
+Alienware_M18_R2_4080_12GB_mkt011,Laptop,1,1A,12,UNKNOWN,18,3905,No,7,7,7,3,8,6.350,NEEDS_REVIEW,AU stock not confirmed
+ASUS_ROG_Scar17_RTX4090_16GB,Reference,1,1A,16,UNKNOWN,17,UNKNOWN,UNKNOWN,,,,,,,NEEDS_REVIEW,"missing MCDA: Performance_Headroom, Price_Value, Future_Proof, Portability, Track2_Avoidance; price UNKNOWN; AU stock not confirmed; MCDA score incomplete"
+ASUS_ROG_Scar18_RTX4090_16GB,Reference,1,1A,16,UNKNOWN,18,UNKNOWN,UNKNOWN,,,,,,,NEEDS_REVIEW,"missing MCDA: Performance_Headroom, Price_Value, Future_Proof, Portability, Track2_Avoidance; price UNKNOWN; AU stock not confirmed; MCDA score incomplete"
+Lenovo_Legion_Pro7i_RTX4090_16GB,Reference,1,1A,16,UNKNOWN,16,UNKNOWN,UNKNOWN,,,,,,,NEEDS_REVIEW,"missing MCDA: Performance_Headroom, Price_Value, Future_Proof, Portability, Track2_Avoidance; price UNKNOWN; AU stock not confirmed; MCDA score incomplete"
+MSI_Stealth16_RTX4090_16GB,Reference,1,1A,16,UNKNOWN,16,UNKNOWN,UNKNOWN,,,,,,,NEEDS_REVIEW,"missing MCDA: Performance_Headroom, Price_Value, Future_Proof, Portability, Track2_Avoidance; price UNKNOWN; AU stock not confirmed; MCDA score incomplete"
+Dell_Alienware_m18_RTX4090_16GB,Reference,1,1A,16,UNKNOWN,18,UNKNOWN,UNKNOWN,,,,,,,NEEDS_REVIEW,"missing MCDA: Performance_Headroom, Price_Value, Future_Proof, Portability, Track2_Avoidance; price UNKNOWN; AU stock not confirmed; MCDA score incomplete"
+ASUS_ROG_Scar18_2025_RTX5090_24GB,Reference,1,1A,24,UNKNOWN,18,UNKNOWN,UNKNOWN,,,,,,,NEEDS_REVIEW,"missing MCDA: Performance_Headroom, Price_Value, Future_Proof, Portability, Track2_Avoidance; price UNKNOWN; AU stock not confirmed; MCDA score incomplete"
+Lenovo_Legion_Pro9i_RTX5090_24GB,Reference,1,1A,24,UNKNOWN,18,UNKNOWN,UNKNOWN,,,,,,,NEEDS_REVIEW,"missing MCDA: Performance_Headroom, Price_Value, Future_Proof, Portability, Track2_Avoidance; price UNKNOWN; AU stock not confirmed; MCDA score incomplete"
+MSI_Raider_A18_HX_RTX5090_24GB,Reference,1,1A,24,UNKNOWN,18,UNKNOWN,UNKNOWN,,,,,,,NEEDS_REVIEW,"missing MCDA: Performance_Headroom, Price_Value, Future_Proof, Portability, Track2_Avoidance; price UNKNOWN; AU stock not confirmed; MCDA score incomplete"
+MSI_Titan_GT77_RTX5090_24GB,Reference,1,1A,24,UNKNOWN,18,UNKNOWN,UNKNOWN,,,,,,,NEEDS_REVIEW,"missing MCDA: Performance_Headroom, Price_Value, Future_Proof, Portability, Track2_Avoidance; price UNKNOWN; AU stock not confirmed; MCDA score incomplete"
+Alienware_Area51_18_5070Ti_mkt015,Laptop,1,1A,UNKNOWN,UNKNOWN,18,UNKNOWN,No,UNKNOWN,UNKNOWN,UNKNOWN,3,UNKNOWN,,NEEDS_REVIEW,"missing MCDA: Performance_Headroom, Price_Value, Future_Proof, Track2_Avoidance; price UNKNOWN; AU stock not confirmed; VRAM below Track 1A floor (8 GB); MCDA score incomplete"
+Alienware_Area51_18_5070Ti_mkt016,Laptop,1,1A,UNKNOWN,UNKNOWN,18,2981,No,UNKNOWN,9,UNKNOWN,3,UNKNOWN,,NEEDS_REVIEW,"missing MCDA: Performance_Headroom, Future_Proof, Track2_Avoidance; AU stock not confirmed; VRAM below Track 1A floor (8 GB); MCDA score incomplete"

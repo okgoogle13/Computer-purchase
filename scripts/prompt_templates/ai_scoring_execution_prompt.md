@@ -26,6 +26,25 @@ Leave `MCDA_Total` blank. The scoring engine computes it from `config/procuremen
 - `Portability`: daily/field usability. Easy daily carry = 10. Large laptop = 7-8. Desktop replacement = 4-6. Desktop = 0-3 unless Track 2 field use is explicitly triggered.
 - `Track2_Avoidance`: likelihood this purchase avoids or defers Track 2. 8 GB = 1-3, 12 GB = 3-5, 16 GB = 6-7, 24 GB+ = 8-10.
 
+### Strix Halo Calibration Rules
+
+- Treat unified memory as a capacity advantage, not automatic equivalence to discrete GPU compute throughput.
+- Default cap for Strix Halo / Radeon 8060S `Performance_Headroom`: `7`.
+- Default `Track2_Avoidance` caps for Strix Halo:
+  - 32 GB unified: `5-6`
+  - 64 GB unified: `7`
+  - 128 GB unified: `8`
+- Do not score above these caps unless the scoring context includes workload-specific benchmark evidence tied to CareerCopilot tasks.
+- Explicitly reject "128 GB unified memory = 10/10 across factors" logic.
+
+### Review-Risk Penalties
+
+When credible review evidence indicates sustained fan noise, coil whine, compact chassis thermal limits, weak display, poor battery, or uncertain ROCm/toolchain support, apply downward adjustment to affected factors rather than ignoring risk.
+
+### Price Value Guardrail
+
+`Price_Value=10` requires excellent value versus currently verified alternatives. Being under 5,000 AUD alone is not sufficient.
+
 ## Sliding-Scale VRAM Rule
 
 Track 1A can be GOOD_ENOUGH at 8 GB or above if all other gates pass. Apply a sliding score so higher VRAM tiers receive progressively stronger `Performance_Headroom`, `Future_Proof`, and `Track2_Avoidance` scores.
@@ -37,6 +56,7 @@ Before scoring, verify:
 1. Each row has a matching product card.
 2. Price, stock, VRAM/unified memory, and warranty evidence are present or marked `UNKNOWN`.
 3. Any `UNKNOWN` value that affects a score is not guessed.
+4. Any score above a Strix Halo cap must cite source-backed benchmark evidence in the scoring context.
 
 If the READY_TO_SCORE set or card/CSV alignment is missing or inconsistent, return:
 

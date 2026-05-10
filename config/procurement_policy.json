@@ -15,6 +15,52 @@
     "Portability": 0.2,
     "Track2_Avoidance": 0.15
   },
+  "mcda_rubric_calibration": {
+    "strix_halo_performance_cap_default": 7,
+    "strix_halo_track2_avoidance_caps_by_memory": {
+      "32": 6,
+      "64": 7,
+      "128": 8
+    },
+    "review_risk_penalty_guidance": {
+      "sustained_fan_noise_or_coil_whine": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Performance_Headroom",
+          "Price_Value"
+        ]
+      },
+      "weak_display_for_class": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Price_Value",
+          "Future_Proof"
+        ]
+      },
+      "poor_battery_endurance": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Portability",
+          "Price_Value"
+        ]
+      },
+      "uncertain_rocm_or_toolchain_support": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Performance_Headroom",
+          "Track2_Avoidance"
+        ]
+      },
+      "compact_chassis_thermal_limit": {
+        "suggested_penalty_points": 2,
+        "applies_to": [
+          "Performance_Headroom",
+          "Future_Proof",
+          "Track2_Avoidance"
+        ]
+      }
+    }
+  },
   "exceptional_overrides": {
     "vram_threshold_gb": 24.0,
     "gpu_tier_threshold": 8.0,

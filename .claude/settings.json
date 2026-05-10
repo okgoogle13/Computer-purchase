@@ -3,7 +3,15 @@
     "allow": [
       "Skill(agent-browser)",
       "Skill(agent-browser:*)",
-      "Bash(grep -E \"\\\\.\\(py|sh|md\\)$\")"
+      "Bash(grep -E \"\\\\.\\(py|sh|md\\)$\")",
+      "Bash(mkdir -p output/screenshots)",
+      "Bash(touch output/vram_verify.txt)",
+      "Bash(grep -E \"\\(AU \\\\$|A \\\\$|\\\\$[0-9]|price|postage|Price\\)\")",
+      "Bash(grep -E \"StaticText.*AU|\\\\$[0-9]|AU \\\\$\")",
+      "Bash(grep -i \"static\\\\|text\\\\|\\\\$\")",
+      "Bash(grep \"link\\\\|price\\\\|\\\\$\")",
+      "Bash(grep -A3 -B1 \"Pre-owned\\\\|Used\\\\|Refurbished\\\\|AU \\\\$\\\\|postage\\\\|\\\\$[1-9]\")"
     ]
   }
 }
+

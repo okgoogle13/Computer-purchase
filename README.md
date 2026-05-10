@@ -10,18 +10,17 @@ Rather than relying on ad-hoc shopping, this project uses standardized product c
 1. **Build shortlist**  
    `python scripts/build_shortlist.py --batch YYYY-MM-DD_notebooklm_batchN`
 
-2. **Check cards & schema drift**  
-   `./scripts/generate_checklist_prompt.sh` + fix missing cards / `UNKNOWN` fields per `audit_context.md`.
+2. **Phase 3a scaffold pricing schema**  
+   `python scripts/enrich_shortlist_pricing.py NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist.csv`
 
-3. **Create AI context bundles**  
-   - NotebookLM: `./scripts/export_mega_bundle.sh`  
-   - Scoring: `npx --yes repomix ... > scoring_context.md`
+3. **Phase 3b fill live pricing verification**  
+   `python scripts/fill_shortlist_live_pricing.py NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist_pricing_enriched.csv`
 
-4. **AI scoring (Phase 4)**  
-   Use `scoring_context.md` with `scripts/prompt_templates/ai_scoring_execution_prompt.md` to fill the five MCDA factor columns.
+4. **Manual/AI scoring (Phase 4)**  
+   Fill the five MCDA factor columns (`Performance_Headroom`, `Price_Value`, `Future_Proof`, `Portability`, `Track2_Avoidance`) on the live-enriched CSV.
 
 5. **Weighting & final decision (Phase 5)**  
-   Run `rubric_weighting_engine.py --csv *_shortlist_scored.csv > final_scores.txt`, then apply `final_purchase_justification_prompt.md` to generate `final_justification.md`.
+   Run `python NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/Policy_Pack/expandable_workstation_scoring_policy_pack/rubric_weighting_engine.py --csv *_shortlist_pricing_enriched_live.csv --output-csv *_shortlist_ranked.csv`.
 
 ## Canonical Workflow
 The active workflow is the 5-phase pipeline defined in `AGENTS.md` and `scripts/README_pipeline.md`.
@@ -30,10 +29,15 @@ Track 1 laptops are the default buying path. Track 1.5 and Track 2 are only eval
 
 Generated context bundles are support artifacts, not policy.
 
+Phase 3 is split by ownership:
+- `scripts/enrich_shortlist_pricing.py` is scaffold-only and must not perform live lookup.
+- `scripts/fill_shortlist_live_pricing.py` performs live fill for queued rows.
+- `rubric_weighting_engine.py` keeps MCDA weighting intact and adds transparent seller/source risk post-processing columns.
+
 ## Repository Structure (Source of Truth)
 The repository is organized into distinct hardware "lanes" and a central decision engine:
 
-* `/01_Research_Methods_and_Decision_System/` - Policy packs, older research notes, and the MCDA ranking engine.
+* `/NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/` - Policy packs, older research notes, and the MCDA ranking engine.
 * `/NotebookLM_Workspaces/` - **The Hardware Lanes.**
   * `/03_New_Desktop_Systems/`
   * `/02_Refurbished_Desktop_Towers/`
@@ -44,11 +48,13 @@ The repository is organized into distinct hardware "lanes" and a central decisio
 * `/scripts/` - Contains the automation pipeline:
   * `normalize_intake.py` and `intake_to_cards.py` (Phase 1: Intake)
   * `build_shortlist.py` (Phase 2: Shortlist)
-  * `rubric_weighting_engine.py` (Phase 5: MCDA rank, located in the Policy Pack)
+  * `enrich_shortlist_pricing.py` (Phase 3a: schema scaffold only)
+  * `fill_shortlist_live_pricing.py` (Phase 3b: live verification fill)
+  * `NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/Policy_Pack/expandable_workstation_scoring_policy_pack/rubric_weighting_engine.py` (Phase 5: MCDA rank, located in the Policy Pack)
 * `/_Archive_Legacy_Data/` - Superseded research, raw notes, and deferred lanes (e.g., Apple Silicon).
 
 ## Getting Started
 1. Review `CURRENT_STATE.md` for the latest project milestone and immediate next actions.
-2. Read `scripts/README_pipeline.md` to understand the 3-Phase workflow (Intake → Shortlist → Score).
+2. Read `scripts/README_pipeline.md` to understand the 5-phase workflow with Phase 3a/3b split.
 3. Do not add raw web clippings to the workspace folders. Run new hardware candidates through the Phase 1 scripts first.
-4. To execute a ranking pass, run `build_shortlist.py` to generate the CSV score sheet, fill it out, and then run `rubric_weighting_engine.py --profile merged`.
+4. To execute a ranking pass, run `build_shortlist.py` to generate the CSV score sheet, fill it out, and then run `python NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/Policy_Pack/expandable_workstation_scoring_policy_pack/rubric_weighting_engine.py --csv <scored_csv>`.
