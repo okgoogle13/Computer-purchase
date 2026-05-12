@@ -13,6 +13,13 @@ Before any scoring occurs, perform these integrity checks on the provided `audit
 
 4. **Price Staleness Flag**: If any price field contains a date older than 30 days or is missing a date entirely, flag it as **PRICE_STALE** — it should be re-verified before scoring.
 
+5. **AGENTS.md Track Gate Precheck**:
+   - Track 1A hard floor: discrete VRAM must be `>= 8 GB` (below this is not scoreable as Track 1A).
+   - Track 1A discovery preference: `12 GB+` preferred, `16 GB+` stronger, `24 GB` preferred for Q4 runway.
+   - Track 1.5 hard floor: discrete VRAM must be `>= 16 GB` (`24 GB+` preferred value tier, not a hard gate).
+   - Track 1 candidates cannot be considered recommendation-ready unless AU stock is confirmed, effective price is within cap, and warranty/ACL path is acceptable.
+   - If fields are missing, keep values as `UNKNOWN` and classify as `UNSCOREABLE` or `PRICE_STALE` as appropriate.
+
 **Output required**: 
 A JSON object exactly matching this structure before any scoring output:
 ```json

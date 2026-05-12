@@ -21,7 +21,7 @@ Leave `MCDA_Total` blank. The scoring engine computes it from `config/procuremen
 ## Scoring Guidance
 
 - `Performance_Headroom`: local AI capability for CareerCopilot MVP and Q4. 8 GB discrete = 2-3, 12 GB = 4-5, 16 GB = 6-7, 24 GB+ = 8-10.
-- `Price_Value`: value against verified effective price and comparable options. Excellent value = 10. Fair = 5. Weak or at cap without differentiation = 0-3.
+- `Price_Value`: value against verified effective price and comparable options. Use recent "Sold" transaction data as the baseline for a 10/10 value. Excellent value = 10. Fair = 5. Weak or at cap without differentiation = 0-3.
 - `Future_Proof`: useful runway for Q4 features and resale. 8 GB = 2-3, 12 GB = 4-5, 16 GB = 6-7, 24 GB+ = 8-10.
 - `Portability`: daily/field usability. Easy daily carry = 10. Large laptop = 7-8. Desktop replacement = 4-6. Desktop = 0-3 unless Track 2 field use is explicitly triggered.
 - `Track2_Avoidance`: likelihood this purchase avoids or defers Track 2. 8 GB = 1-3, 12 GB = 3-5, 16 GB = 6-7, 24 GB+ = 8-10.
@@ -43,7 +43,7 @@ When credible review evidence indicates sustained fan noise, coil whine, compact
 
 ### Price Value Guardrail
 
-`Price_Value=10` requires excellent value versus currently verified alternatives. Being under 5,000 AUD alone is not sufficient.
+`Price_Value=10` requires excellent value versus currently verified alternatives and **recent "Sold" transaction data**. Being under 5,000 AUD alone is not sufficient. A low price from a `PRIVATE_SELLER` or `GRAY_MARKET` source should have its `Price_Value` adjusted downward if the risk offsets the savings.
 
 ## Sliding-Scale VRAM Rule
 

@@ -53,6 +53,7 @@ CSV terminology:
 - Unknown values stay `UNKNOWN` until verified.
 - Do not infer price, stock, warranty, VRAM, memory, or thermal behavior.
 - Use `agent-browser` or normal web search to fill missing current facts.
+- **Secondary Market Audit Rule:** For all Track 1A secondary-market candidates (eBay/Refurb), the `current_best_price_aud` must be verified against recent (last 30 days) "Sold" listings or verified clearance prices. Do not rely solely on "Buy It Now" asking prices from international sellers.
 - Record verified findings back into the relevant CSV, product card, checklist, or decision log.
 - Prefer credible AU sources: manufacturer AU stores, major AU retailers, known refurb sellers, and live listing pages.
 - Do not expand hardware scope unless the user explicitly asks.

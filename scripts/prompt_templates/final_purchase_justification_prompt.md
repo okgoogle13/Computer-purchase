@@ -71,6 +71,19 @@ If recommending an 8 GB or 12 GB Track 1A machine, explicitly state the sliding-
 tradeoff: lower local AI headroom and higher Track 2 urgency versus better price/portability.
 Do not recommend any below-8 GB discrete GPU laptop as GOOD_ENOUGH.
 
+Apply Track 1 safe source hierarchy explicitly in recommendation logic:
+
+1. `MANUFACTURER_AU`
+2. `MAJOR_RETAILER_AU`
+3. `AMAZON_AU`
+4. `EBAY_AU`
+5. `GUMTREE_AU` / `FB_MARKETPLACE`
+6. `GRAY_IMPORT`
+
+For Track 1 recommendations, treat `EBAY_AU` as fallback-only unless no currently
+viable candidate from ranks 1-3 exists at or under budget and with acceptable
+warranty/ACL and thermal risk.
+
 ### Residual Risks
 
 Use a checklist. Include every decision-critical `UNKNOWN`, stale price, warranty risk, thermal risk, and stock uncertainty.

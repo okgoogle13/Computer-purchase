@@ -74,6 +74,8 @@ Return a single JSON object for one candidate. Use `UNKNOWN` when unresolved. Do
 ## Lookup Rules
 1. Check StaticICE (`staticice.com.au`) for baseline AU pricing spread.
 2. Validate direct AU manufacturer stores and major AU retailers for trusted floor pricing.
-3. Hunt stackable value: student/education discounts, cashback (Cashrewards/ShopBack), coupon stackability, price-match, and price-beat policy.
-4. Confirm live stock status with realistic fulfilment timing.
-5. Capture warranty evidence quality and Australian Consumer Law coverage confidence.
+3. **Secondary Market Audit:** On eBay and other marketplaces, you MUST check "Sold" listings from the last 30 days to find the true market floor. Do not report "Buy It Now" asking prices if they are significantly higher than recent transaction data.
+4. **GST & Import Duties:** Explicitly verify if the price includes Australian GST. For international listings, you MUST add estimated customs duties and taxes to the `current_best_price_aud` and note this in `promo_notes`.
+5. Hunt stackable value: student/education discounts, cashback (Cashrewards/ShopBack), coupon stackability, price-match, and price-beat policy.
+6. Confirm live stock status with realistic fulfilment timing.
+7. Capture warranty evidence quality and Australian Consumer Law coverage confidence.

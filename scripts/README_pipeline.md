@@ -39,7 +39,7 @@ python scripts/build_shortlist.py
 
 **Workflow:**
 ```bash
-python scripts/enrich_shortlist_pricing.py NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist.csv
+python scripts/enrich_shortlist_pricing.py shortlists/YYYY-MM-DD_shortlist.csv
 ```
 **Rule:** This script must stay scaffold-only. It only appends missing pricing columns and initializes blanks.
 
@@ -60,10 +60,12 @@ Adds/ensures these metadata columns:
 
 **Workflow:**
 ```bash
-python scripts/fill_shortlist_live_pricing.py NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist_pricing_enriched.csv
+python scripts/fill_shortlist_live_pricing.py shortlists/YYYY-MM-DD_shortlist_pricing_enriched.csv
 ```
 Writes:
-`NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist_pricing_enriched_live.csv`
+`shortlists/YYYY-MM-DD_shortlist_pricing_enriched_live.csv`
+
+**Important:** the current `fill_shortlist_live_pricing.py` implementation is a scaffold integration point. By default it uses a placeholder lookup and does not perform real web pricing verification unless a browser-agent lookup is explicitly wired.
 
 **Human Step:** Use `scripts/prompt_templates/browser_pricing_lookup.md` with your browser agent integration and fill live values, keeping unresolved fields as `UNKNOWN`.
 The browser prompt template is the contract source-of-truth for live pricing response keys and enum values.
@@ -84,11 +86,63 @@ The browser prompt template is the contract source-of-truth for live pricing res
 
 **Workflow:**
 ```bash
-python NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/Policy_Pack/expandable_workstation_scoring_policy_pack/rubric_weighting_engine.py \
-    --csv NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist_pricing_enriched_live.csv \
-    --output-csv NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist_ranked.csv
+python scripts/scoring/rubric_weighting_engine.py \
+    --csv shortlists/YYYY-MM-DD_shortlist_pricing_enriched_live.csv \
+    --output-csv shortlists/YYYY-MM-DD_shortlist_ranked.csv
 ```
 **Outcome:** Keep core MCDA factor weighting unchanged, then apply transparent seller/source risk adjustment columns (`Seller_Risk_Multiplier`, `Source_Platform_Penalty`, `Risk_Adjustment`, `Adjusted_MCDA_Total`). Buy the highest-ranked `GOOD_ENOUGH` candidate or apply the Track Escalation Rule if none clears policy.
+
+---
+
+## ✅ Policy Drift Gate (Run Before Ranking)
+Check `AGENTS.md` policy constants against `config/procurement_policy.json`:
+
+```bash
+python scripts/policy_drift_check.py
+```
+
+If mismatches are detected, recommendation language must follow `AGENTS.md` until config is aligned.
+
+---
+
+## 🔗 Prompt Chain Orchestration
+Use the orchestration runner to execute deterministic script stages and enforce manual/agent checkpoints:
+
+```bash
+python scripts/run_prompt_chain.py --batch YYYY-MM-DD_notebooklm_batchN
+```
+
+This runner executes:
+1. `policy_drift_check.py`
+2. `build_shortlist.py`
+3. `enrich_shortlist_pricing.py`
+4. `rubric_weighting_engine.py` (after manual/agent pricing + MCDA fill checkpoints)
+
+Prompt checkpoint order:
+1. `notebooklm_system_prompt.md`
+2. `audit_checklist_prompt.md`
+3. `pre_scoring_validation_prompt.md`
+4. `browser_pricing_lookup.md`
+5. `track1_card_shortlist_sync_prompt.md`
+6. `ai_scoring_execution_prompt.md`
+7. `final_purchase_justification_prompt.md`
+
+---
+
+## 🧪 Validation Checks
+Prompt contract validation:
+
+```bash
+python scripts/validate_prompt_templates.py
+```
+
+Pipeline integrity validation:
+
+```bash
+python scripts/pipeline_integrity_check.py \
+  --enriched shortlists/YYYY-MM-DD_shortlist_pricing_enriched_live.csv \
+  --ranked shortlists/YYYY-MM-DD_shortlist_ranked.csv
+```
 
 ---
 

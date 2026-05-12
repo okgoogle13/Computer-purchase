@@ -49,14 +49,7 @@ def load_config() -> dict:
 
 # Lanes that contain intake cards
 INTAKE_LANES = [
-    "02_Refurbished_Desktop_Towers",
-    "03_New_Desktop_Systems",
-    "04_Laptops_Mainline",
-    "06_Mini_PCs_and_eGPU",
-    "08_Custom_Builds",
-    "09_Individual_Components",
-    "05_Apple_Silicon_Systems",
-    "01_Research_Methods_and_Decision_System",
+    "cards",
 ]
 
 # GPU model substrings that indicate professional/workstation-class cards
@@ -349,6 +342,8 @@ def build_row(fm: dict, intake_info: dict, source_path: Path, md_text: str) -> d
     status           = fm.get("status", "Active")
     track            = fm.get("track", "UNKNOWN")
     pathway          = fm.get("pathway", "UNKNOWN")
+    seller_class     = fm.get("seller_class", "UNKNOWN")
+    source_platform  = fm.get("source_platform", "UNKNOWN")
 
     # Derived
     profile        = classify_profile(category)
@@ -389,11 +384,13 @@ def build_row(fm: dict, intake_info: dict, source_path: Path, md_text: str) -> d
         "verification_status":  vstatus,
         "au_stock":             au_stock,
         "status":               status,
+        "seller_class":         seller_class,
+        "source_platform":      source_platform,
         # Engine metadata
         "Machine":              intake_id,   # rubric_weighting_engine.py expects this
         "Type":                 "Candidate", # default; user can change to Preferred/NeverBuy
-        # Score columns — all blank for manual completion
-        **{col: "" for col in SCORE_COLUMNS},
+        # Score columns — pull from frontmatter if present, else blank
+        **{col: fm.get(col, "") for col in SCORE_COLUMNS},
         # Internal helpers (stripped before CSV output)
         "_price_float":         price_float,
         "_vram_float":          vram_float,
@@ -412,10 +409,10 @@ def scan_intake_cards(batch_filter: str | None, profile_filter: str | None) -> l
     """
     rows = []
     for lane in INTAKE_LANES:
-        folder = WORKSPACE / lane
+        folder = REPO_ROOT / lane
         if not folder.exists():
             continue
-        for md_path in sorted(folder.glob("intake-*.md")):
+        for md_path in sorted(folder.glob("*.md")):
             text = md_path.read_text(encoding="utf-8", errors="replace")
             fm          = parse_frontmatter(text)
             intake_info = parse_tags_comment(text)
@@ -448,6 +445,7 @@ SHORTLIST_FIELDNAMES = [
     "screen_size_in", "thermal_flag",
     "price_aud", "Over_Budget", "Price_Unknown",
     "condition", "retailer", "verification_status", "au_stock", 
+    "seller_class", "source_platform",
     "batch", "source_file", "exceptional_override", "shortlist_reason", "soft_penalty_notes",
     # Engine columns
     "Machine", "Type",
@@ -569,7 +567,7 @@ After generating the shortlist, run the pricing enrichment step:
 
     # Write outputs
     today     = date.today().isoformat()
-    out_dir   = WORKSPACE / "intake" / "shortlist"
+    out_dir   = REPO_ROOT / "shortlists"
     sl_path   = out_dir / f"{today}_shortlist.csv"
     rej_path  = out_dir / f"{today}_shortlist_rejected.csv"
 

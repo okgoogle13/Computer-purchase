@@ -1,0 +1,182 @@
+{
+  "counts": {
+    "total_candidates": 43,
+    "skip_existing": 0,
+    "append_new": 0,
+    "update_partial": 43
+  },
+  "actions": [
+    {
+      "item_name": "alienware 16 area 51 new config",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "dell outlet alienware m18 r2",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "minisforum ai x1 pro deg2 rtx 5070 ti 850w psu",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "minisforum x1 lite deg1 rtx 5070 ti 850w psu",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "asus zephyrus g16 5080",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "lenovo legion pro 5i 5070 ti",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "lenovo legion pro 7i 5080",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "acer predator orion 7000 rtx 4080 refurbished",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "alienware aurora r12 rtx 3090 refurbished",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "metrocom custom 5700x rtx 4070 super",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "nebula titan nebula pc titan rtx 5070",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "ple sidekick rtx 4070 super ex demo",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "acer predator helios 18 rtx 4090 refurbished",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "acer predator helios neo 16s ai rtx 5060 refurbished",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "erazer major x20 rtx 4070",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "acer predator orion 7000 other rtx 4080s retail desktops",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "acer predator orion 7000 rtx 4080 super desktop",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "constellar onyx pc rtx 4080 super",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "custom rtx 3090 24gb desktop refurbished thinkpad bundle",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "evatech 7800x3d rtx 4070 ti desktop",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "msi rtx 3090 aero 24gb standalone gpu",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "mike pc msi rtx 3090 aero 24gb gpu build route",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "nebula pc r7 7800x3d rtx 4080 desktop",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "ple ai advanced rtx 5070 ti 16gb build",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "ple ai advanced rtx 5070 ti 16gb desktop",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "rtx 4080 super 16gb desktop refurbished msi infinite x2 class",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "rtx 4080 super 16gb prebuilt refurbished msi infinite x2 class",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "supertech rtx 4090 gaming pc",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "asus rog strix g17 ebay listing",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "aorus 17 bsg 17 inch rtx 4070 class",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "asus rog strix scar 17 rtx 4090",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "dell alienware m18 area 51 18 inch rtx 4090 class",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "dell alienware m18 area 51 rtx 4090 configuration",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "hp omen transcend 16",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "lenovo legion pro 7 i9 13900hx rtx 4090",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "lenovo legion pro 7i rtx 4090 16gb",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "lenovo legion pro 7i direct lenovo option",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "lenovo legion pro 7i i9 14900hx rtx 4090",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "msi katana 17 hx rtx 5060",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "pioneer dreambook power x370 rtx 4090",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "minisforum ms 01 deg1 oculink rtx 3090 24gb",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "minisforum ms 01 deg1 oculink rtx 4070 ti super 16gb",
+      "action": "update_partial"
+    },
+    {
+      "item_name": "custom rtx 3090 24gb desktop refurbished thinkpad class laptop",
+      "action": "update_partial"
+    }
+  ]
+}

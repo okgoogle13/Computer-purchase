@@ -49,20 +49,10 @@ WORKSPACE = REPO_ROOT / "NotebookLM_Workspaces"
 # Evaluated in order; first match wins.
 ROUTING_RULES: list[tuple[str, str, str, str]] = [
     # (category_pattern, condition_pattern, note, folder_name)
-    ("mini pc|egpu",         r".*",           "Mini PC / eGPU",       "06_Mini_PCs_and_eGPU"),
-    ("component|gpu",        r".*",           "Standalone component",  "09_Individual_Components"),
-    ("diy build|custom",     r".*",           "DIY / Custom build",    "08_Custom_Builds"),
-    ("apple",                r".*",           "Apple Silicon",         "05_Apple_Silicon_Systems"),
-    # Laptop – all conditions to main lane (no separate refurb lane for laptops)
-    ("laptop",               r".*",           "Laptop",                "04_Laptops_Mainline"),
-    # Desktops – split on condition
-    ("desktop",              r"refurb|used|open box", "Refurb desktop", "02_Refurbished_Desktop_Towers"),
-    ("desktop",              r"new",          "New desktop",           "03_New_Desktop_Systems"),
-    # Fallback desktop catch-all
-    ("desktop",              r".*",           "Desktop (uncategorised)","03_New_Desktop_Systems"),
+    (r".*",                  r".*",           "Consolidated Card Store", "cards"),
 ]
 
-FALLBACK_FOLDER = "01_Research_Methods_and_Decision_System"
+FALLBACK_FOLDER = "cards"
 
 # Condition → condition tags
 CONDITION_TAG_MAP = {
@@ -116,9 +106,9 @@ def route_row(row: dict) -> tuple[Path, str]:
 
     for cat_pat, cond_pat, note, folder in ROUTING_RULES:
         if re.search(cat_pat, cat) and re.search(cond_pat, cond, re.IGNORECASE):
-            return WORKSPACE / folder, note
+            return REPO_ROOT / folder, note
 
-    return WORKSPACE / FALLBACK_FOLDER, "Fallback — unrecognised category/condition"
+    return REPO_ROOT / FALLBACK_FOLDER, "Fallback"
 
 
 # ---------------------------------------------------------------------------
