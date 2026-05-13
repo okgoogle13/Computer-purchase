@@ -7,8 +7,8 @@ pathway: 1A
 name: Lenovo Legion 9i Gen 10 18" RTX 5080 (eBay)
 gpu: NVIDIA RTX 5080 Laptop GPU (16 GB)
 vram: 16 GB
-price_aud: 4585.00
-seller_class: EBAY_POWER_SELLER
+price_aud: 4500.00
+seller_class: MAJOR_RETAILER_AU
 source_platform: EBAY_AU
 Performance_Headroom: 7
 Price_Value: 10
@@ -23,7 +23,7 @@ verification: Verified
 
 # Lenovo Legion 9i Gen 10 18" — RTX 5080 Laptop GPU 16 GB
 
-> ✅ **VERIFIED VALUE:** Verified via user checkout session at **$4,585.00 AUD** using the `MAY15POFF` promo code (capped at $150). This represents the current best price for this Path 1A flagship.
+> ✅ **VERIFIED VALUE:** User-confirmed effective price **~$4,500 AUD** after promo codes (2026-05-13). Seller confirmed via direct message: tax invoice will be provided and Lenovo AU warranty is valid — 1 year standard + 3 year extended warranty confirmed.
 
 ## Track 1 Status
 - **Chassis family:** Lenovo Legion 9i 18 ✅ (locked chassis)
@@ -32,9 +32,9 @@ verification: Verified
 
 ## Overview
 - **VRAM Tier:** Priority 2 — 16 GB RTX 5080 Laptop GPU
-- **Price (AUD):** $4,585.00 (Verified 2026-05-11 via `MAY15POFF` promo)
-- **Vendor (AU):** eBay Australia (UltraStore.Australia)
-- **In stock in AU:** Yes (Verified 2026-05-11)
+- **Price (AUD):** ~$4,500.00 (User-confirmed 2026-05-13 after promo codes)
+- **Vendor (AU):** eBay Australia (Lenovo authorised seller)
+- **In stock in AU:** Yes (Verified 2026-05-13)
 
 ## Key Specs
 - **GPU:** NVIDIA RTX 5080 Laptop GPU, 16 GB GDDR7
@@ -44,16 +44,16 @@ verification: Verified
 - **Display:** 18-inch WQUXGA (3840 x 2400), 240Hz
 - **Weight:** ~3.1 kg
 - **Charger / PSU wattage:** 330W GaN
-- **Warranty (AU):** Likely 1-year standard; verify if eBay seller is authorized for Lenovo AU warranty.
+- **Warranty (AU):** Confirmed — Lenovo AU warranty valid: 1 year standard + 3 year extended. Tax invoice confirmed by seller (2026-05-13).
 
 ## Thermal Notes
 - **Sustained TGP:** Up to 175W (Typical for 5080 class in this chassis)
 - **Thermal reputation:** Excellent (Internal liquid cooling + Vapor chamber)
 
-## Seller & Warranty Risk (Liquidator Status)
-- **Seller Profile:** UltraStore.Australia is a high-volume liquidator. "Many available" and "Opened - never used" status strongly suggests a bulk acquisition of factory seconds, ex-display units, or customer returns.
-- **Warranty Uncertainty:** While listed with a "12-month warranty," this is likely a **Seller-backed warranty**. If the unit is a parallel import, Lenovo Australia may not honour the warranty.
-- **ACL Protection:** As an Australian eBay business, they are legally bound by Australian Consumer Law (ACL), but remedies may require dealing with the eBay seller rather than a local Lenovo repair centre.
+## Seller & Warranty Status (CONFIRMED 2026-05-13)
+- **Seller Profile:** Lenovo authorised eBay seller. "Opened – never used" condition.
+- **Warranty:** Lenovo AU warranty confirmed valid by seller — 1 year standard + 3 year extended. Tax invoice will be provided.
+- **ACL Protection:** Australian eBay business, ACL applies. Lenovo AU warranty via authorised channel removes prior warranty uncertainty risk.
 
 ## AI Capability Summary
 Highly capable for coding and local inference. 16 GB VRAM allows for 14B models (e.g., Mistral-Small, Qwen2.5-Coder) at high precision, or 30B+ models at 4-bit quantization with some offloading/tight fit.

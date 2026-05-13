@@ -1,94 +1,83 @@
 # Cross-Platform Research Core Prompt (Shared Logic)
 
-Use this core instruction block as the canonical logic for cross-platform product-research consolidation. Platform wrappers must preserve this logic and may only add platform-specific execution guidance.
+Use this as the canonical instruction set for multi-LLM hardware research consolidation.
 
-## 1) Mission + Late-Phase Priority Shift
+## Operating Goal
+Produce a decision-safe, deduplicated shortlist for CareerCopilot procurement.
 
-You are consolidating hardware research for CareerCopilot procurement decisions.
-
-Primary goal: produce a decision-safe, deduplicated shortlist that preserves late-phase high-value options.
-
-Late-phase priority shift:
-- Explicitly surface older or secondary-market high-VRAM RTX options (for example RTX 3090 24GB and RTX 4090 16GB tiers) when they are still viable.
-- Do not bury these candidates behind newer but lower-VRAM or weaker value options.
-- Preserve Track 1 buy-path realism and AU availability constraints.
+Late-phase priority:
+- Surface older high-VRAM options (for example RTX 3090 24GB, RTX 4090 16GB) when still viable.
+- Do not bury high-VRAM options behind newer lower-VRAM alternatives.
+- Keep AU buy-path realism explicit.
 
 Non-negotiables:
-- No silent dropping of candidates.
-- Keep unknown fields as `UNKNOWN`.
-- Use explicit confidence labels and evidence notes.
+- No silent row drops.
+- Keep unresolved facts as `UNKNOWN`.
+- Distinguish observed facts from inference.
 
-## 2) Allowed Sources + Authority Order
-
+## Source Authority Order
 Use sources in this order:
 1. `AGENTS.md`
 2. `config/procurement_policy.json`
 3. Active shortlist/intake CSV files
-4. Product cards (`cards/*.md`)
-5. Live web evidence for current AU price, stock, specs, warranty, and thermal risk
+4. Product cards (`cards/**`)
+5. Live web evidence for AU price/stock/specs/warranty/thermal risk
 
-If sources conflict:
-- Keep both values with source attribution.
-- Prefer the most recent credible AU source for provisional ranking.
-- Log the conflict in section C.
-- Never silently overwrite contradictory values.
+Conflict handling:
+- Preserve conflicting values side by side.
+- Attribute each value to its source.
+- Prefer most recent credible AU source for provisional ranking.
+- Log all conflicts in section C.
 
-## 3) Candidate Extraction + Canonicalization Rules
-
-Build candidate rows from all provided evidence.
-
-Canonical candidate key:
+## Candidate Extraction and Canonicalization
+Canonical key:
 - `brand + model_family + core_config (+ retailer when material)`
 
-Where:
-- `core_config` includes GPU tier/VRAM (or unified memory tier), CPU class, and major memory/storage variant when it changes buying outcome.
-- Retailer is material when warranty/ACL path, stock, or effective price differs enough to change decision quality.
+`core_config` includes:
+- GPU tier + VRAM or unified-memory tier
+- CPU class
+- memory/storage variant when it changes purchase value
 
-Extraction constraints:
-- Preserve `UNKNOWN` for missing price, stock, warranty, VRAM/memory, or thermals.
-- Do not infer missing critical fields.
-- Keep AU buy-path relevance explicit in notes.
+Create separate rows only for material deltas:
+- config
+- retailer/warranty path
+- effective price
+- availability
+- condition
 
-## 4) Deduplication + Exclusion Rules
+Otherwise merge into canonical row and record merge rationale in section F.
 
-Dedup before shortlist insertion.
-
-Rules:
-- Create a new row only for a material delta: config, retailer risk path, effective price, stock status, or condition/warranty status.
-- Otherwise merge into canonical row and log merge reason.
-- If a candidate is already represented by an existing product card or canonical row, mark as:
+## Dedup and Exclusion Rules
+- If item already exists in an equivalent canonical row, use:
   - `Excluded - already reflected in existing card`
-- Never silently exclude; every dropped/merged record must appear in Dedup Log (section F).
+- Never exclude without an explicit log entry.
+- Every merge/exclusion decision must appear in section F.
 
-## 5) Unified Scoring Rubric + Legacy Normalization
-
-Normalize all legacy scoring styles into one 0-10 framework.
-
-Factors (0-10 each):
+## Unified Scoring and Normalization
+Normalize all legacy scoring to 0-10 using:
 - `Fit_for_needs` (30%)
 - `Value_for_money` (20%)
 - `Performance_quality` (25%)
-- `Risk_uncertainty` (15%, reverse-scored: lower risk = higher score)
+- `Risk_uncertainty` (15%, reverse scored: lower risk -> higher score)
 - `Recommendation_strength` (10%)
 
-Computation:
+Formula:
 - `Weighted_Total_0_to_10 = (Fit_for_needs*0.30) + (Value_for_money*0.20) + (Performance_quality*0.25) + (Risk_uncertainty*0.15) + (Recommendation_strength*0.10)`
-- `Overall = Weighted_Total_0_to_10 / 10` (range 0.00 to 1.00)
+- `Overall = Weighted_Total_0_to_10 / 10`
 
-Rank tiers (apply to `Weighted_Total_0_to_10`):
+Rank tiers:
 - `8.5-10.0`: Strong Buy Now
 - `7.0-8.4`: Buy Candidate
 - `5.5-6.9`: Conditional / Verify
 - `<5.5`: Do Not Prioritize
 
 Scoring safety:
-- Penalize unresolved uncertainty in `Risk_uncertainty` and notes.
-- Do not auto-promote candidates with major `UNKNOWN` in decision-critical fields.
-- Keep explicit note when older/high-VRAM candidates outperform newer low-VRAM candidates on value or runway.
+- Penalize unresolved decision-critical unknowns through `Risk_uncertainty`.
+- Do not auto-promote rows with unresolved price/stock/spec basics.
+- Call out where older high-VRAM rows outperform newer low-VRAM rows.
 
-## 6) Required Output Contract (A-F, exact)
-
-Return all sections below in order and with headings exactly `A` through `F`.
+## Required Output Contract (A-F, exact)
+Return sections `A` to `F` only, in this exact order.
 
 ### A. Consolidated table
 Columns exactly:
@@ -99,27 +88,27 @@ Columns exactly:
 - Include `Weighted_Total_0_to_10`, `Overall`, and rank tier.
 
 ### C. Conflicts/gaps requiring verification
-- List source disagreements and decision-critical `UNKNOWN` fields.
-- Include which value is provisionally preferred and why.
+- List conflicts and decision-critical `UNKNOWN` fields.
+- For each conflict, name provisional preferred value and why.
 
 ### D. Final recommendation
 - One winner with exactly 3 reasons.
-- State buy-path confidence and any must-verify blocker.
+- Include buy-path confidence and must-verify blocker.
 
 ### E. One-sentence tie-break rule
-- One sentence only, comparing top 2 candidates.
+- One sentence comparing top 2.
 
 ### F. Dedup log
-- Use explicit action labels:
-  - `Merged`
-  - `Excluded - already reflected in existing card`
-  - `Kept separate with reason`
-- Each entry must include the canonical key and rationale.
+Use one of:
+- `Merged`
+- `Excluded - already reflected in existing card`
+- `Kept separate with reason`
 
-## Validation Checklist (self-check before final answer)
+Each entry must include canonical key and rationale.
 
-- Top candidates are not hidden due to legacy/newness bias.
-- No silent drops.
+## Final Self-Check
+- High-VRAM late-phase candidates were not suppressed.
+- No silent exclusions.
 - Every retained row has normalized score.
-- Every exclusion/merge is logged in F.
-- A-F sections are complete and ordered.
+- Every merge/exclusion appears in F.
+- Output includes only A-F.

@@ -14,6 +14,7 @@ Usage:
     python scripts/build_shortlist.py --dry-run
     python scripts/build_shortlist.py --batch 2026-05-05_notebooklm_batch1
     python scripts/build_shortlist.py --profile laptop
+    python scripts/build_shortlist.py --track 1 --pathway 1A
     python scripts/build_shortlist.py --include-unknowns
 
 Output folder: NotebookLM_Workspaces/intake/shortlist/
@@ -47,7 +48,7 @@ def load_config() -> dict:
     with open(config_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-# Lanes that contain intake cards
+# Top-level card roots (scanner recurses into category subfolders).
 INTAKE_LANES = [
     "cards",
 ]
@@ -403,7 +404,12 @@ def build_row(fm: dict, intake_info: dict, source_path: Path, md_text: str) -> d
 # Card scanner
 # ---------------------------------------------------------------------------
 
-def scan_intake_cards(batch_filter: str | None, profile_filter: str | None) -> list[dict]:
+def scan_intake_cards(
+    batch_filter: str | None,
+    profile_filter: str | None,
+    track_filter: str | None,
+    pathway_filter: str | None,
+) -> list[dict]:
     """
     Walk all INTAKE_LANES and return a list of fully-built row dicts.
     """
@@ -412,7 +418,7 @@ def scan_intake_cards(batch_filter: str | None, profile_filter: str | None) -> l
         folder = REPO_ROOT / lane
         if not folder.exists():
             continue
-        for md_path in sorted(folder.glob("*.md")):
+        for md_path in sorted(folder.rglob("*.md")):
             text = md_path.read_text(encoding="utf-8", errors="replace")
             fm          = parse_frontmatter(text)
             intake_info = parse_tags_comment(text)
@@ -428,6 +434,12 @@ def scan_intake_cards(batch_filter: str | None, profile_filter: str | None) -> l
 
             # Profile filter
             if profile_filter and row["profile"].lower() != profile_filter.lower():
+                continue
+
+            # Track/pathway filters
+            if track_filter and str(row["track"]).strip() != track_filter:
+                continue
+            if pathway_filter and str(row["pathway"]).strip().upper() != pathway_filter:
                 continue
 
             rows.append(row)
@@ -485,6 +497,7 @@ Examples:
   python scripts/build_shortlist.py
   python scripts/build_shortlist.py --dry-run
   python scripts/build_shortlist.py --profile laptop
+  python scripts/build_shortlist.py --track 1 --pathway 1A
 
 After generating the shortlist, run the pricing enrichment step:
   python scripts/enrich_shortlist_pricing.py
@@ -500,6 +513,17 @@ After generating the shortlist, run the pricing enrichment step:
         help="Filter by device profile (default: all profiles)",
     )
     parser.add_argument(
+        "--track",
+        default=None,
+        choices=["1", "1.5", "2", "UNKNOWN"],
+        help="Filter by track value (1, 1.5, 2, UNKNOWN)",
+    )
+    parser.add_argument(
+        "--pathway",
+        default=None,
+        help="Filter by pathway value (1A, 1B, A, B, C, UNKNOWN)",
+    )
+    parser.add_argument(
         "--dry-run", action="store_true",
         help="Preview shortlist without writing any files",
     )
@@ -509,9 +533,11 @@ After generating the shortlist, run the pricing enrichment step:
     config = load_config()
 
     profile_filter = None if (args.profile in (None, "all")) else args.profile
+    track_filter = None if args.track is None else args.track
+    pathway_filter = None if args.pathway is None else args.pathway.strip().upper()
 
     print(f"\n🔍 Scanning intake cards in {WORKSPACE.relative_to(REPO_ROOT)} ...")
-    all_rows = scan_intake_cards(args.batch, profile_filter)
+    all_rows = scan_intake_cards(args.batch, profile_filter, track_filter, pathway_filter)
     print(f"   Cards found: {len(all_rows)}")
 
     # Apply gates & policies
@@ -568,8 +594,17 @@ After generating the shortlist, run the pricing enrichment step:
     # Write outputs
     today     = date.today().isoformat()
     out_dir   = REPO_ROOT / "shortlists"
-    sl_path   = out_dir / f"{today}_shortlist.csv"
-    rej_path  = out_dir / f"{today}_shortlist_rejected.csv"
+    suffix_parts = []
+    if profile_filter:
+        suffix_parts.append(f"profile-{profile_filter.replace(' ', '-')}")
+    if track_filter:
+        suffix_parts.append(f"track-{track_filter}")
+    if pathway_filter:
+        suffix_parts.append(f"pathway-{pathway_filter}")
+    suffix = f"_{'_'.join(suffix_parts)}" if suffix_parts else ""
+
+    sl_path   = out_dir / f"{today}_shortlist{suffix}.csv"
+    rej_path  = out_dir / f"{today}_shortlist_rejected{suffix}.csv"
 
     # Add 'status' column defaulting to ACTIVE if not set or if it's 'Active'
     for row in shortlist:

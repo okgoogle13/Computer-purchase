@@ -10,8 +10,32 @@
       "Bash(grep -E \"StaticText.*AU|\\\\$[0-9]|AU \\\\$\")",
       "Bash(grep -i \"static\\\\|text\\\\|\\\\$\")",
       "Bash(grep \"link\\\\|price\\\\|\\\\$\")",
-      "Bash(grep -A3 -B1 \"Pre-owned\\\\|Used\\\\|Refurbished\\\\|AU \\\\$\\\\|postage\\\\|\\\\$[1-9]\")"
+      "Bash(grep -A3 -B1 \"Pre-owned\\\\|Used\\\\|Refurbished\\\\|AU \\\\$\\\\|postage\\\\|\\\\$[1-9]\")",
+      "Bash(grep -E \"\\(price|Price|AUD|\\\\$|stock|Stock|cart|Cart|avail|Avail|RTX|GPU|RAM|SSD|storage|warranty|Warrant|condition|Condition|outlet|Outlet|refurb|open.box|SKU|sku|83F5|spec|Spec|memory|Memory|sold|Sold|backor|backorder|unavail\\)\")",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Bash(grep -E \"\\(1[0-9],[0-9]|2[0-9],[0-9]|3[0-9],[0-9]|4[0-9],[0-9]|\\\\$[0-9]|AUD|price|Price|refurb|Refurb|cert|Cert|Almost|stock|Stock|RTX|GPU|VRAM|16GB|32GB|SSD|1TB|2TB|warranty|Warrant|83F5|N1[ST]\\)\")",
+      "Bash(python3 -c ' *)",
+      "Read(//Users/okgoogle13/.claude/plans/**)",
+      "Bash(grep -E \"\\(price|Price|\\\\$|4[0-9]{3}|Add to Cart|Out of Stock|unavailable|stock\\)\")",
+      "Bash(grep -E \"\\(\\\\$[0-9]|4[0-9]{3}|price\\)\")",
+      "Bash(wait)",
+      "Bash(grep -E \"\\(ProArt|price|PX13|\\\\$[0-9]|link.*ASUS|result\\)\")",
+      "Bash(grep -E \"\\(\\\\$[0-9]|[0-9]{4}\\\\.[0-9]{2}|price|Price|Add to cart|stock\\)\")",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(n.get\\('ref'\\), n.get\\('url',''\\), n.get\\('name',''\\)\\) for n in data.get\\('nodes',[]\\) if n.get\\('ref'\\) in ['e41','e43']]\")",
+      "Bash(echo \"URL: $\\(agent-browser snapshot 2>&1)",
+      "Bash(grep -v \"Cart\\\\|Dashboard\\\\|Categories\\\\|All-Cat\\\\|Desktop\\\\|Note\\\\|Comp\\\\|Gam\\\\|Cases\\\\|Cool\\\\|Mon\\\\|Periph\\\\|Cable\\\\|Network\\\\|Special\\\\|ple.com.au/$\\\\|GoPro\")",
+      "Bash(python3 scripts/build_shortlist.py)",
+      "Bash(python3 scripts/scoring/rubric_weighting_engine.py --csv shortlists/2026-05-13_shortlist.csv --output-csv shortlists/2026-05-13_shortlist_ranked_latest.csv)",
+      "Bash(python3 scripts/pipeline_integrity_check.py --enriched shortlists/2026-05-13_shortlist.csv --ranked shortlists/2026-05-13_shortlist_ranked_latest.csv)",
+      "Bash(python3 scripts/policy_drift_check.py)",
+      "Bash(grep -E \"\\(price|Price|\\\\$[0-9]|Add to Cart|Out of Stock|Discontinu|Unavail|stock|Buy|3[0-9]{3}|4[0-9]{3}|5[0-9]{3}\\)\")",
+      "Bash(grep -E \"\\(\\\\$[0-9]|[0-9]{3,4}\\\\.[0-9]{2}|Outlet Price|Add to|Buy Now|cart|Cart\\)\")",
+      "Bash(grep -E \"\\(\\\\$[0-9]|[0-9]{3,4}\\\\.[0-9]{2}|Outlet Price|Add to|Buy Now|cart|Cart|Discontinu|Unavail|5090|5080|5070\\)\")",
+      "Bash(grep -E \"\\(\\\\$[0-9]|[0-9]{3,4}\\\\.[0-9]{2}|Outlet Price|Add to|Cart|Discontinu|Unavail|5090|5080|5070\\)\")",
+      "Bash(grep -E \"\\(\\\\$[0-9]|[0-9]{3,4}\\\\.[0-9]{2}|Outlet Price|Add to|Cart|5090|5080|5070\\)\")",
+      "Bash(grep -E \"\\(\\\\$[0-9]|[0-9]{3,4}\\\\.[0-9]{2}|Outlet Price|Add to|Cart|Discontinu|Unavail\\)\")",
+      "Bash(grep -E \"\\(Legion 9i|RTX.?5080|5080|\\\\$[0-9]|[0-9]{4}\\\\.[0-9]{2}|seller|Seller|condition|Condition|stock|available|Buy It Now\\)\")"
     ]
   }
 }
-

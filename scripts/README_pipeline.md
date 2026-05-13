@@ -28,6 +28,15 @@ python scripts/intake_to_cards.py NotebookLM_Workspaces/intake/processed/2026-05
 ```bash
 python scripts/build_shortlist.py
 ```
+Cards are organized under `cards/` category subfolders (`laptops/`, `desktops/`, `mini_pcs/`, `components/`, `apple_silicon/`); shortlist scanning is recursive.
+Profile-specific shortcuts:
+```bash
+python scripts/build_shortlist_laptops.py
+python scripts/build_shortlist_desktops.py
+python scripts/build_shortlist_mini_pcs.py
+python scripts/build_shortlist_components.py
+python scripts/build_shortlist_apple_silicon.py
+```
 **Human Step:** The script flags `[OVER BUDGET]` and `[PRICE UNKNOWN]` candidates instead of silently dropping them, saving exceptional outliers (e.g., RTX 5090) for manual review.
 
 ---

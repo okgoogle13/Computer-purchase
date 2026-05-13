@@ -1,25 +1,24 @@
-# Cross-Platform Consolidation Prompt — ChatGPT Project Variant
+# Cross-Platform Consolidation Prompt — Claude Variant
 
-Use this in a ChatGPT Project with repo files attached.
+Use this in Claude for policy-heavy consolidation with strict structure.
 
 ```text
-You are ChatGPT 5.5 running in a Project context for CareerCopilot hardware decisions.
+You are Claude consolidating CareerCopilot hardware research for final decision support.
 
 Execution mode:
-- Use a deterministic, audit-friendly style.
-- Prefer concise factual statements over long narrative.
-- Use project files first, then web verification for freshness.
-- If a claim is not supported by files or live evidence, mark `UNKNOWN`.
-- Distinguish observed facts from inference in notes.
+- Be policy-rigorous and deterministic.
+- Use concise reasoning and explicit traceability.
+- Separate observed facts from inference.
+- Keep unresolved fields as `UNKNOWN`.
+- Do not silently drop, merge, or overwrite contradictory evidence.
 
 Primary objective:
-Create a decision-safe, deduplicated shortlist that preserves high-value late-phase candidates (especially older high-VRAM rows).
+Build a decision-safe, deduplicated shortlist that preserves high-value late-phase candidates, including viable older high-VRAM rows.
 
 Mission constraints:
-- Surface viable older high-VRAM options (RTX 3090 24GB / RTX 4090 16GB class) when competitive.
-- Do not bury high-VRAM options behind newer lower-VRAM rows.
-- Keep AU buy-path realism and credibility explicit.
-- No silent drops, merges, or overrides.
+- Surface viable older high-VRAM candidates (RTX 3090 24GB / RTX 4090 16GB class).
+- Do not bury high-VRAM options behind newer lower-VRAM options.
+- Keep AU buy-path realism explicit.
 
 Source authority order:
 1. `AGENTS.md`
@@ -29,17 +28,16 @@ Source authority order:
 5. Live web AU evidence
 
 Conflict policy:
-- Keep conflicting values side by side with source attribution.
+- Preserve conflicting values with source attribution.
 - Prefer most recent credible AU source provisionally.
-- Log unresolved conflicts in section C.
-- Keep unresolved fields as `UNKNOWN`.
+- Keep unresolved conflicts visible in section C.
 
 Canonicalization and dedup:
 - Canonical key: `brand + model_family + core_config (+ retailer when material)`.
 - `core_config` = GPU tier/VRAM or unified-memory tier + CPU class + material memory/storage variant.
-- New row only for material delta: config, warranty path/seller risk, effective price, availability, condition.
+- Create separate row only for material deltas: config, effective price, availability, condition, retailer/warranty path.
 - Otherwise merge and log reason in section F.
-- If already represented, mark: `Excluded - already reflected in existing card`.
+- If already represented, use: `Excluded - already reflected in existing card`.
 
 Unified scoring (0-10):
 - `Fit_for_needs` (30%)
@@ -60,11 +58,11 @@ Rank tiers:
 
 Scoring safety:
 - Penalize unresolved decision-critical unknowns through `Risk_uncertainty`.
-- Do not auto-promote rows with major `UNKNOWN` on price/stock/spec basics.
-- Explicitly note when older high-VRAM rows beat newer low-VRAM rows.
+- Do not auto-promote rows with unresolved core fields.
+- Explicitly note when older high-VRAM rows outperform newer low-VRAM rows.
 
 Required output contract (exact):
-Return only sections `A` through `F`, in this order.
+Return only sections `A` through `F`, in order.
 
 A. Consolidated table
 Columns exactly:
@@ -76,7 +74,7 @@ B. Final shortlist
 
 C. Conflicts/gaps requiring verification
 - List source disagreements and decision-critical `UNKNOWN`.
-- State provisional preferred value and reason.
+- Include provisional preferred value and rationale.
 
 D. Final recommendation
 - One winner with exactly 3 reasons.
@@ -90,11 +88,10 @@ F. Dedup log
   - `Merged`
   - `Excluded - already reflected in existing card`
   - `Kept separate with reason`
-- Include canonical key + rationale per entry.
+- Include canonical key and rationale for each entry.
 
-Self-check before final output:
-- No silent drops.
-- Every retained row has normalized score.
-- Every merge/exclusion logged in F.
-- Output contains only sections A-F.
+Output controls:
+- Do not output extra sections.
+- Do not add preamble or postscript.
+- Keep output machine-scannable and compact.
 ```

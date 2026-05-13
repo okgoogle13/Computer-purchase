@@ -54,8 +54,9 @@ CSV terminology:
 - Do not infer price, stock, warranty, VRAM, memory, or thermal behavior.
 - Use `agent-browser` or normal web search to fill missing current facts.
 - **Secondary Market Audit Rule:** For all Track 1A secondary-market candidates (eBay/Refurb), the `current_best_price_aud` must be verified against recent (last 30 days) "Sold" listings or verified clearance prices. Do not rely solely on "Buy It Now" asking prices from international sellers.
+- **Price Increase Cross-Check Rule:** When a live price check shows a candidate's previously verified price has increased — do NOT immediately remove it from consideration or change its status to NEEDS_REVIEW based on a single retailer's new price alone. First check at least two other AU retailers (in priority order: `MANUFACTURER_AU` > `MAJOR_RETAILER_AU` > `AMAZON_AU` > `EBAY_AU`) before concluding the product is over-cap. Update `current_best_price_aud` to reflect the lowest confirmed in-stock AU price found across all checked retailers. Only apply an over-cap gate failure if no AU retailer has confirmed in-stock stock at or below the applicable cap.
 - Record verified findings back into the relevant CSV, product card, checklist, or decision log.
-- Prefer credible AU sources: manufacturer AU stores, major AU retailers, known refurb sellers, and live listing pages.
+- Prefer credible AU sources: manufacturer AU stores, major AU retailers, known refurb sellers, and live listing pages. AU retailer priority order: `MANUFACTURER_AU` > `MAJOR_RETAILER_AU` > `AMAZON_AU` > `EBAY_AU` > `GUMTREE_AU`/`FB_MARKETPLACE` > `GRAY_IMPORT`.
 - Do not expand hardware scope unless the user explicitly asks.
 
 ## Pipeline
