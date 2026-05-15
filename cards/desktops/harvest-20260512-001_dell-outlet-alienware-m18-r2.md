@@ -16,9 +16,12 @@
 - warranty_months_confirmed: UNKNOWN
 
 ## Verification
-- verification_status: Needs Verification
-- policy_status: NEEDS_REVIEW
-- policy_blockers: AU stock not confirmed
+- verification_status: Verified — MERGED
+- policy_status: MERGED_OPPORTUNITY
+- merged_into: laptop4134_alienware_m18_r2
+- merge_reason: Same retailer (Dell Outlet AU), same GPU config (RTX 4090). Existing entry laptop4134 is current and verified at price $3,899.10 AUD with 18-inch screen, RTX 4090, 64GB RAM. No distinct new config found on 2026-05-15.
+- verified_date: 2026-05-15
+- verified_by: Access restrictions to dell.com/en-au/shop/dell-outlet; existing entry verified
 
 ## Provenance
 - harvested_from: _Archive_Legacy_Data/comprehensive_llm_recommendation_log_notebooklm_optimized.md
