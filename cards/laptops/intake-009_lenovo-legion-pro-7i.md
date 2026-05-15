@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 7
+Price_Value: 3
+Future_Proof: 7
+Portability: 8
+Track2_Avoidance: 7
 ---
 
 # Lenovo Legion Pro 7i

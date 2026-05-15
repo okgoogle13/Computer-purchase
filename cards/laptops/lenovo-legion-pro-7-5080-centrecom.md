@@ -23,6 +23,11 @@ au_stock: Yes
 verification: Verified
 status: BUY_CANDIDATE
 score: 6.3
+Performance_Headroom: 3
+Price_Value: 3
+Future_Proof: 3
+Portability: 8
+Track2_Avoidance: 0
 ---
 
 # Lenovo Legion Pro 7 16IAX10H (RTX 5080)

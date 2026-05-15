@@ -16,6 +16,11 @@ retailer: PB Tech
 url: https://www.pbtech.com/au/product/NBKMSI182020/MSI-Stealth-18-HX-AI-A2XWHG-020NZ-NVIDIA-RTX-5070T
 status: PARKED_BELOW_FLOOR
 date_verified: 2026-05-07
+Performance_Headroom: 3
+Price_Value: 3
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # Product Card: MSI Stealth 18 HX AI (RTX 5070 Ti)

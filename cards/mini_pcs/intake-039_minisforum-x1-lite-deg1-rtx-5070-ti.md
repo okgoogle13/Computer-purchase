@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 7
+Price_Value: 7
+Future_Proof: 7
+Portability: 7
+Track2_Avoidance: 7
 ---
 
 # Minisforum X1 Lite + DEG1 + RTX 5070 Ti

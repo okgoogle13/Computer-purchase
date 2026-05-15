@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 3
+Price_Value: 7
+Future_Proof: 3
+Portability: 8
+Track2_Avoidance: 0
 ---
 
 # ERAZER Major X20 RTX 4070

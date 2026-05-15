@@ -21,11 +21,11 @@ url: https://www.ebay.com.au/itm/397837419713
 au_stock: Yes
 verification: Verified
 status: BUY_CANDIDATE
-Performance_Headroom: 6
-Price_Value: 10
-Future_Proof: 7
-Portability: 6
-Track2_Avoidance: 5
+Performance_Headroom: 5
+Price_Value: 8
+Future_Proof: 5
+Portability: 8
+Track2_Avoidance: 4
 score: 6.9
 exceptional_override: User approved unicorn exception (2026-05-11)
 ---

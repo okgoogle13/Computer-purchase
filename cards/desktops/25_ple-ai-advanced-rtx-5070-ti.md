@@ -6,6 +6,11 @@ name: PLE AI Advanced RTX 5070 Ti 16 GB Desktop
 gpu: NVIDIA GeForce RTX 5070 Ti (16 GB)
 vram: 16 GB
 score: 90
+Performance_Headroom: 7
+Price_Value: 2
+Future_Proof: 7
+Portability: 2
+Track2_Avoidance: 7
 ---
 
 # PLE AI Advanced RTX 5070 Ti 16 GB Desktop

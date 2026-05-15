@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Needs Verification
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 3
+Price_Value: 2
+Future_Proof: 3
+Portability: 7
+Track2_Avoidance: 0
 ---
 
 # GPD WIN 5

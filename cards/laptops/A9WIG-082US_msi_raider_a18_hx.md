@@ -23,6 +23,11 @@ au_stock: No
 verification: Verified
 status: WATCHLIST
 score: 6.0
+Performance_Headroom: 3
+Price_Value: 1
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # MSI Raider A18 HX A9WIG-082US

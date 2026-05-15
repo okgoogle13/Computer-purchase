@@ -7,6 +7,11 @@ soc: AMD Ryzen AI Max Pro 390 (Strix Halo)
 unified_memory: 32 GB
 price_aud: UNKNOWN
 score: UNKNOWN — Pending Price
+Performance_Headroom: 9
+Price_Value: 2
+Future_Proof: 9
+Portability: 7
+Track2_Avoidance: 9
 ---
 
 # HP Z2 Mini G1a — AMD Strix Halo

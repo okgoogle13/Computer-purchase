@@ -7,6 +7,11 @@ name: ASUS TUF Gaming A16 — AMD Strix Halo (Ryzen AI Max)
 gpu: AMD Radeon 890M / integrated Strix Halo GPU (unified)
 vram: UNKNOWN (unified — 32–64 GB from shared system RAM, config dependent)
 score: UNKNOWN — pending manual AU retailer data
+Performance_Headroom: 3
+Price_Value: 2
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # ASUS TUF Gaming A16 — AMD Strix Halo (Ryzen AI Max)

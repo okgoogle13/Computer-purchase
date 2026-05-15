@@ -7,6 +7,11 @@ gpu: Intel Arc Graphics (Integrated)
 vram: Shared
 price_aud: UNKNOWN
 score: 0.0 (Fails Track 1)
+Performance_Headroom: 3
+Price_Value: 2
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # ASUS Zenbook Duo UX8406 — eBay Listing

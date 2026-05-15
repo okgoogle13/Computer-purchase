@@ -7,6 +7,11 @@ gpu: NVIDIA RTX 4080 Laptop GPU (12 GB)
 vram: 12 GB
 price_aud: 2455
 score: 8.5 (Exceptional Value — 2024 Gen)
+Performance_Headroom: 5
+Price_Value: 8
+Future_Proof: 5
+Portability: 5
+Track2_Avoidance: 4
 ---
 
 # ASUS ROG Strix G18 (2024) — G814JZR / G814JZ

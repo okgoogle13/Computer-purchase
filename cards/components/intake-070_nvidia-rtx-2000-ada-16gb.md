@@ -15,6 +15,11 @@ au_stock: Yes
 verification: Verified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 7
+Price_Value: 10
+Future_Proof: 7
+Portability: 2
+Track2_Avoidance: 7
 ---
 
 # NVIDIA RTX 2000 Ada 16GB

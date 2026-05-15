@@ -16,6 +16,11 @@ retailer: JW Computers
 url: https://www.jw.com.au/product/hp-zb-ultra-14-g1a-14-ai-max-390-32g-512g-w11p
 status: BUY_CANDIDATE
 date_verified: 2026-05-07
+Performance_Headroom: 3
+Price_Value: 5
+Future_Proof: 3
+Portability: 8
+Track2_Avoidance: 0
 ---
 
 # Product Card: HP ZBook Ultra 14 G1a (Strix Halo)

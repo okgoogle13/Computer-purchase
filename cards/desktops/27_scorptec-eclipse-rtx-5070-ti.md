@@ -6,6 +6,11 @@ name: Scorptec Eclipse RTX 5070 Ti
 gpu: NVIDIA GeForce RTX 5070 Ti (16 GB)
 vram: 16 GB
 score: 88
+Performance_Headroom: 7
+Price_Value: 2
+Future_Proof: 7
+Portability: 2
+Track2_Avoidance: 7
 ---
 
 # Scorptec Eclipse RTX 5070 Ti

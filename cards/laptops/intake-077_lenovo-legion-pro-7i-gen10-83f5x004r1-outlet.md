@@ -23,10 +23,10 @@ status: Active
 seller_class: MANUFACTURER_AU
 source_platform: MANUFACTURER_AU
 Performance_Headroom: 9
-Price_Value: 4
-Future_Proof: 10
-Portability: 5
-Track2_Avoidance: 10
+Price_Value: 2
+Future_Proof: 9
+Portability: 8
+Track2_Avoidance: 9
 MCDA_Total: 7.55
 score: 7.55
 ---

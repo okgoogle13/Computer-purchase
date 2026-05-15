@@ -22,11 +22,11 @@ url: https://www.ple.com.au/
 au_stock: Yes
 verification: Verified (multi-retailer, 2026-05-13)
 status: BUY_CANDIDATE
-Performance_Headroom: 7
-Price_Value: 6
-Future_Proof: 8
-Portability: 9
-Track2_Avoidance: 8
+Performance_Headroom: 9
+Price_Value: 3
+Future_Proof: 9
+Portability: 5
+Track2_Avoidance: 9
 score: 7.55
 seller_class: MAJOR_RETAILER_AU
 source_platform: MANUFACTURER_AU

@@ -16,6 +16,11 @@ retailer: MSY (User Verified)
 url: https://www.msy.com.au/product/msi-vector-17-hx-ai-a2xwjg-17in-qhd-240hz-ultra-9-275hx-rtx-5090-2tb-ssd-32gb-ram-w11h-gaming-laptop-vector-17-hx-ai-a2xwjg-078au-83373
 status: BUY_CANDIDATE
 date_verified: 2026-05-07
+Performance_Headroom: 3
+Price_Value: 2
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # Product Card: MSI Vector 17 HX AI (RTX 5090)

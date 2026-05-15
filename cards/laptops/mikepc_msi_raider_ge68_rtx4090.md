@@ -22,6 +22,11 @@ au_stock: Yes
 verification: Verified
 status: BUY_CANDIDATE
 score: 7.85
+Performance_Headroom: 3
+Price_Value: 7
+Future_Proof: 3
+Portability: 8
+Track2_Avoidance: 0
 ---
 
 # MSI Raider GE68 HX 13V (RTX 4090 16GB)

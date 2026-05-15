@@ -6,6 +6,11 @@ name: MSI Raider A18 HX (Remanufactured)
 gpu: NVIDIA RTX 4080 Laptop GPU (12 GB)
 price_aud: 3972
 score: 7.0 (Meets Criteria)
+Performance_Headroom: 3
+Price_Value: 5
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # MSI Raider A18 HX — Remanufactured (PB Tech)

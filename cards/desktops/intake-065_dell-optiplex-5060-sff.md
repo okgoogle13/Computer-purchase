@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 3
+Price_Value: 10
+Future_Proof: 3
+Portability: 2
+Track2_Avoidance: 0
 ---
 
 # Dell OptiPlex 5060 SFF

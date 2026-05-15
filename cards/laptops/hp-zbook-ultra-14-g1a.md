@@ -7,6 +7,11 @@ soc: AMD Ryzen AI Max Pro 380 (Strix Halo)
 unified_memory: 16 GB
 price_aud: UNKNOWN
 score: UNKNOWN — Pending Price
+Performance_Headroom: 7
+Price_Value: 2
+Future_Proof: 7
+Portability: 8
+Track2_Avoidance: 7
 ---
 
 # HP ZBook Ultra 14 G1a — AMD Strix Halo

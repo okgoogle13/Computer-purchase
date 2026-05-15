@@ -18,6 +18,11 @@ au_stock: Yes
 verification: Verified (User provided specs)
 status: REJECTED_BELOW_FLOOR
 score: 2.5 — Failed VRAM floor (8GB < 12GB minimum)
+Performance_Headroom: 3
+Price_Value: 7
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # Alienware 18 Area-51 (RTX 5070 8GB)

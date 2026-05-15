@@ -7,6 +7,11 @@ gpu: NVIDIA Quadro P2000 (5GB GDDR5)
 vram: 5 GB
 price_aud: 1779
 score: 7.5 (Requires GPU Upgrade)
+Performance_Headroom: 3
+Price_Value: 10
+Future_Proof: 3
+Portability: 2
+Track2_Avoidance: 0
 ---
 
 # Lenovo ThinkStation P620 — eBay Refurbished

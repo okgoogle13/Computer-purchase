@@ -6,6 +6,11 @@ name: HP Z4 G4 Workstation + Used RTX 3090 24 GB
 gpu: NVIDIA GeForce RTX 3090 (24 GB)
 vram: 24 GB
 score: 92
+Performance_Headroom: 9
+Price_Value: 2
+Future_Proof: 9
+Portability: 2
+Track2_Avoidance: 9
 ---
 
 # HP Z4 G4 Workstation + Used RTX 3090 24 GB

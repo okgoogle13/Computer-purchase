@@ -7,6 +7,11 @@ gpu: NVIDIA RTX 3090 (24 GB)
 vram: 24 GB
 price_aud: 2300
 score: 8.5 (Exceptional Value)
+Performance_Headroom: 9
+Price_Value: 9
+Future_Proof: 9
+Portability: 2
+Track2_Avoidance: 9
 ---
 
 # Alienware Aurora R11 Gaming PC — TechnologyLocker

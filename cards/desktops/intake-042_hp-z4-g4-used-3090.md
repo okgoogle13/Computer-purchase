@@ -15,6 +15,11 @@ au_stock: Mixed
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 9
+Price_Value: 8
+Future_Proof: 9
+Portability: 2
+Track2_Avoidance: 9
 ---
 
 # HP Z4 G4 + used 3090

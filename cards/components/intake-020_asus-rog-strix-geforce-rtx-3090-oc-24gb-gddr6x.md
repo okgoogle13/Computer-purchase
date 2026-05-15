@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 9
+Price_Value: 10
+Future_Proof: 9
+Portability: 2
+Track2_Avoidance: 9
 ---
 
 # ASUS ROG Strix GeForce RTX 3090 OC 24GB GDDR6X

@@ -6,6 +6,11 @@ name: Lenovo Legion Pro 7i
 gpu: NVIDIA RTX 4090 Laptop GPU (16 GB)
 vram: 16 GB
 score: 84
+Performance_Headroom: 7
+Price_Value: 2
+Future_Proof: 7
+Portability: 5
+Track2_Avoidance: 7
 ---
 
 # Lenovo Legion Pro 7i — RTX 4090 Laptop GPU 16 GB

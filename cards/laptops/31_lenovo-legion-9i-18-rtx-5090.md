@@ -5,11 +5,11 @@ category: laptop
 name: Lenovo Legion 9i Gen 10 18" RTX 5090
 gpu: NVIDIA RTX 5090 Laptop GPU (24 GB)
 vram: 24 GB
-Performance_Headroom: 10
-Price_Value: 5
-Future_Proof: 10
-Portability: 3
-Track2_Avoidance: 10
+Performance_Headroom: 9
+Price_Value: 2
+Future_Proof: 9
+Portability: 5
+Track2_Avoidance: 9
 score: 7.5
 ---
 

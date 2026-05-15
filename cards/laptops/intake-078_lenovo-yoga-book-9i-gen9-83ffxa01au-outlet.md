@@ -22,10 +22,10 @@ verification: Verified (full page, 2026-05-13)
 status: Active
 seller_class: MANUFACTURER_AU
 source_platform: MANUFACTURER_AU
-Performance_Headroom: 1
-Price_Value: 5
-Future_Proof: 2
-Portability: 9
+Performance_Headroom: 3
+Price_Value: 8
+Future_Proof: 3
+Portability: 8
 Track2_Avoidance: 0
 MCDA_Total: 3.1
 score: 3.1

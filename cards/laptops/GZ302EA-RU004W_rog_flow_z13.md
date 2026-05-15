@@ -23,6 +23,11 @@ au_stock: Yes
 verification: Verified
 status: BUY_CANDIDATE
 score: 6.8
+Performance_Headroom: 3
+Price_Value: 3
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # ASUS ROG Flow Z13 (2026) GZ302EA-RU004W

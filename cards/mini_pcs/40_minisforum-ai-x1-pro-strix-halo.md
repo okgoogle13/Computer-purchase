@@ -7,6 +7,11 @@ name: Minisforum AI X1 Pro — AMD Ryzen AI Max+ (Strix Halo, up to 128 GB)
 gpu: AMD Radeon integrated Strix Halo GPU (unified memory)
 vram: UNKNOWN (unified — 64 GB / 96 GB / 128 GB configs; confirm SKU)
 score: UNKNOWN — pending manual AU retailer data
+Performance_Headroom: 3
+Price_Value: 2
+Future_Proof: 3
+Portability: 7
+Track2_Avoidance: 0
 ---
 
 # Minisforum AI X1 Pro — AMD Ryzen AI Max+ (Strix Halo)

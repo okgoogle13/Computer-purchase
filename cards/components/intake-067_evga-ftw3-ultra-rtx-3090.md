@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Needs Verification
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 9
+Price_Value: 10
+Future_Proof: 9
+Portability: 2
+Track2_Avoidance: 9
 ---
 
 # EVGA FTW3 Ultra RTX 3090

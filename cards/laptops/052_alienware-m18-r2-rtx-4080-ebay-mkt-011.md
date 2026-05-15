@@ -16,6 +16,11 @@ au_stock: No
 verification: Needs Verification
 status: GOOD ENOUGH
 score: 6.35
+Performance_Headroom: 5
+Price_Value: 5
+Future_Proof: 5
+Portability: 5
+Track2_Avoidance: 4
 ---
 
 # Alienware M18 R2 18in 165Hz i9-14900HX 32GB 1TB RTX 4080

@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Unverified
 status: Parked
 score: UNKNOWN
+Performance_Headroom: 9
+Price_Value: 3
+Future_Proof: 9
+Portability: 5
+Track2_Avoidance: 9
 ---
 
 # Dell Alienware m18 R2 / Area-51

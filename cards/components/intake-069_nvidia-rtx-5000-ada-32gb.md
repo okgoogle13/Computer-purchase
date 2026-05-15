@@ -15,6 +15,11 @@ au_stock: Yes
 verification: Verified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 9
+Price_Value: 0
+Future_Proof: 9
+Portability: 2
+Track2_Avoidance: 9
 ---
 
 # NVIDIA RTX 5000 Ada 32GB

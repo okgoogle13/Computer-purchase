@@ -115,7 +115,7 @@ For Track 1 buy-path decisions, source priority is:
 
 - `scripts/enrich_shortlist_pricing.py` owns pricing schema scaffolding only.
 - `scripts/fill_shortlist_live_pricing.py` owns live pricing fill for queued rows.
-- `NotebookLM_Workspaces/.../rubric_weighting_engine.py` owns MCDA weighting + policy status + explicit risk-adjusted output columns.
+- `scripts/scoring/rubric_weighting_engine.py` owns MCDA weighting + policy status + explicit risk-adjusted output columns.
 
 ## Outcome Checklist
 

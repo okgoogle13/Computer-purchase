@@ -16,6 +16,11 @@ au_stock: No
 verification: Needs Verification
 status: Active
 score: 7.15
+Performance_Headroom: 7
+Price_Value: 5
+Future_Proof: 7
+Portability: 5
+Track2_Avoidance: 7
 ---
 
 # Dell Alienware M18 R2 165Hz QHD+ i9-14900HX 64GB 2TB RTX 4090

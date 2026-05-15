@@ -6,6 +6,11 @@ name: MSI Katana 17 HX
 gpu: NVIDIA RTX 5070 Laptop GPU (8 GB)
 price_aud: 2798
 score: 6.5 (Budget Option, Lower VRAM)
+Performance_Headroom: 3
+Price_Value: 8
+Future_Proof: 3
+Portability: 8
+Track2_Avoidance: 0
 ---
 
 # MSI Katana 17 HX — PB Tech

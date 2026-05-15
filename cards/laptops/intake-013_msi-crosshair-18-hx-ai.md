@@ -15,6 +15,11 @@ au_stock: Yes
 verification: Verified
 status: Rejected
 score: 0.0 (Below VRAM Floor)
+Performance_Headroom: 3
+Price_Value: 6
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # MSI Crosshair 18 HX AI

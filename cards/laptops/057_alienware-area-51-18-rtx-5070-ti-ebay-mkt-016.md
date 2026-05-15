@@ -16,6 +16,11 @@ au_stock: No
 verification: Needs Verification
 status: Watchlist
 score: UNKNOWN
+Performance_Headroom: 3
+Price_Value: 7
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # Alienware 18 Area-51 18in QHD+ Ultra 9 32GB 2TB RTX 5070 Ti

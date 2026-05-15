@@ -11,9 +11,9 @@ price_aud: 4500.00
 seller_class: MAJOR_RETAILER_AU
 source_platform: EBAY_AU
 Performance_Headroom: 7
-Price_Value: 10
-Future_Proof: 8
-Portability: 3
+Price_Value: 3
+Future_Proof: 7
+Portability: 5
 Track2_Avoidance: 7
 score: 7.3
 status: BUY_CANDIDATE

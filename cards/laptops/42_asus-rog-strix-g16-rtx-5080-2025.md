@@ -7,6 +7,11 @@ gpu: NVIDIA RTX 5080 Laptop GPU (16 GB)
 vram: 16 GB
 price_aud: 4559
 score: 7.0 (Marginal Budget — Over by $59)
+Performance_Headroom: 7
+Price_Value: 3
+Future_Proof: 7
+Portability: 8
+Track2_Avoidance: 7
 ---
 
 # ASUS ROG Strix G16 (2025) — G615LW-S5165W

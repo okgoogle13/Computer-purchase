@@ -1,19 +1,39 @@
-# Cross-Platform Research Core Prompt (Shared Logic)
+# Cross-Platform Opportunity Discovery Core Prompt (Shared Logic)
 
-Use this as the canonical instruction set for multi-LLM hardware research consolidation.
+Use this as the canonical instruction set for multi-LLM opportunity discovery.
 
 ## Operating Goal
-Produce a decision-safe, deduplicated shortlist for CareerCopilot procurement.
+Identify lost opportunities only:
+- products/candidates/tracks/pathways that were missed, deprioritized, or excluded
+- but appear likely to be high-upside and within policy budget
 
-Late-phase priority:
-- Surface older high-VRAM options (for example RTX 3090 24GB, RTX 4090 16GB) when still viable.
-- Do not bury high-VRAM options behind newer lower-VRAM alternatives.
-- Keep AU buy-path realism explicit.
+This is discovery-only work. Do not create product cards. Do not score candidates.
 
-Non-negotiables:
-- No silent row drops.
+## Mandatory Two-Phase Workflow
+Run in this exact order:
+
+### Phase 1: Prior-Conversation Coverage Audit
+Review prior conversation artifacts and recommendation logs first. Identify:
+- recommendations that were previously made but are missing from active shortlist/intake CSVs
+- recommendations that exist in shortlist rows but have no corresponding product card
+- product cards that exist but are detached from active shortlist rows
+
+Phase 1 output must produce an explicit "missed or untracked recommendation set" before any new market discovery.
+
+### Phase 2: Additional Market Discovery
+Only after Phase 1, search for net-new additional options not already covered by:
+- prior conversation recommendations
+- active shortlist/intake rows
+- existing product cards
+
+Phase 2 must clearly separate genuinely new options from Phase 1 recovery items.
+
+## Non-Negotiables
+- No silent drops.
 - Keep unresolved facts as `UNKNOWN`.
 - Distinguish observed facts from inference.
+- Do not propose editing repository files.
+- Do not compute or assign new MCDA factor values.
 
 ## Source Authority Order
 Use sources in this order:
@@ -21,94 +41,101 @@ Use sources in this order:
 2. `config/procurement_policy.json`
 3. Active shortlist/intake CSV files
 4. Product cards (`cards/**`)
-5. Live web evidence for AU price/stock/specs/warranty/thermal risk
+5. Live web AU evidence for freshness
 
 Conflict handling:
-- Preserve conflicting values side by side.
-- Attribute each value to its source.
-- Prefer most recent credible AU source for provisional ranking.
-- Log all conflicts in section C.
+- Preserve conflicting values with source attribution.
+- Prefer most recent credible AU source provisionally.
+- Log unresolved conflicts in section D.
 
-## Candidate Extraction and Canonicalization
+## Opportunity Identification Rules
+Focus on candidates that satisfy all or most:
+- likely policy-compliant budget posture (`<= 5,000 AUD` Track 1 cap, or explicit valid override case)
+- likely strong compute headroom (for example high VRAM tiers)
+- likely AU-available from credible seller paths
+- likely improvement over currently selected shortlist rows
+
+## Definitions (Mandatory)
+Use these exact definitions when classifying opportunities:
+
+- `Missing`:
+  - A product/recommendation is `Missing` when no corresponding product card exists in `cards/` (including subfolders such as `cards/laptops/`, `cards/desktops/`, `cards/components/`, `cards/mini_pcs/`, `cards/apple_silicon/`).
+  - Shorthand rule for prompts: "products without a product card in `cards/`".
+
+- `Underutilized`:
+  - A product/recommendation is `Underutilized` when a product card exists in `cards/` but the item is absent from active shortlist/intake CSVs, or present but not mapped to the correct track/pathway and therefore not being actively considered.
+
+Late-phase priority:
+- surface viable older/high-VRAM options (for example RTX 3090 24GB, RTX 4090 16GB)
+- do not bury them behind newer lower-VRAM rows
+
+## Dedup and Canonicalization
 Canonical key:
 - `brand + model_family + core_config (+ retailer when material)`
 
-`core_config` includes:
-- GPU tier + VRAM or unified-memory tier
-- CPU class
-- memory/storage variant when it changes purchase value
-
-Create separate rows only for material deltas:
-- config
-- retailer/warranty path
+Treat as separate opportunities only when there is a material delta:
+- config tier
 - effective price
-- availability
-- condition
+- stock status
+- warranty/seller risk path
 
-Otherwise merge into canonical row and record merge rationale in section F.
+Otherwise merge into one opportunity and note merge rationale in section F.
 
-## Dedup and Exclusion Rules
-- If item already exists in an equivalent canonical row, use:
-  - `Excluded - already reflected in existing card`
-- Never exclude without an explicit log entry.
-- Every merge/exclusion decision must appear in section F.
+## Output Contract (A-G, exact)
+Return sections `A` through `G` only, in this order.
 
-## Unified Scoring and Normalization
-Normalize all legacy scoring to 0-10 using:
-- `Fit_for_needs` (30%)
-- `Value_for_money` (20%)
-- `Performance_quality` (25%)
-- `Risk_uncertainty` (15%, reverse scored: lower risk -> higher score)
-- `Recommendation_strength` (10%)
-
-Formula:
-- `Weighted_Total_0_to_10 = (Fit_for_needs*0.30) + (Value_for_money*0.20) + (Performance_quality*0.25) + (Risk_uncertainty*0.15) + (Recommendation_strength*0.10)`
-- `Overall = Weighted_Total_0_to_10 / 10`
-
-Rank tiers:
-- `8.5-10.0`: Strong Buy Now
-- `7.0-8.4`: Buy Candidate
-- `5.5-6.9`: Conditional / Verify
-- `<5.5`: Do Not Prioritize
-
-Scoring safety:
-- Penalize unresolved decision-critical unknowns through `Risk_uncertainty`.
-- Do not auto-promote rows with unresolved price/stock/spec basics.
-- Call out where older high-VRAM rows outperform newer low-VRAM rows.
-
-## Required Output Contract (A-F, exact)
-Return sections `A` to `F` only, in this exact order.
-
-### A. Consolidated table
+### A. Current Blind Spots
 Columns exactly:
-`Product | Category | Key specs | Price | Source/model | Original score | Normalized score | Confidence | Notes`
+`Candidate | Track/Pathway | Why Potentially High-Upside | Budget Posture | Evidence Strength | Notes`
+- Prefix each row with `Phase1-Missed` or `Phase2-New`.
 
-### B. Final shortlist
-- Ranked best to worst.
-- Include `Weighted_Total_0_to_10`, `Overall`, and rank tier.
+### B. Priority Opportunity Queue
+- Ranked highest-to-lowest opportunity to investigate next.
+- Include `Priority` label: `P1`, `P2`, `P3`.
 
-### C. Conflicts/gaps requiring verification
-- List conflicts and decision-critical `UNKNOWN` fields.
-- For each conflict, name provisional preferred value and why.
+### C. Verification Tasks (for central IDE agent)
+- For each P1/P2 opportunity, list exact facts to verify:
+  - price
+  - stock
+  - VRAM/unified memory
+  - screen size (if pathway-relevant)
+  - seller/source risk fields
 
-### D. Final recommendation
-- One winner with exactly 3 reasons.
-- Include buy-path confidence and must-verify blocker.
+### D. Conflicts and Unknowns
+- List source disagreements and decision-critical `UNKNOWN` fields.
+- Include provisional preferred value and reason.
 
-### E. One-sentence tie-break rule
-- One sentence comparing top 2.
+### E. Suggested Track/Pathway Rechecks
+- One-line recommendation per opportunity:
+  - keep current track/pathway
+  - reclassify track/pathway
+  - escalate to track exception review
 
-### F. Dedup log
-Use one of:
-- `Merged`
-- `Excluded - already reflected in existing card`
+### F. Dedup Log
+Use labels exactly:
+- `Merged opportunity`
 - `Kept separate with reason`
+- `Discarded as non-material duplicate`
 
-Each entry must include canonical key and rationale.
+### G. Central IDE Handoff
+- Output as compact JSON or JSONL.
+- One object per opportunity.
+- Use stable keys only:
+  - `candidate`
+  - `track_pathway`
+  - `priority`
+  - `why_high_upside`
+  - `budget_posture`
+  - `evidence_strength`
+  - `verification_tasks`
+  - `conflicts`
+  - `recommended_action`
+- Keep values concise and actionable.
+- Do not add narrative outside the structured objects.
 
 ## Final Self-Check
-- High-VRAM late-phase candidates were not suppressed.
-- No silent exclusions.
-- Every retained row has normalized score.
-- Every merge/exclusion appears in F.
-- Output includes only A-F.
+- Output is discovery-only.
+- No card creation instructions.
+- No MCDA scoring instructions.
+- No file-edit instructions.
+- A-G sections complete and ordered.

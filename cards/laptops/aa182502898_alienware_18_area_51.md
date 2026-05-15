@@ -23,6 +23,11 @@ au_stock: Yes
 verification: User Verified
 status: BUY_CANDIDATE
 score: 6.8
+Performance_Headroom: 3
+Price_Value: 7
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # Alienware 18 Area-51 (Refurbished - SKU AA182502898)

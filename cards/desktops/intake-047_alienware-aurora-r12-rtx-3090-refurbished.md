@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 9
+Price_Value: 5
+Future_Proof: 9
+Portability: 2
+Track2_Avoidance: 9
 ---
 
 # Alienware Aurora R12 RTX 3090 refurbished

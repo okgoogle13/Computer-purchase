@@ -7,6 +7,11 @@ gpu: NVIDIA RTX 5090 Laptop GPU (24 GB)
 vram: 24 GB
 price_aud: 6749
 score: 5.0 (Far Over Budget)
+Performance_Headroom: 9
+Price_Value: 0
+Future_Proof: 9
+Portability: 8
+Track2_Avoidance: 9
 ---
 
 # ASUS ROG Zephyrus G16 (2025) Intel — GU605CX-QR124X

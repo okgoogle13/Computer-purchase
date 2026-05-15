@@ -7,6 +7,11 @@ gpu: NVIDIA RTX 5070 Laptop GPU (12 GB)
 vram: 12 GB
 price_aud: 3999
 score: 7.5 (Under Budget, Strong VRAM/Display)
+Performance_Headroom: 5
+Price_Value: 5
+Future_Proof: 5
+Portability: 8
+Track2_Avoidance: 4
 ---
 
 # ASUS ROG Zephyrus G16 (2025) — GA605KP-QR044W

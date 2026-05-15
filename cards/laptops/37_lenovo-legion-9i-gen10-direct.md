@@ -23,6 +23,11 @@ au_stock: Yes
 verification: User Verified (effective price)
 status: BUY_CANDIDATE
 score: 7.3
+Performance_Headroom: 3
+Price_Value: 0
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # Lenovo Legion 9i Gen 10 18" — Lenovo Direct

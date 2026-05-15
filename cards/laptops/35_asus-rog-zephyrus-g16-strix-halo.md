@@ -7,6 +7,11 @@ name: ASUS ROG Zephyrus G16 — AMD Strix Halo (Ryzen AI Max)
 gpu: AMD Radeon integrated Strix Halo GPU (unified)
 vram: UNKNOWN (unified — 32–96 GB from shared system RAM, config dependent)
 score: UNKNOWN — pending manual AU retailer data
+Performance_Headroom: 3
+Price_Value: 2
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # ASUS ROG Zephyrus G16 — AMD Strix Halo (Ryzen AI Max)

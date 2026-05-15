@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Verified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 9
+Price_Value: 10
+Future_Proof: 9
+Portability: 2
+Track2_Avoidance: 9
 ---
 
 # ASRock Radeon RX 7900 XTX Phantom Gaming 24GB OC

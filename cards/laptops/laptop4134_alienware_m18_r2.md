@@ -23,6 +23,11 @@ au_stock: Yes
 verification: User Verified
 status: BUY_CANDIDATE
 score: 7.8
+Performance_Headroom: 3
+Price_Value: 5
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # Alienware m18 R2 (Refurbished - SKU laptop4134)

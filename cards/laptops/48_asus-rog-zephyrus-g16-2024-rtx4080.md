@@ -7,6 +7,11 @@ gpu: NVIDIA RTX 4080 Laptop GPU (12 GB)
 vram: 12 GB
 price_aud: 3500
 score: 8.0 (Strong Value — 2024 Gen with OLED)
+Performance_Headroom: 5
+Price_Value: 6
+Future_Proof: 5
+Portability: 5
+Track2_Avoidance: 4
 ---
 
 # ASUS ROG Zephyrus G16 (2024) — GU605MI / GU605MH

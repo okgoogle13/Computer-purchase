@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 9
+Price_Value: 0
+Future_Proof: 9
+Portability: 2
+Track2_Avoidance: 9
 ---
 
 # Dual RTX 3090 24GB GPU Pro Workstation (Pure 501 Black)

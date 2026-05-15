@@ -1,99 +1,124 @@
-# Cross-Platform Consolidation Prompt — Gemini Variant
+# Cross-Platform Opportunity Discovery Prompt — Gemini 3.1 Pro Variant
 
-Use this in Gemini when combining file context and web evidence.
+Use this in Gemini when combining repo context with live web evidence.
 
 ```text
-You are Gemini 3.1 Pro consolidating CareerCopilot hardware research across files and live AU evidence.
+You are Gemini 3.1 Pro conducting a discovery-only opportunity audit for CareerCopilot hardware decisions.
 
-Execution mode:
-- Prioritize precision and source traceability.
-- Every material claim must include a short citation tag with source + date (if visible).
+Mode:
+- Identify lost opportunities only.
+- Do not create product cards.
+- Do not score candidates.
+- Do not output repository edit instructions.
+
+Objective:
+Find products/candidates/tracks/pathways that likely have high upside and in-budget potential but are currently missed or under-prioritized.
+
+Mandatory workflow (two phases, strict order):
+Phase 1) Prior-conversation recommendation audit:
+- Review previous conversation recommendations first.
+- Identify recommendations that were missed in current shortlist/intake files.
+- Identify recommendations where product cards do not exist.
+- Identify card/shortlist mismatches (row without card, card without active row).
+
+Phase 2) Additional options discovery:
+- After Phase 1 is complete, search for additional net-new options not already covered by prior conversation recommendations or existing card/shortlist entries.
+- Keep Phase 2 findings explicitly separated from Phase 1 recovery findings.
+
+Definitions (mandatory):
+- `Missing` means products without a product card in `cards/` (including subfolders like `cards/laptops/`, `cards/desktops/`, `cards/components/`, `cards/mini_pcs/`, `cards/apple_silicon/`).
+- `Underutilized` means a product card exists in `cards/`, but the item is absent from active shortlist/intake CSVs, or present but not mapped to the correct track/pathway and therefore not actively considered.
+
+Evidence behavior:
+- Every material claim must include short source citation tags.
 - Separate observed facts from inferred judgments.
-- If uncertain, keep `UNKNOWN` and reduce confidence.
-
-Primary objective:
-Create a decision-safe, deduplicated shortlist that preserves high-value late-phase candidates, including older high-VRAM options.
-
-Mission constraints:
-- Surface viable older high-VRAM rows (RTX 3090 24GB / RTX 4090 16GB class) when competitive.
-- Do not bury high-VRAM options behind newer lower-VRAM rows.
-- Keep AU buy-path realism explicit.
-- No silent exclusions or merges.
-
-Source authority order:
-1. `AGENTS.md`
-2. `config/procurement_policy.json`
-3. Active shortlist/intake CSV files
-4. Product cards (`cards/**`)
-5. Live web AU evidence
-
-Conflict policy:
-- Preserve all conflicting values.
-- Attribute each value to source.
-- Prefer most recent credible AU source provisionally.
-- Log unresolved conflicts in section C.
 - Keep unresolved facts as `UNKNOWN`.
+- If sources conflict, preserve both and note provisional preference with rationale.
 
-Canonicalization and dedup:
-- Canonical key: `brand + model_family + core_config (+ retailer when material)`.
-- `core_config` = GPU tier/VRAM or unified-memory tier + CPU class + material memory/storage variant.
-- Create separate row only for material delta: config, effective price, availability, condition, retailer/warranty risk path.
-- Otherwise merge and log reason.
-- Already reflected rows must be labeled: `Excluded - already reflected in existing card`.
+Authority order:
+1) `AGENTS.md`
+2) `config/procurement_policy.json`
+3) Active shortlist/intake CSV files
+4) Product cards (`cards/**`)
+5) Live AU web evidence
 
-Unified scoring (0-10):
-- `Fit_for_needs` (30%)
-- `Value_for_money` (20%)
-- `Performance_quality` (25%)
-- `Risk_uncertainty` (15%, reverse scored)
-- `Recommendation_strength` (10%)
+Required focus:
+- Surface viable older/high-VRAM opportunities (RTX 3090 24GB, RTX 4090 16GB class).
+- Prioritize opportunities that could still fit policy budget or valid override paths.
+- Emphasize gaps where missing verification may hide GOOD_ENOUGH candidates.
 
-Formulas:
-- `Weighted_Total_0_to_10 = (Fit_for_needs*0.30) + (Value_for_money*0.20) + (Performance_quality*0.25) + (Risk_uncertainty*0.15) + (Recommendation_strength*0.10)`
-- `Overall = Weighted_Total_0_to_10 / 10`
+Suggested target sweep list (guidance only; verify each listing live):
+- RTX 4090 Laptop 16 GB
+- RTX 4080 Laptop 12 GB
+- RTX 3080 Ti Laptop 16 GB
+- RTX 3080 Laptop 16 GB (config-dependent)
+- RTX 5070 Ti Laptop 12 GB
+- RTX 5070 Laptop 12 GB variants
+- RTX 5090 Laptop 24 GB
+- RTX 5080 Laptop 16 GB
+- RTX 5000 Ada Laptop 16 GB
+- RTX 4000 Ada Laptop 12 GB
+- RTX 3500 Ada Laptop 12 GB
+- Radeon RX 7900M 16 GB
 
-Rank tiers:
-- `8.5-10.0`: Strong Buy Now
-- `7.0-8.4`: Buy Candidate
-- `5.5-6.9`: Conditional / Verify
-- `<5.5`: Do Not Prioritize
+High-value pass ordering:
+1) RTX 4090 16 GB
+2) RTX 4080 12 GB
+3) RTX 3080 Ti 16 GB
+4) RX 7900M 16 GB
+5) RTX 5000 Ada 16 GB
 
-Scoring safety:
-- Penalize unresolved decision-critical unknowns through `Risk_uncertainty`.
-- Do not auto-promote rows with unresolved core facts.
-- Explicitly note when older high-VRAM rows outperform newer low-VRAM rows.
+Search pattern hints:
+- `<gpu model> laptop used/refurbished AU`
+- `<gpu model> 12GB OR 16GB site:.au`
+- capture warranty and seller-risk evidence with citation tags
 
-Required output contract (exact):
-Return only sections `A` through `F`, in this order.
+Do not do:
+- No card drafting.
+- No MCDA factor assignment.
+- No patch/change instructions.
 
-A. Consolidated table
+Output contract (A-G only, exact order):
+
+A. Current Blind Spots
 Columns exactly:
-`Product | Category | Key specs | Price | Source/model | Original score | Normalized score | Confidence | Notes`
+`Candidate | Track/Pathway | Why Potentially High-Upside | Budget Posture | Evidence Strength | Notes`
+- Prefix each row with `Phase1-Missed` or `Phase2-New`.
 
-B. Final shortlist
-- Ranked best to worst.
-- Include `Weighted_Total_0_to_10`, `Overall`, rank tier.
+B. Priority Opportunity Queue
+- Rank with `P1`, `P2`, `P3`.
 
-C. Conflicts/gaps requiring verification
-- List conflicting values and decision-critical `UNKNOWN`.
+C. Verification Tasks (for central IDE agent)
+- List exact facts to verify for P1/P2: price, stock, VRAM/unified memory, screen size where relevant, seller/source risk fields.
+
+D. Conflicts and Unknowns
+- Include disagreements and critical `UNKNOWN` fields.
 - Include provisional preferred value + reason.
 
-D. Final recommendation
-- One winner with exactly 3 reasons.
-- Include buy-path confidence and must-verify blocker.
+E. Suggested Track/Pathway Rechecks
+- One line per candidate: keep / reclassify / escalate exception review.
 
-E. One-sentence tie-break rule
-- Exactly one sentence comparing top 2.
+F. Dedup Log
+Use labels exactly:
+- `Merged opportunity`
+- `Kept separate with reason`
+- `Discarded as non-material duplicate`
 
-F. Dedup log
-- Labels must be exactly:
-  - `Merged`
-  - `Excluded - already reflected in existing card`
-  - `Kept separate with reason`
-- Include canonical key + rationale.
+G. Central IDE Handoff
+- Output as compact JSON or JSONL.
+- One object per opportunity.
+- Use stable keys only:
+  - `candidate`
+  - `track_pathway`
+  - `priority`
+  - `why_high_upside`
+  - `budget_posture`
+  - `evidence_strength`
+  - `verification_tasks`
+  - `conflicts`
+  - `recommended_action`
+- Keep values concise and directly actionable.
+- Do not add narrative outside the structured objects.
 
-Output controls:
-- Keep output schema-locked to A-F.
-- Include short citation tags in A, C, and F notes.
-- Avoid extra prose before or after A-F.
+Return only A-G.
 ```

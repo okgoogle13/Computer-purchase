@@ -23,6 +23,11 @@ au_stock: Yes
 verification: Verified
 status: WATCHLIST
 score: 4.7
+Performance_Headroom: 3
+Price_Value: 7
+Future_Proof: 3
+Portability: 5
+Track2_Avoidance: 0
 ---
 
 # Razer Blade 14 (2026) RZ09-0511

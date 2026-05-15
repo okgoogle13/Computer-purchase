@@ -7,6 +7,11 @@ gpu: NVIDIA RTX 5070 Ti Laptop GPU (12 GB)
 vram: 12 GB
 price_aud: 4499
 score: 7.8 (Just Within Budget)
+Performance_Headroom: 5
+Price_Value: 3
+Future_Proof: 5
+Portability: 8
+Track2_Avoidance: 4
 ---
 
 # ASUS ROG Zephyrus G16 (2025) Intel — GU605CP

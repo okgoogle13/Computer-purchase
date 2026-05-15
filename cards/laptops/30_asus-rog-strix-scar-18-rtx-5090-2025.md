@@ -6,6 +6,11 @@ name: ASUS ROG Strix Scar 18 (2025) RTX 5090
 gpu: NVIDIA RTX 5090 Laptop GPU (24 GB)
 vram: 24 GB
 score: UNKNOWN — pending manual AU retailer data
+Performance_Headroom: 9
+Price_Value: 2
+Future_Proof: 9
+Portability: 5
+Track2_Avoidance: 9
 ---
 
 # ASUS ROG Strix Scar 18 (2025) — RTX 5090 Laptop GPU 24 GB

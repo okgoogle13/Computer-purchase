@@ -23,6 +23,11 @@ au_stock: Yes
 verification: Verified (Price matched at LogicalTech)
 status: BUY_CANDIDATE
 score: 8.9
+Performance_Headroom: 3
+Price_Value: 6
+Future_Proof: 3
+Portability: 7
+Track2_Avoidance: 0
 ---
 
 # HP Z2 Mini G1a AI (Ryzen AI Max PRO 390)

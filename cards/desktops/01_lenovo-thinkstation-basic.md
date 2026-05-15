@@ -7,6 +7,11 @@ gpu: UNKNOWN
 vram: UNKNOWN
 price_aud: 3350
 score: UNKNOWN — Pending Specs
+Performance_Headroom: 3
+Price_Value: 6
+Future_Proof: 3
+Portability: 2
+Track2_Avoidance: 0
 ---
 
 # Lenovo ThinkStation (Basic Config) — Student Pricing

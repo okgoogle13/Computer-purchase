@@ -15,6 +15,11 @@ au_stock: UNKNOWN
 verification: Unverified
 status: Active
 score: UNKNOWN — pending manual review
+Performance_Headroom: 5
+Price_Value: 7
+Future_Proof: 5
+Portability: 2
+Track2_Avoidance: 4
 ---
 
 # PLE Sidekick RTX 4070 Super EX-DEMO

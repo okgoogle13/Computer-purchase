@@ -16,6 +16,11 @@ au_stock: No
 verification: Verified
 status: Active
 score: UNKNOWN
+Performance_Headroom: 7
+Price_Value: 4
+Future_Proof: 7
+Portability: 5
+Track2_Avoidance: 7
 ---
 
 # ASUS ROG Strix Scar 18 (RTX 4090) - eBay Sold Market Floor

@@ -6,6 +6,11 @@ name: MSI Stealth 16 AI Studio A1VIG
 gpu: NVIDIA RTX 4090 Laptop GPU (16 GB)
 vram: 16 GB
 score: 82
+Performance_Headroom: 7
+Price_Value: 2
+Future_Proof: 7
+Portability: 5
+Track2_Avoidance: 7
 ---
 
 # MSI Stealth 16 AI Studio A1VIG — RTX 4090 Laptop GPU 16 GB

@@ -7,6 +7,11 @@ gpu: NVIDIA RTX 5070 Ti Laptop GPU (12 GB)
 vram: 12 GB
 price_aud: 4334
 score: 8.0 (Under Budget, 18" Bonus)
+Performance_Headroom: 5
+Price_Value: 4
+Future_Proof: 5
+Portability: 5
+Track2_Avoidance: 4
 ---
 
 # ASUS ROG Strix G18 (2025) — G815LR-S9099W
