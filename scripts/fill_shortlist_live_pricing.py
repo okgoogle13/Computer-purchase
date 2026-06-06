@@ -95,9 +95,50 @@ def in_verification_queue(row: Dict[str, str]) -> bool:
 
 def browser_agent_lookup(row: Dict[str, str]) -> Dict[str, str]:
     """
-    Placeholder browser-agent integration point.
-    Expected return keys are BROWSER_AGENT_RESPONSE_FIELDS.
+    Browser-agent integration using Gemini API and Browserless.
     """
+    import os
+    import json
+    import requests
+    from dotenv import load_dotenv
+    from pathlib import Path
+    
+    load_dotenv()
+    gemini_key = os.environ.get("GEMINI_API_KEY")
+    browserless_key = os.environ.get("BROWSERLESS_API_KEY")
+    
+    if not gemini_key:
+        print("Warning: No GEMINI_API_KEY found.")
+        return {}
+
+    candidate_id = get_row_identifier(row)
+    item_name = row.get("item_name", candidate_id)
+    print(f"Looking up {item_name} via Gemini Browser Agent...")
+    
+    prompt_path = Path("scripts/prompt_templates/browser_pricing_lookup.md")
+    prompt = prompt_path.read_text(encoding="utf-8") if prompt_path.exists() else ""
+    prompt = prompt.replace("[INSERT ITEM NAME AND SPECS HERE]", f"Item: {item_name}")
+
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={gemini_key}"
+    payload = {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "tools": [{"google_search": {}}],
+        "generationConfig": {"temperature": 0.1, "responseMimeType": "application/json"}
+    }
+    
+    try:
+        res = requests.post(url, json=payload, headers={"Content-Type": "application/json"})
+        if res.status_code == 200:
+            data = res.json()
+            text = data.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "{}")
+            result = json.loads(text)
+            result["candidate_id"] = candidate_id
+            return result
+        else:
+            print(f"Gemini API Error: {res.text}")
+    except Exception as e:
+        print(f"Agent lookup failed: {e}")
+        
     return {}
 
 

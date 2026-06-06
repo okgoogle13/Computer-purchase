@@ -4,6 +4,22 @@ This repository implements a strict 5-phase data pipeline to turn raw AI hardwar
 
 ---
 
+## 🕵️‍♂️ Phase 0 — Data Collection (Optional)
+**Goal:** Gather targeted hardware listings from secondary markets and raw data sources.
+
+**Scripts:**
+- `facebook_search_automator.py` — Hijacks an open Chrome session to perform automated searches on Facebook Marketplace and dumps intercepted GraphQL JSON.
+  > **Note:** To use this, close all Chrome windows and launch it via terminal on Mac:
+  > `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222`
+- `trigger_parsehub.py` — Triggers a cloud-based ParseHub run (bypassing local browser requirements) and downloads structured JSON results.
+- `facebook_collect.py` — Parses HAR files, targeted search GraphQL JSON dumps, or ParseHub JSON dumps into the canonical scraping schema.
+- `gumtree_collect.py` — Scrapes Gumtree AU listings.
+- `scrape_ebay_watchlist.py` / `map_ebay_to_intake.py` — Extracts specs from eBay watchlists.
+
+Outputs from these scripts can be piped directly into `intake_to_cards.py`.
+
+---
+
 ## 🏗️ Phase 1 — Intake
 **Goal:** Clean dirty CSV data from AI exports and generate markdown product cards for manual verification.
 

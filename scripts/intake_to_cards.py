@@ -124,7 +124,7 @@ def slugify(text: str, maxlen: int = 60) -> str:
 
 
 def make_filename(row: dict, index: int) -> str:
-    name  = row.get("item_name") or "unknown-item"
+    name  = row.get("item_name") or row.get("product_name") or "unknown-item"
     slug  = slugify(name)
     return f"intake-{index:03d}_{slug}.md"
 
@@ -198,7 +198,7 @@ def checkbox(label: str, done: bool = False) -> str:
 
 
 def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> str:
-    name     = fmt(row.get("item_name"), "Unnamed Item")
+    name     = fmt(row.get("item_name") or row.get("product_name"), "Unnamed Item")
     slug_id  = slugify(name)
     cat      = fmt(row.get("category"))
     track    = fmt(row.get("track"))
@@ -210,16 +210,23 @@ def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> s
     ram      = fmt(row.get("ram_gb"))
     cpu      = fmt(row.get("cpu_model"))
     cond     = fmt(row.get("condition"))
-    price    = fmt(row.get("price_aud"))
-    retailer = fmt(row.get("retailer"))
-    url      = url_md(row.get("url"))
+    price    = fmt(row.get("price_aud") or row.get("list_price_aud"))
+    retailer = fmt(row.get("retailer") or row.get("seller_name"))
+    url      = url_md(row.get("url") or row.get("product_url"))
     au_stock = fmt(row.get("au_stock_confirmed"))
     vstatus  = fmt(row.get("verification_status"))
-    status   = fmt(row.get("status"))
-    notes    = fmt(row.get("notes"), "No notes.")
-    date_f   = fmt(row.get("date_found"))
+    status   = fmt(row.get("status") or row.get("listing_status"))
+    notes    = fmt(row.get("notes") or row.get("description_snippet"), "No notes.")
+    date_f   = fmt(row.get("date_found") or row.get("listing_date") or row.get("price_collected_at"))
     seller_class = fmt(row.get("seller_class"))
     source_platform = fmt(row.get("source_platform"))
+    vendor_item_id = fmt(row.get("vendor_item_id"))
+    seller_risk_score = fmt(row.get("seller_risk_score"))
+    battery_disclosure_level = fmt(row.get("battery_disclosure_level"))
+    battery_health_pct = fmt(row.get("battery_health_pct"))
+    battery_cycle_count = fmt(row.get("battery_cycle_count"))
+    battery_replaced = fmt(row.get("battery_replaced"))
+    risk_flags = fmt(row.get("risk_flags"))
 
     price_str = f"${price} AUD" if price != "UNKNOWN" else "UNKNOWN"
     vram_str  = f"{vram} GB" if vram != "UNKNOWN" else "UNKNOWN"
@@ -233,6 +240,7 @@ def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> s
         f"<!-- INTAKE: batch={source_batch} date={date_f} route={routing_note} -->",
         "---",
         f"id: {slug_id}",
+        f"vendor_item_id: {vendor_item_id}",
         f"category: {cat.lower()}",
         f"track: {track}",
         f"pathway: {pathway}",
@@ -249,6 +257,12 @@ def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> s
         f"status: {status}",
         f"seller_class: {seller_class}",
         f"source_platform: {source_platform}",
+        f"seller_risk_score: {seller_risk_score}",
+        f"battery_disclosure_level: {battery_disclosure_level}",
+        f"battery_health_pct: {battery_health_pct}",
+        f"battery_cycle_count: {battery_cycle_count}",
+        f"battery_replaced: {battery_replaced}",
+        f"risk_flags: {risk_flags}",
         "score: UNKNOWN — pending manual review",
         "---",
         "",

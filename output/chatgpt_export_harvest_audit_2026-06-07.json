@@ -1,0 +1,22 @@
+{
+  "conversations_scanned": 142,
+  "messages_scanned": 1842,
+  "chunks_scanned": 4161,
+  "candidates_extracted": 312,
+  "evidence_rows": 312,
+  "outputs": {
+    "candidates_csv": "output/chatgpt_export_harvest_candidates_2026-06-07.csv",
+    "evidence_jsonl": "output/chatgpt_export_harvest_evidence_2026-06-07.jsonl",
+    "review_csv": "output/chatgpt_export_harvest_review_2026-06-07.csv"
+  },
+  "privacy": {
+    "raw_export_text_written": false,
+    "binary_attachments_written": false,
+    "excerpt_cap_chars": 500
+  },
+  "defaults": {
+    "verification_status": "Needs Verification",
+    "au_stock_confirmed": "UNKNOWN",
+    "status": "Watchlist"
+  }
+}

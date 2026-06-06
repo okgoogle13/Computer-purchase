@@ -21,6 +21,9 @@ CANONICAL_HEADER = [
     "ram_gb", "cpu_model", "condition", "retailer", "url",
     "au_stock_confirmed", "verification_status", "status", "notes",
     "seller_class", "source_platform", "screen_size_in",
+    "vendor_item_id", "seller_risk_score", "battery_disclosure_level",
+    "battery_health_pct", "battery_cycle_count", "battery_replaced",
+    "risk_flags"
 ]
 
 def classify_hardware(row: dict) -> tuple[str, str, str]:
@@ -107,7 +110,14 @@ def main():
             "notes": f"Scraped from eBay Watchlist. Listing ID: {row['listing_id']}. Storage: {row.get('storage', 'UNKNOWN')}",
             "seller_class": "EBAY_AU",
             "source_platform": "EBAY_AU",
-            "screen_size_in": row.get("screen_size_in", "UNKNOWN")
+            "screen_size_in": row.get("screen_size_in", "UNKNOWN"),
+            "vendor_item_id": row["listing_id"],
+            "seller_risk_score": "UNKNOWN",
+            "battery_disclosure_level": "UNKNOWN",
+            "battery_health_pct": "UNKNOWN",
+            "battery_cycle_count": "UNKNOWN",
+            "battery_replaced": "UNKNOWN",
+            "risk_flags": "UNKNOWN"
         }
         mapped_rows.append(canon)
         

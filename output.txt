@@ -1,0 +1,261 @@
+
+CareerCopilot MCDA Ranking
+==============================================================================
+Weights: Performance_Headroom=0.20, Price_Value=0.16, Future_Proof=0.16, Portability=0.16, Track2_Avoidance=0.12, Upgrade_Ceiling=0.10, Acquisition_Risk=0.10
+------------------------------------------------------------------------------
+  #    MCDA     Adj  Status        Track Path   Candidate
+------------------------------------------------------------------------------
+  1      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Lenovo ThinkStation (Basic Config)
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+  2      NA      NA  NEEDS_REVIEW  2     C      C07_hp_z2_mini_g1a
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+  3      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Lenovo ThinkStation P330 Tiny Desktop
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+  4      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Dell OptiPlex 5060 SFF
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+  5      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  HP Z2 Mini G1a
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+  6      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  HP Workstation Mini PC
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+  7      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  PLE AI Advanced RTX 5070 Ti 16 GB Desktop
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+  8      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Scorptec Eclipse RTX 5070 Ti
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+  9      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  PLE AI Advanced RTX 5070 Ti Desktop
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 10      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Evatech Y40K RTX 4080 Super Gaming PC
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 11      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  OKINOS Studio Pro - RTX 5070 Ti/3090
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 12      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Budget build
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 13      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  TOPAZ SNOW PC
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 14      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  VISION ONYX PC
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 15      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Thermaltake Horizon Xtreme tower + X1 Carbon
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 16      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ACT Dell 3650 + A4000
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 17      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  PLE Pixel 5070 Ti
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 18      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Scorptec Eclipse RTX 5070 Ti Gaming PC
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 19      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Acer Predator Orion 7000 RTX 4080 refurbished
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 20      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  CONSTELLAR ONYX PC — RTX 4080 SUPER
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 21      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Scorptec 32-Core Compute Platform
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 22      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Alienware Aurora R11 Gaming PC
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 23      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  HP Z4 G4 Workstation + Used RTX 3090 24 GB
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 24      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Supertech Computers RTX 4090 Gaming PC
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 25      NA      NA  NEEDS_REVIEW  2     B      Dell Precision 5820 Tower Bundle
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 26      NA      NA  NEEDS_REVIEW  2     B      HP Z4 G4 Workstation (Refurbished Base)
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; MCDA score incomplete
+ 27      NA      NA  NEEDS_REVIEW  2     B      Dell Precision T7910 (Refurbished Base)
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 28      NA      NA  NEEDS_REVIEW  1.5   UNKNOWN  Alienware Aurora R12 (Refurbished)
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 29      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Pro build
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 30      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Gaming PC Intel i9-12th Gen NVIDIA RTX 3090
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 31      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Gaming PC Jonsbo MOD 5 ASRock x570 Aqua
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 32      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Specialized EVGA 3090 Custom Build
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 33      NA      NA  NEEDS_REVIEW  2     B      Recompute Dell Precision 5820 Tower + ACT ThinkPad
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 34      NA      NA  NEEDS_REVIEW  2     B      HP Z4 G4 + used 3090
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; MCDA score incomplete
+ 35      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Alienware Aurora R12 RTX 3090 refurbished
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 36      NA      NA  NEEDS_REVIEW  2     B      Dell Precision 5820 Tower Workstation (32GB RAM)
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 37      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Skytech Prism 4 Gaming PC
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 38      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  HP OMEN 45L GT22-3090 Gaming PC
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 39      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  CLX Horus Gaming Desktop
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 40      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Allied M.O.A.B-A: RTX 5090 32GB Gaming PC
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 41      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Scorptec Vengeance RTX 5090 Gaming PC
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 42      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  AETHER : LVL 10 ICE MAX RTX 5090 Desktop PC
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 43      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Dual RTX 3090 24GB GPU Pro Workstation (Pure 501 Black)
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 44      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Dual RTX 4090 24GB GPU Pro Workstation
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 45      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Scorptec Blackwell PRO Workstation
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 46      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Dual RTX 5090 32GB GPU Pro Workstation
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 47      NA      NA  NEEDS_REVIEW  UNKNOWN Track2-C  Minisforum AI X1 Pro — AMD Ryzen AI Max+ (Strix Halo, up to 128 GB)
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 48      NA      NA  NEEDS_REVIEW  1     1A     Dell Laptop Alienware 18 Area-51 18in Ultra 9 275HX 2TB RTX 5070 Ti
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; VRAM UNKNOWN; MCDA score incomplete
+ 49      NA      NA  NEEDS_REVIEW  1     1A     Alienware 18 Area-51 18in QHD+ Ultra 9 32GB 2TB RTX 5070 Ti
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; VRAM UNKNOWN; MCDA score incomplete
+ 50      NA      NA  NEEDS_REVIEW  1     1A     37_lenovo-legion-9i-gen10-direct
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; price > Track 1 cap (5000 AUD); VRAM UNKNOWN; MCDA score incomplete
+ 51      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  MSI Raider A18 HX (Remanufactured)
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 52      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  MSI Katana 17 HX
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 53      NA      NA  NEEDS_REVIEW  1     1A     A2XWJG-078AU_msi_vector_17_hx
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; VRAM UNKNOWN; MCDA score incomplete
+ 54      NA      NA  NEEDS_REVIEW  1     1A     A9WIG-082US_msi_raider_a18_hx
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; price > Track 1 cap (5000 AUD); VRAM UNKNOWN; MCDA score incomplete
+ 55      NA      NA  NEEDS_REVIEW  1     1B     GZ302EA-RU004W_rog_flow_z13
+       blockers: missing MCDA: Upgrade_Ceiling; unified memory UNKNOWN; MCDA score incomplete
+ 56      NA      NA  NEEDS_REVIEW  1     1B     NBKHNB141202_hp_zbook_ultra_14_g1a
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; unified memory UNKNOWN; Track 1B SoC not confirmed (requires Strix Halo / Ryzen AI Max); MCDA score incomplete
+ 57      NA      NA  NEEDS_REVIEW  1     1A     NBKMSI182020_msi_stealth_18_hx
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; VRAM UNKNOWN; MCDA score incomplete
+ 58      NA      NA  NEEDS_REVIEW  1     1A     RZ09-0511_razer_blade_14
+       blockers: missing MCDA: Upgrade_Ceiling; VRAM UNKNOWN; screen size below Track 1A floor (16 in); MCDA score incomplete
+ 59      NA      NA  NEEDS_REVIEW  1     1A     aa182502898_alienware_18_area_51
+       blockers: missing MCDA: Upgrade_Ceiling; VRAM UNKNOWN; MCDA score incomplete
+ 60      NA      NA  NEEDS_REVIEW  1     1B     ASUS ROG Flow Z13 (2025) (Strix Halo)
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 61      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ASUS Zenbook Duo UX8406
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 62      NA      NA  NEEDS_REVIEW  1     1B     HP ZBook Ultra 14 G1a Mobile Workstation (Ryzen AI Max 385, 32GB Unified)
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 63      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  HP ZBook Ultra 14 G1a
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 64      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Lenovo ThinkPad T14 / T14s (Refurbished)
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 65      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  HP ZBook Ultra 14 G1a
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 66      NA      NA  NEEDS_REVIEW  1     1A     Alienware 18 Area-51 (RTX 5070 8GB)
+       blockers: missing MCDA: Upgrade_Ceiling; VRAM UNKNOWN; MCDA score incomplete
+ 67      NA      NA  NEEDS_REVIEW  1     UNKNOWN  Lenovo Yoga Book 9i Gen 9 13 (83FFXA01AU) - Lenovo Outlet AU
+       blockers: missing MCDA: Upgrade_Ceiling; track/pathway unresolved; MCDA score incomplete
+ 68      NA      NA  NEEDS_REVIEW  1     1A     laptop4134_alienware_m18_r2
+       blockers: missing MCDA: Upgrade_Ceiling; VRAM UNKNOWN; MCDA score incomplete
+ 69      NA      NA  NEEDS_REVIEW  1     1A     lenovo-legion-pro-7-5080-centrecom
+       blockers: missing MCDA: Upgrade_Ceiling; VRAM UNKNOWN; MCDA score incomplete
+ 70      NA      NA  NEEDS_REVIEW  1     1A     mikepc_msi_raider_ge68_rtx4090
+       blockers: missing MCDA: Upgrade_Ceiling; VRAM UNKNOWN; MCDA score incomplete
+ 71      NA      NA  NEEDS_REVIEW  1     1A     Alienware M18 R2 18in 165Hz i9-14900HX 32GB 1TB RTX 4080
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; MCDA score incomplete
+ 72      NA      NA  NEEDS_REVIEW  1     1A     Dell Alienware M18 R2 165Hz QHD+ i9-14900HX 32GB 1TB RTX 4080-12GB
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; MCDA score incomplete
+ 73      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ASUS ROG Strix G18 (2025)
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 74      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ASUS ROG Strix G16 (2025) — RTX 5070 Ti
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 75      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ASUS ROG Strix G18 (2024) — RTX 4080
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 76      NA      NA  NEEDS_REVIEW  1     1A     Lenovo Legion Pro 7i Gen 10 16 (83F5X003R1) - Lenovo Outlet AU
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 77      NA      NA  NEEDS_REVIEW  1     1B     ASUS ProArt GoPro Edition PX13 HN7306EAC-LX044W (Strix Halo)
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 78      NA      NA  NEEDS_REVIEW  1     1A     Dell Alienware M18 R2 165Hz QHD+ i9-14900HX 64GB 2TB RTX 4090 Very Good Refurb
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; MCDA score incomplete
+ 79      NA      NA  NEEDS_REVIEW  1     1A     Dell Alienware M18 R2 165Hz QHD+ i9-14900HX 64GB 2TB RTX 4090
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; MCDA score incomplete
+ 80      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Lenovo Legion Pro 7i
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 81      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Asus ROG Strix Scar 17 G733PY-LL021W
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 82      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Asus ROG Strix Scar 18 G834JYR-R6037W
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 83      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  MSI Stealth 16 AI Studio A1VIG
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 84      NA      NA  NEEDS_REVIEW  1     1A     Lenovo Legion 9i Gen 10 18" RTX 5080 (eBay)
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 85      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ASUS ROG Strix G16 (2025)
+       blockers: missing MCDA: Upgrade_Ceiling; track/pathway unresolved; MCDA score incomplete
+ 86      NA      NA  NEEDS_REVIEW  1     1A     MSI VECTOR GP78 HX 14V
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 87      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Lenovo Legion Pro 7i
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 88      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Alienware 16 Area-51 new config
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 89      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  MSI Stealth A16 5080
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 90      NA      NA  NEEDS_REVIEW  1     1A     Acer Predator Helios 18
+       blockers: missing MCDA: Upgrade_Ceiling; screen size UNKNOWN; MCDA score incomplete
+ 91      NA      NA  NEEDS_REVIEW  1     1A     ASUS ROG Strix Scar 18 (RTX 4090) - eBay Sold Market Floor
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; MCDA score incomplete
+ 92      NA      NA  NEEDS_REVIEW  1     1A     Lenovo Legion Pro 7i Gen 10 16 (83F5XA01AU) - Lenovo Outlet AU
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; price > Track 1 cap (5000 AUD); MCDA score incomplete
+ 93      NA      NA  NEEDS_REVIEW  1     1A     HP OMEN MAX 16-ah0013TX
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 94      NA      NA  NEEDS_REVIEW  1     1A     MSI Raider 18HX AI A2XWIG (Refurbished)
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 95      NA      NA  NEEDS_REVIEW  1     1A     MSI Titan 18 HX A14VIG (Refurbished)
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 96      NA      NA  NEEDS_REVIEW  1     1A     MSI Vector A18 HX A9WIG (Refurbished)
+       blockers: missing MCDA: Upgrade_Ceiling; MCDA score incomplete
+ 97      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  HP OMEN Max 16 Gaming Laptop (Intel Core Ultra 9 + RTX 5080)
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 98      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ASUS ROG Strix Scar 18 (2025) RTX 5090
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+ 99      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Lenovo Legion 9i Gen 10 18" RTX 5090
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+100      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  MSI Raider A18 HX RTX 5090
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+101      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  MSI Titan (RTX 5090) — model variant UNKNOWN
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+102      NA      NA  NEEDS_REVIEW  1     1A     Lenovo Legion Pro 7i (Demo)
+       blockers: missing MCDA: Upgrade_Ceiling; screen size UNKNOWN; MCDA score incomplete
+103      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  MSI Raider 18 HX AI A2XWJG
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+104      NA      NA  NEEDS_REVIEW  1     1A     Dell Alienware m18 R2 / Area-51
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; MCDA score incomplete
+105      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Razer Blade 18
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+106      NA      NA  NEEDS_REVIEW  1     1A     Lenovo Legion Pro 7i Gen 10 16 (83F5X004R1) - Lenovo Outlet AU
+       blockers: missing MCDA: Upgrade_Ceiling; price > Track 1 cap (5000 AUD); MCDA score incomplete
+107      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ASUS TUF Gaming A14 (2026) FA401EA
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+108      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ASUS TUF Gaming A16 — AMD Strix Halo (Ryzen AI Max)
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+109      NA      NA  NEEDS_REVIEW  1     1B     Lenovo Legion 7a Gen 11 (15" AMD) — AMD Ryzen AI Max+ 392 (64GB Unified)
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; price > Track 1 cap (5000 AUD); MCDA score incomplete
+110      NA      NA  NEEDS_REVIEW  1     1A     MSI Crosshair 18 HX AI
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; MCDA score incomplete
+111      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Acer Predator Helios Neo 16S AI RTX 5060
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+112      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ERAZER Major X20 RTX 4070
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+113      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  GPD WIN 5
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+114      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Minisforum AI X1 Pro + DEG2 + RTX 5070 Ti
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+115      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Minisforum X1 Lite + DEG1 + RTX 5070 Ti
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+116      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Gigabyte Radeon RX 9070 XT Gaming OC Ice 16G
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+117      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ASUS ROG Strix GeForce RTX 3090 OC 24GB GDDR6X
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+118      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  NVIDIA GeForce RTX 3090 24GB 2SLOT Turbo Blower
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+119      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ASRock Radeon RX 7900 XTX Phantom Gaming 24GB OC
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+120      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  EVGA FTW3 Ultra RTX 3090
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+121      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  GIGABYTE AORUS GeForce RTX 5090 Master Ice 32G
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+122      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  ZOTAC Gaming GeForce RTX 5090 Solid OC
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+123      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  NVIDIA RTX 2000 Ada 16GB
+       blockers: missing MCDA: Upgrade_Ceiling; track/pathway unresolved; MCDA score incomplete
+124      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  Intel Arc Pro B70
+       blockers: missing MCDA: Upgrade_Ceiling; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+125      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  NVIDIA RTX 5000 Ada 32GB
+       blockers: missing MCDA: Price_Value, Upgrade_Ceiling; track/pathway unresolved; MCDA score incomplete
+126      NA      NA  NEEDS_REVIEW  UNKNOWN UNKNOWN  AMD Radeon Pro W7900 48GB ECC GDDR6
+       blockers: missing MCDA: Upgrade_Ceiling; price UNKNOWN; AU stock not confirmed; track/pathway unresolved; MCDA score incomplete
+
+No candidate currently clears GOOD_ENOUGH. Apply Track Escalation Rule.

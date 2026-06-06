@@ -1,3 +1,4 @@
+import csv
 import json
 import subprocess
 import sys
@@ -6,10 +7,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.harvest_llm_recommendations import (
+    CANONICAL_INTAKE_HEADER,
     _match_shortlist_row,
     dedupe_candidates,
     decide_action,
+    extract_candidates_from_chatgpt_export,
     extract_candidates_from_log,
+    get_active_conversation_messages,
     normalize_item_name,
 )
 
@@ -289,3 +293,261 @@ def test_match_shortlist_row_uses_canonical_key_fallback():
     )
     assert matched is not None
     assert matched["item_name"] == "Lenovo Legion 9i Gen 10 18 RTX 5080"
+
+
+def test_active_conversation_messages_follow_current_node_and_exclude_system():
+    conversation = {
+        "current_node": "assistant-current",
+        "mapping": {
+            "root": {"id": "root", "parent": None, "message": None},
+            "system": {
+                "id": "system",
+                "parent": "root",
+                "message": {
+                    "id": "m-system",
+                    "author": {"role": "system"},
+                    "content": {"content_type": "text", "parts": ["RTX 5090 system prompt"]},
+                    "create_time": 1777000000,
+                },
+            },
+            "user": {
+                "id": "user",
+                "parent": "system",
+                "message": {
+                    "id": "m-user",
+                    "author": {"role": "user"},
+                    "content": {"content_type": "text", "parts": ["Evaluate a laptop"]},
+                    "create_time": 1777000001,
+                },
+            },
+            "assistant-stale": {
+                "id": "assistant-stale",
+                "parent": "user",
+                "message": {
+                    "id": "m-stale",
+                    "author": {"role": "assistant"},
+                    "content": {"content_type": "text", "parts": ["Razer Blade 18 RTX 4090"]},
+                    "create_time": 1777000002,
+                },
+            },
+            "assistant-current": {
+                "id": "assistant-current",
+                "parent": "user",
+                "message": {
+                    "id": "m-current",
+                    "author": {"role": "assistant"},
+                    "content": {"content_type": "text", "parts": ["Lenovo Legion Pro 7i RTX 4090"]},
+                    "create_time": 1777000003,
+                },
+            },
+        },
+    }
+
+    messages = get_active_conversation_messages(conversation)
+
+    assert [message["message_id"] for message in messages] == ["m-user", "m-current"]
+    assert "Razer Blade" not in "\n".join(message["text"] for message in messages)
+    assert "system prompt" not in "\n".join(message["text"] for message in messages)
+
+
+def test_extract_candidates_from_chatgpt_export_separates_vram_ram_and_ignores_system(
+    tmp_path,
+):
+    export_dir = tmp_path / "chatgpt_export"
+    export_dir.mkdir()
+    conversation = {
+        "conversation_id": "conv-1",
+        "title": "High-VRAM Hardware Procurement",
+        "current_node": "assistant-current",
+        "mapping": {
+            "root": {"id": "root", "parent": None, "message": None},
+            "system": {
+                "id": "system",
+                "parent": "root",
+                "message": {
+                    "id": "m-system",
+                    "author": {"role": "system"},
+                    "content": {
+                        "content_type": "text",
+                        "parts": ["ASUS ProArt P16 RTX 5070 64GB A$4,999 prompt text"],
+                    },
+                    "create_time": 1777000000,
+                },
+            },
+            "user": {
+                "id": "user",
+                "parent": "system",
+                "message": {
+                    "id": "m-user",
+                    "author": {"role": "user"},
+                    "content": {
+                        "content_type": "text",
+                        "parts": ["Please evaluate this Mike PC listing."],
+                    },
+                    "create_time": 1777000001,
+                },
+            },
+            "assistant-current": {
+                "id": "assistant-current",
+                "parent": "user",
+                "message": {
+                    "id": "m-current",
+                    "author": {"role": "assistant"},
+                    "content": {
+                        "content_type": "text",
+                        "parts": [
+                            "- **Lenovo Legion Pro 7i demo** - RTX 4090 16GB VRAM, "
+                            "64GB RAM, A$3,599 at Mike PC. "
+                            "https://mikepc.com.au/products/legion-pro-7i"
+                        ],
+                    },
+                    "create_time": 1777000002,
+                },
+            },
+        },
+    }
+    (export_dir / "conversations-000.json").write_text(
+        json.dumps([conversation]), encoding="utf-8"
+    )
+
+    result = extract_candidates_from_chatgpt_export(export_dir)
+
+    assert result["summary"]["conversations_scanned"] == 1
+    rows = result["candidates"]
+    assert len(rows) == 1
+    assert rows[0]["item_name"] == "Lenovo Legion Pro 7i demo"
+    assert rows[0]["gpu_model"] == "RTX 4090"
+    assert rows[0]["vram_gb"] == "16"
+    assert rows[0]["ram_gb"] == "64"
+    assert rows[0]["price_aud"] == "3599"
+    assert rows[0]["verification_status"] == "Needs Verification"
+    assert rows[0]["au_stock_confirmed"] == "UNKNOWN"
+    assert rows[0]["status"] == "Watchlist"
+    assert rows[0]["url"] == "https://mikepc.com.au/products/legion-pro-7i"
+    assert "ASUS ProArt" not in result["evidence"][0]["excerpt"]
+
+
+def test_chatgpt_export_cli_writes_intake_csv_and_audit(tmp_path):
+    export_dir = tmp_path / "chatgpt_export"
+    out_dir = tmp_path / "out"
+    export_dir.mkdir()
+    conversation = {
+        "conversation_id": "conv-1",
+        "title": "AI Laptop Assessment",
+        "current_node": "assistant-current",
+        "mapping": {
+            "assistant-current": {
+                "id": "assistant-current",
+                "parent": None,
+                "message": {
+                    "id": "m-current",
+                    "author": {"role": "assistant"},
+                    "content": {
+                        "content_type": "text",
+                        "parts": [
+                            "- **MSI Raider 18HX AI** - RTX 5080 16GB GDDR7, "
+                            "64GB RAM, AU$4,299 at Dick Smith. "
+                            "https://www.dicksmith.com.au/item"
+                        ],
+                    },
+                    "create_time": 1777000002,
+                },
+            }
+        },
+    }
+    (export_dir / "conversations-000.json").write_text(
+        json.dumps([conversation]), encoding="utf-8"
+    )
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "scripts.harvest_llm_recommendations",
+            "--chatgpt-export",
+            str(export_dir),
+            "--out-dir",
+            str(out_dir),
+            "--date",
+            "2026-06-07",
+        ],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stderr
+    candidates_path = out_dir / "chatgpt_export_harvest_candidates_2026-06-07.csv"
+    audit_path = out_dir / "chatgpt_export_harvest_audit_2026-06-07.json"
+    assert candidates_path.exists()
+    assert audit_path.exists()
+
+    with candidates_path.open(newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        assert reader.fieldnames == CANONICAL_INTAKE_HEADER
+        rows = list(reader)
+
+    assert len(rows) == 1
+    assert rows[0]["item_name"] == "MSI Raider 18HX AI"
+    assert rows[0]["vram_gb"] == "16"
+    assert rows[0]["ram_gb"] == "64"
+
+
+def test_chatgpt_export_cli_keeps_markdown_table_rows_single_line(tmp_path):
+    export_dir = tmp_path / "chatgpt_export"
+    out_dir = tmp_path / "out"
+    export_dir.mkdir()
+    conversation = {
+        "conversation_id": "conv-table",
+        "title": "AI Computer Purchase Plan",
+        "current_node": "assistant-current",
+        "mapping": {
+            "assistant-current": {
+                "id": "assistant-current",
+                "parent": None,
+                "message": {
+                    "id": "m-current",
+                    "author": {"role": "assistant"},
+                    "content": {
+                        "content_type": "text",
+                        "parts": [
+                            "| Candidate | GPU | Price |\n"
+                            "|---|---|---|\n"
+                            "| Lenovo Legion Pro 7i | RTX 4090 16GB VRAM | A$3,599 |"
+                        ],
+                    },
+                    "create_time": 1777000002,
+                },
+            }
+        },
+    }
+    (export_dir / "conversations-000.json").write_text(
+        json.dumps([conversation]), encoding="utf-8"
+    )
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "scripts.harvest_llm_recommendations",
+            "--chatgpt-export",
+            str(export_dir),
+            "--out-dir",
+            str(out_dir),
+            "--date",
+            "2026-06-07",
+        ],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert result.returncode == 0, result.stderr
+    candidates_path = out_dir / "chatgpt_export_harvest_candidates_2026-06-07.csv"
+    with candidates_path.open(newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+
+    assert len(rows) == 1
+    assert rows[0]["item_name"] == "Lenovo Legion Pro 7i"
+    assert rows[0]["vram_gb"] == "16"
+    assert "\n" not in rows[0]["item_name"]
