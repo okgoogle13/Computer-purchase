@@ -1,5 +1,0 @@
-Machine,Type,VRAM_Adequacy,GPU_Compute_Tier,Value_Score,Price_to_Perf,Condition_Risk,Verification_Confidence,Sustained_TGP_Rating,Portability_Score
-intake-009,Candidate,5,8,4,4,10,2,0,0
-intake-010,Candidate,8,10,2,3,10,8,0,0
-intake-011,Candidate,8,10,9,9,6,2,0,0
-intake-052,Candidate,2,4,7,6,6,2,0,0

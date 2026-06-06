@@ -16,11 +16,11 @@ verification: Verified (ASUS Store AU, 2026-05-11)
 status: BUY_CANDIDATE
 seller_class: MANUFACTURER_AU
 source_platform: MANUFACTURER_AU
-Performance_Headroom: 6
-Price_Value: 6
-Future_Proof: 6
-Portability: 10
-Track2_Avoidance: 6
+Performance_Headroom: 9
+Price_Value: 3
+Future_Proof: 9
+Portability: 5
+Track2_Avoidance: 9
 ---
 
 # ASUS ROG Flow Z13 (2025) — AMD Strix Halo

@@ -16,11 +16,11 @@ verification_status: Verified
 verified_date: "2026-05-14"
 condition: New
 model_number: 16-ah0013TX
-Performance_Headroom: 8
-Price_Value: 8
-Future_Proof: 8
+Performance_Headroom: 7
+Price_Value: 5
+Future_Proof: 7
 Portability: 8
-Track2_Avoidance: 8
+Track2_Avoidance: 7
 ---
 # HP OMEN Max 16
 

@@ -16,7 +16,10 @@ Identify lost opportunitißes: products/candidates/tracks/pathways likely to sco
 
 Mandatory workflow (two phases, strict order):
 Phase 1) Prior-conversation recommendation audit:
-- Review previous conversation recommendations first.
+- Ingest ChatGPT export files first (JSON/HTML/ZIP contents already attached in Project files).
+- Filter conversations to project scope: `Personal Shopper` (match on project label/title, folder path, or conversation metadata indicating Personal Shopper context).
+- Ignore conversations outside `Personal Shopper`.
+- Within filtered conversations, extract only product recommendation content (model/SKU/GPU/VRAM/price/seller/URL/warranty/stock statements).
 - Identify recommendations that were missed in current shortlist/intake files.
 - Identify recommendations where product cards do not exist.
 - Identify card/shortlist mismatches (row without card, card without active row).
@@ -34,6 +37,23 @@ Execution rules:
 - Keep unknowns as `UNKNOWN`.
 - Distinguish observed facts from inference.
 - Keep reasoning concise and evidence-linked.
+- If a recommendation appears only in exported conversations and not in repo files, label source as `ChatGPT-Export`.
+- If export metadata is incomplete, use conservative matching and log uncertainty in section D.
+
+Export parsing requirements (mandatory):
+- Prefer explicit fields when present in export metadata:
+  - conversation id
+  - project/folder name
+  - timestamp
+  - speaker role
+- Keep a per-candidate provenance tuple:
+  - `source_type` (`ChatGPT-Export` or `Repo/Web`)
+  - `conversation_id`
+  - `conversation_title`
+  - `message_timestamp`
+- Deduplicate repeated recommendations across multiple conversations by normalized candidate signature:
+  - normalized model family + GPU tier + VRAM tier + form factor
+- Preserve distinct variants when materially different (e.g., RTX 4080 12GB vs RTX 4090 16GB, refurb vs new, AU vs non-AU stock).
 
 Authority order:
 1) `AGENTS.md`
@@ -117,6 +137,10 @@ G. Central IDE Handoff
   - `verification_tasks`
   - `conflicts`
   - `recommended_action`
+  - `source_type`
+  - `conversation_id`
+  - `conversation_title`
+  - `message_timestamp`
 - Keep values concise and directly actionable.
 - Do not add narrative outside the structured objects.
 

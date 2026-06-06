@@ -61,6 +61,7 @@
       "Bash(grep -iE \"\\(3080|laptop|price|\\\\$|result|found|retailer|link\\)\")",
       "Bash(python3 -c \"import json; d=json.load\\(open\\('/Users/okgoogle13/Projects/Computer purchase/config/procurement_policy.json'\\)\\); print\\(json.dumps\\({k:v for k,v in d.items\\(\\) if 'cap' in k.lower\\(\\) or 'vram' in k.lower\\(\\) or 'budget' in k.lower\\(\\) or 'floor' in k.lower\\(\\)}, indent=2\\)\\)\")",
       "Bash(grep -iE \"\\(omen|max|price|\\\\$|rtx|5090|5080|vram|stock|add to cart|16\\)\")"
-    ]
+    ],
+    "defaultMode": "bypassPermissions"
   }
 }

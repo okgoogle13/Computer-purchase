@@ -1,0 +1,492 @@
+source_type,conversation_id,conversation_title,message_timestamp,candidate_excerpt,gpu_models,vram_gb,price_aud,urls,filter_basis,confidence_score
+ChatGPT-Export,69d959a3-4650-839f-83e6-f265ebefeb24,Rational Computing Strategy,2026-04-11T19:20:45.024724+00:00,"- **HP Spectre x360 16-aa0012TX** — **16-inch 2.8K OLED touch**, **Core Ultra 7**, **RTX 4050**, **32GB LPDDR5x**, **1TB SSD**, **A$3,499** on HP Australia.",RTX 4050,32,3499,,project_term,3
+ChatGPT-Export,69d959a3-4650-839f-83e6-f265ebefeb24,Rational Computing Strategy,2026-04-11T19:20:45.024724+00:00,"- **HP Victus 16.1** — **i7-13700HX**, **RTX 4060 8GB**, **32GB**, **1TB**, **A$1,888** at Harvey Norman.",RTX 4060,8,1888,,project_term,3
+ChatGPT-Export,69d959a3-4650-839f-83e6-f265ebefeb24,Rational Computing Strategy,2026-04-11T19:20:45.024724+00:00,"citeturn767130view3
+- **Predator Helios Neo 16** — **i9-14900HX**, **RTX 4060 8GB**, **32GB**, **1TB**, **A$2,999** at Harvey Norman.",RTX 4060,8,2999,,project_term,3
+ChatGPT-Export,69d959a3-4650-839f-83e6-f265ebefeb24,Rational Computing Strategy,2026-04-11T19:20:45.024724+00:00,"- **Predator Triton 14 AI** — **14-inch OLED touchscreen**, **Core Ultra 9-288V**, **RTX 5070 8GB**, **32GB**, **2TB**, **A$5,298** at Harvey Norman.",RTX 5070,8,5298,,project_term,3
+ChatGPT-Export,69d959a3-4650-839f-83e6-f265ebefeb24,Rational Computing Strategy,2026-04-11T19:20:45.024724+00:00,"citeturn478978view0
+- **ASUS ProArt P16** — **16-inch 3K touchscreen**, **Ryzen AI 9 HX 370**, **RTX 5070**, **64GB**, **1TB**, **A$4,999** at Scorptec.",RTX 5070,64,4999,,project_term,3
+ChatGPT-Export,69d959a3-4650-839f-83e6-f265ebefeb24,Rational Computing Strategy,2026-04-11T19:20:45.024724+00:00,"### 5) **Predator Triton 14 AI RTX 5070**
+Technically impressive, but **A$5,298** makes it irrelevant to this budget.",RTX 5070,,5298,,project_term,3
+ChatGPT-Export,69e20cd5-7728-839c-a1e8-c58a361e87a2,Laptop Desktop Pivot Analysis,2026-04-17T20:43:44.177055+00:00,"Best comfort/value hybrid**
+**Yoga AIO 27 Gen 10 (32GB) + secondary refurb laptop** — **green** 🟢  
+Lenovo AU currently lists the Yoga AIO line starting at **A$1,899**, and a current AU configuration exists with **32GB soldered RAM** and **RTX 4050**.",RTX 4050,32,1899,,project_term,3
+ChatGPT-Export,69e20cd5-7728-839c-a1e8-c58a361e87a2,Laptop Desktop Pivot Analysis,2026-04-17T20:43:44.177055+00:00,"Your saved listing is a **17Z90SP-ED7HK**, **Ultra 7 155H**, **RTX 3050 4GB**, **32GB RAM**, **512GB SSD**, around **AU$3,139**, from a seller with **99.3% positive feedback**, **joined in 2020**, **30-day returns**, and shipping from **South Korea**.",RTX 3050,4,3139,,project_term,3
+ChatGPT-Export,69e20cd5-7728-839c-a1e8-c58a361e87a2,Laptop Desktop Pivot Analysis,2026-04-17T20:43:44.177055+00:00,"**Razer Blade 16 (2024, RTX 4080 OLED) — best premium one-box**
+Your saved Blade 16 listing is surfacing around **AU$3,700** on eBay.",RTX 4080,,3700,,project_term,3
+ChatGPT-Export,69e20cd5-7728-839c-a1e8-c58a361e87a2,Laptop Desktop Pivot Analysis,2026-04-17T20:43:44.177055+00:00,"| Option | Buy path / price signal | Release | NPU / TOPS | Main upside | Main downside | Score / 100 | Refs |
+|---|---|---:|---|---|---|---:|---|
+| **LG gram 17 AU (17Z90TL-G.AU88A)** | **A$2,474.25** official AU listing | **2025** | **Yes, 47 TOPS** | Best current **local** single-machine value: 17"", 32GB, 1TB, 1,389g, dual SSD slots | No dGPU; 60Hz IPS, not touch | **82** | citeturn221938search0turn277743search2 |
+| **Yoga AIO 27 Gen 10 + ThinkPad P16s Gen 4** | AIO AU pages look patchy /",RTX 5050 | RTX 5060 | RTX 4080 | RTX 5090,32,2474.25 | 3.3 | 4.6 | 1780 | 3287 | 4620 | 2688 | 2956,,project_term,3
+ChatGPT-Export,69e44757-2364-83a0-acd0-25e12905cb03,Suspicious eBay Listing,2026-04-19T03:10:33.078519+00:00,"This listing shows a **brand-new** Razer Blade 18 with **Ultra 9 275HX, RTX 5090, 64GB RAM, and 4TB SSD** for about **AU$1,612**.",RTX 5090,64,1612,,project_term,3
+ChatGPT-Export,69e471ea-45b4-839a-969c-c1a32942376a,RAM upgradeability on ASUS,2026-04-19T06:16:07.764482+00:00,"### 2) The price is **implausibly low**
+This listing is **US$1,900 / about AU$2,648** for an **18-inch Ultra 9 / RTX 5090 / 2TB** Legion 9i.",RTX 5090,,2648,,hardware_term_cluster,3
+ChatGPT-Export,69e471ea-45b4-839a-969c-c1a32942376a,RAM upgradeability on ASUS,2026-04-19T06:16:07.764482+00:00,"By comparison, Australian retail references for similar Legion 9 Gen 10 configs are far higher:
+- Harvey Norman lists an **RTX 5080 / 64GB / 2TB** Legion at **AU$7,698**.",RTX 5080,64,7698,,hardware_term_cluster,3
+ChatGPT-Export,69e471ea-45b4-839a-969c-c1a32942376a,RAM upgradeability on ASUS,2026-04-19T06:16:07.764482+00:00,"citeturn769408search8
+- Kogan lists a **RTX 5090** Legion at **AU$7,867.66**.",RTX 5090,,7867.66,,hardware_term_cluster,3
+ChatGPT-Export,69e47313-c634-83a1-aa81-1db5c208986e,HP Spectre x360 Review,2026-04-21T04:07:51.212177+00:00,"This is the **HP Spectre x360 16 (2024)** listing at about **AU$2,299**, advertised as **brand new**, with **Intel Core Ultra 7 155H, 32GB LPDDR5x RAM, 1TB SSD, 16-inch 2.8K OLED touch display, Windows 11 Pro, and RTX 4050 graphics**.",RTX 4050,32,2299,,hardware_term_cluster,3
+ChatGPT-Export,69e473a6-f9dc-839b-89ea-2b8ce865aba0,Laptop Listings Comparison,2026-04-19T07:22:20.750137+00:00,"The listing is for a **refurbished Scar 18** with **i9-14900HX, RTX 4080, 32GB RAM, 2TB SSD** at **AU$3,989.05**, sold by the same established AU refurb seller.",RTX 4080,32,3989.05,,project_term,3
+ChatGPT-Export,69e473a6-f9dc-839b-89ea-2b8ce865aba0,Laptop Listings Comparison,2026-04-19T07:22:20.750137+00:00,"The listing shows **Ryzen AI 9 HX 370, RTX 4070, 32GB, 2TB, 16-inch 4K OLED touch** at **AU$3,514.05**, again from **treasure_pc_online**, with certified-refurb status and a 12-month Asus Australia pickup/return warranty.",RTX 4070,32,3514.05,,project_term,3
+ChatGPT-Export,69e473a6-f9dc-839b-89ea-2b8ce865aba0,Laptop Listings Comparison,2026-04-19T07:22:20.750137+00:00,"Meanwhile Dell Australia’s own Area-51 page shows the **RTX 5090 configuration at AU$7,198.40** and the platform is a very large machine at up to **4.34 kg**, with upgradeable memory/storage documented by Dell support.",RTX 5090,,7198.40,,project_term,3
+ChatGPT-Export,69e473a6-f9dc-839b-89ea-2b8ce865aba0,Laptop Listings Comparison,2026-04-19T07:22:20.750137+00:00,"The HP Official Store listing on eBay AU shows the Spectre x360 16 **32GB/1TB/RTX 4050** at about **AU$4,124**, which is premium pricing for hardware that is not premium-workstation class anymore.",RTX 4050,32,4124,,project_term,3
+ChatGPT-Export,69e58518-7fb8-83a1-ac74-f78c3c2a0686,Desktop-replacement Laptop Scan,2026-04-20T03:08:49.381273+00:00,"On the **new local** side, most realistic under-A$4.5k options are either **RTX 4080 / 12GB** machines discounted into range, or brand-new **RTX 5070 Ti / 12GB** systems.",RTX 4080 | RTX 5070 Ti,12,4.5,,project_term,3
+ChatGPT-Export,69e58518-7fb8-83a1-ac74-f78c3c2a0686,Desktop-replacement Laptop Scan,2026-04-20T03:08:49.381273+00:00,"The best value clusters are:
+- **Local new 18-inch RTX 4080** around **A$3,998–4,499**,
+- **Local custom-barebones 17.3-inch RTX 5070 Ti** around **A$3,499**,
+- **Imported/refurb 17–18 inch RTX 4090** around **A$3.6k–4.3k raw landed before any uncertain extra charges**.",RTX 4080 | RTX 5070 Ti | RTX 4090,,3998 | 3499 | 3.6,,project_term,3
+ChatGPT-Export,69e58518-7fb8-83a1-ac74-f78c3c2a0686,Desktop-replacement Laptop Scan,2026-04-20T03:08:49.381273+00:00,"In this segment, refurb/high-confidence used can be the difference between:
+- **RTX 4080 / 12GB new**, and
+- **RTX 4090 / 16GB used/refurb**  
+while staying inside the same A$3.8k–4.3k budget zone.",RTX 4080 | RTX 4090,12,3.8,,project_term,3
+ChatGPT-Export,69e642dd-226c-839a-9471-f582f138dec4,MSI Crosshair 18 HX Review,2026-04-20T15:20:46.712328+00:00,"Within PB Tech’s MSI 18-inch range, the jump to RTX 5080-class 18-inch models is very large, landing around **A$5.7k–A$6.1k**, which makes this Crosshair look like the more pragmatic value tier rather than a compromised near-flagship.",RTX 5080,,5.7 | 6.1,,hardware_term_cluster,3
+ChatGPT-Export,69e65d3d-6e64-839a-95ae-c7e77c8a09a9,HP ZBook 17 G6 Review,2026-04-20T17:30:41.441907+00:00,"**Better than the old ZBook on modern speed; weaker than it on capacity; and probably worse value than the Crosshair.** The PB Tech Katana 17 HX you linked is **A$2,508.56**, with an **i7-14650HX**, **RTX 5060 Laptop GPU 8GB**, **16GB DDR5-5600 (2x8GB)**, **1TB SSD**, and a **17.3-inch QHD 240Hz** panel.",RTX 5060,8,2508.56,,hardware_term_cluster,3
+ChatGPT-Export,69e65d3d-6e64-839a-95ae-c7e77c8a09a9,HP ZBook 17 G6 Review,2026-04-20T17:30:41.441907+00:00,"The Crosshair 18 HX AI model you surfaced is about **A$3,446.74**, but for that extra money you move to a much stronger package: **Core Ultra 9 275HX**, **32GB RAM**, **18-inch QHD+ 240Hz**, **RTX 5070 8GB**, **798 AI TOPS**, **100% DCI-P3** on the display, and a **2-year warranty**.",RTX 5070,32,3446.74,,hardware_term_cluster,3
+ChatGPT-Export,69e65d3d-6e64-839a-95ae-c7e77c8a09a9,HP ZBook 17 G6 Review,2026-04-20T17:30:41.441907+00:00,"Same broad class of “new gaming laptop,” but this config is only **16GB / RTX 5060 8GB** at about **A$2.5k**, which is a risky amount to spend if the goal is longevity for dev + AI-adjacent work.",RTX 5060,16,2.5,,hardware_term_cluster,3
+ChatGPT-Export,69e65d3d-6e64-839a-95ae-c7e77c8a09a9,HP ZBook 17 G6 Review,2026-04-20T17:30:41.441907+00:00,"**Yes — as a cheap, brute-force desktop-replacement refurb, this is actually quite compelling.**  
+At **A$814**, it gives you a **17.3-inch chassis**, **64GB RAM**, a **Quadro/RTX 5000 GPU**, and a **12-month return-to-base warranty** with a **30-day change-of-mind period**.",RTX 5000,64,814,,hardware_term_cluster,3
+ChatGPT-Export,69e7cebf-090c-83a1-8137-e5f10ec37f1c,eBay Listing Credibility Check,2026-04-21T19:25:36.818063+00:00,"Dell Australia shows an **Alienware 18 Area-51 with RTX 5090** at **AU$7,198.40** for one official config, and Amazon shows a same-spec **64GB / 2TB / RTX 5090** model at **US$4,020**.",RTX 5090,64,7198.40,,project_term,3
+ChatGPT-Export,69e88ff7-a4c0-839d-8c99-501b955fa5e8,Legion Pro 7i Value,2026-04-22T19:57:31.182944+00:00,"At **A$3,599**, the Mike PC listing gives you an i9-14900HX, RTX 4090 16GB, 32GB DDR5, 2TB SSD, and a 16-inch 2560×1600 240Hz display, and it is explicitly described as a **demo unit** with **1-year Lenovo Australia manufacturer warranty**.",RTX 4090,16,3599,,hardware_term_cluster,3
+ChatGPT-Export,69e88ff7-a4c0-839d-8c99-501b955fa5e8,Legion Pro 7i Value,2026-04-22T19:57:31.182944+00:00,"Lenovo’s own AU search snippets show a **Legion Pro 7i Gen 10 with RTX 5070 Ti at A$4,499**, while Centre Com snippets show the **Legion Pro 7i Gen 10 RTX 5080 at A$5,999**.",RTX 5070 Ti | RTX 5080,,4499 | 5999,,hardware_term_cluster,3
+ChatGPT-Export,69e88ff7-a4c0-839d-8c99-501b955fa5e8,Legion Pro 7i Value,2026-04-22T19:57:31.182944+00:00,"**Bottom line:**  
+At **A$3,599**, this is a **strong price for a premium RTX 4090 Legion**, especially with 32GB/2TB and upgradeable RAM/storage.",RTX 4090,32,3599,,hardware_term_cluster,3
+ChatGPT-Export,69e88ff7-a4c0-839d-8c99-501b955fa5e8,Legion Pro 7i Value,2026-04-22T19:57:31.182944+00:00,"| Rank | Machine | Why it lands here |
+|---|---|---|
+| **1** | **Lenovo Legion Pro 7i, i9-14900HX, RTX 4090, 32GB/2TB, A$3,599** | Best blend of **raw performance, VRAM, upgradeability, and price**.",RTX 4090,32,3599,,hardware_term_cluster,3
+ChatGPT-Export,69e88ff7-a4c0-839d-8c99-501b955fa5e8,Legion Pro 7i Value,2026-04-22T19:57:31.182944+00:00,"citeturn802707search3turn550237search0turn550237search3 |
+| **2** | **MSI Crosshair 18 HX AI, Ultra 9 275HX, RTX 5070, 32GB/1TB, ~A$3,775–3,939** | Better **screen-size fit** at 18"", newer platform, 2-year warranty on the PB Tech listing, but much weaker GPU value because it is only an **RTX 5070 8GB** at a higher price than the Legion.",RTX 5070,32,3775,,hardware_term_cluster,3
+ChatGPT-Export,69e88ff7-a4c0-839d-8c99-501b955fa5e8,Legion Pro 7i Value,2026-04-22T19:57:31.182944+00:00,"citeturn802707search0turn550237search1turn550237search4turn550237search12 |
+| **3** | **HP ZBook 17 G6, i9-9880H, Quadro RTX 5000, 64GB/512GB, ~A$789–814 refurb** | Absurdly cheap for a 17.3"" machine with 64GB RAM and 16GB GPU VRAM, but it is **much older**, far slower CPU-wise, and much less compelling as a 3–5 year primary machine.",RTX 5000,64,789,,hardware_term_cluster,3
+ChatGPT-Export,69e88ff7-a4c0-839d-8c99-501b955fa5e8,Legion Pro 7i Value,2026-04-22T19:57:31.182944+00:00,"Your Mike PC unit is **A$3,599** for an **RTX 4090 16GB** machine with **32GB DDR5**, **2TB SSD**, and Lenovo’s Legion Pro 7 platform, which supports **2x DDR5 SODIMM slots** and **2x M.2 PCIe 4.0 SSDs**.",RTX 4090,16,3599,,hardware_term_cluster,3
+ChatGPT-Export,69e92985-6e6c-839e-87db-030b32b07464,eBay LG Gram 17 Review,2026-04-22T20:05:06.192439+00:00,"The eBay listing is for an **LG Gram 17 (2023)** with **13th-gen i7**, **RTX 3050 4GB**, and an asking price of **AU$2,990** plus **AU$200 postage**, with **no returns accepted**.",RTX 3050,4,2990 | 200,,hardware_term_cluster,3
+ChatGPT-Export,69ec9edd-918c-839a-8728-2dd1a78a3d95,Local LLM Hardware Advice,2026-04-25T20:52:26.845431+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69ec9edd-918c-839a-8728-2dd1a78a3d95,Local LLM Hardware Advice,2026-04-25T20:52:26.845431+00:00,"Budget is approximately AUD $2,000\u2013$3,500.\n\nI have previously been told that:\n- To run \u201cClaude-level\u201d coding models locally (e.g., Qwen 2.5-Coder 32B, DeepSeek-V3), very large memory is required.\n- Apple Silicon\u2019s unified memory (e.g., 64GB RAM shared with GPU) is a strong way to run large local models.\n- Windows systems typically rely on discrete NVIDIA GPUs and may need 24GB+ of GPU VRAM (RTX 3090, 4090, 5090 tier) to host such models comfortably.\n- A custom desktop t",RTX 3090,64,2000,,project_term,3
+ChatGPT-Export,69ece4a2-e3d4-83a0-93dd-ee742c723a32,Product Ledger Setup,2026-04-25T16:20:54.913194+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69ed0427-372c-8398-86ae-b5b3218e3a19,Optimized Research Output,2026-04-25T21:06:19.737511+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69ed1750-d30c-839b-aff3-aa4d9bafeec2,AI Agent Prompt Review,2026-04-25T19:37:25.599149+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69ed18c6-9e2c-839a-a64d-b7f54af4b8a2,PC Shopping Agent,2026-04-25T20:28:31.142623+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"Downrank or exclude:
+- listings with no exact GPU model
+- listings with no VRAM information where VRAM is critical
+- RTX 4060 / RTX 4060 Ti laptops unless extremely cheap
+- RTX 4070 laptops unless the whole machine is unusually good value
+- 8GB VRAM machines above AUD $2,500
+- 12GB VRAM machines above AUD $3,500 unless there is a strong large-screen/condition/warranty reason
+- sellers with poor feedback or very low feedback
+- listings with stock photos only
+- listings with “no returns” plus uncl",RTX 4060 | RTX 4060 Ti | RTX 4070,8,2500 | 3500,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"AUD $3,400–$4,600 bundle | **24GB VRAM / strongest value** | **24GB VRAM / strongest value** | Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Custom RTX 3090 24GB desktop + refurbished ThinkPad bundle** Prior Stage 2 shortlist Ryzen 7 7700 / 7800X3D / i7-class; RTX 3090 24GB; 64GB RAM preferred; 2TB NVMe; 850W Gold PSU; refurb ThinkPad-class laptop Est.",RTX 3090,24,3400,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"|
+| DT-002 | Unknown | Unknown | AUD $1,799 GPU; 12-month warranty noted in prior research | **24GB VRAM** | **24GB VRAM** | Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Mike PC MSI RTX 3090 AERO 24GB GPU build route** https://mikepc.com.au/products/msi-rtx-3090-aero-24gb-graphics-card RTX 3090 AERO 24GB GPU used as build anchor AUD $1,799 GPU; 12-month warranty noted in prior research **24GB VRAM** **Active shortlist** Verify immediate stock/ETA, GPU condition, invoice/w",RTX 3090,24,1799,https://mikepc.com.au/products/msi-rtx-3090-aero-24gb-graphics-card,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Supertech RTX 4090 Gaming PC** https://supertechcomputers.com.au/product/rtx4090-gaming-pc/ i7-14700K; RTX 4090 24GB; 32GB RAM; 1TB Kingston KC3000 SSD; 850W PSU AUD $5,799 sale; new **24GB VRAM / extreme stretch** **Watchlist** Highest raw local-AI capability in previous report, but beyond preferred budget and likely overkill unless 24GB VRAM is non-negotiable.",RTX 4090 | rtx4090,24,5799,https://supertechcomputers.com.au/product/rtx4090-gaming-pc/,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Nebula PC R7 7800X3D / RTX 4080 desktop** Prior OzBargain/Nebula listing Ryzen 7 7800X3D; RTX 4080 16GB; 16GB DDR5; 1TB NVMe AUD $2,948 after coupon; historic deal **16GB VRAM** **Active shortlist if deal returns** Strong value, but RAM should be upgraded to 32GB/64GB.",RTX 4080,16,2948,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **PLE AI Advanced RTX 5070 Ti 16GB desktop** PLE AI development build referenced in Stage 2 Ryzen 7 9700X; RTX 5070 Ti 16GB; 32GB DDR5-6000; 2TB NVMe AUD $3,907; built to order **16GB VRAM** **Active shortlist** Clean AU retail path under $4k; 16GB VRAM ceiling is the main compromise.",RTX 5070 Ti,16,3907,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"AUD $4,000–$4,500 | **16GB VRAM** | **16GB VRAM** | Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **RTX 4080 Super 16GB desktop / refurbished MSI Infinite X2 class** Mwave / Mike PC / eBay AU class from Stage 2 i7-14700F/KF-class; RTX 4080 Super 16GB; 32GB RAM; 2TB SSD class Est.",RTX 4080,16,4000,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"AUD $4,000–$4,500 **16GB VRAM** **Watchlist** Fast image generation and CUDA, but not as good for 32B models as RTX 3090 24GB.",RTX 3090,16,4000,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **CONSTELLAR ONYX PC — RTX 4080 SUPER** Mike PC AU product-search result RTX 4080 Super desktop; other specs not retained AUD $4,099; condition UNKNOWN **16GB VRAM** **Watchlist** Needs direct verification of CPU, RAM, SSD, PSU, warranty, stock, and return policy.",RTX 4080,16,4099,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"|
+| DT-008 | Unknown | Unknown | AUD $4,988; new/retail assumed | **16GB VRAM** | **16GB VRAM** | Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Acer Predator Orion 7000 RTX 4080 SUPER desktop** Domayne + other merchants product-search result RTX 4080 Super desktop; other specs not retained AUD $4,988; new/retail assumed **16GB VRAM** **Compromise / over-budget warning** Above target budget; only relevant if discounted heavily or bundled with strong warranty.",RTX 4080,16,4988,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Evatech 7800X3D / RTX 4070 Ti desktop** Historic OzBargain/Evatech listing Ryzen 7 7800X3D; RTX 4070 Ti 12GB; 32GB RAM; 1TB SSD AUD $2,599 historic special; new **12GB VRAM** **Compromise** Good gaming/value desktop, but 12GB VRAM limits serious local-AI trajectory.",RTX 4070 Ti,12,2599,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,| Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Acer Predator Orion 7000 / other RTX 4080S retail desktops** General desktop route from Stage 2 RTX 4080 Super 16GB; CPU/RAM vary AUD $4.5k–$5k+ class **16GB VRAM** **Watchlist** Use only where warranty and discount are strong.,RTX 4080,16,4.5,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Lenovo Legion Pro 7i i9-14900HX RTX 4090** https://mikepc.com.au/products/lenovo-legion-pro-7i-i9-14900hx-32gb-2tb-ssd-rtx-4090-2k-240hz-1y-wty i9-14900HX; RTX 4090 Laptop 16GB; 32GB/64GB DDR5; 2TB SSD; 16-inch 2K/240Hz; 1-year warranty Prior Mike PC listing around AUD $3,599–$4,399 depending config **16GB VRAM** **Active shortlist** Best emotional-but-defensible one-machine route if price is closer to $3.6k and ideally 64GB ",RTX 4090,32,3599,https://mikepc.com.au/products/lenovo-legion-pro-7i-i9-14900hx-32gb-2tb-ssd-rtx-4090-2k-240hz-1y-wty,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| **16GB VRAM** | **16GB VRAM** | Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Lenovo Legion Pro 7 i9-13900HX RTX 4090** Current/reformatted report; BuyWisely/DeviceDeal/Amazon AU class i9-13900HX; RTX 4090 Laptop 16GB; 32GB RAM; 2TB SSD; 16-inch 2560×1600 240Hz AUD $4,399–$4,575 class; stock variable **16GB VRAM** **Watchlist** Powerful, but laptop tax remains high.",RTX 4090,16,4399,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"|
+| LP-003 | Unknown | Unknown | AUD $5,999 in search result | **Likely 16GB VRAM if RTX 4090** | **Likely 16GB VRAM if RTX 4090** | Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Lenovo Legion Pro 7i direct Lenovo option** Lenovo + other merchants product-search result Legion Pro 7i gaming laptop; exact config not retained AUD $5,999 in search result **Likely 16GB VRAM if RTX 4090** **Rejected / overpriced unless discounted** Direct Lenovo price too high unless education/b",RTX 4090,16,5999,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **MSI Vector A18 HX A9WHG-062AU** https://www.tecs.com.au/EX-DISPLAY%3A-MSI-Vector-A18-HX-A9WHG-062AU-AMD-Ryzen-9-9955HX%2C-RTX-5070-Ti-12GB%2C-32GB-DDR5-RAM%2C-1TB-NVMe-SSD%2C-18%22-2560-x-1600-240Hz%2C-Windows-11-Home-Advanced%2C-1-Year-Warranty-X5420BB-21791/ Ryzen 9 9955HX; RTX 5070 Ti 12GB; 32GB DDR5; 1TB NVMe; 18-inch 2560×1600 240Hz; Windows 11 Home Advanced; 1-year warranty AUD $3,150; ex-display **12GB VRAM** **Comprom",RTX 5070 Ti,12,3150,https://www.tecs.com.au/EX-DISPLAY%3A-MSI-Vector-A18-HX-A9WHG-062AU-AMD-Ryzen-9-9955HX%2C-RTX-5070-Ti-12GB%2C-32GB-DDR5-RAM%2C-1TB-NVMe-SSD%2C-18%22-2560-x-1600-240Hz%2C-Windows-11-Home-Advanced%2C-1-Year-Warranty-X5420BB-21791/,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"|
+| LP-007 | Unknown | Unknown | AUD $4,659 | **16GB VRAM** | **16GB VRAM** | Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Pioneer DreamBook Power X370 RTX 4090** HPL / prior research i9-13900HX; RTX 4090 Laptop 16GB; 32GB RAM; 2×1TB NVMe; 17.3-inch 1440p 240Hz AUD $4,659 **16GB VRAM** **Watchlist** Strong Aussie desktop-replacement; 3.44kg and dated design.",RTX 4090,16,4659,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"|
+| LP-008 | Unknown | Unknown | AUD $4,499+ class | **16GB VRAM** | **16GB VRAM** | Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Dell Alienware m18 / Area-51 18-inch RTX 4090 class** Dell AU / Dell Outlet path Intel HX i7/i9; RTX 4090 Laptop 16GB where configured; up to 64GB RAM; large 18-inch chassis AUD $4,499+ class **16GB VRAM** **Watchlist / over-budget risk** Best if Dell Outlet has 64GB/2TB/RTX 4090 at discount.",RTX 4090,16,4499,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"AUD $2,899 in prior review context | **8GB VRAM likely** | **8GB VRAM likely** | Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Aorus 16X ASG** SMBtech category reference from prior report i9-14900HX; RTX 4070; 16-inch 2560×1600 165Hz Approx.",RTX 4070,8,2899,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"AUD $3,000–$4,100 | **24GB VRAM external** | **24GB VRAM external** | Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Minisforum MS-01 + DEG1 OCuLink + RTX 3090 24GB** Stage 2 compact 24GB path Minisforum MS-01; DEG1 dock; RTX 3090 24GB; 64GB RAM preferred; 2TB NVMe; external PSU Est.",RTX 3090,24,3000,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"AUD $2,400–$3,300 | **16GB VRAM external** | **16GB VRAM external** | Unknown | Unknown | consolidated_personal_shopper_product_doc.md | **Minisforum MS-01 + DEG1 OCuLink + RTX 4070 Ti Super 16GB** Stage 2 compact modular path MS-01; DEG1 dock; RTX 4070 Ti Super 16GB; 64GB RAM preferred Est.",RTX 4070 Ti,16,2400,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"AUD $3,400–$4,600 bundle | Unknown | **24GB VRAM / strongest value** | **24GB VRAM / strongest value** | Unknown | Unknown | **Custom RTX 3090 24GB desktop + refurbished ThinkPad bundle** Prior Stage 2 shortlist Ryzen 7 7700 / 7800X3D / i7-class; RTX 3090 24GB; 64GB RAM preferred; 2TB NVMe; 850W Gold PSU; refurb ThinkPad-class laptop Est.",RTX 3090,24,3400,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"|
+| DT-002 | Unknown | AUD $1,799 GPU; 12-month warranty noted in prior research | Unknown | **24GB VRAM** | **24GB VRAM** | Unknown | Unknown | **Mike PC MSI RTX 3090 AERO 24GB GPU build route** https://mikepc.com.au/products/msi-rtx-3090-aero-24gb-graphics-card RTX 3090 AERO 24GB GPU used as build anchor AUD $1,799 GPU; 12-month warranty noted in prior research **24GB VRAM** **Active shortlist** Verify immediate stock/ETA, GPU condition, invoice/warranty transfer, and whether Mike PC can build",RTX 3090,24,1799,https://mikepc.com.au/products/msi-rtx-3090-aero-24gb-graphics-card,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | **Supertech RTX 4090 Gaming PC** https://supertechcomputers.com.au/product/rtx4090-gaming-pc/ i7-14700K; RTX 4090 24GB; 32GB RAM; 1TB Kingston KC3000 SSD; 850W PSU AUD $5,799 sale; new **24GB VRAM / extreme stretch** **Watchlist** Highest raw local-AI capability in previous report, but beyond preferred budget and likely overkill unless 24GB VRAM is non-negotiable.",RTX 4090 | rtx4090,24,5799,https://supertechcomputers.com.au/product/rtx4090-gaming-pc/,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | **Nebula PC R7 7800X3D / RTX 4080 desktop** Prior OzBargain/Nebula listing Ryzen 7 7800X3D; RTX 4080 16GB; 16GB DDR5; 1TB NVMe AUD $2,948 after coupon; historic deal **16GB VRAM** **Active shortlist if deal returns** Strong value, but RAM should be upgraded to 32GB/64GB.",RTX 4080,16,2948,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | **PLE AI Advanced RTX 5070 Ti 16GB desktop** PLE AI development build referenced in Stage 2 Ryzen 7 9700X; RTX 5070 Ti 16GB; 32GB DDR5-6000; 2TB NVMe AUD $3,907; built to order **16GB VRAM** **Active shortlist** Clean AU retail path under $4k; 16GB VRAM ceiling is the main compromise.",RTX 5070 Ti,16,3907,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"AUD $4,000–$4,500 | Unknown | **16GB VRAM** | **16GB VRAM** | Unknown | Unknown | **RTX 4080 Super 16GB desktop / refurbished MSI Infinite X2 class** Mwave / Mike PC / eBay AU class from Stage 2 i7-14700F/KF-class; RTX 4080 Super 16GB; 32GB RAM; 2TB SSD class Est.",RTX 4080,16,4000,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | **CONSTELLAR ONYX PC — RTX 4080 SUPER** Mike PC AU product-search result RTX 4080 Super desktop; other specs not retained AUD $4,099; condition UNKNOWN **16GB VRAM** **Watchlist** Needs direct verification of CPU, RAM, SSD, PSU, warranty, stock, and return policy.",RTX 4080,16,4099,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"|
+| DT-008 | Unknown | AUD $4,988; new/retail assumed | Unknown | **16GB VRAM** | **16GB VRAM** | Unknown | Unknown | **Acer Predator Orion 7000 RTX 4080 SUPER desktop** Domayne + other merchants product-search result RTX 4080 Super desktop; other specs not retained AUD $4,988; new/retail assumed **16GB VRAM** **Compromise / over-budget warning** Above target budget; only relevant if discounted heavily or bundled with strong warranty.",RTX 4080,16,4988,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | **Evatech 7800X3D / RTX 4070 Ti desktop** Historic OzBargain/Evatech listing Ryzen 7 7800X3D; RTX 4070 Ti 12GB; 32GB RAM; 1TB SSD AUD $2,599 historic special; new **12GB VRAM** **Compromise** Good gaming/value desktop, but 12GB VRAM limits serious local-AI trajectory.",RTX 4070 Ti,12,2599,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,| Unknown | Unknown | **Acer Predator Orion 7000 / other RTX 4080S retail desktops** General desktop route from Stage 2 RTX 4080 Super 16GB; CPU/RAM vary AUD $4.5k–$5k+ class **16GB VRAM** **Watchlist** Use only where warranty and discount are strong.,RTX 4080,16,4.5,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | **Lenovo Legion Pro 7i i9-14900HX RTX 4090** https://mikepc.com.au/products/lenovo-legion-pro-7i-i9-14900hx-32gb-2tb-ssd-rtx-4090-2k-240hz-1y-wty i9-14900HX; RTX 4090 Laptop 16GB; 32GB/64GB DDR5; 2TB SSD; 16-inch 2K/240Hz; 1-year warranty Prior Mike PC listing around AUD $3,599–$4,399 depending config **16GB VRAM** **Active shortlist** Best emotional-but-defensible one-machine route if price is closer to $3.6k and ideally 64GB RAM.",RTX 4090,32,3599,https://mikepc.com.au/products/lenovo-legion-pro-7i-i9-14900hx-32gb-2tb-ssd-rtx-4090-2k-240hz-1y-wty,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | **16GB VRAM** | **16GB VRAM** | Unknown | Unknown | **Lenovo Legion Pro 7 i9-13900HX RTX 4090** Current/reformatted report; BuyWisely/DeviceDeal/Amazon AU class i9-13900HX; RTX 4090 Laptop 16GB; 32GB RAM; 2TB SSD; 16-inch 2560×1600 240Hz AUD $4,399–$4,575 class; stock variable **16GB VRAM** **Watchlist** Powerful, but laptop tax remains high.",RTX 4090,16,4399,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"|
+| LP-003 | Unknown | AUD $5,999 in search result | Unknown | **Likely 16GB VRAM if RTX 4090** | **Likely 16GB VRAM if RTX 4090** | Unknown | Unknown | **Lenovo Legion Pro 7i direct Lenovo option** Lenovo + other merchants product-search result Legion Pro 7i gaming laptop; exact config not retained AUD $5,999 in search result **Likely 16GB VRAM if RTX 4090** **Rejected / overpriced unless discounted** Direct Lenovo price too high unless education/business discounts drastically reduce it.",RTX 4090,16,5999,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"| Unknown | Unknown | **MSI Vector A18 HX A9WHG-062AU** https://www.tecs.com.au/EX-DISPLAY%3A-MSI-Vector-A18-HX-A9WHG-062AU-AMD-Ryzen-9-9955HX%2C-RTX-5070-Ti-12GB%2C-32GB-DDR5-RAM%2C-1TB-NVMe-SSD%2C-18%22-2560-x-1600-240Hz%2C-Windows-11-Home-Advanced%2C-1-Year-Warranty-X5420BB-21791/ Ryzen 9 9955HX; RTX 5070 Ti 12GB; 32GB DDR5; 1TB NVMe; 18-inch 2560×1600 240Hz; Windows 11 Home Advanced; 1-year warranty AUD $3,150; ex-display **12GB VRAM** **Compromise / deal triage** Very relevant large-screen ",RTX 5070 Ti,12,3150,https://www.tecs.com.au/EX-DISPLAY%3A-MSI-Vector-A18-HX-A9WHG-062AU-AMD-Ryzen-9-9955HX%2C-RTX-5070-Ti-12GB%2C-32GB-DDR5-RAM%2C-1TB-NVMe-SSD%2C-18%22-2560-x-1600-240Hz%2C-Windows-11-Home-Advanced%2C-1-Year-Warranty-X5420BB-21791/,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"|
+| LP-007 | Unknown | AUD $4,659 | Unknown | **16GB VRAM** | **16GB VRAM** | Unknown | Unknown | **Pioneer DreamBook Power X370 RTX 4090** HPL / prior research i9-13900HX; RTX 4090 Laptop 16GB; 32GB RAM; 2×1TB NVMe; 17.3-inch 1440p 240Hz AUD $4,659 **16GB VRAM** **Watchlist** Strong Aussie desktop-replacement; 3.44kg and dated design.",RTX 4090,16,4659,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"|
+| LP-008 | Unknown | AUD $4,499+ class | Unknown | **16GB VRAM** | **16GB VRAM** | Unknown | Unknown | **Dell Alienware m18 / Area-51 18-inch RTX 4090 class** Dell AU / Dell Outlet path Intel HX i7/i9; RTX 4090 Laptop 16GB where configured; up to 64GB RAM; large 18-inch chassis AUD $4,499+ class **16GB VRAM** **Watchlist / over-budget risk** Best if Dell Outlet has 64GB/2TB/RTX 4090 at discount.",RTX 4090,16,4499,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"AUD $2,899 in prior review context | Unknown | **8GB VRAM likely** | **8GB VRAM likely** | Unknown | Unknown | **Aorus 16X ASG** SMBtech category reference from prior report i9-14900HX; RTX 4070; 16-inch 2560×1600 165Hz Approx.",RTX 4070,8,2899,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"AUD $3,000–$4,100 | Unknown | **24GB VRAM external** | **24GB VRAM external** | Unknown | Unknown | **Minisforum MS-01 + DEG1 OCuLink + RTX 3090 24GB** Stage 2 compact 24GB path Minisforum MS-01; DEG1 dock; RTX 3090 24GB; 64GB RAM preferred; 2TB NVMe; external PSU Est.",RTX 3090,24,3000,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"AUD $2,400–$3,300 | Unknown | **16GB VRAM external** | **16GB VRAM external** | Unknown | Unknown | **Minisforum MS-01 + DEG1 OCuLink + RTX 4070 Ti Super 16GB** Stage 2 compact modular path MS-01; DEG1 dock; RTX 4070 Ti Super 16GB; 64GB RAM preferred Est.",RTX 4070 Ti,16,2400,,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"|
+| PLE AI Advanced RTX 5070 Ti 16GB build | Tower | 3907.0 | Ryzen 7 9700X | 16.0 | 32GB DDR5 | 2TB NVMe | https://www.ple.com.au/nvidia/ai/aidevelopment | Clean local warranty route; less model-fit headroom than 24GB.",RTX 5070 Ti,16,,https://www.ple.com.au/nvidia/ai/aidevelopment,project_term,3
+ChatGPT-Export,69ed2fce-3f58-839f-8c8d-8004b0e18992,Optimised LLM Cleanup Prompt,2026-04-26T09:15:32.228689+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69edd989-3720-8399-abdd-f6c623f8fa84,Search for desktops,2026-04-27T05:38:20.962657+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"|Retailer|Mwave|[ASUS ROG Astral LC GeForce RTX 5090 OC Edition](https://www.mwave.com.au/product/asus-rog-astral-lc-geforce-rtx-5090-32gb-gddr7-oc-edition-video-card-ac56320)|ASUS ROG Astral LC|RTX 5090 32 GB GDDR7|$6,499|New|In stock【437213846293720†screenshot】|Australia|Liquid‑cooled variant; 32 GB GDDR7 memory, 512‑bit bus and 28 Gbps memory speed; includes 360 mm radiator【437213846293720†screenshot】.",GeForce RTX 5090 | RTX 5090,32,,https://www.mwave.com.au/product/asus-rog-astral-lc-geforce-rtx-5090-32gb-gddr7-oc-edition-video-card-ac56320,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"|Retailer|Mwave|[ASUS ROG Astral GeForce RTX 5090 OC Edition](https://www.mwave.com.au/product/asus-rog-astral-geforce-rtx-5090-32gb-gddr7-oc-edition-video-card-ac56300)|ASUS ROG Astral OC|RTX 5090 32 GB GDDR7|$6,699|New|In stock【437213846293720†screenshot】|Australia|Air‑cooled OC edition with 32 GB GDDR7; Mwave list shows in‑stock and discounted pricing【437213846293720†screenshot】.",GeForce RTX 5090 | RTX 5090,32,,https://www.mwave.com.au/product/asus-rog-astral-geforce-rtx-5090-32gb-gddr7-oc-edition-video-card-ac56300,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"|Marketplace (used)|eBay AU|[ZOTAC Gaming GeForce RTX 3090 Trinity 24 GB](https://www.ebay.com.au/itm/314495495380)|ZOTAC RTX 3090 Trinity|RTX 3090 24 GB GDDR6X|≈ $1,534 (CA $1,499.99)|Used|In‑stock (Buy‑It‑Now)【138326933064938†screenshot】|Ships from Canada to AU|Seller “cbgam_10” has **100 % positive feedback (54)**【138326933064938†screenshot】; used card with 24 GB VRAM; no explicit warranty.",GeForce RTX 3090 | RTX 3090,24,,https://www.ebay.com.au/itm/314495495380,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"|Marketplace (used)|eBay AU|[GALAX RTX 3090 Turbo 24 GB Blower](https://www.ebay.com.au/itm/374532722985)|GALAX RTX 3090 Turbo|RTX 3090 24 GB GDDR6X|≈ $1,522 (US $1,089)|Used|In‑stock【417054984687687†screenshot】|Ships from USA to AU|Seller “e‑dealsglobal7” has **98.8 % positive feedback (84)**【417054984687687†screenshot】; listing notes cards are tested and working.",RTX 3090,24,,https://www.ebay.com.au/itm/374532722985,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"|Marketplace (used)|eBay AU|[MSI RTX 3090 Turbo 24 GB Blower Type](https://www.ebay.com.au/itm/374562482583)|MSI RTX 3090 Turbo|RTX 3090 24 GB GDDR6X|≈ $1,580 (US $1,130)|Used|In‑stock【697491037217407†screenshot】|Ships from USA to AU|Same seller “e‑dealsglobal7” (98.8 % positive)【697491037217407†screenshot】; blower‑style cooler; tested working.",RTX 3090,24,,https://www.ebay.com.au/itm/374562482583,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"|Marketplace (used)|eBay AU|[MSI GeForce RTX 3090 Ventus 3X OC 24 GB](https://www.ebay.com.au/itm/386766042946)|MSI Ventus 3X OC|RTX 3090 24 GB GDDR6X|$1,700|Used|In‑stock【204357195002292†screenshot】|Australia|Seller “scobejo” has **100 % positive feedback (1,212)**【204357195002292†screenshot】; used card with original box.",GeForce RTX 3090 | RTX 3090,24,,https://www.ebay.com.au/itm/386766042946,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"Currently out of stock but demonstrates pricing.|
+|Marketplace|Gumtree|[Inno3D RTX 3090 + Waterblock](https://www.gumtree.com.au/web/listing/components/1341574547)|Inno3D iChill RTX 3090|GeForce RTX 3090 24 GB|$1,800|Used|Available (pickup only)【802161753146694†screenshot】|Seville Grove, WA (pickup only)|Seller states the card is “well looked after” and includes an unused liquid‑cooling waterblock; local pickup only【802161753146694†screenshot】.|
+|Marketplace|Various (used market)|Best‑value used",RTX 3090 | GeForce RTX 3090,24,1530,https://www.gumtree.com.au/web/listing/components/1341574547,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"Moderate risk – no warranty or return.|
+|Marketplace (typical)|eBay AU / used market|—|24|≈ $850–$1,050|Used|30‑day seller warranty (varies)|High‑rated sellers (> 95 % feedback)|Price tracker indicates used RTX 3090 cards average around US$1,000 (~A$1,530)【356063523441541†screenshot】.",RTX 3090,,1530,,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"|Retailer|JB Hi‑Fi|[MSI Raider 18 HX AI 18″ UHD+ MiniLED 120 Hz](https://www.jbhifi.com.au/products/msi-raider-18-hx-ai-18-uhd-120hz-gaming-laptop)|MSI Raider 18 HX AI|RTX 5090 Laptop GPU 24 GB|Intel Ultra 9 285HX|128 GB DDR5|10 TB SSD (2 TB + 8 TB)|$11,999 (discounted to $8,488)|New|In stock【20598720163979†screenshot】|High‑end gaming laptop with **24 GB GDDR7 RTX 5090** GPU, 18″ UHD+ MiniLED display and up to **128 GB RAM**【20598720163979†screenshot】; extremely expensive but offers workstation‑",RTX 5090,24,,https://www.jbhifi.com.au/products/msi-raider-18-hx-ai-18-uhd-120hz-gaming-laptop,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"|Marketplace|eBay AU|[ZOTAC Gaming GeForce RTX 3090 Trinity](https://www.ebay.com.au/itm/314495495380)|ZOTAC Trinity|24|≈ $1,534|Used|30‑day seller return|100 % positive (54) – **Low**|Used card; includes original packaging【138326933064938†screenshot】.",GeForce RTX 3090,,,https://www.ebay.com.au/itm/314495495380,project_term,3
+ChatGPT-Export,69efa03a-cd58-83a0-b9e1-861507d02eb8,High-VRAM Hardware Procurement,2026-04-28T10:57:10.110806+00:00,"The **ZOTAC RTX 3090 Trinity** from seller *cbgam_10* (~A$1,534) comes from a 100 % feedback seller and represents a **low‑risk** purchase【138326933064938†screenshot】.",RTX 3090,,1534,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **Compact Alienware Aurora RTX 3090 / 4090 towers** | ✅ Conditional | Poor expansion, but can be excellent value if locally available around **~A$2k**.",RTX 3090,,2,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"| Product type | Worth considering if… | Strong value if… |
+|---|---:|---:|
+| **Alienware Aurora RTX 3090 24GB** | ≤ **A$2,800** | ≤ **A$2,200** |
+| **Alienware Aurora RTX 4090 24GB** | ≤ **A$3,800** | ≤ **A$3,200** |
+| **RTX 4090 laptop 16GB** | ≤ **A$4,000** | ≤ **A$3,500** |
+| **RTX 5080 laptop 16GB** | ≤ **A$4,500** | ≤ **A$4,000** |
+| **Razer Blade 18 / Alienware m18 / Legion Pro 7i** | Only if warranty/condition is credible | Strong if 64GB RAM and below market |
+| **Mac Studio 64GB** | ≤ ",RTX 3090 | RTX 4090 | RTX 5080,24,2800 | 2200 | 3800 | 3200 | 4000 | 3500 | 4500,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,A locally available **Alienware RTX 3090 tower around A$2k** should absolutely be scored.,RTX 3090,,2,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"```markdown
+- **Expansion Class**: Single-GPU Value Exception
+- **Expansion Verdict**: Not recommended for dual-GPU growth, but compelling if priced near A$2,000 due to included 24GB RTX 3090.",RTX 3090,24,2000,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **4** | **Alienware Aurora RTX 3090 around A$2k** | Single-GPU Value Exception | Bad expansion, potentially excellent 24GB VRAM value.",RTX 3090,24,2,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **5** | **RTX 4090 laptop under A$3.5k–4k** | Portable Value Exception | No expansion, but strong if price is sharply discounted.",RTX 4090,,3.5,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **6** | **RTX 5080 laptop under A$4k–4.5k** | Portable Value Exception | Current-gen portable exception.",RTX 5080,,4,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"A **A$2k local Alienware RTX 3090** belongs in lane 2 and should be evaluated, not dismissed.",RTX 3090,,2,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"```markdown
+<!-- PRODUCT CARD START: MSI Vector 16 HX AI RTX 5090 Bundle -->
+### 88 / 110 — MSI Vector 16 HX AI RTX 5090 Bundle
+- **Category**: Laptop
+- **Condition**: New
+- **Price (AUD)**: Verify live Centre Com price
+- **Vendor**: Centre Com
+- **URL**: https://www.centrecom.com.au/msi-vector-16-hx-ai-a2xw-16-core-ultra-9-16gb-1tb-rtx-5090-gaming-laptop-msi-mag-255xf-25-monitor-bundle
+- **Expansion Class**: Portable Value Exception",RTX 5090,16,,https://www.centrecom.com.au/msi-vector-16-hx-ai-a2xw-16-core-ultra-9-16gb-1tb-rtx-5090-gaming-laptop-msi-mag-255xf-25-monitor-bundle,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"Mike PC currently lists the **Lenovo Legion Pro 7i – i9-14900HX / 32GB / 2TB SSD / RTX 4090 / 2K 240Hz / 1Y WTY** at **A$3,599**, down from A$4,199.",RTX 4090,32,3599 | 4199,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **Value** | **A$3,599–3,699** is strong for an RTX 4090 laptop in Australia.",RTX 4090,,3599,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"Similar listings can sit much higher; Nvidia Marketplace showed an RTX 4090/32GB/2TB Legion at A$6,799 but out of stock.",RTX 4090,32,6799,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"#### Hardware Profile
+- **GPU**: NVIDIA GeForce RTX 4090 Laptop GPU 16GB GDDR6
+- **CPU**: Intel Core i9-14900HX
+- **RAM**: 32GB DDR5 listed; 64GB variant preferred if A$3,699
+- **Storage**: 2TB NVMe SSD
+- **PSU**: Original Lenovo 330W charger
+- **Thermals / Cooling**: High-power 16-inch Legion chassis; RTX 4090 laptop-class GPU commonly listed around 175W
+- **Warranty**: Mike PC listing indicates 1Y WTY / confirm exact terms",GeForce RTX 4090 | RTX 4090,16,3699,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"#### Mini Review
+**Pros**
+- Strong RTX 4090 laptop value at A$3.6k–3.7k.",RTX 4090,,3.6,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"Centre Com lists the Raider 18 HX AI A2XWIG-244AU at **A$7,599**, with Core Ultra 9 285HX, RTX 5080 Laptop GPU, **64GB RAM**, **4TB SSD**, 18-inch UHD+ MiniLED 120Hz display, Windows 11 Pro, 400W adapter, and 3.6kg weight.",RTX 5080,64,7599,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- A$5,499 is high, but far less than many premium RTX 5090 laptops.",RTX 5090,,5499,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"```markdown
+<!-- PRODUCT CARD START: Lenovo LOQ 17IRX10 RTX 5070 -->
+### Rejected Benchmark — Lenovo LOQ 17IRX10 RTX 5070
+- **Category**: Laptop
+- **Condition**: New
+- **Price (AUD)**: $2,099–$2,499 observed
+- **Vendor**: Centre Com
+- **URL**: https://www.centrecom.com.au/lenovo-loq-173-fhd-i7-24gb-ram-1tb-rtx-5070-gaming-laptop-luna-grey
+- **Expansion Class**: Rejected Benchmark
+- **Decision Status**: Reject for local-AI scoring
+- **Primary Constraint**: 8GB VRAM and 32GB RAM ceiling
+- **Notebo",RTX 5070 | rtx5070,24,,https://www.centrecom.com.au/lenovo-loq-173-fhd-i7-24gb-ram-1tb-rtx-5070-gaming-laptop-luna-grey,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **2** | **Scorptec Eclipse RTX 5070 Ti 16GB** | New desktop tower | Listed around A$3,399; strong clean-warranty 16GB VRAM desktop path.",RTX 5070 Ti,16,3399,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **3** | **PLE Pixel RTX 5070 Ti 16GB** | New desktop tower | Similar clean-warranty 16GB desktop route at ~A$3,799; useful benchmark against PLE AI Advanced.",RTX 5070 Ti,16,3799,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **4** | **Acer Predator Orion 7000 RTX 4080 refurbished** | Refurb desktop tower | Raw log shows i9-14900K, RTX 4080 16GB, 32GB RAM, 1TB + 2TB storage, ~A$3,699; potentially strong if warranty is solid.",RTX 4080,16,3699,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **5** | **Nebula PC R7 7800X3D / RTX 4080 16GB** | Desktop tower | Historic A$2,948 after coupon makes this one of the strongest 16GB VRAM value candidates if the deal returns.",RTX 4080,16,2948,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **6** | **Acer Predator Helios 18 RTX 4090 refurbished** | 18-inch laptop | Refurb 18-inch RTX 4090 16GB laptop with 32GB RAM and 4TB SSD around A$4,449; strong mobile workstation candidate.",RTX 4090,16,4449,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **7** | **Lenovo Legion Pro 7i RTX 5080 16GB** | High-end laptop | Listed around A$4,498 with upgradeable RAM/SSD; likely a current-gen premium 16GB VRAM laptop benchmark.",RTX 5080,16,4498,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **8** | **ASUS Zephyrus G16 RTX 5080 16GB** | Creator/gaming laptop | Strong portable 16GB VRAM option at ~A$4,899; relevant for “thin but powerful” category.",RTX 5080,16,4899,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **9** | **MSI Stealth A16 RTX 5080 16GB** | Creator/gaming laptop | Another 16GB VRAM RTX 5080 laptop candidate, ~A$4,999; useful comparison against Zephyrus and Legion.",RTX 5080,16,4999,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"|
+| **10** | **Minisforum X1 Lite + DEG1 + RTX 5070 Ti 16GB + 850W PSU** | Mini PC / eGPU | Estimated A$2,851.98; one of the cheapest complete 16GB VRAM modular/eGPU paths in the log.",RTX 5070 Ti,16,2851.98,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"Avoid paying premium brand tax…
+- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: Acer Predator Orion 7000 / other RTX 4080S retail desktops General desktop route from Stage 2 RTX 4080 Super 16GB; CPU/RAM vary AUD $4.5k–$5k+ class 16GB VRAM Watchlist Use only where warranty and discount are strong.",RTX 4080,16,4.5,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"### Acer Predator Orion 7000 RTX 4080 SUPER desktop
+- **Category**: Windows Tower / Desktop
+- **Status**: Compromise
+- **Price_AUD**: 4,988; new/retail assumed
+- **GPU_VRAM_or_Unified**: 16GB VRAM
+- **RAM_GB**: 16GB VRAM
+- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: Acer Predator Orion 7000 RTX 4080 SUPER desktop Domayne + other merchants product-search result RTX 4080 Super desktop; other specs not retained AUD $4,988; new/retail assumed 16GB VRAM Compromise / ove",RTX 4080,16,4988,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"### CONSTELLAR ONYX PC — RTX 4080 SUPER
+- **Category**: Windows Tower / Desktop
+- **Status**: Watchlist
+- **Price_AUD**: 4,099; condition UNKNOWN
+- **GPU_VRAM_or_Unified**: 16GB VRAM
+- **RAM_GB**: Needs direct verification of CPU, RAM, SSD, PSU, warranty, stock, and return po…
+- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: CONSTELLAR ONYX PC — RTX 4080 SUPER Mike PC AU product-search result RTX 4080 Super desktop; other specs not retained AUD $4,099; condition UNKNO",RTX 4080,16,4099,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: Evatech 7800X3D / RTX 4070 Ti desktop Historic OzBargain/Evatech listing Ryzen 7 7800X3D; RTX 4070 Ti 12GB; 32GB RAM; 1TB SSD AUD $2,599 historic special; new 12GB VRAM Compromise Good gaming/value desktop, but 12GB VRAM limits serious local-AI trajectory.",RTX 4070 Ti,12,2599,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"### Mike PC MSI RTX 3090 AERO 24GB GPU build route
+- **Category**: Windows Tower / Desktop
+- **Status**: Active shortlist
+- **Price_AUD**: 1,799 GPU; 12-month warranty noted in prior research
+- **GPU_VRAM_or_Unified**: 24GB VRAM
+- **RAM_GB**: 24GB VRAM
+- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: Mike PC MSI RTX 3090 AERO 24GB GPU build route https://mikepc.com.au/products/msi-rtx-3090-aero-24gb-graphics-card RTX 3090 AERO 24GB GPU used as build anchor AUD $1,799 ",RTX 3090,24,1799,https://mikepc.com.au/products/msi-rtx-3090-aero-24gb-graphics-card,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"Verify coupon/current av…
+- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: Nebula PC R7 7800X3D / RTX 4080 desktop Prior OzBargain/Nebula listing Ryzen 7 7800X3D; RTX 4080 16GB; 16GB DDR5; 1TB NVMe AUD $2,948 after coupon; historic deal 16GB VRAM Active shortlist if deal returns Strong value, but RAM should be upgraded to 32GB/64GB.",RTX 4080,16,2948,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: PLE AI Advanced RTX 5070 Ti 16GB desktop PLE AI development build referenced in Stage 2 Ryzen 7 9700X; RTX 5070 Ti 16GB; 32GB DDR5-6000; 2TB NVMe AUD $3,907; built to order 16GB VRAM Active shortlist Clean AU retail path under $4k; 16GB VRAM ceiling is the main compromise.",RTX 5070 Ti,16,3907,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"### Dell Alienware m18 / Area-51 18-inch RTX 4090 class
+- **Category**: Windows Laptop / Desktop Replacement
+- **Status**: Watchlist
+- **Price_AUD**: 4,499+ class
+- **GPU_VRAM_or_Unified**: 16GB VRAM
+- **RAM_GB**: 16GB VRAM
+- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: Dell Alienware m18 / Area-51 18-inch RTX 4090 class Dell AU / Dell Outlet path Intel HX i7/i9; RTX 4090 Laptop 16GB where configured; up to 64GB RAM; large 18-inch chassis AUD $4,499+ class 16GB VRAM",RTX 4090,16,4499,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"Watch only if below ~4k and warranty is…
+- **GPU_VRAM_or_Unified**: 16GB VRAM
+- **RAM_GB**: 16GB VRAM
+- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: Lenovo Legion Pro 7 i9-13900HX RTX 4090 Current/reformatted report; BuyWisely/DeviceDeal/Amazon AU class i9-13900HX; RTX 4090 Laptop 16GB; 32GB RAM; 2TB SSD; 16-inch 2560×1600 240Hz AUD $4,399–$4,575 class; stock variable 16GB VRAM Watchlist Powerful, but laptop tax remains high…",RTX 4090,16,4399,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"### Lenovo Legion Pro 7i direct Lenovo option
+- **Category**: Windows Laptop / Desktop Replacement
+- **Status**: Rejected
+- **Price_AUD**: 5,999 in search result
+- **GPU_VRAM_or_Unified**: Likely 16GB VRAM if RTX 4090
+- **RAM_GB**: Likely 16GB VRAM if RTX 4090
+- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: Lenovo Legion Pro 7i direct Lenovo option Lenovo + other merchants product-search result Legion Pro 7i gaming laptop; exact config not retained AUD $5,999 in sear",RTX 4090,16,5999,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"### Lenovo Legion Pro 7i i9-14900HX RTX 4090
+- **Category**: Windows Laptop / Desktop Replacement
+- **Status**: Active shortlist
+- **Price_AUD**: Best emotional-but-defensible one-machine route if price is closer to 3.6k and…
+- **GPU_VRAM_or_Unified**: 16GB VRAM
+- **RAM_GB**: Best emotional-but-defensible one-machine route if price is closer to $3.6k and…
+- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: Lenovo Legion Pro 7i i9-14900HX RTX 4090 https://mikepc.com.au/pr",RTX 4090,16,3599,https://mikepc.com.au/products/lenovo-legion-pro-7i-i9-14900hx-32gb-2tb-ssd-rtx-4090-2k-240hz-1y-wty,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"### Pioneer DreamBook Power X370 RTX 4090
+- **Category**: Windows Laptop / Desktop Replacement
+- **Status**: Watchlist
+- **Price_AUD**: 4,659
+- **GPU_VRAM_or_Unified**: 16GB VRAM
+- **RAM_GB**: 16GB VRAM
+- **Source_File**: consolidated_personal_shopper_product_doc.md
+- **Notes**: Pioneer DreamBook Power X370 RTX 4090 HPL / prior research i9-13900HX; RTX 4090 Laptop 16GB; 32GB RAM; 2×1TB NVMe; 17.3-inch 1440p 240Hz AUD $4,659 16GB VRAM Watchlist Strong Aussie desktop-replacement; 3.44kg and dated ",RTX 4090,16,4659,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **Consolidated_Notes**: Acer Predator Orion 7000 / other RTX 4080S retail desktops General desktop route from Stage 2 RTX 4080 Super 16GB; CPU/RAM vary AUD $4.5k–$5k+ class 16GB VRAM Watchlist Use only where warranty and discount are strong.",RTX 4080,16,4.5,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"### Acer Predator Orion 7000 RTX 4080 SUPER desktop
+- **Category**: Windows Tower / Desktop
+- **Status_Summary**: Compromise
+- **Price_AUD_Observed**: 4,988; new/retail assumed
+- **VRAM_or_Unified**: 16GB VRAM
+- **RAM_GB**: 16GB VRAM
+- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **Consolidated_Notes**: Acer Predator Orion 7000 RTX 4080 SUPER desktop Domayne + other merchants product-search result RTX 4080 Super desktop; other specs not retained AUD $4,988; new/retail assumed 16GB ",RTX 4080,16,4988,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **Consolidated_Notes**: CONSTELLAR ONYX PC — RTX 4080 SUPER Mike PC AU product-search result RTX 4080 Super desktop; other specs not retained AUD $4,099; condition UNKNOWN 16GB VRAM Watchlist Needs direct verification of CPU, RAM, SSD, PSU, warranty, stock, and return policy.",RTX 4080,16,4099,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **Consolidated_Notes**: Evatech 7800X3D / RTX 4070 Ti desktop Historic OzBargain/Evatech listing Ryzen 7 7800X3D; RTX 4070 Ti 12GB; 32GB RAM; 1TB SSD AUD $2,599 historic special; new 12GB VRAM Compromise Good gaming/value desktop, but 12GB VRAM limits serious local-AI trajectory.",RTX 4070 Ti,12,2599,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"### Mike PC MSI RTX 3090 AERO 24GB GPU build route
+- **Category**: Windows Tower / Desktop
+- **Status_Summary**: Active shortlist
+- **Price_AUD_Observed**: 1,799 GPU; 12-month warranty noted in prior research
+- **VRAM_or_Unified**: 24GB VRAM
+- **RAM_GB**: 24GB VRAM
+- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **URLs**: https://mikepc.com.au/products/msi-rtx-3090-aero-24gb-graphics-card
+- **Consolidated_Notes**: Mike PC MSI RTX 3090 AERO 24GB GPU build route https://mikepc.com.au/",RTX 3090,24,1799,https://mikepc.com.au/products/msi-rtx-3090-aero-24gb-graphics-card,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **Consolidated_Notes**: Nebula PC R7 7800X3D / RTX 4080 desktop Prior OzBargain/Nebula listing Ryzen 7 7800X3D; RTX 4080 16GB; 16GB DDR5; 1TB NVMe AUD $2,948 after coupon; historic deal 16GB VRAM Active shortlist if deal returns Strong value, but RAM should be upgraded to 32GB/64GB.",RTX 4080,16,2948,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **Consolidated_Notes**: PLE AI Advanced RTX 5070 Ti 16GB desktop PLE AI development build referenced in Stage 2 Ryzen 7 9700X; RTX 5070 Ti 16GB; 32GB DDR5-6000; 2TB NVMe AUD $3,907; built to order 16GB VRAM Active shortlist Clean AU retail path under $4k; 16GB VRAM ceiling is the main compromise.",RTX 5070 Ti,16,3907,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"AUD $4,000–$4,500 16GB VRAM Watchlist Fast image generation and CUDA, but not as good for 32B models as RTX 3090 24GB.",RTX 3090,16,4000,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **URLs**: https://supertechcomputers.com.au/product/rtx4090-gaming-pc/
+- **Consolidated_Notes**: Supertech RTX 4090 Gaming PC https://supertechcomputers.com.au/product/rtx4090-gaming-pc/ i7-14700K; RTX 4090 24GB; 32GB RAM; 1TB Kingston KC3000 SSD; 850W PSU AUD $5,799 sale; new 24GB VRAM / extreme stretch Watchlist Highest raw local-AI capability in previous report, but beyond preferred budget and likely overkill unless 24GB VRAM is non",rtx4090 | RTX 4090,24,5799,https://supertechcomputers.com.au/product/rtx4090-gaming-pc/,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"### Dell Alienware m18 / Area-51 18-inch RTX 4090 class
+- **Category**: Windows Laptop / Desktop Replacement
+- **Status_Summary**: Watchlist
+- **Price_AUD_Observed**: 4,499+ class
+- **VRAM_or_Unified**: 16GB VRAM
+- **RAM_GB**: 16GB VRAM
+- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **Consolidated_Notes**: Dell Alienware m18 / Area-51 18-inch RTX 4090 class Dell AU / Dell Outlet path Intel HX i7/i9; RTX 4090 Laptop 16GB where configured; up to 64GB RAM; large 18-inch chassis AUD $4",RTX 4090,16,4499,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- **VRAM_or_Unified**: 16GB VRAM
+- **RAM_GB**: 16GB VRAM
+- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **Consolidated_Notes**: Lenovo Legion Pro 7 i9-13900HX RTX 4090 Current/reformatted report; BuyWisely/DeviceDeal/Amazon AU class i9-13900HX; RTX 4090 Laptop 16GB; 32GB RAM; 2TB SSD; 16-inch 2560×1600 240Hz AUD $4,399–$4,575 class; stock variable 16GB VRAM Watchlist Powerful, but laptop tax remains high.",RTX 4090,16,4399,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **URLs**: https://mikepc.com.au/products/lenovo-legion-pro-7i-i9-14900hx-32gb-2tb-ssd-rtx-4090-2k-240hz-1y-wty
+- **Consolidated_Notes**: Lenovo Legion Pro 7i i9-14900HX RTX 4090 https://mikepc.com.au/products/lenovo-legion-pro-7i-i9-14900hx-32gb-2tb-ssd-rtx-4090-2k-240hz-1y-wty i9-14900HX; RTX 4090 Laptop 16GB; 32GB/64GB DDR5; 2TB SSD; 16-inch 2K/240Hz; 1-year warranty Prior Mike PC listing around AUD $3,599–$4,399 depending config 16G",RTX 4090,32,3599,https://mikepc.com.au/products/lenovo-legion-pro-7i-i9-14900hx-32gb-2tb-ssd-rtx-4090-2k-240hz-1y-wty,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **URLs**: https://www.tecs.com.au/EX-DISPLAY%3A-MSI-Vector-A18-HX-A9WHG-062AU-AMD-Ryzen-9-9955HX%2C-RTX-5070-Ti-12GB%2C-32GB-DDR5-RAM%2C-1TB-NVMe-SSD%2C-18%22-2560-x-1600-240Hz%2C-Windows-11-Home-Advanced%2C-1-Year-Warranty-X5420BB-21791/
+- **Consolidated_Notes**: MSI Vector A18 HX A9WHG-062AU https://www.tecs.com.au/EX-DISPLAY%3A-MSI-Vector-A18-HX-A9WHG-062AU-AMD-Ryzen-9-9955HX%2C-RTX-5070-Ti-12GB%2C-32GB-DDR5-RAM%2C-1TB-NVMe-SSD%2C-1",RTX 5070 Ti,12,3150,https://www.tecs.com.au/EX-DISPLAY%3A-MSI-Vector-A18-HX-A9WHG-062AU-AMD-Ryzen-9-9955HX%2C-RTX-5070-Ti-12GB%2C-32GB-DDR5-RAM%2C-1TB-NVMe-SSD%2C-18%22-2560-x-1600-240Hz%2C-Windows-11-Home-Advanced%2C-1-Year-Warranty-X5420BB-21791/,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"### Pioneer DreamBook Power X370 RTX 4090
+- **Category**: Windows Laptop / Desktop Replacement
+- **Status_Summary**: Watchlist
+- **Price_AUD_Observed**: 4,659
+- **VRAM_or_Unified**: 16GB VRAM
+- **RAM_GB**: 16GB VRAM
+- **Source_Mentions**: Manual Spreadsheet / Product Ledger
+- **Consolidated_Notes**: Pioneer DreamBook Power X370 RTX 4090 HPL / prior research i9-13900HX; RTX 4090 Laptop 16GB; 32GB RAM; 2×1TB NVMe; 17.3-inch 1440p 240Hz AUD $4,659 16GB VRAM Watchlist Strong Aussie desktop-replaceme",RTX 4090,16,4659,,project_term,3
+ChatGPT-Export,69f199b8-63a0-839c-9743-426bcea1420e,Refurbished desktop search,2026-04-30T18:54:09.898146+00:00,"| **19/25** — A$5,099 for a 17.3‑inch 240 Hz laptop with R9 7945HX, RTX 4090 and 32 GB DDR5 RAM【258428925500303†L71-L83】.",RTX 4090,32,5099,,project_term,3
+ChatGPT-Export,69f3c88f-77b8-839f-a680-2ea7eafaad84,MSI Vector 17 HX AI,2026-05-02T03:32:21.244531+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69f4635f-83b4-839a-9d97-e38feeeba8a3,MINISFORUM N5 MAX Review,2026-05-01T08:26:42.679324+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69f46570-fa88-839c-b21e-635af55e97af,Ledger Classification Review,2026-05-02T14:48:53.894099+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69f5ad8c-cb34-839a-beac-2ffa0cd19f56,RTX 3090 Prebuilt Systems,2026-05-02T18:12:36.710945+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69f5ad8c-cb34-839a-beac-2ffa0cd19f56,RTX 3090 Prebuilt Systems,2026-05-02T18:12:36.710945+00:00,"| Rank | System & vendor | Approx total cost in AUD | Likely GPU / RAM / storage | Chassis class | Why it appears promising | Concern flags |
+|---|---|---|---|---|---|---|
+| **1** | **Aftershock Ultrafocus Pro (custom workstation)** | ≈ A$11–12 k (from SGD $10,700)【610764870125028†L194-L236】 | Base configuration uses a low‑end RTX 3050 6 GB with AMD Ryzen Threadripper Pro 9965WX (24‑core), 64 GB ECC DDR5 and a 1 TB PCIe 4.0 SSD【610764870125028†L210-L237】; the Enthoo Pro 2 chassis supports up to ",RTX 3050 | RTX 6000,6,11,,project_term,3
+ChatGPT-Export,69f5ad8c-cb34-839a-beac-2ffa0cd19f56,RTX 3090 Prebuilt Systems,2026-05-02T18:12:36.710945+00:00,"|
+| **2** | **Aftershock Focus Workstation** | ≈ A$2.2 k (from SGD $1,910)【952835944991528†L195-L205】 | Base spec uses Zotac RTX 3050 6 GB, AMD Ryzen 5 7500F, 32 GB DDR5 and 1 TB SSD【952835944991528†L179-L188】.",RTX 3050,6,2.2,,project_term,3
+ChatGPT-Export,69f5ad8c-cb34-839a-beac-2ffa0cd19f56,RTX 3090 Prebuilt Systems,2026-05-02T18:12:36.710945+00:00,"|
+| **3** | **Mwave RaceSimX Gaming PC (prebuilt)** | ~A$5 k+ (price not shown; typical 4090 prebuilts are ~$5‑6 k) | Intel Core i9‑13900K 24‑core CPU, Gigabyte RTX 4090 AORUS Master 24 GB GPU, 32 GB DDR5 memory, 1 TB PCIe 4.0 NVMe SSD and a Cooler Master 750 W 80+ Gold PSU【720962956934299†screenshot】.",RTX 4090,24,5,,project_term,3
+ChatGPT-Export,69f71cf3-2ccc-839d-be3f-dc49afca00d5,Laptop Scoring Assessment,2026-05-03T10:03:09.526340+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"A$2,345.15 \ue200cite\ue202turn40view0\ue201 | RTX 3080 Ti Laptop GPU with 16GB GDDR6, 15.6-inch 4K/UHD 144Hz, 32GB DDR5-4800, 2TB NVMe SSD, vapor-chamber cooling.",RTX 3080 Ti,16,2345.15,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"A$3,543.63 \ue200cite\ue202turn29view1\ue201 | RTX 3080 Ti Laptop GPU with 16GB GDDR6; 17.3-inch FHD 360Hz panel; i9-12900HK; 32GB RAM; 2TB SSD.",RTX 3080 Ti,16,3543.63,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"A$3,831.13 \ue200cite\ue202turn29view0\ue201 | RTX 3080 Ti Laptop GPU with 16GB GDDR6; 15.6-inch QHD 165Hz listing config; i9-12900H; 32GB RAM; 5TB total SSD.",RTX 3080 Ti,16,3831.13,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"A$3,789.58 \ue200cite\ue202turn10view1\ue202turn12view0\ue201 | RTX 3080 Ti Laptop GPU with 16GB VRAM; 15.6-inch QHD listing/resolution with 240Hz in title family; i7-12800H; 64GB RAM; 1.5TB SSD.",RTX 3080 Ti,16,3789.58,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"\ue200cite\ue202turn10view1\ue202turn12view0\ue201 | 7.9 | 0.42 |\n| \ue200entity\ue202[\""product\"",\""ASUS ROG Zephyrus Duo 16\"",\""2023 gaming laptop\""]\ue201 (Ryzen 9 / 32GB / 1TB / RTX 4080 alt) | \ue200url\ue202eBay \u2022 eversmen\ue202turn33view0\ue201 | A$3,028.87 \ue200cite\ue202turn33view0\ue201 | RTX 4080 Laptop GPU with 12GB GDDR6; 16-inch 2560\u00d71600 panel; title states QHD 240Hz; Ryzen 9 7000 Series; 32GB RAM; 1TB SSD.",RTX 4080,32,3028.87,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"A$4,184.80 \ue200cite\ue202turn36view0\ue201 | RTX 4080 Laptop GPU with 12GB GDDR6; 16-inch 2560\u00d71600 display; title states 240Hz QHD+; i9-13900HX; 32GB RAM; 1TB SSD.",RTX 4080,12,4184.80,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"A$4,443.81 \ue200cite\ue202turn31view0\ue202turn19view0\ue202turn37search2\ue201 | RTX 3080 Ti Laptop GPU with 16GB GDDR6; 16-inch 2560\u00d71600 panel; Lenovo\u2019s X1 Extreme Gen 5 platform supports up to 64GB DDR5 and 165Hz WQXGA, but the GeForce 3080 Ti implementation is a lower-power design versus gaming-centric 175W machines.",RTX 3080 Ti,16,4443.81,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"- It correctly identifies the likely sweet spot: **16GB VRAM RTX 4090 / 5080 / 3080 Ti laptops around A$3,000–$5,000**.",RTX 4090,16,3000,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"Razer Blade 18 RTX 4090 16GB — claimed around AUD $4,789
+2.",RTX 4090,16,4789,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"Lenovo Legion Pro 7i RTX 4090 16GB — claimed around AUD $3,599 via MikePC sale
+3.",RTX 4090,16,3599,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"HP Omen 17 RTX 4090 16GB — claimed around AUD $3,500 used/open-box
+4.",RTX 4090,16,3500,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"ASUS ROG Strix Scar 17 X3D RTX 4090 16GB — claimed around AUD $4,899 but possibly out of stock
+5.",RTX 4090,16,4899,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"MSI Raider GE78 HX RTX 4090 16GB — claimed around AUD $3,500 used
+6.",RTX 4090,16,3500,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"ASUS ROG Zephyrus Duo 16 RTX 4080 12GB — claimed around AUD $3,000 used
+7.",RTX 4080,12,3000,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"Any directly equivalent RTX 4090 / RTX 5080 16GB laptop under AUD $4,500 that appears during verification",RTX 4090 | RTX 5080,16,4500,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"Do not spend time deeply verifying obvious rejects unless needed for benchmark context:
+- MSI Titan 18 HX around AUD $7,999
+- Razer Blade 16 around AUD $7,899
+- Lenovo Legion 9i RTX 5090 around AUD $9,999
+- Infinity N7 Core around AUD $6,599
+- ASUS Scar 18 RTX 4080 around AUD $5,199 unless a much cheaper active listing exists",RTX 5090 | RTX 4080,,7999 | 7899 | 9999 | 6599 | 5199,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"Verdict
+Sweet spot: Laptops with 16 GB VRAM (RTX 4090/5080/3080 Ti) around AU$3–5k are the current target.",RTX 4090,16,3,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"For example, a Razer Blade 18 (RTX 4090, 16 GB) lists for ~AU$4,789
+, while a local sale of a Legion Pro 7i (RTX 4090, 16 GB) went for ~$3,599
+.",RTX 4090,16,4789,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"VRAM tiers table
+Tier	Key GPUs	Typical price (AUD)	AI/local LLM fit	Buying stance
+24 GB+	RTX 5090, Quadro 5000/6000 Ada (24+ GB)	Typically >AU$8k (e.g.",RTX 5090,24,8,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"Legion 9i 18″ RTX 5090 24 GB ~AU$9,999
+)	Max AI fit, but out of our budget.",RTX 5090,24,9999,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"16 GB	RTX 4090, RTX 3080 Ti/5080, RTX 5000 Ada (16 GB)	~AU$3k–5k (e.g.",RTX 4090 | RTX 3080 Ti | RTX 5000,16,3,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"12 GB	RTX 4080, RTX 4070 Ti/5070 Ti (12 GB)	Often still ~AU$4–5k (e.g.",RTX 4080 | RTX 4070 Ti,12,4,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"<12 GB	RTX 3070, 4060, 4060 Ti etc (<12 GB)	<$3k (often <AU$3k new)	Weak for AI/LLMs (VRAM bottleneck).",RTX 3070,12,3,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"Lenovo Legion 9i (RTX 5090) – Scorptec $9,999
+: Top VRAM (24 GB) but price (~AU$10k) is far above target.",RTX 5090,24,10,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"Lenovo Legion Pro 7i (RTX 4090) from UK @AU$3,855",RTX 4090,,3855,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"> **Best practical laptop purchase:** **MSI Vector 16 HX AI RTX 5080 16GB, 32GB RAM, 2TB SSD, QHD+ 240Hz, local AU warranty — A$4,299 at Mwave.**  
+> **Best imported/refurb performance candidate:** **Lenovo Legion Pro 7i RTX 4090 16GB, 32GB RAM, 2TB SSD — around US$2,299 / approx A$4,019 before AU shipping complexity.**  
+> **Best overall local-AI hardware strategy remains desktop-first:** RTX 3090 24GB desktop + lightweight laptop, because 24GB VRAM is still the avoid-regret tier for 30B/34B lo",RTX 5080 | RTX 4090 | RTX 3090,16,4299 | 4019,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"citeturn850011search0 |
+| “RTX 5090 Laptop is the real >16GB target” | Correct: RTX 5090 Laptop is 24GB GDDR7, but current credible listings are generally outside the A$4,500 cap.",RTX 5090,16,4500,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"citeturn800348search2turn399386search0turn399386search1 |
+| “HP Omen Max 16 open-box RTX 5080 is around A$3.2k landed” | Plausible only as a **historical / limited open-box freight-forwarding opportunity**.",RTX 5080,,3.2,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"| Rank | Candidate | Price / landed estimate | GPU / VRAM | RAM / SSD / screen | Condition / risk | Fit |
+|---:|---|---:|---|---|---|---|
+| **1** | **MSI Vector 16 HX AI A2XWIG-213AU — Mwave AU** | **A$4,299** | RTX 5080 Laptop, **16GB GDDR7** | Core Ultra 9 275HX, **32GB**, **2TB**, 16"" QHD+ 240Hz, 100% DCI-P3 | **New, AU stock, 12-month MSI warranty** | Best practical current laptop pick.",RTX 5080,16,4299,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"citeturn379003search0 |
+| **2** | **Lenovo Legion Pro 7i 16IRX9H — certified refurb eBay US** | US$2,299 ≈ **A$4,019 before AU shipping/admin** | RTX 4090 Laptop, **16GB GDDR6** | i9-14900HX, **32GB**, **2TB**, 16"" 2560×1600 240Hz | Certified refurb, Lenovo warranty until June 2026 claimed, Allstate 2-year eBay warranty may be US-centric | Strongest imported value if shipping and warranty transfer are acceptable.",RTX 4090,16,4019,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"citeturn573616search1turn573616search2turn999715calculator0 |
+| **3** | **MSI Raider GE68 RTX 4090 — AU eBay** | Observed **A$4,299–A$4,999 + shipping**; verify live | RTX 4090 Laptop, **16GB** | i9-14900HX, **32GB**, **2TB**, 16"" 3840×2400 120Hz | AU seller, small feedback count, no returns | Good local fallback if negotiated near A$4.3k.",RTX 4090,16,4299 | 4999 | 4.3,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"citeturn614204search0turn614204search5 |
+| **4** | **HP Omen 17.3 RTX 4090 — AU eBay** | Around **A$3,900**, shipping to VIC must be confirmed | RTX 4090 Laptop, **16GB** | i9-13900HX, **32GB**, **2TB**, 17.3"" QHD-class | Used, no returns, private seller | Strong value if condition, battery, invoice, and shipping are confirmed.",RTX 4090,16,3900,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"citeturn614204search1 |
+| **5** | **HP Omen Max 16 RTX 5080 — Best Buy US open-box** | Historical open-box estimate: **~A$3,162 before freight-forwarding** | RTX 5080 Laptop, **16GB** | Core Ultra 9 275HX, **32GB**, **2TB**, 16"" OLED 240Hz | Freight-forwarder dependency; availability volatile | Keep as a watchlist tactic only.",RTX 5080,16,3162,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"citeturn573616search4turn453136search1turn999715calculator1 |
+| **6** | **MSI Titan / Raider 18 RTX 4090 UK eBay options** | Around **A$3.8k–A$4.4k before/with postage depending listing** | RTX 4090 Laptop, **16GB** | Often 32GB/2TB, QHD+ or 4K panels | Import/returns vary; some strong seller ratings | Worth monitoring because 18"" chassis helps thermals, but landed cost and warranty need case-by-case verification.",RTX 4090,16,3.8 | 4.4,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"citeturn235105search2turn235105search4 |
+| **7** | **MSI Stealth GS77 RTX 3080 Ti** | Only attractive if **~A$2.2k–A$2.5k landed** | RTX 3080 Ti Laptop, usually **16GB** | i9-12900H, 32GB, 1TB, 17.3"" 4K 120Hz | Older, thinner chassis, lower GPU power than big Raiders/Legions | Budget 16GB fallback only.",RTX 3080 Ti,16,2.2 | 2.5,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"citeturn512290search0turn512290search1 |
+| **8** | **ASUS ROG Strix Scar 18 RTX 5090 24GB** | **A$8k–A$10k+** verified examples | RTX 5090 Laptop, **24GB** | Ultra 9 275HX, 32GB, 2TB, 18"" 240Hz Mini LED | Technically ideal VRAM tier, financially wrong | Confirms the >16GB laptop tier exists, but not under your budget.",RTX 5090,24,8 | 10,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"The GE68 is attractive because it is AU-based and has RTX 4090-class performance, but the evidence is messy: one indexed listing shows A$4,999, while another eBay result card shows A$4,299.",RTX 4090,,4999 | 4299,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"| Prior-report class | New status |
+|---|---|
+| Razer Blade 15 RTX 3080 Ti | Only compelling under ~A$2.4k–A$2.7k landed and with battery proof.",RTX 3080 Ti,,2.4 | 2.7,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"|
+| **2** | **New AU RTX 5080 laptop, especially MSI Vector 16 HX AI** | Best one-device laptop path under A$4.5k.",RTX 5080,,4.5,,project_term,3
+ChatGPT-Export,69fd7916-a7b0-83ec-bc7a-ab890c2f21e1,RTX 3080 Ti Laptop Search,2026-05-10T07:16:34.261313+00:00,"**MSI Vector 16 HX AI RTX 5080 from Mwave at A$4,299** if you want the simplest, safest, new AU-warranty laptop purchase.",RTX 5080,,4299,,project_term,3
+ChatGPT-Export,6a002701-3fb8-83ec-b3ef-af4e51f8c75f,Deep Research Error,2026-05-10T08:31:15.146238+00:00,"Buyer context:
+- Location: Melbourne, VIC, Australia
+- Use case: AI-assisted coding, design, gaming, productivity, local LLM/image-generation experimentation
+- Main target: NVIDIA RTX laptops with 16GB+ VRAM
+- 12GB VRAM laptops are allowed only as value exceptions
+- Preference: 17–18"" desktop-replacement chassis, especially Alienware, but only where price/risk/value are rational
+- Budget: preferably under AUD $4,500 landed; stretch to AUD $5,000 only for exceptional value
+VRAM lanes:
+- Lane A — ",RTX 5090,16,4500 | 5000,,project_term,3
+ChatGPT-Export,6a002701-3fb8-83ec-b3ef-af4e51f8c75f,Deep Research Error,2026-05-10T08:31:15.146238+00:00,"Razer Blade 18 RTX 4090 16GB — claimed around AUD $4,789
+2.",RTX 4090,16,4789,,project_term,3
+ChatGPT-Export,6a002701-3fb8-83ec-b3ef-af4e51f8c75f,Deep Research Error,2026-05-10T08:31:15.146238+00:00,"Lenovo Legion Pro 7i RTX 4090 16GB — claimed around AUD $3,599 via MikePC sale
+3.",RTX 4090,16,3599,,project_term,3
+ChatGPT-Export,6a002701-3fb8-83ec-b3ef-af4e51f8c75f,Deep Research Error,2026-05-10T08:31:15.146238+00:00,"HP Omen 17 RTX 4090 16GB — claimed around AUD $3,500 used/open-box
+4.",RTX 4090,16,3500,,project_term,3
+ChatGPT-Export,6a002701-3fb8-83ec-b3ef-af4e51f8c75f,Deep Research Error,2026-05-10T08:31:15.146238+00:00,"ASUS ROG Strix Scar 17 X3D RTX 4090 16GB — claimed around AUD $4,899 but possibly out of stock
+5.",RTX 4090,16,4899,,project_term,3
+ChatGPT-Export,6a002701-3fb8-83ec-b3ef-af4e51f8c75f,Deep Research Error,2026-05-10T08:31:15.146238+00:00,"MSI Raider GE78 HX RTX 4090 16GB — claimed around AUD $3,500 used
+6.",RTX 4090,16,3500,,project_term,3
+ChatGPT-Export,6a002701-3fb8-83ec-b3ef-af4e51f8c75f,Deep Research Error,2026-05-10T08:31:15.146238+00:00,"ASUS ROG Zephyrus Duo 16 RTX 4080 12GB — claimed around AUD $3,000 used
+7.",RTX 4080,12,3000,,project_term,3
+ChatGPT-Export,6a002701-3fb8-83ec-b3ef-af4e51f8c75f,Deep Research Error,2026-05-10T08:31:15.146238+00:00,"Any directly equivalent RTX 4090 / RTX 5080 16GB laptop under AUD $4,500 that appears during verification
+Do not spend time deeply verifying obvious rejects unless needed for benchmark context:
+- MSI Titan 18 HX around AUD $7,999
+- Razer Blade 16 around AUD $7,899
+- Lenovo Legion 9i RTX 5090 around AUD $9,999
+- Infinity N7 Core around AUD $6,599
+- ASUS Scar 18 RTX 4080 around AUD $5,199 unless a much cheaper active listing exists
+For every candidate, extract and verify:
+## Identity
+- Product nam",RTX 4090 | RTX 5080 | RTX 5090 | RTX 4080,16,4500 | 7999 | 7899 | 9999 | 6599 | 5199,,project_term,3
+ChatGPT-Export,6a002701-3fb8-83ec-b3ef-af4e51f8c75f,Deep Research Error,2026-05-10T08:31:15.146238+00:00,"([ebay.com.au](https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com))
+- Gumtree AU shows local RTX 3090 examples including a Hampton Park VIC listing at **$1,500**, but private-sale GPU risk is high.",RTX 3090,24,,https://www.ebay.com.au/shop/3090-24gb?_nkw=3090+24gb&srsltid=AfmBOoqKxsxuL1bMRylDE9N7McsPdq-Q5K1S9GOezApqcvycyXk_5gr_&utm_source=chatgpt.com,project_term,3
+ChatGPT-Export,6a002701-3fb8-83ec-b3ef-af4e51f8c75f,Deep Research Error,2026-05-10T08:31:15.146238+00:00,"Dell AU’s own RTX 5080 Area-51 configuration is listed around **AU$6,497.70** for a 5080 model, while Dell’s page confirms broader build options including 64GB RAM and 4TB SSD choices.",RTX 5080,64,6497.70,,project_term,3
+ChatGPT-Export,6a002701-3fb8-83ec-b3ef-af4e51f8c75f,Deep Research Error,2026-05-10T08:31:15.146238+00:00,"Alienware models were benchmark-only because RTX 4090 configurations exceed AU$5,000 and no affordable local options were found【28194388603681†L330-L376】.",RTX 4090,,5000,,project_term,3
+ChatGPT-Export,6a056fb0-9aa0-83ec-bdaa-78b01136fb48,Cross-Platform Opportunity Discovery,2026-05-14T22:31:29.788102+00:00,"| Candidate | Track/Pathway | Why Potentially High-Upside | Budget Posture | Evidence Strength | Notes |
+|---|---|---|---|---|---|
+| Phase1-Missed — RTX 4090 16GB Legion Pro 7i class | Portable Value Exception | Already identified as strongest one-device route but appears underweighted versus desktop-first narrative despite recurring AU discounting around target band fileciteturn0file1L118-L170 | Mid-to-high but occasionally within target | Medium | Needs live AU price refresh + confirmation",RTX 4090 | RTX 3090 | RTX 4080 | RTX 5080 | RTX 5090 | RTX 5000 | Radeon RX  | RTX 3080 Ti | RTX 5070 Ti | RTX 4000 | RTX 3500,16,3,,project_term,3

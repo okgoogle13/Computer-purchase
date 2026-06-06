@@ -1,6 +1,6 @@
 # Current State
 
-**Last Updated:** 2026-05-11
+**Last Updated:** 2026-05-23
 
 ## Decision Frame
 
@@ -35,56 +35,91 @@ Strix Halo calibration now applies:
 - Unified memory is a capacity advantage, not automatic parity with high-VRAM discrete GPU throughput.
 - Default Strix Halo caps: `Performance_Headroom <= 7`; `Track2_Avoidance` capped by memory tier unless benchmark evidence supports higher.
 
-## Current Leaderboard (Track 1)
+## Current Leaderboard (Track 1 - Laptops)
 
-1.  **MSI Raider GE68 HX 13V (RTX 4090)**
-    - Score: **7.85**
-    - Key Spec: **16GB VRAM (RTX 4090)**
-    - Price: **$2,899.00**
-    - Form Factor: 16" Performance Laptop
+All listed candidates are confirmed **GOOD_ENOUGH** (AU stock verified, price within cap, acceptable warranty and thermals):
 
-2.  **ASUS ProArt GoPro Edition PX13 HN7306EAC-LX044W (Strix Halo)**
-    - Score: **7.6**
-    - Key Spec: **128GB Unified Memory**
-    - Effective Price: **$4,497.00** (Officeworks live listing checked 2026-05-11)
-    - Form Factor: 13.3" 2-in-1 Flip Laptop
+1. **ASUS ROG Flow Z13 (2025) (Strix Halo)**
+   - Score: **7.00**
+   - Key Spec: **32GB Unified Memory**
+   - Price: **$4,499.00** (ASUS Store AU verified)
+   - Form Factor: 13.4" Detachable Tablet (Track 1B)
 
-3.  **HP ZBook Ultra 14 G1a (Strix Halo)**
-    - Score: **7.0**
-    - Key Spec: **32GB Unified Memory**
-    - Price: **$3,699.00**
-    - Form Factor: 14" Traditional Laptop
+2. **ASUS ProArt GoPro Edition PX13 HN7306EAC-LX044W (Strix Halo)**
+   - Score: **6.86** (Adjusted from 7.00)
+   - Key Spec: **128GB Unified Memory**
+   - Price: **$4,799.00** (PLE Computers verified)
+   - Form Factor: 13.3" 2-in-1 Flip Laptop (Track 1B)
 
-4.  **ASUS ROG Flow Z13 (2026) GZ302EA**
-    - Score: **6.8**
-    - Key Spec: **32GB Unified Memory**
-    - Price: **$4,499.00**
-    - Form Factor: 13.4" Detachable Tablet
+3. **Lenovo Legion Pro 7i Gen 10 16 (83F5XA01AU)**
+   - Score: **6.80**
+   - Key Spec: **16GB VRAM (RTX 5080)**
+   - Price: **$3,827.45** (Lenovo Outlet AU Certified Refurbished)
+   - Form Factor: 16" Performance Laptop (Track 1A)
 
-5.  **Lenovo Legion 9i Gen 10 (Lenovo Direct)**
-    - Score: **6.5** (Adjusted with ~$4,300 effective price)
-    - Key Spec: **16GB VRAM (RTX 5080) / 64GB RAM**
-    - Price: **$4,300.00** (Effective via EDU + TopCashback)
-    - Form Factor: 18" Desktop Replacement
+4. **HP OMEN MAX 16-ah0013TX**
+   - Score: **6.80**
+   - Key Spec: **16GB VRAM (RTX 5080)**
+   - Price: **$3,799.00** (HP Australia + student discount verified)
+   - Form Factor: 16" Traditional Laptop (Track 1A)
 
-## Top Track 2 Unicorn
+5. **MSI VECTOR GP78 HX 14V**
+   - Score: **6.46** (Adjusted from 6.80 due to seller risk)
+   - Key Spec: **16GB VRAM (RTX 4090)**
+   - Price: **$2,499.00** (MikePC AU Refurbished / Ex-demo)
+   - Form Factor: 17.3" Gaming Laptop (Track 1A)
 
-- **HP Z2 Mini G1a AI (Strix Halo)**
-  - Price: **$3,395.00**
-  - Key Spec: **32GB Unified (Expandable to 128GB)**
-  - Use Case: Maximum non-portable value.
+6. **Lenovo Legion Pro 7i Gen 10 16 (83F5X003R1)**
+   - Score: **5.65**
+   - Key Spec: **12GB VRAM (RTX 5070 Ti)**
+   - Price: **$3,288.45** (Lenovo Outlet AU Certified Refurbished)
+   - Form Factor: 16" Performance Laptop (Track 1A)
+
+7. **MSI Raider 18HX AI A2XWIG (Refurbished)**
+   - Score: **5.51** (Adjusted from 5.80)
+   - Key Spec: **16GB VRAM (RTX 5080)**
+   - Price: **$4,699.00** (JW Computers Refurbished)
+   - Form Factor: 18" Desktop Replacement (Track 1A)
+
+## Top Track 1.5 Option (Desktop Alternative)
+
+- **Alienware Aurora R12 (Refurbished)**
+  - Score: **6.80**
+  - Key Spec: **24GB VRAM (RTX 3090)**
+  - Price: **$3,884.00** (Refurbished AU stock verified)
+  - Form Factor: Refurbished Prebuilt Desktop (Track 1.5)
+
+## Top Track 2 Workstations (MCDA Scored)
+
+These options represent maximum non-portable VRAM capability under the workstation research lane:
+
+1. **Dell Precision T7910 (Refurbished Base)**
+   - Score: **7.80**
+   - Key Spec: **24GB VRAM (RTX 3090)**
+   - Price: **$1,875.00** (Refurbished)
+   - Form Factor: Enterprise Desktop Workstation (Pathway B)
+
+2. **Dell Precision 5820 Tower Workstation (32GB RAM)**
+   - Score: **7.60**
+   - Key Spec: **24GB VRAM (RTX 3090)**
+   - Price: **$2,399.00** (Refurbished)
+   - Form Factor: Enterprise Desktop Workstation (Pathway B)
+
+3. **Dell Precision 5820 Tower Bundle / Recompute Tower + ACT ThinkPad**
+   - Score: **7.00**
+   - Key Spec: **24GB VRAM (RTX 3090)**
+   - Price: **$3,558.00** (Refurbished)
+   - Form Factor: Enterprise Desktop Workstation Bundle (Pathway B)
 
 ## Immediate Work
 
-1. Execute Secondary-Market Laptop Discovery Pass (Alienware, 12GB+ floor, $5k cap).
-2. Regenerate the shortlist using the updated policy config.
-3. Enrich live pricing for viable Track 1 candidates first.
-4. Fill MCDA factor scores only after price, AU stock, warranty, and thermal evidence are checked.
-5. Run the MCDA ranking engine and recommend the highest-ranked GOOD_ENOUGH candidate.
-6. Apply Track Escalation Rule only if no Track 1 candidate clears gates or a verified Track 2 unicorn appears.
+1. Complete purchase transaction of the selected Track 1 leader (ASUS ROG Flow Z13 or Lenovo Legion Pro 7i RTX 5080) depending on portability preference.
+2. Regenerate the shortlist once new batches are received.
+3. Keep all VRAM and price checking evidence synced under `/cards/` directory.
 
 ## Deferred
 
-- Track 2 Pathway A/B/C build-out is deferred until a trigger fires.
-- Apple Silicon remains out of scope unless the user explicitly reopens it.
+- Pathway A custom workstation integration remains deferred until MVP revenue fires.
+- Apple Silicon remains out of scope.
 - Archive and historical research files should not be treated as active policy.
+

@@ -1,0 +1,11 @@
+{
+  "raw_rows": 163,
+  "high_conf_relaxed_rows": 109,
+  "canonical_relaxed_candidates": 36,
+  "outputs": {
+    "high_conf_relaxed_csv": "output/gemini_last3w_recs_high_conf_relaxed_2026-05-18.csv",
+    "high_conf_relaxed_jsonl": "output/gemini_last3w_recs_high_conf_relaxed_2026-05-18.jsonl",
+    "canonical_relaxed_csv": "output/gemini_last3w_recs_canonical_relaxed_2026-05-18.csv",
+    "canonical_relaxed_jsonl": "output/gemini_last3w_recs_canonical_relaxed_2026-05-18.jsonl"
+  }
+}

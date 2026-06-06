@@ -351,8 +351,11 @@ def build_row(fm: dict, intake_info: dict, source_path: Path, md_text: str) -> d
     price_float, price_unknown = parse_price(price_raw)
     vram_float     = parse_vram(vram_raw)
     unified_float  = parse_vram(unified_raw)
-    screen_size     = parse_screen_size(md_text, item_name)
-    thermal_flag    = parse_thermal_flag(md_text)
+    screen_raw     = fm.get("screen_size_in", "UNKNOWN").replace("in", "").strip()
+    screen_size    = parse_vram(screen_raw)
+    if screen_size is None:
+        screen_size = parse_screen_size(md_text, item_name)
+    thermal_flag   = parse_thermal_flag(md_text)
     cat_group      = classify_category_group(profile, gpu_model)
 
     # Intake ID from filename

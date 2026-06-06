@@ -1,0 +1,12 @@
+{
+  "chatgpt_input_candidates": 81,
+  "gemini_input_candidates": 36,
+  "unified_candidates": 106,
+  "p1_count": 2,
+  "p2_count": 6,
+  "p3_count": 98,
+  "outputs": {
+    "csv": "output/unified_llm_canonical_2026-05-18.csv",
+    "jsonl": "output/unified_llm_canonical_2026-05-18.jsonl"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "conversation_files": [
+    "conversations-000.json",
+    "conversations-001.json"
+  ],
+  "conversations_matched": 53,
+  "recommendation_rows_extracted": 2007,
+  "outputs": {
+    "jsonl": "output/chatgpt_personal_shopper_recs_2026-05-18.jsonl",
+    "csv": "output/chatgpt_personal_shopper_recs_2026-05-18.csv"
+  },
+  "note": "Project metadata was not explicit in export; fallback filter used project-language + hardware-signal clustering."
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ShortlistCandidateSchema",
+  "type": "object",
+  "properties": {
+    "battery_disclosure_level": {
+      "type": "string",
+      "enum": [
+        "tested_pct_cycles",
+        "tested_pct",
+        "replaced",
+        "health_range_claim",
+        "vague_claim",
+        "none",
+        "sold_as_is"
+      ],
+      "description": "Level of battery health transparency in the listing. 'tested_pct_cycles' = capacity % AND cycle count provided. 'tested_pct' = capacity % only. 'replaced' = seller states battery is new/replaced. 'health_range_claim' = e.g. '80-89% health'. 'vague_claim' = e.g. 'holds charge well', no data. 'none' = no battery information at all. 'sold_as_is' = explicitly not tested or not guaranteed."
+    },
+    "battery_health_pct": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Reported battery capacity as percentage of original."
+    },
+    "battery_cycle_count": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Reported battery charge cycle count."
+    },
+    "battery_replaced": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if seller states battery has been replaced."
+    },
+    "battery_disclosure_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 10.0,
+      "description": "Score for transparency of battery disclosure."
+    },
+    "battery_health_value_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 10.0,
+      "description": "Score for actual battery health value (0 if undisclosed)."
+    },
+    "battery_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 10.0,
+      "description": "Combined score: battery_score = (battery_disclosure_score * 0.5) + (battery_health_value_score * 0.5)"
+    },
+    "seller_class": {
+      "type": "string",
+      "enum": [
+        "commercial_oem",
+        "commercial_refurb",
+        "commercial_seller",
+        "private",
+        "unknown"
+      ],
+      "description": "Seller classification platform-wise."
+    },
+    "seller_feedback_count": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Feedback count of the seller."
+    },
+    "seller_feedback_pct": {
+      "type": ["number", "null"],
+      "minimum": 0.0,
+      "maximum": 100.0,
+      "description": "Positive feedback percentage of the seller."
+    },
+    "warranty_months": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "description": "Warranty duration in months."
+    },
+    "warranty_au_redeemable": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if warranty is redeemable in Australia."
+    },
+    "returns_accepted": {
+      "type": "boolean",
+      "default": false,
+      "description": "True if seller accepts returns."
+    },
+    "manufacture_year": {
+      "type": ["integer", "null"],
+      "description": "Derived from cpu_model field using CPU generation lookup table."
+    },
+    "risk_adjusted_price": {
+      "type": "number",
+      "description": "Effective cost accounting for missing warranty, battery, and seller risk premiums."
+    }
+  }
+}

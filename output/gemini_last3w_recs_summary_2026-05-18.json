@@ -1,0 +1,19 @@
+{
+  "timeline_window_utc": {
+    "start": "2026-04-27T12:00:00+00:00",
+    "end": "2026-05-18T12:00:00+00:00"
+  },
+  "conversation_files_total": 21,
+  "conversations_in_window": 17,
+  "raw_recommendation_rows": 163,
+  "high_conf_rows": 0,
+  "canonical_candidates": 0,
+  "outputs": {
+    "raw_csv": "output/gemini_last3w_recs_2026-05-18.csv",
+    "raw_jsonl": "output/gemini_last3w_recs_2026-05-18.jsonl",
+    "high_conf_csv": "output/gemini_last3w_recs_high_conf_2026-05-18.csv",
+    "high_conf_jsonl": "output/gemini_last3w_recs_high_conf_2026-05-18.jsonl",
+    "canonical_csv": "output/gemini_last3w_recs_canonical_2026-05-18.csv",
+    "canonical_jsonl": "output/gemini_last3w_recs_canonical_2026-05-18.jsonl"
+  }
+}

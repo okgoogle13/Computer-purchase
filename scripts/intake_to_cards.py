@@ -218,6 +218,8 @@ def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> s
     status   = fmt(row.get("status"))
     notes    = fmt(row.get("notes"), "No notes.")
     date_f   = fmt(row.get("date_found"))
+    seller_class = fmt(row.get("seller_class"))
+    source_platform = fmt(row.get("source_platform"))
 
     price_str = f"${price} AUD" if price != "UNKNOWN" else "UNKNOWN"
     vram_str  = f"{vram} GB" if vram != "UNKNOWN" else "UNKNOWN"
@@ -245,6 +247,8 @@ def render_card(row: dict, tags: str, routing_note: str, source_batch: str) -> s
         f"au_stock: {au_stock}",
         f"verification: {vstatus}",
         f"status: {status}",
+        f"seller_class: {seller_class}",
+        f"source_platform: {source_platform}",
         "score: UNKNOWN — pending manual review",
         "---",
         "",

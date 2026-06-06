@@ -3,18 +3,18 @@
 ---
 id: dell-latitude-7330-2-in-1-refurbished
 category: laptop
-track: UNKNOWN
-pathway: UNKNOWN
+track: 1
+pathway: 1A
 name: Dell Latitude 7330 2-in-1 (Refurbished)
-gpu: UNKNOWN
-vram: UNKNOWN
-unified_memory: UNKNOWN
+gpu: Intel Iris Xe (Integrated)
+vram: 0 GB
+unified_memory: 0 GB
 price_aud: $1254 AUD
 condition: Refurbished
-au_stock: UNKNOWN
-verification: Unverified
-status: Active
-score: UNKNOWN — pending manual review
+au_stock: Yes
+verification: Verified
+status: Rejected
+score: 0.000 — Failed VRAM floor
 Performance_Headroom: 3
 Price_Value: 10
 Future_Proof: 3

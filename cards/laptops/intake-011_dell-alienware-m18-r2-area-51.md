@@ -11,9 +11,9 @@ vram: 24 GB (Conflict)
 unified_memory: UNKNOWN
 price_aud: $4499 AUD (Unverified)
 condition: Refurbished
-au_stock: UNKNOWN
-verification: Unverified
-status: Parked
+au_stock: No
+verification: Failed (AI Hallucination)
+status: Rejected
 score: UNKNOWN
 Performance_Headroom: 9
 Price_Value: 3
