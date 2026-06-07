@@ -19,7 +19,7 @@ retailer: Lenovo Outlet AU / Scorptec
 url: https://www.lenovo.com/au/outlet/en/p/laptops/legion-laptops/legion-pro-series/legion-pro-7i-gen-10-16-inch-intel/83f5xa01au
 au_stock: GONE_OVER_CAP
 verification: Live checked 2026-06-06. Outlet URL returned $5,999. Cross-check: Scorptec $5,999, Harvey Norman $5,999. No under-$5,000 AU stock found.
-status: OVER_CAP_DISQUALIFIED
+status: ARCHIVED
 seller_class: MANUFACTURER_AU
 source_platform: MANUFACTURER_AU
 Performance_Headroom: 7

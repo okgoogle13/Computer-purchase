@@ -21,7 +21,7 @@ retailer: Lenovo AU Store
 url: https://www.lenovo.com/au/en/p/laptops/legion-laptops/legion-7-series/lenovo-legion-7a-gen-11-15-inch-amd-gaming-laptop/83v9cto1wwau2
 au_stock: Yes
 verification: Verified (Lenovo AU Store, 2026-05-28)
-status: ACTIVE
+status: ARCHIVED
 Performance_Headroom: 9
 Price_Value: 1
 Future_Proof: 9
@@ -30,6 +30,8 @@ Track2_Avoidance: 9
 score: 7.00
 seller_class: MANUFACTURER_AU
 source_platform: MANUFACTURER_AU
+gpu: Integrated Graphics
+screen_size_in: 15.0
 ---
 
 # Lenovo Legion 7a Gen 11 (15" AMD) — AMD Ryzen AI Max+ 392 (64GB Unified)

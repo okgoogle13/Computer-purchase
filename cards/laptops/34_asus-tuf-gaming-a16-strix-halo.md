@@ -12,6 +12,8 @@ Price_Value: 2
 Future_Proof: 3
 Portability: 5
 Track2_Avoidance: 0
+screen_size_in: 16.0
+status: ARCHIVED
 ---
 
 # ASUS TUF Gaming A16 — AMD Strix Halo (Ryzen AI Max)

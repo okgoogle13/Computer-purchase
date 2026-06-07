@@ -3,8 +3,8 @@
 id: lenovo-thinkstation-basic-student
 category: desktop_tower_new
 name: Lenovo ThinkStation (Basic Config)
-gpu: UNKNOWN
-vram: UNKNOWN
+gpu: NVIDIA GeForce RTX 4060 Ti
+vram: 8.0 GB
 price_aud: 3350
 score: UNKNOWN — Pending Specs
 Performance_Headroom: 3

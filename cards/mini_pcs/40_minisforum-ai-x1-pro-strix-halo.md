@@ -12,6 +12,7 @@ Price_Value: 2
 Future_Proof: 3
 Portability: 7
 Track2_Avoidance: 0
+status: ARCHIVED
 ---
 
 # Minisforum AI X1 Pro — AMD Ryzen AI Max+ (Strix Halo)

@@ -21,6 +21,8 @@ Price_Value: 7
 Future_Proof: 9
 Portability: 8
 Track2_Avoidance: 9
+vram: 0.0 GB
+screen_size_in: 14.0
 ---
 
 # HP ZBook Ultra 14 G1a Mobile Workstation (32GB Unified) — AMD Strix Halo

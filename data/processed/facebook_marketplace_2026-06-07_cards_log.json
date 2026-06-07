@@ -1,0 +1,3176 @@
+{
+  "run_timestamp": "2026-06-07T20:20:51.347519",
+  "input_file": "/Users/okgoogle13/Projects/Computer purchase/data/processed/facebook_marketplace_2026-06-07_processed.csv",
+  "counts": {
+    "total_rows": 452,
+    "written": 452,
+    "skipped": 0,
+    "errored": 0
+  },
+  "entries": [
+    {
+      "index": 1,
+      "item": "Lenovo Legion 5 Pro Gaming Laptop NVIDIA\u00ae GeForce RTXTM 3070 8GB 1.5TB SSD 16GB RAM AMD 5800H CPU",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-001_lenovo-legion-5-pro-gaming-laptop-nvidia-geforce-rtxtm-3070.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 2,
+      "item": "ASUS ROG Gaming Laptop Sleeve 15\u201d",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-002_asus-rog-gaming-laptop-sleeve-15.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 3,
+      "item": "ASUS ROG Zephyrus G14 (2025) \u2013 Ryzen AI 9 HX 370 / RTX 5070 Ti / 32GB RAM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-003_asus-rog-zephyrus-g14-2025-ryzen-ai-9-hx-370-rtx-5070-ti-32g.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 4,
+      "item": "Thinkbook Laptop (2k 165Hz Display) No Charger",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-004_thinkbook-laptop-2k-165hz-display-no-charger.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 5,
+      "item": "AM4 Mobo bundle + RTX 3070ti",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-005_am4-mobo-bundle-rtx-3070ti.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 6,
+      "item": "MSI RTX 370 Gaming X Trio",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-006_msi-rtx-370-gaming-x-trio.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 7,
+      "item": "Asus ROG Repulic of Gamer Strix G531GU Intel i7-9750h GTX 1660TI 16GB 1TB Wifi 7 laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-007_asus-rog-repulic-of-gamer-strix-g531gu-intel-i7-9750h-gtx-16.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 8,
+      "item": "GeForce Rtx 4060 Ti Eagle Oc 8G",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-008_geforce-rtx-4060-ti-eagle-oc-8g.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 9,
+      "item": "Lenovo IdeaPad Pro 5 (14\", Gen 9) AMD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-009_lenovo-ideapad-pro-5-14-gen-9-amd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 10,
+      "item": "ASUS ROG Gaming PC \u2014 i9-11900KF | RTX 3080 | 32GB RAM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-010_asus-rog-gaming-pc-i9-11900kf-rtx-3080-32gb-ram.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 11,
+      "item": "Dell G7 7790 Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-011_dell-g7-7790-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 12,
+      "item": "Nvidia RTX 3080 Gigabyte GPU",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-012_nvidia-rtx-3080-gigabyte-gpu.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 13,
+      "item": "Gaming laptop and more",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-013_gaming-laptop-and-more.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 14,
+      "item": "Gigabyte RTX 4070 Ti Gaming OC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-014_gigabyte-rtx-4070-ti-gaming-oc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 15,
+      "item": "MSI Gaming/Business Laptop 6GB Graphics Card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-015_msi-gamingbusiness-laptop-6gb-graphics-card.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 16,
+      "item": "\ud83d\udd25\ud83d\udd25Dell latitude 5590 15.6 inch screen (A grade)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-016_dell-latitude-5590-156-inch-screen-a-grade.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 17,
+      "item": "Metabox Prime-V PB51DF1-G | i7-10875H | RTX 2070 | 32GB RAM | 1TB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-017_metabox-prime-v-pb51df1-g-i7-10875h-rtx-2070-32gb-ram-1tb-ss.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 18,
+      "item": "Hp proliant microserver",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-018_hp-proliant-microserver.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 19,
+      "item": "ASUS ROG DUO 15 - RTX 3080 RYZEN 9 1TB 4K",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-019_asus-rog-duo-15-rtx-3080-ryzen-9-1tb-4k.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 20,
+      "item": "2x High-Spec Lenovo ThinkPad Workstations (P1 Gen 5 Touch & P15 Gen 2 A5000)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-020_2x-high-spec-lenovo-thinkpad-workstations-p1-gen-5-touch-p15.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 21,
+      "item": "ROG ZEPHYRUS G14 and Meta quest 3s bundle (Will swap)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-021_rog-zephyrus-g14-and-meta-quest-3s-bundle-will-swap.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 22,
+      "item": "RTX 2070 SUPER",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-022_rtx-2070-super.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 23,
+      "item": "Ryzen 7 3700X | RTX 3070 8GB | 16GB Ram | 2TB SSD Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-023_ryzen-7-3700x-rtx-3070-8gb-16gb-ram-2tb-ssd-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 24,
+      "item": "MSI GeForce RTX 4060 Ti Ventus 2X Black 8GB OC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-024_msi-geforce-rtx-4060-ti-ventus-2x-black-8gb-oc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 25,
+      "item": "HP ZBook 15 G4 i7 7820HQ 2.9G 16G 512G SSD 15.6\"FHD nVidia GPU 4G Backlit Laptop Win11Pro Office",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-025_hp-zbook-15-g4-i7-7820hq-29g-16g-512g-ssd-156fhd-nvidia-gpu.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 26,
+      "item": "Lenovo loq | i5-12450H | RTX 3050 6GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-026_lenovo-loq-i5-12450h-rtx-3050-6gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 27,
+      "item": "Laptop Dell Inspiron i7 8th Gen | Radeon Graphics | 256GB SSD | Win 11 Pro | 15.6\u201d",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-027_laptop-dell-inspiron-i7-8th-gen-radeon-graphics-256gb-ssd-wi.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 28,
+      "item": "-Title \nCustom-Built Gaming PC - Ryzen 7 9800X3D - MSI GeForce RTX 5060 - 32GB  DDR5 RAM - 1TB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-028_-title-custom-built-gaming-pc-ryzen-7-9800x3d-msi-geforce-rt.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 29,
+      "item": "Razer Blade 15 2020 Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-029_razer-blade-15-2020-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 30,
+      "item": "Metabox Gaming laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-030_metabox-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 31,
+      "item": "Lenovo gaming laptop legion 7i",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-031_lenovo-gaming-laptop-legion-7i.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 32,
+      "item": "Intel i9-9900K RTX 3060 12GB Gaming PC 16GB RAM 128GB SSD 1TB HDD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-032_intel-i9-9900k-rtx-3060-12gb-gaming-pc-16gb-ram-128gb-ssd-1t.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 33,
+      "item": "MSI NVIDIA GeForce RTX 3060 12GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-033_msi-nvidia-geforce-rtx-3060-12gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 34,
+      "item": "Asus RTX 3060ti 8gb",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-034_asus-rtx-3060ti-8gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 35,
+      "item": "HP Spectre x360 convertible 13 inch i7 8th gen laptop with HP pen, new 1tb SSD and sleeve/bag",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-035_hp-spectre-x360-convertible-13-inch-i7-8th-gen-laptop-with-h.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 36,
+      "item": "Laptop Gamer Alienware x16 R1 (i9 13900HK / RTX 4080 / 32GB RAM /QHD+ 240Hz / 1TB Nvme)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-036_laptop-gamer-alienware-x16-r1-i9-13900hk-rtx-4080-32gb-ram-q.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 37,
+      "item": "MSI GF65 Thin gaming laptop (Model 10UE)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-037_msi-gf65-thin-gaming-laptop-model-10ue.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 38,
+      "item": "MSI GF63 Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-038_msi-gf63-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 39,
+      "item": "HP Laptop Dual Hard Drive/ Graphics Card/DVD Drive",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-039_hp-laptop-dual-hard-drive-graphics-carddvd-drive.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 40,
+      "item": "Msi 5070 ti ventus",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-040_msi-5070-ti-ventus.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 41,
+      "item": "Vintage MSI MS-8808 NVIDIA Riva TNT2 M64 32MB AGP Graphics Card As-Is Retro PC VGA",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-041_vintage-msi-ms-8808-nvidia-riva-tnt2-m64-32mb-agp-graphics-c.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 42,
+      "item": "Alienware 16X Aurora Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-042_alienware-16x-aurora-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 43,
+      "item": "HP EliteBook 8 G1i AI PC Intel Core Ultra 5 16GB RAM 512GB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-043_hp-elitebook-8-g1i-ai-pc-intel-core-ultra-5-16gb-ram-512gb-s.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 44,
+      "item": "Ultra 4K White Gaming Desktop - RTX 5080 | Ryzen 7 7800X3D | 32GB RAM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-044_ultra-4k-white-gaming-desktop-rtx-5080-ryzen-7-7800x3d-32gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 45,
+      "item": "Dell Latitude 3540 Laptop \u2013 13th Gen i5 / 16GB RAM / 512GB NVMe SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-045_dell-latitude-3540-laptop-13th-gen-i5-16gb-ram-512gb-nvme-ss.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 46,
+      "item": "Msi Geforce Rtx 4090 Suprim X",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-046_msi-geforce-rtx-4090-suprim-x.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 47,
+      "item": "Full-Power RTX 3070 140W / i7 / 32GB RAM / 1TB SSD \u2013 Aftershock Vapor 15X Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-047_full-power-rtx-3070-140w-i7-32gb-ram-1tb-ssd-aftershock-vapo.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 48,
+      "item": "Ultra 4K Black Gaming Desktop - RTX 5080 | Ryzen 7 7800X3D | 32GB RAM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-048_ultra-4k-black-gaming-desktop-rtx-5080-ryzen-7-7800x3d-32gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 49,
+      "item": "Gaming laptop Hp Victus",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-049_gaming-laptop-hp-victus.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 50,
+      "item": "Asus Rog Ally X",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-050_asus-rog-ally-x.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 51,
+      "item": "Gaming PC - White ITX  ~~ Intel i5 / 16gb / 1tb + 3tb / RTX 3060 ~~",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-051_gaming-pc-white-itx-intel-i5-16gb-1tb-3tb-rtx-3060.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 52,
+      "item": "512GB NVMe SSD \u2013 Fast Upgrade",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-052_512gb-nvme-ssd-fast-upgrade.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 53,
+      "item": "Gigabyte RTX 3080 Ti",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-053_gigabyte-rtx-3080-ti.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 54,
+      "item": "5070Ti TUF Gaming",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-054_5070ti-tuf-gaming.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 55,
+      "item": "ASUS RTX 2060",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-055_asus-rtx-2060.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 56,
+      "item": "Medion Erazer Crawler E10 Gaming Laptop (i5-10300H, GTX 1650 4GB, 16GB RAM, 256GB SSD)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-056_medion-erazer-crawler-e10-gaming-laptop-i5-10300h-gtx-1650-4.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 57,
+      "item": "Gaming PC RTX 3070",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-057_gaming-pc-rtx-3070.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 58,
+      "item": "NVIDIA GPU Rtx 3080TI 12GB VRAM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-058_nvidia-gpu-rtx-3080ti-12gb-vram.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 59,
+      "item": "Have a 1 month old 4070 ti OC Windforce 16gb\nLooking to trade for a fairly new 5080 or 5090+Cash",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-059_have-a-1-month-old-4070-ti-oc-windforce-16gb-looking-to-trad.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 60,
+      "item": "MSI M.2 XPANDER-AERO GEN 4 - Brand New, Never Used",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-060_msi-m2-xpander-aero-gen-4-brand-new-never-used.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 61,
+      "item": "Gigabyte Aorus NVIDIA GeForce RTX3070Ti graphics card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-061_gigabyte-aorus-nvidia-geforce-rtx3070ti-graphics-card.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 62,
+      "item": "2 x ASUS TUF RTX 3060 OC 12 GB GDDR6",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-062_2-x-asus-tuf-rtx-3060-oc-12-gb-gddr6.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 63,
+      "item": "\u2b50\ufe0f$1650\u2b50\ufe0f Dell XPS 15 9520 i9-12900hk 64GB Ram + 1TB SSD OLED RTX 3050 Ti Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-063_1650-dell-xps-15-9520-i9-12900hk-64gb-ram-1tb-ssd-oled-rtx-3.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 64,
+      "item": "Lenovo Legion 5 Ryzen 7 6800H RTX 3060 16GB DDR5 QHD 165Hz",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-064_lenovo-legion-5-ryzen-7-6800h-rtx-3060-16gb-ddr5-qhd-165hz.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 65,
+      "item": "Lenovo Z50 i7 256GB SSD 6GB RAM 2GB Graphic",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-065_lenovo-z50-i7-256gb-ssd-6gb-ram-2gb-graphic.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 66,
+      "item": "$440 \ud83d\udcfa OLED screen ASUS Pro 15.6inch, \nAMD Ryzen 5 5600H with graphics, 8Gb RAM 512GB storage",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-066_440-oled-screen-asus-pro-156inch-amd-ryzen-5-5600h-with-grap.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 67,
+      "item": "$440 \ud83c\udff5\ufe0f OLED Screen ASUS VivoBook Pro 15, Best quality screen, 15.6inch, 8GB Ram Ryzon 5 5600H",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-067_440-oled-screen-asus-vivobook-pro-15-best-quality-screen-156.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 68,
+      "item": "MSI laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-068_msi-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 69,
+      "item": "HP Victus Gaming Laptop - RRP $1499",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-069_hp-victus-gaming-laptop-rrp-1499.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 70,
+      "item": "MSI Creator P100 computer black",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-070_msi-creator-p100-computer-black.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 71,
+      "item": "\u200bGigabyte RTX 4060 Ti Windforce OC V2 8G \u2013 Brand New / Sealed Bag",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-071_gigabyte-rtx-4060-ti-windforce-oc-v2-8g-brand-new-sealed-bag.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 72,
+      "item": "Lenovo ThinkPad P52 i7 6cores 16G 512G SSD NVIDIA 4GB GPU 15.6 inchFHD Laptop MobileStation",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-072_lenovo-thinkpad-p52-i7-6cores-16g-512g-ssd-nvidia-4gb-gpu-15.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 73,
+      "item": "ASUS ROG Zephyrus M16 Laptop! RTX 3050 Ti 16inch Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-073_asus-rog-zephyrus-m16-laptop-rtx-3050-ti-16inch-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 74,
+      "item": "10th generation 16 gig ram DELL laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-074_10th-generation-16-gig-ram-dell-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 75,
+      "item": "Acer TravelMate P214-52 14\u201d Laptop i7-10510U/512GB/8GB/RAM/ WIN 11 Pro",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-075_acer-travelmate-p214-52-14-laptop-i7-10510u512gb8gbram-win-1.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 76,
+      "item": "$1,050 \ud83d\udc7e(Box) Like New MSI Gaming Laptop, Katana 15, Core i7-14650HX 16GB RAM 1TB SSD, 100% battery",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-076_1050-box-like-new-msi-gaming-laptop-katana-15-core-i7-14650h.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 77,
+      "item": "Alienware Gaming PC (RTX 3070 8GB GPU, RYZEN 7 5800 CPU, 2TB, 16GB DDR4)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-077_alienware-gaming-pc-rtx-3070-8gb-gpu-ryzen-7-5800-cpu-2tb-16.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 78,
+      "item": "Dell Precision 5530 i7-8850H + 32gb RAM 15.6\" Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-078_dell-precision-5530-i7-8850h-32gb-ram-156-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 79,
+      "item": "ASUS GeForce RTX 3070 Ti",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-079_asus-geforce-rtx-3070-ti.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 80,
+      "item": "$450 Dell 5320 i7-11857G @ 3.00Ghz 16/256 Touch Screen intel iris(R) XE Graphics",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-080_450-dell-5320-i7-11857g-300ghz-16256-touch-screen-intel-iris.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 81,
+      "item": "Lenovo Thinkpad L15 Gen 2a AMD Ryzen 7Pro 5850U 16GB Ram 512GB SSD Win 11 Pro",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-081_lenovo-thinkpad-l15-gen-2a-amd-ryzen-7pro-5850u-16gb-ram-512.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 82,
+      "item": "HP Workstation Z400 W3565, 3.2Mhz, 24 GB Ram,256GB SSD , Nvidia Quadro 4000",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-082_hp-workstation-z400-w3565-32mhz-24-gb-ram256gb-ssd-nvidia-qu.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 83,
+      "item": "ASUS ROG Gaming Laptop w/bag",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-083_asus-rog-gaming-laptop-wbag.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 84,
+      "item": "MSI GF93 Thin 9RCX - 16.5\" Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-084_msi-gf93-thin-9rcx-165-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 85,
+      "item": "*NEED GONE* [NEGOTIABLE] RTX 2060 Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-085_need-gone-negotiable-rtx-2060-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 86,
+      "item": "Dell Vostro 5510 Laptop \u2013 i7-11370H / 16GB RAM / 512GB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-086_dell-vostro-5510-laptop-i7-11370h-16gb-ram-512gb-ssd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 87,
+      "item": "Gaming PC \u2013 i7 10700F | RTX 2080Super | 16GB RAM | Windows 11 Pro",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-087_gaming-pc-i7-10700f-rtx-2080super-16gb-ram-windows-11-pro.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 88,
+      "item": "Gaming PC intel i7 8700 RTX 3070 8GB GDDR6 16GB Ram 256GB SSD WiFi",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-088_gaming-pc-intel-i7-8700-rtx-3070-8gb-gddr6-16gb-ram-256gb-ss.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 89,
+      "item": "RTX 3070 Graphics Card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-089_rtx-3070-graphics-card.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 90,
+      "item": "Msi gaming trio RTX 3070 8 gb",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-090_msi-gaming-trio-rtx-3070-8-gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 91,
+      "item": "Dell Inspiron 7790 AIO PC 27\"",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-091_dell-inspiron-7790-aio-pc-27.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 92,
+      "item": "Msi GeForce RTX 2070 8gb GDDR6",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-092_msi-geforce-rtx-2070-8gb-gddr6.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 93,
+      "item": "GEFORCE RTX 3050 graphics card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-093_geforce-rtx-3050-graphics-card.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 94,
+      "item": "RTX 4060 Ti 8GB GDDR6 GPU",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-094_rtx-4060-ti-8gb-gddr6-gpu.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 95,
+      "item": "RTX 2080 Ti 11GB Graphics Card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-095_rtx-2080-ti-11gb-graphics-card.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 96,
+      "item": "High-End Gaming PC \u2013 RTX 3070 / i7-12700K / 32GB RAM / 4.25TB Storage",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-096_high-end-gaming-pc-rtx-3070-i7-12700k-32gb-ram-425tb-storage.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 97,
+      "item": "Gaming PC - RTX 3070 Ti",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-097_gaming-pc-rtx-3070-ti.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 98,
+      "item": "GL65 MSI gaming laptop - Windows 11",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-098_gl65-msi-gaming-laptop-windows-11.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 99,
+      "item": "ROG Zephyrus G14 GA401III",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-099_rog-zephyrus-g14-ga401iii.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 100,
+      "item": "MSI RTX 4060",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-100_msi-rtx-4060.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 101,
+      "item": "ASUS TUF DASH F15 GAMING LAPTOP - need gone asap",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-101_asus-tuf-dash-f15-gaming-laptop-need-gone-asap.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 102,
+      "item": "Dell Precision 5550 Laptop i7-10750H 16GB RAM, 256GB NVME, NVIDIA Quadro T1000 (4GB GDDR6), W11",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-102_dell-precision-5550-laptop-i7-10750h-16gb-ram-256gb-nvme-nvi.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 103,
+      "item": "RTX 4060 Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-103_rtx-4060-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 104,
+      "item": "MSI Claw 8 AI+ 1TB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-104_msi-claw-8-ai-1tb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 105,
+      "item": "Asus RTX 5080 16GB Noctua Edition OC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-105_asus-rtx-5080-16gb-noctua-edition-oc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 106,
+      "item": "Infinity Gaming Laptop with Ryzen 9 and RTX3080 16GB GPU",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-106_infinity-gaming-laptop-with-ryzen-9-and-rtx3080-16gb-gpu.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 107,
+      "item": "Gigabyte 4070",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-107_gigabyte-4070.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 108,
+      "item": "Dell XPS 15 9520 (2022/15.6\u201d)Laptop \ud83d\udc4d 4K touch OLED, i9-12900HK 32GB RAM 1TB  Storage, CPU 4800 MHz",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-108_dell-xps-15-9520-2022156laptop-4k-touch-oled-i9-12900hk-32gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 109,
+      "item": "RTX 4060 pc Need Gone Soon!!!",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-109_rtx-4060-pc-need-gone-soon.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 110,
+      "item": "HP Victus Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-110_hp-victus-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 111,
+      "item": "Lenovo Gaming Laptop LOQ",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-111_lenovo-gaming-laptop-loq.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 112,
+      "item": "Beautiful Green Black HP Pavilion Gaming Laptop with World Famous Ryzen Processor Windows 11",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-112_beautiful-green-black-hp-pavilion-gaming-laptop-with-world-f.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 113,
+      "item": "MSI GE72 2QL Apache 17.3\u201d Gaming Laptop \u2014 i7, 16GB RAM, GTX 950M",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-113_msi-ge72-2ql-apache-173-gaming-laptop-i7-16gb-ram-gtx-950m.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 114,
+      "item": "Victus Hp Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-114_victus-hp-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 115,
+      "item": "ASUS ROG gaming laptop,Intel Core i7-6700HQ, 32GB RAM,17.3-inch SCREEN, 1TB AND 250GB HARD DRIVE.",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-115_asus-rog-gaming-laptopintel-core-i7-6700hq-32gb-ram173-inch.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 116,
+      "item": "Msi gaming laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-116_msi-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 117,
+      "item": "EK Vector 2 Master RTX 4090 Waterblock for Gigabyte Cards",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-117_ek-vector-2-master-rtx-4090-waterblock-for-gigabyte-cards.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 118,
+      "item": "Gaming/Creative laptop Asus Pro Art PX13",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-118_gamingcreative-laptop-asus-pro-art-px13.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 119,
+      "item": "HP Omen gaming laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-119_hp-omen-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 120,
+      "item": "ZOTAC Gaming GeForce RTX 2070 Super 8GB - Great Condition, Original Box",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-120_zotac-gaming-geforce-rtx-2070-super-8gb-great-condition-orig.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 121,
+      "item": "Dell Precision 7730 Workstation Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-121_dell-precision-7730-workstation-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 122,
+      "item": "ASUS GTX 1080ti",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-122_asus-gtx-1080ti.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 123,
+      "item": "GPU Clearout - Prices in description",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-123_gpu-clearout-prices-in-description.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 124,
+      "item": "Gigabyte GAMING OC Rev 2.0 GeForce RTX 3070 LHR 8 GB Video Card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-124_gigabyte-gaming-oc-rev-20-geforce-rtx-3070-lhr-8-gb-video-ca.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 125,
+      "item": "RTX 3070 Gaming Pc",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-125_rtx-3070-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 126,
+      "item": "i9 9900KF RTX 3070 Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-126_i9-9900kf-rtx-3070-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 127,
+      "item": "RTX 4070ti | R7-9700x | 2TB Fast SSD | 32GB DDR5 | mid-high end gaming & productivity pc",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-127_rtx-4070ti-r7-9700x-2tb-fast-ssd-32gb-ddr5-mid-high-end-gami.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 128,
+      "item": "HIGH - END GAMING PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-128_high-end-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 129,
+      "item": "ONEXGPU RX7600M XT eGPU",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-129_onexgpu-rx7600m-xt-egpu.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 130,
+      "item": "AM5 32G DDR5 RTX4060 4T storage GAMING PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-130_am5-32g-ddr5-rtx4060-4t-storage-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 131,
+      "item": "RTX2080",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-131_rtx2080.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 132,
+      "item": "Custom Gaming PCs \u2013 $500 to $1500 (To Order)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-132_custom-gaming-pcs-500-to-1500-to-order.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 133,
+      "item": "GTX 1070",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-133_gtx-1070.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 134,
+      "item": "Refurbished RTX 3070 Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-134_refurbished-rtx-3070-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 135,
+      "item": "AM5 RTX 5060 Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-135_am5-rtx-5060-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 136,
+      "item": "\ud83c\udfae Ryzen 7 5700X + RTX 4060 Gaming PC \ud83c\udfae",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-136_ryzen-7-5700x-rtx-4060-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 137,
+      "item": "ASUS ROG ALLY Z1 EXTREME",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-137_asus-rog-ally-z1-extreme.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 138,
+      "item": "Ryzen 7800X3D // RTX 5070 12gb DDR5 32gb",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-138_ryzen-7800x3d-rtx-5070-12gb-ddr5-32gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 139,
+      "item": "Peaches RTX 3070/13400F Gaming pc",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-139_peaches-rtx-307013400f-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 140,
+      "item": "Gigabyte 1080 8gb vram",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-140_gigabyte-1080-8gb-vram.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 141,
+      "item": "MSI Gaming x Trio 3060TI",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-141_msi-gaming-x-trio-3060ti.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 142,
+      "item": "Lenovo Legion 5 15Akp10 AMD Ryzen Ai 750 W/ Radeon 860M 32GB 1TB Black #037900373967",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-142_lenovo-legion-5-15akp10-amd-ryzen-ai-750-w-radeon-860m-32gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 143,
+      "item": "\ud83d\udcbb Brand New Gaming PC - RTX 5060 5070 5080 | Ryzen Custom Gaming Computer",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-143_brand-new-gaming-pc-rtx-5060-5070-5080-ryzen-custom-gaming-c.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 144,
+      "item": "Ayaneo 2 - 512GB Handheld Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-144_ayaneo-2-512gb-handheld-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 145,
+      "item": "Desktop For Sell | No Trades",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-145_desktop-for-sell-no-trades.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 146,
+      "item": "Gaming PC 9070 GPU",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-146_gaming-pc-9070-gpu.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 147,
+      "item": "Full PC Build i7 (BYO GPU)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-147_full-pc-build-i7-byo-gpu.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 148,
+      "item": "MSI Modern TGL-U AM241 (MS - AE01)--MFG 2021 - 10 MSAE01LAS 0105529  CHK:D11",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-148_msi-modern-tgl-u-am241-ms-ae01-mfg-2021-10-msae01las-0105529.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 149,
+      "item": "Razer Blade Stealth 15\" 2020",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-149_razer-blade-stealth-15-2020.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 150,
+      "item": "Intel 6core 11th gen desktop gaming pc",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-150_intel-6core-11th-gen-desktop-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 151,
+      "item": "\ud83d\udd25 EOFY CLEARANCE SALE | Budget Gaming PC with LCD Screen! \ud83d\udd25",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-151_eofy-clearance-sale-budget-gaming-pc-with-lcd-screen.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 152,
+      "item": "Palit RTX 3070",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-152_palit-rtx-3070.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 153,
+      "item": "Dual Liquid-Cooled Workstation & Gaming PC - Ryzen 9 5900X / RX 6900XT / 64GB RAM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-153_dual-liquid-cooled-workstation-gaming-pc-ryzen-9-5900x-rx-69.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 154,
+      "item": "NZXT H200i Z370-I i7-8700K GTX 1060 6GB 16GB 250GB NVMe 1TB WiFi Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-154_nzxt-h200i-z370-i-i7-8700k-gtx-1060-6gb-16gb-250gb-nvme-1tb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 155,
+      "item": "Gigabyte Radeon RX 9070 XT GAMING OC 16GB Graphics Card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-155_gigabyte-radeon-rx-9070-xt-gaming-oc-16gb-graphics-card.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 156,
+      "item": "QUICK SALE GAMING PC! | Ryzen 7 5800X | 2.5TB Storage",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-156_quick-sale-gaming-pc-ryzen-7-5800x-25tb-storage.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 157,
+      "item": "Gigabyte AMD Radeon RX 6750 XT 12GB GPU Graphics Card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-157_gigabyte-amd-radeon-rx-6750-xt-12gb-gpu-graphics-card.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 158,
+      "item": "Dell Alienware Gaming Mouse",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-158_dell-alienware-gaming-mouse.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 159,
+      "item": "\ud83d\udd25 High-End Gaming / Creator PC \u2013 Built March 2025 \ud83d\udd25",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-159_high-end-gaming-creator-pc-built-march-2025.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 160,
+      "item": "\ud83d\udda5\ufe0f FULL GAMING PC SETUP \u2013 RTX 4060 Ti \u2022 32GB RAM \u2022 3\u00d7 27\u201d Monitors \u2022 Open to \ufffc offers\ufffc\ufffc",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-160_full-gaming-pc-setup-rtx-4060-ti-32gb-ram-3-27-monitors-open.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 161,
+      "item": "\u200bZotac Gaming GeForce RTX 4060 Ti AMP 16GB \u2013 Brand New / Unopened",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-161_zotac-gaming-geforce-rtx-4060-ti-amp-16gb-brand-new-unopened.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 162,
+      "item": "MSI Creator P100 computer",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-162_msi-creator-p100-computer.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 163,
+      "item": "RTX 2070 super Gaming X Trio 8gb",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-163_rtx-2070-super-gaming-x-trio-8gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 164,
+      "item": "\ud83d\udd25 High-Performance Gaming PC \u2013 Ready to Play \ud83d\udd25",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-164_high-performance-gaming-pc-ready-to-play.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 165,
+      "item": "Intel ARC B580 ASrock Graphics Card 12gb",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-165_intel-arc-b580-asrock-graphics-card-12gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 166,
+      "item": "\ud83d\ude80 Ultra Gaming & Productivity PC \u2013 High-End Build \ud83d\ude80",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-166_ultra-gaming-productivity-pc-high-end-build.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 167,
+      "item": "ASUS ROG Ally Z1 Extreme \u2013 Excellent Condition + Case + Charger",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-167_asus-rog-ally-z1-extreme-excellent-condition-case-charger.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 168,
+      "item": "2080ti founders",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-168_2080ti-founders.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 169,
+      "item": "CHEAP! NEW! Lenovo IdeaPad Flex 5 16GB 512GB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-169_cheap-new-lenovo-ideapad-flex-5-16gb-512gb-ssd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 170,
+      "item": "Lenovo Yoga Slim 7 Pro 14IHU5",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-170_lenovo-yoga-slim-7-pro-14ihu5.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 171,
+      "item": "ASUS Vivobook Pro Gaming Laptop \u2013 Ryzen 7 / RTX 3050 / 16GB RAM/ 512gb ssd",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-171_asus-vivobook-pro-gaming-laptop-ryzen-7-rtx-3050-16gb-ram-51.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 172,
+      "item": "NEED GONE\u2022 Lenovo L13 Yoga 13.3\u201d",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-172_need-gone-lenovo-l13-yoga-133.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 173,
+      "item": "HP EliteBook x360 1030 G3 i5-8350U 16GB 256GB NVMe Touch Win11 Pro New Battery Upwey 3158",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-173_hp-elitebook-x360-1030-g3-i5-8350u-16gb-256gb-nvme-touch-win.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 174,
+      "item": "Lenovo Ideapad 5 15ITL05 15.6\" | Intel i5 11th Gen | 8GB RAM | 256GB SSD | Windows 11",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-174_lenovo-ideapad-5-15itl05-156-intel-i5-11th-gen-8gb-ram-256gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 175,
+      "item": "Lenovo Yoga Slim 7i Pro 14\u201d 2.2K - Ryzen 5 5600H, 512GB SSD, 8GB - WTY + INV!",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-175_lenovo-yoga-slim-7i-pro-14-22k-ryzen-5-5600h-512gb-ssd-8gb-w.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 176,
+      "item": "HP Elite X2 - i7 11th Gen - 16GB RAM - 500GB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-176_hp-elite-x2-i7-11th-gen-16gb-ram-500gb-ssd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 177,
+      "item": "Legion Pro 7i RTX 4070 i9 13900 1TB 32GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-177_legion-pro-7i-rtx-4070-i9-13900-1tb-32gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 178,
+      "item": "New - Lenovo 14\u201d IdeaPad Slim 5 Copilot+ PC Snapdragon X 16/512GB RRP $1197",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-178_new-lenovo-14-ideapad-slim-5-copilot-pc-snapdragon-x-16512gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 179,
+      "item": "Lenovo 13w 2-in-1 Gen 3 \u2013 Like New",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-179_lenovo-13w-2-in-1-gen-3-like-new.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 180,
+      "item": "HP ZBook Power G9 (6J9L0PA)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-180_hp-zbook-power-g9-6j9l0pa.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 181,
+      "item": "Lenovo Legion 5",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-181_lenovo-legion-5.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 182,
+      "item": "MSI Summit E13 Flip Laptop. i7 13th gen, 16gb ram, 500gb storage and win 11 Pro",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-182_msi-summit-e13-flip-laptop-i7-13th-gen-16gb-ram-500gb-storag.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 183,
+      "item": "MSI Summit E16 Flip | i7-1360P | RTX 4060 | 32GB | 1TB | QHD+ 165Hz Touch + MSI Pen included",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-183_msi-summit-e16-flip-i7-1360p-rtx-4060-32gb-1tb-qhd-165hz-tou.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 184,
+      "item": "Official brand new Lenovo 65w USB C laptop charger",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-184_official-brand-new-lenovo-65w-usb-c-laptop-charger.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 185,
+      "item": "Lenovo Legion 7i 16\u201d (Gen 9) Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-185_lenovo-legion-7i-16-gen-9-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 186,
+      "item": "ASUS ROG STRIX",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-186_asus-rog-strix.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 187,
+      "item": "Asus ROG gaming laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-187_asus-rog-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 188,
+      "item": "LENOVO T14 Gen3 core i7",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-188_lenovo-t14-gen3-core-i7.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 189,
+      "item": "Lenovo Legion 7 15IMHg05",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-189_lenovo-legion-7-15imhg05.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 190,
+      "item": "Gigabyte Gaming Laptop - Q2556",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-190_gigabyte-gaming-laptop-q2556.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 191,
+      "item": "MSI Raider GE75 9SF Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-191_msi-raider-ge75-9sf-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 192,
+      "item": "ASUS TUF Gaming A15 - Ryzen 7 RTX Gaming Laptop | Fresh Windows Reset + Laptop Stand with Fans",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-192_asus-tuf-gaming-a15-ryzen-7-rtx-gaming-laptop-fresh-windows.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 193,
+      "item": "Lenovo ThinkPad T14 Gen 1 Touch 14\" i7 10510U 16GB RAM 256GB SSD Win 11 \u00d7 1",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-193_lenovo-thinkpad-t14-gen-1-touch-14-i7-10510u-16gb-ram-256gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 194,
+      "item": "CHEAP New Sealed! Lenovo IdeaPad Flex 5",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-194_cheap-new-sealed-lenovo-ideapad-flex-5.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 195,
+      "item": "Lenovo yoga 7i 14'8",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-195_lenovo-yoga-7i-148.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 196,
+      "item": "Lenovo Legion Slim 5i 16\" 2.5K 160Hz Gaming Laptop (13th Gen Intel i7)[GeForce RTX 4060]",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-196_lenovo-legion-slim-5i-16-25k-160hz-gaming-laptop-13th-gen-in.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 197,
+      "item": "Omen 15.6\" Omen-15 / i7-10Th / RTX 2060 / 16GB / i7-10750H Intel Core",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-197_omen-156-omen-15-i7-10th-rtx-2060-16gb-i7-10750h-intel-core.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 198,
+      "item": "Lenovo Legion 5 \u2013 Ryzen 7 / RTX 3060 / WQHD \u2013 Excellent Condition - PICKUP ROWVILLE",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-198_lenovo-legion-5-ryzen-7-rtx-3060-wqhd-excellent-condition-pi.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 199,
+      "item": "Lenovo Legion 5 15ARH7H (2022)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-199_lenovo-legion-5-15arh7h-2022.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 200,
+      "item": "Legion 5 pro RTX4070 Ryzen 7 7745hx 16/64gb ddr5 ram, 1tb Ssd",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-200_legion-5-pro-rtx4070-ryzen-7-7745hx-1664gb-ddr5-ram-1tb-ssd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 201,
+      "item": "Lenovo Yoga 7i 2-in-1 (14\", Touch Screen)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-201_lenovo-yoga-7i-2-in-1-14-touch-screen.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 202,
+      "item": "Lenovo Legion 7i 5070 - Near new",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-202_lenovo-legion-7i-5070-near-new.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 203,
+      "item": "40GB RAM | Lenovo Thinkpad L14 Gen 2 | AMD Ryzen 5 PRO 5650U with Radeon Graphics | 256GB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-203_40gb-ram-lenovo-thinkpad-l14-gen-2-amd-ryzen-5-pro-5650u-wit.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 204,
+      "item": "ASUS 2025 Rog Zephyrus G14 Gaming Laptop Ryzen AI 9 5070 1TB 32GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-204_asus-2025-rog-zephyrus-g14-gaming-laptop-ryzen-ai-9-5070-1tb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 205,
+      "item": "Lenovo X1 carbon, Touch,I5 processor 512GB SSD, Win 11 pro",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-205_lenovo-x1-carbon-touchi5-processor-512gb-ssd-win-11-pro.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 206,
+      "item": "XPS 15 9530 - 64GB DDR5 RAM 2TB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-206_xps-15-9530-64gb-ddr5-ram-2tb-ssd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 207,
+      "item": "LIKE NEW Lenovo Legion 9i/i9/RTX 4080/2TB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-207_like-new-lenovo-legion-9ii9rtx-40802tb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 208,
+      "item": "PRICED TO SELL \nASUS Vivobook Pro 15 OLED Ryzen 9 Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-208_priced-to-sell-asus-vivobook-pro-15-oled-ryzen-9-gaming-lapt.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 209,
+      "item": "*BrandNew* XPS15 9520-i7-12700H(14-Core, upto 4.7Ghz) 1TB SSD 32GB RAM DDR5 NVidia 3050Ti 4GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-209_brandnew-xps15-9520-i7-12700h14-core-upto-47ghz-1tb-ssd-32gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 210,
+      "item": "Asus ROG Zephrus M16 16\u201d, 40gb ram, 1.38TB Storage, i7-12700H, RTX 3060, 165Hz",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-210_asus-rog-zephrus-m16-16-40gb-ram-138tb-storage-i7-12700h-rtx.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 211,
+      "item": "$30 each !! Type-C Laptop Charger (For Hp, Dell, Lenovo, Acer, Asus, Toshiba) \ud83d\udd0c\ud83d\ude0d Brand new",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-211_30-each-type-c-laptop-charger-for-hp-dell-lenovo-acer-asus-t.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 212,
+      "item": "Brand New Lenovo ThinkPad L13 Yoga Gen 3 \u2013 i5 12th Gen / Touchscreen 2-in-1",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-212_brand-new-lenovo-thinkpad-l13-yoga-gen-3-i5-12th-gen-touchsc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 213,
+      "item": "OLED Studio Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-213_oled-studio-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 214,
+      "item": "ASUS Vivobook (D3704) X17\u2013 Ryzen 7 / 16 GB / 1 TB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-214_asus-vivobook-d3704-x17-ryzen-7-16-gb-1-tb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 215,
+      "item": "Lenovo IdeaPad Flex 5 14IIL05",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-215_lenovo-ideapad-flex-5-14iil05.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 216,
+      "item": "GIGABYTE GAMING A16 - RTX 5060 | Ryzen 7 260 | 16GB DDR5 | 1TB M.2 | 16:[hidden information] 165Hz LAPTOP",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-216_gigabyte-gaming-a16-rtx-5060-ryzen-7-260-16gb-ddr5-1tb-m2-16.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 217,
+      "item": "13 hour battery gaming laptop Lenovo Legion 7 16ARHA7 12GB VRAM Ryzen 9 Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-217_13-hour-battery-gaming-laptop-lenovo-legion-7-16arha7-12gb-v.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 218,
+      "item": "Lenovo Legion 9: Forged Carbon Liquid Cooled Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-218_lenovo-legion-9-forged-carbon-liquid-cooled-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 219,
+      "item": "*READ DESC* 8GB VRAM Lenovo Legion Slim 7 AMD advantage edition 24GB RAM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-219_read-desc-8gb-vram-lenovo-legion-slim-7-amd-advantage-editio.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 220,
+      "item": "Lenovo Legion H500 Pro 7.1 Surround Sound Stereo Gaming Headset",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-220_lenovo-legion-h500-pro-71-surround-sound-stereo-gaming-heads.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 221,
+      "item": "Lenovo Legion 5 Pro - AMD Ryzen 7 5800H 16GB RAM 512GB SSD RTX3050Ti 165Hz W11P",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-221_lenovo-legion-5-pro-amd-ryzen-7-5800h-16gb-ram-512gb-ssd-rtx.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 222,
+      "item": "Ultimate Gaming Machine \u2013 RTX 3070 + 38\u201d Alienware Ultrawide + 240Hz Monitor + Speakers",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-222_ultimate-gaming-machine-rtx-3070-38-alienware-ultrawide-240h.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 223,
+      "item": "Gaming Laptop Bundle \u2013 Zephyrus G16 2024 + RTX 4060 + SSD + Bag",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-223_gaming-laptop-bundle-zephyrus-g16-2024-rtx-4060-ssd-bag.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 224,
+      "item": "Lenovo Yoga Slim 7S \u2013 Snapdragon X Elite \u2013 Copilot+ PC \u2013 Ultra\u2011Fast & Lightweight",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-224_lenovo-yoga-slim-7s-snapdragon-x-elite-copilot-pc-ultrafast.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 225,
+      "item": "Alienware x15 | i9-11900H | RTX 3070 | 32GB RAM | 1TB SSD | 360Hz",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-225_alienware-x15-i9-11900h-rtx-3070-32gb-ram-1tb-ssd-360hz.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 226,
+      "item": "[2025 Model] ASUS TUF F16 i7 16\" FHD+ 165hz Gaming Laptop GeForce RTX 5060 w/ upgraded 32GB RAM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-226_2025-model-asus-tuf-f16-i7-16-fhd-165hz-gaming-laptop-geforc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 227,
+      "item": "Lenovo ThinkPad X1 Carbon Gen 9 (14\u201d) \u2013 Excellent Condition",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-227_lenovo-thinkpad-x1-carbon-gen-9-14-excellent-condition.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 228,
+      "item": "Asus ROG Strix gaming laptop (potentially easy fix)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-228_asus-rog-strix-gaming-laptop-potentially-easy-fix.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 229,
+      "item": "ONEXPLAYER ONEXFLY APEX (AMD AI Max+ 395 / 48GB RAM / 1TB) Gaming Handheld PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-229_onexplayer-onexfly-apex-amd-ai-max-395-48gb-ram-1tb-gaming-h.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 230,
+      "item": "Acer Nitro AN515-56",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-230_acer-nitro-an515-56.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 231,
+      "item": "ASUS ROG Xbox Ally AMD Ryzen Z2A 16GB RAM 512GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-231_asus-rog-xbox-ally-amd-ryzen-z2a-16gb-ram-512gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 232,
+      "item": "AMD 5 5600X RTX 3070 Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-232_amd-5-5600x-rtx-3070-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 233,
+      "item": "Asus Rog Strix RTX 2080 Super",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-233_asus-rog-strix-rtx-2080-super.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 234,
+      "item": "ROG Zephyrus S17 GX701LWS",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-234_rog-zephyrus-s17-gx701lws.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 235,
+      "item": "GPU - ASUS ROG Strix GTX 1050 Ti 4GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-235_gpu-asus-rog-strix-gtx-1050-ti-4gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 236,
+      "item": "Gigabyte GV-R955128DE",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-236_gigabyte-gv-r955128de.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 237,
+      "item": "Custom Asus ROG Strix GTX 1080 8gb graphics card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-237_custom-asus-rog-strix-gtx-1080-8gb-graphics-card.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 238,
+      "item": "Alien Romulus Reebok bb 4000",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-238_alien-romulus-reebok-bb-4000.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 239,
+      "item": "ASUS ROG Balteus Qi Vertical Gaming Mouse Pad with Wireless Qi Charging",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-239_asus-rog-balteus-qi-vertical-gaming-mouse-pad-with-wireless.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 240,
+      "item": "White and Black Rog RTX 4090 No Gpu Core",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-240_white-and-black-rog-rtx-4090-no-gpu-core.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 241,
+      "item": "ASUS ROG Strix G15 Gaming Laptop (G513R)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-241_asus-rog-strix-g15-gaming-laptop-g513r.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 242,
+      "item": "ASUS ROG Zephyrus G14  - 16gb ram",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-242_asus-rog-zephyrus-g14-16gb-ram.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 243,
+      "item": "ASUS ROG Strix Scope RX EVA Edition (EVA-01 / Evangelion limited edition) Keyboard",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-243_asus-rog-strix-scope-rx-eva-edition-eva-01-evangelion-limite.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 244,
+      "item": "ASUS ROG Keris II Origin \u2013 Kojima Productions Edition (Death Stranding) \u2013 Like New",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-244_asus-rog-keris-ii-origin-kojima-productions-edition-death-st.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 245,
+      "item": "Asus ROG Strix OLED XG27ACDNG Monitor",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-245_asus-rog-strix-oled-xg27acdng-monitor.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 246,
+      "item": "ASUS\nTUF Gaming FX505DT",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-246_asus-tuf-gaming-fx505dt.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 247,
+      "item": "ROG STRIX RX590 - 8GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-247_rog-strix-rx590-8gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 248,
+      "item": "ROG Xbox Ally AMD Ryzen Z2 A 16GB 512GB 120Hz Gaming Handheld",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-248_rog-xbox-ally-amd-ryzen-z2-a-16gb-512gb-120hz-gaming-handhel.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 249,
+      "item": "ASUS ROG STRIX XG32V CURVED GAMING MONITOR 31'5 QHD 1440P 144HZ",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-249_asus-rog-strix-xg32v-curved-gaming-monitor-315-qhd-1440p-144.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 250,
+      "item": "RTX High End Custom Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-250_rtx-high-end-custom-gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 251,
+      "item": "ASUS ROG PG27UQR",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-251_asus-rog-pg27uqr.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 252,
+      "item": "Asus Rog Ally X",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-252_asus-rog-ally-x.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 253,
+      "item": "Razer Core X Thunderbolt 3 eGPU enclosure",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-253_razer-core-x-thunderbolt-3-egpu-enclosure.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 254,
+      "item": "ASUS ROG PG348Q 1ms 4k 100Hz G-Sync IPS Curved 34in Ultra Wide Monitor CASH ONLY",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-254_asus-rog-pg348q-1ms-4k-100hz-g-sync-ips-curved-34in-ultra-wi.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 255,
+      "item": "Asus republic of gamers ROG Strix GTX 1050 16G ram 1tb",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-255_asus-republic-of-gamers-rog-strix-gtx-1050-16g-ram-1tb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 256,
+      "item": "Asus ROG Strix Scope RX EVA - ROG Strix Scope RX EVA Edition Gaming Keyboard",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-256_asus-rog-strix-scope-rx-eva-rog-strix-scope-rx-eva-edition-g.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 257,
+      "item": "ASUS ROG Strix GeForce GTX 1080 Ti OC Edition 11GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-257_asus-rog-strix-geforce-gtx-1080-ti-oc-edition-11gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 258,
+      "item": "ASUS ROG Strix Radeon RX 570 4GB. fully tested in full working condition.",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-258_asus-rog-strix-radeon-rx-570-4gb-fully-tested-in-full-workin.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 259,
+      "item": "ROG Hyper M.2 Card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-259_rog-hyper-m2-card.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 260,
+      "item": "4090 + i9 Gaming MSI laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-260_4090-i9-gaming-msi-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 261,
+      "item": "Asus - ROG CETRA True Wireless Speednova Gaming Headphones - Black",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-261_asus-rog-cetra-true-wireless-speednova-gaming-headphones-bla.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 262,
+      "item": "Razer Blade 15 Advanced Model (Early 2020) - RZ09-033 (5.0)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-262_razer-blade-15-advanced-model-early-2020-rz09-033-50.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 263,
+      "item": "Lenovo Legion Pro 5 Gen10 | RTX 5070 | Ryzen 9 9955HX | 32GB RAM | 1TB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-263_lenovo-legion-pro-5-gen10-rtx-5070-ryzen-9-9955hx-32gb-ram-1.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 264,
+      "item": "MSI 3070 Ventus 2x gpu",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-264_msi-3070-ventus-2x-gpu.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 265,
+      "item": "ASUS rog strix g16",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-265_asus-rog-strix-g16.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 266,
+      "item": "Gaming PC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-266_gaming-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 267,
+      "item": "Asus Rog Zephyrus G16 5070Ti 32GB Ram 2TB (2025)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-267_asus-rog-zephyrus-g16-5070ti-32gb-ram-2tb-2025.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 268,
+      "item": "ROG STRIX G513RC Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-268_rog-strix-g513rc-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 269,
+      "item": "ASUS Rog Ally X - Mint Condition + Extras",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-269_asus-rog-ally-x-mint-condition-extras.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 270,
+      "item": "Asus ROG chakram X origin wireless gaming mouse",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-270_asus-rog-chakram-x-origin-wireless-gaming-mouse.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 271,
+      "item": "Asus Strix 1080 8gb AIO MOD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-271_asus-strix-1080-8gb-aio-mod.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 272,
+      "item": "ASUS ROG Xbox Ally X Gaming Handheld",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-272_asus-rog-xbox-ally-x-gaming-handheld.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 273,
+      "item": "ASUS ROG Ally X \u2013 Bundle",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-273_asus-rog-ally-x-bundle.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 274,
+      "item": "ROG FALCHION HFX ZYWOO EDITION",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-274_rog-falchion-hfx-zywoo-edition.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 275,
+      "item": "Intel Core i9-32GB RAM-2TB SSD-RTX 2060 EVO",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-275_intel-core-i9-32gb-ram-2tb-ssd-rtx-2060-evo.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 276,
+      "item": "ASUS ROG Flow Z13 + RTX 4090 XG Mobile | Ultimate Portable Gaming Setup",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-276_asus-rog-flow-z13-rtx-4090-xg-mobile-ultimate-portable-gamin.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 277,
+      "item": "Razer Blade Pro 17 | RTX 2080 Super | 300Hz | 1TB SSD | 16GB RAM | New Battery",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-277_razer-blade-pro-17-rtx-2080-super-300hz-1tb-ssd-16gb-ram-new.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 278,
+      "item": "New White ROG Vision RGB Build AMD 7800X3D Dual Screen RTX 4080 Beast 4K Gaming PC Desktop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-278_new-white-rog-vision-rgb-build-amd-7800x3d-dual-screen-rtx-4.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 279,
+      "item": "Rog Ally X",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-279_rog-ally-x.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 280,
+      "item": "Asus Rog Strix 96 RX wireless Keyboard",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-280_asus-rog-strix-96-rx-wireless-keyboard.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 281,
+      "item": "Rog Strix 1080ti 11gb",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-281_rog-strix-1080ti-11gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 282,
+      "item": "Asus ROG Ally X 1TB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-282_asus-rog-ally-x-1tb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 283,
+      "item": "ROG Harpe ace extreme carbon fiber gaming mouse",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-283_rog-harpe-ace-extreme-carbon-fiber-gaming-mouse.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 284,
+      "item": "Asus Oled monitor Rog pg27aqdp 1440p 480hz",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-284_asus-oled-monitor-rog-pg27aqdp-1440p-480hz.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 285,
+      "item": "ASUS ROG Strix Radeon RX-570 8GB Graphics Card OC Edition. New",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-285_asus-rog-strix-radeon-rx-570-8gb-graphics-card-oc-edition-ne.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 286,
+      "item": "rog ally x",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-286_rog-ally-x.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 287,
+      "item": "ASUS Rog Strix Z490-F + Intel 10850k + 16GB (2x8GB) Corsair RAM + 512gb NVME combo",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-287_asus-rog-strix-z490-f-intel-10850k-16gb-2x8gb-corsair-ram-51.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 288,
+      "item": "Asus ROG gaming mouse accessory kit.",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-288_asus-rog-gaming-mouse-accessory-kit.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 289,
+      "item": "ASUS KO GeForce RTX 3060 Ti OC 8GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-289_asus-ko-geforce-rtx-3060-ti-oc-8gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 290,
+      "item": "ROG SWIFT PG279QM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-290_rog-swift-pg279qm.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 291,
+      "item": "Asus TUF Rtx 5070 ti",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-291_asus-tuf-rtx-5070-ti.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 292,
+      "item": "AMD 5 5600x RTX 3070 TI ultimate 2K gaming build",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-292_amd-5-5600x-rtx-3070-ti-ultimate-2k-gaming-build.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 293,
+      "item": "ASUS ROG ALLY HANDHELD 512GB CONSOLE",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-293_asus-rog-ally-handheld-512gb-console.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 294,
+      "item": "Nvidia Geforce Now 6 Months Ultimate",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-294_nvidia-geforce-now-6-months-ultimate.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 295,
+      "item": "ASUS ROG Ally Z1 Extreme 512GB Handheld Gaming Console \u2013 White (JB Hi-Fi Warranty Until Aug 2028)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-295_asus-rog-ally-z1-extreme-512gb-handheld-gaming-console-white.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 296,
+      "item": "MSI RTX 3070 Ti Gaming X Trio \u2013 Excellent Condition",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-296_msi-rtx-3070-ti-gaming-x-trio-excellent-condition.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 297,
+      "item": "AMD Radeon RX 6700 XT ROG STRIX Gaming GPU",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-297_amd-radeon-rx-6700-xt-rog-strix-gaming-gpu.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 298,
+      "item": "ASUS ROG Flow Z13 2022 + XG Mobile RTX 3080 + ROG Ally 2023 Bundle",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-298_asus-rog-flow-z13-2022-xg-mobile-rtx-3080-rog-ally-2023-bund.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 299,
+      "item": "Rog mouse and keyboard",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-299_rog-mouse-and-keyboard.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 300,
+      "item": "Gigabyte Gaming OC 4080",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-300_gigabyte-gaming-oc-4080.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 301,
+      "item": "High end gaming or workstation pc: I9 14900KS, Nvidia RTX 4070 TI Super, 64gb Ram, 1000w..",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-301_high-end-gaming-or-workstation-pc-i9-14900ks-nvidia-rtx-4070.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 302,
+      "item": "Perfectio By Zero Gravity",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-302_perfectio-by-zero-gravity.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 303,
+      "item": "Dell Aurora R11 - i9 10900KF, 64GB, RTX3080 10GB, 1TB SSD + 2TB SATA",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-303_dell-aurora-r11-i9-10900kf-64gb-rtx3080-10gb-1tb-ssd-2tb-sat.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 304,
+      "item": "Rtx 3060 ventus 2x 12gb (no lowballers accepted)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-304_rtx-3060-ventus-2x-12gb-no-lowballers-accepted.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 305,
+      "item": "RTX 4070 12gb / i7 10700 / 1.25 tb / DDR4 16gb ram",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-305_rtx-4070-12gb-i7-10700-125-tb-ddr4-16gb-ram.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 306,
+      "item": "Geforce RTX 4060 ventus 2x black 8gn OC",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-306_geforce-rtx-4060-ventus-2x-black-8gn-oc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 307,
+      "item": "Asus ROG Zephyrus  Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-307_asus-rog-zephyrus-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 308,
+      "item": "ASUS TUF GeForce RTX 3080 OC 10GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-308_asus-tuf-geforce-rtx-3080-oc-10gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 309,
+      "item": "ASUS ROG Front Base Dual\u2010Bay Gaming Panel \u2013 Excellent Condition \u2013 Rare still with screen protector",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-309_asus-rog-front-base-dualbay-gaming-panel-excellent-condition.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 310,
+      "item": "Brand new Testrix Bluebird Mini HD 1080p",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-310_brand-new-testrix-bluebird-mini-hd-1080p.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 311,
+      "item": "ASUS ROG Strix B450-F Gaming Motherboard",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-311_asus-rog-strix-b450-f-gaming-motherboard.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 312,
+      "item": "ASUS Nvidia RTX3070 GPU",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-312_asus-nvidia-rtx3070-gpu.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 313,
+      "item": "Razer Core X eGPU Enclosure includes PSU ! PENDING PICKUP",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-313_razer-core-x-egpu-enclosure-includes-psu-pending-pickup.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 314,
+      "item": "ASUS ROG Zephyrus G GA502DU 15.6-inch Gaming Laptop Ryzen 7 GTX 1660 Ti 120Hz",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-314_asus-rog-zephyrus-g-ga502du-156-inch-gaming-laptop-ryzen-7-g.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 315,
+      "item": "Neon Genesis Evangelion Limited Edition ROG Keyboard Mouse Mousepad",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-315_neon-genesis-evangelion-limited-edition-rog-keyboard-mouse-m.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 316,
+      "item": "ASUS rog ally x",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-316_asus-rog-ally-x.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 317,
+      "item": "ASUS ROG PG49WCD (49\" OLED 144Hz)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-317_asus-rog-pg49wcd-49-oled-144hz.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 318,
+      "item": "Asus ROG Zephyrus G14 Laptop Ryzen 9 4900HS GTX 1660 Ti MaxQ IPS 16GB 1TB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-318_asus-rog-zephyrus-g14-laptop-ryzen-9-4900hs-gtx-1660-ti-maxq.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 319,
+      "item": "Dell Latitude 5480 Laptop \ud83d\udcbb \ud83d\udd25i5-7th Gen | 128GB | 8GB + Warranty!!!",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-319_dell-latitude-5480-laptop-i5-7th-gen-128gb-8gb-warranty.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 320,
+      "item": "Hp Probook 650 G5 (15.6\u201d Laptop) \ud83d\udcbb\u2764\ufe0f\u200d\ud83d\udd25\nIntel i5-8th Gen || 8GB RAM || 256GB SSD \u2705",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-320_hp-probook-650-g5-156-laptop-intel-i5-8th-gen-8gb-ram-256gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 321,
+      "item": "i7 12th Gen / 16GB RAM / 512GB NVMe SSD - Dell Inspiron 3520 Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-321_i7-12th-gen-16gb-ram-512gb-nvme-ssd-dell-inspiron-3520-lapto.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 322,
+      "item": "DELL laptop carbon, i7 11th gen , 14\" screen, 512gb m.2 ssd , 16gb ram, windows 11 , usb c charger",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-322_dell-laptop-carbon-i7-11th-gen-14-screen-512gb-m2-ssd-16gb-r.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 323,
+      "item": "DELL Latitude 7390  i5 8th Gen 16/256GB Excellent Condition with 12 Months Warranty",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-323_dell-latitude-7390-i5-8th-gen-16256gb-excellent-condition-wi.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 324,
+      "item": "Dell XPS 13 9310 2-in-1 Touch Laptop - 16GB / 512GB / New Battery",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-324_dell-xps-13-9310-2-in-1-touch-laptop-16gb-512gb-new-battery.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 325,
+      "item": "Dell Latitude 5530 Laptop \u2013 12th Gen i5 / 16GB RAM / 512GB NVMe SSD / Backlit Keyboard",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-325_dell-latitude-5530-laptop-12th-gen-i5-16gb-ram-512gb-nvme-ss.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 326,
+      "item": "Microsoft Surface Laptop 3.. i7 / 16gb RAM / 256gb SSD / touch screen",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-326_microsoft-surface-laptop-3-i7-16gb-ram-256gb-ssd-touch-scree.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 327,
+      "item": "cheap Lenovo School laptops $149 each",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-327_cheap-lenovo-school-laptops-149-each.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 328,
+      "item": "HP ProBook 430 i5 10th Gen 16GB RAM 256GB SSD with Warranty",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-328_hp-probook-430-i5-10th-gen-16gb-ram-256gb-ssd-with-warranty.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 329,
+      "item": "Dell Latitude 7390 13\" Touch Screen i7 8th Gen 16/256GB Pristine Condition with 12 Months Warranty",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-329_dell-latitude-7390-13-touch-screen-i7-8th-gen-16256gb-pristi.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 330,
+      "item": "HP Zbook G7 15.6inch i7 10th Gen 32GB RAM 512GB SSD with Warranty",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-330_hp-zbook-g7-156inch-i7-10th-gen-32gb-ram-512gb-ssd-with-warr.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 331,
+      "item": "Lenovo ThankPad x12 Detachable Gen 1 laptop/i7/16GB RAM/512 SSD/Touch Screen/Win 11Pro",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-331_lenovo-thankpad-x12-detachable-gen-1-laptopi716gb-ram512-ssd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 332,
+      "item": "HP Elitebook x360 1040 G8 14\u201d 2 in 1 Touchscreen i7-1165G7 16GB Memory 512GB M.2 NVME W11P OFFICE24",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-332_hp-elitebook-x360-1040-g8-14-2-in-1-touchscreen-i7-1165g7-16.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 333,
+      "item": "$670 \ud83d\udc3b Dell Latitude 5450 14\u201d (Intel Core Ultra 7 155U, 16GB RAM 512GB) CHEAPEST PRICE, AI laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-333_670-dell-latitude-5450-14-intel-core-ultra-7-155u-16gb-ram-5.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 334,
+      "item": "16GB (16GBx1) DDR5-4800/PC5-38400 Laptop Memory",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-334_16gb-16gbx1-ddr5-4800pc5-38400-laptop-memory.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 335,
+      "item": "Acer Aspire 5 Spin 14\u201d Touch - i7 13th Gen 16GB RAM 512GB SSD - WTY + INV!",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-335_acer-aspire-5-spin-14-touch-i7-13th-gen-16gb-ram-512gb-ssd-w.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 336,
+      "item": "Microsoft Surface Laptop 4 i7 16GB 512GB Black",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-336_microsoft-surface-laptop-4-i7-16gb-512gb-black.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 337,
+      "item": "Surface Laptop 15\u201d",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-337_surface-laptop-15.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 338,
+      "item": "dell 5500 laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-338_dell-5500-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 339,
+      "item": "Lenovo ThinkStation S30 Workstation / Homelab Server \u2013 32GB ECC RAM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-339_lenovo-thinkstation-s30-workstation-homelab-server-32gb-ecc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 340,
+      "item": "Desktop PC \u2013 i7-3770, 16GB RAM, Radeon HD 7900 3GB, Win11 Pro \u2013 YARRAVILLE PICKUP",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-340_desktop-pc-i7-3770-16gb-ram-radeon-hd-7900-3gb-win11-pro-yar.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 341,
+      "item": "Dell OptiPlex 7070 Tower- Intel i7 9700 3.0GHz 16GB RAM 256GB SSD Win 11",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-341_dell-optiplex-7070-tower-intel-i7-9700-30ghz-16gb-ram-256gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 342,
+      "item": "Acer i5 12GB RAM Laptop | Intel i5-10210U 4.2GHz | Win 11 | 256GB SSD | 12GB RAM | 15.6\" Screen",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-342_acer-i5-12gb-ram-laptop-intel-i5-10210u-42ghz-win-11-256gb-s.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 343,
+      "item": "Microsoft Surface Laptop 5 13.5 TOUCH i5 16GB 512GB SSD Excellent",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-343_microsoft-surface-laptop-5-135-touch-i5-16gb-512gb-ssd-excel.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 344,
+      "item": "Lenovo Laptop  i7-8550U/16gb Ram/256GB ssd",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-344_lenovo-laptop-i7-8550u16gb-ram256gb-ssd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 345,
+      "item": "Leader Laptop Core i7/16gb Ram/480gb SSD/2gb Graphics Card",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-345_leader-laptop-core-i716gb-ram480gb-ssd2gb-graphics-card.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 346,
+      "item": "Microsoft Surface Laptop 2 i7 16GB 512GB Excellent Condition For Sale",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-346_microsoft-surface-laptop-2-i7-16gb-512gb-excellent-condition.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 347,
+      "item": "\u2728 $699 \u2728 Dell Pro 14 (PC14250), 16GB RAM, Core Ultra 5 235U, 512GB SSD, brand new worth $2500",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-347_699-dell-pro-14-pc14250-16gb-ram-core-ultra-5-235u-512gb-ssd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 348,
+      "item": "\u203c\ufe0f$699\ud83d\udca5Dell Latitude 5440 TOUCHSCREEN, 32GB RAM, 13th Gen Core i7-1355U",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-348_699dell-latitude-5440-touchscreen-32gb-ram-13th-gen-core-i7.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 349,
+      "item": "Dell Latitude 5310 TOUCHSCREEN LAPTOP \ud83e\uddfe\ud83d\udd25Receipt included, for school s Uni study. Warranty",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-349_dell-latitude-5310-touchscreen-laptop-receipt-included-for-s.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 350,
+      "item": "\ud83d\udca5$300\ud83d\udca5 Acer Aspire 5 i5-11357G @ 2.40GHz 8GB RAM \ud83d\udc0f 512GB SSD Laptop Good Condition",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-350_300-acer-aspire-5-i5-11357g-240ghz-8gb-ram-512gb-ssd-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 351,
+      "item": "DELL Latitude 5320 Laptop \ud83d\udcbb\ud83e\udd8b 256GB SSD 16GB RAM - Core i7 11th gen EXCELLENT work study laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-351_dell-latitude-5320-laptop-256gb-ssd-16gb-ram-core-i7-11th-ge.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 352,
+      "item": "$139 \ud83d\udd25Dell inspiron 15 3000series 3543  \u2705Intel (R) Core (TM) i7-5500U CPU @2.40Ghz  \ud83d\udcbb",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-352_139-dell-inspiron-15-3000series-3543-intel-r-core-tm-i7-5500.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 353,
+      "item": "Hp Probook 645 G4 14\u201d Laptop \ud83d\udecd\ufe0f\ud83d\udcbb 16GB RAM 128GB SSD \u2705 AMD Ryzen 5 Pro 2500U $250",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-353_hp-probook-645-g4-14-laptop-16gb-ram-128gb-ssd-amd-ryzen-5-p.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 354,
+      "item": "Dell Latitude 7390 13.3\u201d Touchscreen Laptop \ud83d\udc99\ud83d\udcbb i7-8th Gen || 16GB || 256GB SSD $300",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-354_dell-latitude-7390-133-touchscreen-laptop-i7-8th-gen-16gb-25.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 355,
+      "item": "Hp Elitebook 840 G5 Laptop \ud83d\udcbb \u2763\ufe0f/ Intel Core i7-8650U CPU @1.90GHz 2.11GHz $299",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-355_hp-elitebook-840-g5-laptop-intel-core-i7-8650u-cpu-190ghz-21.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 356,
+      "item": "Hp Elitebook X360 1030 G2 \ud83d\udc99\ud83d\udcbb || 8GB|| 256GB || i5-7th Gen  || Touchscreen Laptop $290  \u2705",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-356_hp-elitebook-x360-1030-g2-8gb-256gb-i5-7th-gen-touchscreen-l.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 357,
+      "item": "Hp Elitebook 840 G5 Laptop \ud83d\udcbb \u2763\ufe0f/ Intel Core i7-8650U CPU @1.90GHz 2.11GHz $299",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-357_hp-elitebook-840-g5-laptop-intel-core-i7-8650u-cpu-190ghz-21.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 358,
+      "item": "Dell Latitude 5300 \ud83d\udcbb\ud83d\udc95 Touchscreen Laptop \u2705 i5-8th Generation || 8GB || 256GB Storage",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-358_dell-latitude-5300-touchscreen-laptop-i5-8th-generation-8gb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 359,
+      "item": "Dell Latitude 7390 13.3\u201d Touchscreen Laptop \ud83d\ude33\ud83c\udde6\ud83c\uddfa i7-8th Gen 16GB 256GB SSD $280",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-359_dell-latitude-7390-133-touchscreen-laptop-i7-8th-gen-16gb-25.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 360,
+      "item": "Dell Latitude 7390 13.3\u201d Touchscreen Laptop \ud83d\udcbb\u2764\ufe0f i7-8th Gen || 16GB || 256GB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-360_dell-latitude-7390-133-touchscreen-laptop-i7-8th-gen-16gb-25.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 361,
+      "item": "Dell Latitude 7400 Intel Core i7-8665U CPU @1.90GHz Touchscreen Laptop\ud83d\udecd\ufe0f\ud83d\udc68\u200d\ud83d\udcbb 16GB || 256GB $349",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-361_dell-latitude-7400-intel-core-i7-8665u-cpu-190ghz-touchscree.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 362,
+      "item": "DELL Latitude 5320 Laptop for sale \ud83d\ude18 High quality with 256GB Storage 16Gb RAM Core i7 11th gen",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-362_dell-latitude-5320-laptop-for-sale-high-quality-with-256gb-s.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 363,
+      "item": "Lenovo Thinkpad T14 Gen1 AMD Ryzen 5 Pro 16G 512G SSD 14inch Touchscreen Laptop Office USB-C",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-363_lenovo-thinkpad-t14-gen1-amd-ryzen-5-pro-16g-512g-ssd-14inch.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 364,
+      "item": "Dell Latitude 9520 i7-1185G7 16 GB 512 GB 15\u201d 2-in-1 laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-364_dell-latitude-9520-i7-1185g7-16-gb-512-gb-15-2-in-1-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 365,
+      "item": "Lenovo T14s G2 i7-1185G7 3.0 GHz 32 GB RAM 256 GB SSD 14\u201d touchscreen Windows 11 pro Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-365_lenovo-t14s-g2-i7-1185g7-30-ghz-32-gb-ram-256-gb-ssd-14-touc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 366,
+      "item": "AORUS Gaming Laptop \u2013 i7 / 16GB RAM / GTX 970M 6GB / 512GB SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-366_aorus-gaming-laptop-i7-16gb-ram-gtx-970m-6gb-512gb-ssd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 367,
+      "item": "$699 \ud83d\udd25 Dell Latitude Pro 14 PC14250, Intel core Ultra 5 5235U (2025), 16GB RAM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-367_699-dell-latitude-pro-14-pc14250-intel-core-ultra-5-5235u-20.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 368,
+      "item": "Dell Latitude 7390 13.3\u201d Touchscreen Laptop \ud83d\udc99\ud83d\udcbb i7-8th Gen || 16GB || 256GB SSD $300",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-368_dell-latitude-7390-133-touchscreen-laptop-i7-8th-gen-16gb-25.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 369,
+      "item": "Dell Latitude 5300  Touchscreen Laptop \ud83d\udcbb\u2705 i5-8365U CPU @1.60GHz || 8GB || 256GB SSD $249",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-369_dell-latitude-5300-touchscreen-laptop-i5-8365u-cpu-160ghz-8g.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 370,
+      "item": "ACER Spin 5 Touchscreen Laptop \ud83d\udcb0 Laptops for study and work, i5-8th Gen 8GB RAM 256GB storage",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-370_acer-spin-5-touchscreen-laptop-laptops-for-study-and-work-i5.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 371,
+      "item": "Dell inspiron 15 3535 Ryzen 5",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-371_dell-inspiron-15-3535-ryzen-5.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 372,
+      "item": "Asus 13.3\"FHD screen Zenbook laptop windows 11 pro i5 7th cpu256 Gb ssd, 8Gb ram, wifi good battery",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-372_asus-133fhd-screen-zenbook-laptop-windows-11-pro-i5-7th-cpu2.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 373,
+      "item": "Dell G5 5500 Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-373_dell-g5-5500-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 374,
+      "item": "Dell Latitude 5430 Business Laptop Computer",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-374_dell-latitude-5430-business-laptop-computer.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 375,
+      "item": "Dell Latitude 5420 Business Laptop Computer",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-375_dell-latitude-5420-business-laptop-computer.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 376,
+      "item": "Dell Latitude 5420 Business Laptop Computer",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-376_dell-latitude-5420-business-laptop-computer.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 377,
+      "item": "Dell Latitude 5320 Business Laptop Computer",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-377_dell-latitude-5320-business-laptop-computer.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 378,
+      "item": "LENOVO THINKPAD T490",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-378_lenovo-thinkpad-t490.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 379,
+      "item": "HP pro book 360 435 G7",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-379_hp-pro-book-360-435-g7.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 380,
+      "item": "Asus 15.6\" i7 8GB 256GB | MS Office",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-380_asus-156-i7-8gb-256gb-ms-office.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 381,
+      "item": "Intel i5 Acer laptop 10th GEN 256 SSD",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-381_intel-i5-acer-laptop-10th-gen-256-ssd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 382,
+      "item": "Dell XPS 9570 15\"",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-382_dell-xps-9570-15.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 383,
+      "item": "Dell 7200 2 in 1 Tab",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-383_dell-7200-2-in-1-tab.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 384,
+      "item": "Lenovo Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-384_lenovo-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 385,
+      "item": "HP Convertible laptop stand",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-385_hp-convertible-laptop-stand.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 386,
+      "item": "Gaming computer i7 4.01 ghz 8 gig ram 128gig ssd hd video card 4 gig wind 10",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-386_gaming-computer-i7-401-ghz-8-gig-ram-128gig-ssd-hd-video-car.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 387,
+      "item": "Microsoft surface pro 4 i5-6300U 2.4GHz 8GB 256GB SSD Win 11pro",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-387_microsoft-surface-pro-4-i5-6300u-24ghz-8gb-256gb-ssd-win-11p.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 388,
+      "item": "MSI PS42 8RB Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-388_msi-ps42-8rb-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 389,
+      "item": "MSI GX60 Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-389_msi-gx60-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 390,
+      "item": "Lenovo Legion Go Z2 2TB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-390_lenovo-legion-go-z2-2tb.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 391,
+      "item": "Machenike L16A Ryzen 7 7840H 16GB LPDDR5 1TB SSD Radeon 780M 16in 2.5K 120Hz",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-391_machenike-l16a-ryzen-7-7840h-16gb-lpddr5-1tb-ssd-radeon-780m.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 392,
+      "item": "Lenovo Legion Slim 5 14\" (RTX 4060) (32 GB LPDDR5x-6400 RAM)",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-392_lenovo-legion-slim-5-14-rtx-4060-32-gb-lpddr5x-6400-ram.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 393,
+      "item": "Lenovo ThinkPad L13 Laptop/Touchscreen/Win 11 Pro",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-393_lenovo-thinkpad-l13-laptoptouchscreenwin-11-pro.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 394,
+      "item": "Lenovo G50-45 laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-394_lenovo-g50-45-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 395,
+      "item": "Dell Latitude 5440 Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-395_dell-latitude-5440-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 396,
+      "item": "Acer 4720Z laptop 2008 model",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-396_acer-4720z-laptop-2008-model.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 397,
+      "item": "HP Ryzen 745 G5 AMD Pro 2500U w/Radeon Vega Mobile Gfx 2.00 GHz, 8 GB / 256 GB",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-397_hp-ryzen-745-g5-amd-pro-2500u-wradeon-vega-mobile-gfx-200-gh.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 398,
+      "item": "HP Notebook 250 G7, i5, 1035G1, 16GB, 256GB, Graphic: 128mb, 15.6\"",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-398_hp-notebook-250-g7-i5-1035g1-16gb-256gb-graphic-128mb-156.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 399,
+      "item": "Dell 5421, i5, 11500h, 11th gen, 16gb, 256 gb, 14\", windows 11",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-399_dell-5421-i5-11500h-11th-gen-16gb-256-gb-14-windows-11.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 400,
+      "item": "Toshiba portable Disk drive",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-400_toshiba-portable-disk-drive.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 401,
+      "item": "Dell Optiplex 9020 SFF PC Intel Core i7-4770/8GB RAM/120GB/Win 10Pro",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-401_dell-optiplex-9020-sff-pc-intel-core-i7-47708gb-ram120gbwin.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 402,
+      "item": "Dell Optiplex 9020 SFF PC Intel Core i5-4690/8GB RAM/120GB/Win 10Pro",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-402_dell-optiplex-9020-sff-pc-intel-core-i5-46908gb-ram120gbwin.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 403,
+      "item": "Dell Latitude E5540 i5-4310U 2-2.60GHz, 8GB Ram, 500GB  HDD Window 10 Pro .",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-403_dell-latitude-e5540-i5-4310u-2-260ghz-8gb-ram-500gb-hdd-wind.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 404,
+      "item": "HP 17.3inch hardware upgrade notebook",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-404_hp-173inch-hardware-upgrade-notebook.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 405,
+      "item": "Dell vostro 5320 - 13 inch - 12 core i7 cpu - 16 GB RAM",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-405_dell-vostro-5320-13-inch-12-core-i7-cpu-16-gb-ram.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 406,
+      "item": "Del Vostro 5410 - 14 inches",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-406_del-vostro-5410-14-inches.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 407,
+      "item": "Dell 14\" UltraBook i5 16GB 256GB Win11 Pro | MS Office Business",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-407_dell-14-ultrabook-i5-16gb-256gb-win11-pro-ms-office-business.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 408,
+      "item": "HP Elitebook 840 Core i5 16gb 256gb ssd",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-408_hp-elitebook-840-core-i5-16gb-256gb-ssd.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 409,
+      "item": "MacBook Pro/16GB RAM/Office 2026",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-409_macbook-pro16gb-ramoffice-2026.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 410,
+      "item": "PC Dell Precision T3600",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-410_pc-dell-precision-t3600.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 411,
+      "item": "Lenovo IdeaPad Slim 3",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-411_lenovo-ideapad-slim-3.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 412,
+      "item": "HP EliteBook 840 G6 14 inch Laptop, Silver Touchscreen",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-412_hp-elitebook-840-g6-14-inch-laptop-silver-touchscreen.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 413,
+      "item": "Microsoft surface 7+",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-413_microsoft-surface-7.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 414,
+      "item": "HP laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-414_hp-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 415,
+      "item": "Acer TravelMate Spin P4 2-in-1 Touchscreen Laptop | i5-1135G7 | Stylus Pen | Thunderbolt 4 | Win11",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-415_acer-travelmate-spin-p4-2-in-1-touchscreen-laptop-i5-1135g7.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 416,
+      "item": "Acer Spin 5 SP513-53N 2-in-1 Core i5-8265U/8GB RAM/256GB SSD/W11 Pro",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-416_acer-spin-5-sp513-53n-2-in-1-core-i5-8265u8gb-ram256gb-ssdw1.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 417,
+      "item": "Lenovo gen 3 laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-417_lenovo-gen-3-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 418,
+      "item": "HP LAPTOP BRAND NEW",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-418_hp-laptop-brand-new.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 419,
+      "item": "ASUS Laptop \u2013 Intel Core i7 \u2013 15.6\u201d \u2013 Charger Included",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-419_asus-laptop-intel-core-i7-156-charger-included.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 420,
+      "item": "Hp X360 Touchscreen i5  (256 GB SSD ) With 12 Months Warranty",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-420_hp-x360-touchscreen-i5-256-gb-ssd-with-12-months-warranty.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 421,
+      "item": "Selling MSI PRO 15.6\" FHD Portable Monitor",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-421_selling-msi-pro-156-fhd-portable-monitor.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 422,
+      "item": "HP Notebook Ryzen7 16GB 15\" FHD SSD RADEON Laptop Win11 GREAT condition",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-422_hp-notebook-ryzen7-16gb-15-fhd-ssd-radeon-laptop-win11-great.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 423,
+      "item": "Laptops and micro desktops",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-423_laptops-and-micro-desktops.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 424,
+      "item": "MSI Bravo 15 Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-424_msi-bravo-15-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 425,
+      "item": "Hp pavilion 23inch AIO touch screen pc",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-425_hp-pavilion-23inch-aio-touch-screen-pc.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 426,
+      "item": "Lenovo LOQ 15IAX9E Luna grey",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-426_lenovo-loq-15iax9e-luna-grey.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 427,
+      "item": "2019 MacBook Pro 2.3Ghz i9, 1Tb, 16gb RAM - 16 inch",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-427_2019-macbook-pro-23ghz-i9-1tb-16gb-ram-16-inch.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 428,
+      "item": "i7/250GB SSD/8GB RAM Fujitsu Lifebook with docking station",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-428_i7250gb-ssd8gb-ram-fujitsu-lifebook-with-docking-station.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 429,
+      "item": "Microsoft Surface Pro 13\u201d laptop in sandstone",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-429_microsoft-surface-pro-13-laptop-in-sandstone.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 430,
+      "item": "MSI GF63 Thin Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-430_msi-gf63-thin-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 431,
+      "item": "HP 15.6 inch Laptop 15-fd0943TU, Silver",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-431_hp-156-inch-laptop-15-fd0943tu-silver.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 432,
+      "item": "Dell laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-432_dell-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 433,
+      "item": "Hp Elitebook x360 G4 touch screen \n10 available",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-433_hp-elitebook-x360-g4-touch-screen-10-available.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 434,
+      "item": "HP X360",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-434_hp-x360.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 435,
+      "item": "\ud83d\udd25\ud83d\udd25Dell latitude 3310",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-435_dell-latitude-3310.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 436,
+      "item": "Dell latitude 5591 big screen 15.6",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-436_dell-latitude-5591-big-screen-156.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 437,
+      "item": "microsoft pro 7 laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-437_microsoft-pro-7-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 438,
+      "item": "HP EliteBook x360 830 G8 13.3 inch (256GB, Intel Core i5 7th Gen., 2.40GHz",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-438_hp-elitebook-x360-830-g8-133-inch-256gb-intel-core-i5-7th-ge.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 439,
+      "item": "Dell Latitude 3450",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-439_dell-latitude-3450.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 440,
+      "item": "HP Pavillion X360 Convertible",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-440_hp-pavillion-x360-convertible.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 441,
+      "item": "Dell Latitude 7490 i7-8650U 512GB 8GB Windows 11 fully functional",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-441_dell-latitude-7490-i7-8650u-512gb-8gb-windows-11-fully-funct.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 442,
+      "item": "Laptop/tablet 32g",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-442_laptoptablet-32g.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 443,
+      "item": "HP Probook 2in1 Touchscreen Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-443_hp-probook-2in1-touchscreen-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 444,
+      "item": "Dell Latitude 3450 Laptop computer",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-444_dell-latitude-3450-laptop-computer.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 445,
+      "item": "$320 \ud83d\udc9c NOW FOR Surface laptop 2, BEST Quality screen, Core i7, ultra book TOUCHSCREEN, Warranty",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-445_320-now-for-surface-laptop-2-best-quality-screen-core-i7-ult.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 446,
+      "item": "LENOVO ThinkPad Yoga L13 Gen 2\ud83d\udc7a\ud83d\udd0b Touchscreen Laptop with Pen. Warranty , for school and work",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-446_lenovo-thinkpad-yoga-l13-gen-2-touchscreen-laptop-with-pen-w.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 447,
+      "item": "Lenovo X1 Carbon 7th Gen (2019) \ud83d\udc3c\ud83d\ude08 Intel core i7-8th Gen, 8GB RAM 256GB storage, battery excellent",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-447_lenovo-x1-carbon-7th-gen-2019-intel-core-i7-8th-gen-8gb-ram.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 448,
+      "item": "Dell Latitude 7390 \ud83d\udcbb\ud83d\udc95 Laptop || 8GB || 256GB || i5-8350U CPU @1.70GHz \u2705 $199",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-448_dell-latitude-7390-laptop-8gb-256gb-i5-8350u-cpu-170ghz-199.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 449,
+      "item": "$149\u2705Dell latitude 7280 Intel (R) Core (TM) i5-6200U CPU @2.30GHz 2.40  \u2705\ud83d\udcbb/8GB RAM /256Gb Storage",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-449_149dell-latitude-7280-intel-r-core-tm-i5-6200u-cpu-230ghz-24.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 450,
+      "item": "ACER Spin 5 (SP513-53N) Touchscreen Laptop \ud83d\ude24\ud83e\udda0 Excellent condition for Work and Study, Good battery",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-450_acer-spin-5-sp513-53n-touchscreen-laptop-excellent-condition.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 451,
+      "item": "HP Excellent Condtion Silver Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-451_hp-excellent-condtion-silver-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 452,
+      "item": "Dell Precision Tower 5810 Workstation",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/fb-452_dell-precision-tower-5810-workstation.md",
+      "route": "Consolidated Card Store"
+    }
+  ]
+}

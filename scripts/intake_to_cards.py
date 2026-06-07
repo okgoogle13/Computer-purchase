@@ -123,10 +123,10 @@ def slugify(text: str, maxlen: int = 60) -> str:
     return text[:maxlen].rstrip("-")
 
 
-def make_filename(row: dict, index: int) -> str:
+def make_filename(row: dict, index: int, prefix: str = "intake") -> str:
     name  = row.get("item_name") or row.get("product_name") or "unknown-item"
     slug  = slugify(name)
-    return f"intake-{index:03d}_{slug}.md"
+    return f"{prefix}-{index:03d}_{slug}.md"
 
 
 # ---------------------------------------------------------------------------
@@ -390,6 +390,7 @@ def main() -> None:
     parser.add_argument("--dry-run",       action="store_true", help="Preview output; do not write files")
     parser.add_argument("--overwrite",     action="store_true", help="Overwrite existing card files")
     parser.add_argument("--skip-existing", action="store_true", help="Skip (default) rows whose card file already exists")
+    parser.add_argument("--prefix",        default="intake", help="Prefix for the generated card filename (default: intake)")
     args = parser.parse_args()
 
     input_path = Path(args.input_csv).resolve()
@@ -418,7 +419,7 @@ def main() -> None:
         try:
             folder, routing_note = route_row(row)
             tags     = build_tags(row)
-            filename = make_filename(row, idx)
+            filename = make_filename(row, idx, args.prefix)
             out_path = folder / filename
 
             card = render_card(row, tags, routing_note, source_batch)

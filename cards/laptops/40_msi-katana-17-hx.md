@@ -11,6 +11,8 @@ Price_Value: 8
 Future_Proof: 3
 Portability: 8
 Track2_Avoidance: 0
+vram: 8.0 GB
+screen_size_in: 17.3
 ---
 
 # MSI Katana 17 HX — PB Tech

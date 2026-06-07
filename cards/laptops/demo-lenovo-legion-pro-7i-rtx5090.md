@@ -21,6 +21,7 @@ Price_Value: 3
 Future_Proof: 9
 Portability: 5
 Track2_Avoidance: 9
+screen_size_in: 16.0
 ---
 
 # Lenovo Legion Pro 7i (Demo) — RTX 5090 Laptop GPU 24 GB

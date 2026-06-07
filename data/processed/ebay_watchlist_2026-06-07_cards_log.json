@@ -1,0 +1,54 @@
+{
+  "run_timestamp": "2026-06-07T20:01:11.251871",
+  "input_file": "/Users/okgoogle13/Projects/Computer purchase/data/processed/ebay_watchlist_2026-06-07_processed.csv",
+  "counts": {
+    "total_rows": 6,
+    "written": 6,
+    "skipped": 0,
+    "errored": 0
+  },
+  "entries": [
+    {
+      "index": 1,
+      "item": "GIGABYTE AORUS 17.4\" YE5- 17.3\" RTX 3080ti 300Hz, Intel i7 12th gen 14c 20t 32gb",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/intake-001_gigabyte-aorus-174-ye5-173-rtx-3080ti-300hz-intel-i7-12th-ge.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 2,
+      "item": "Razer Blade 18\" QHD+ 240Hz i9-13950HX RTX4090 2TB 32GB W11H Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/intake-002_razer-blade-18-qhd-240hz-i9-13950hx-rtx4090-2tb-32gb-w11h-ga.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 3,
+      "item": "(A+)Asus ROG Strix SCAR 17 SE 17.3\" i7-12950HX 32G 2TB SSD RTX3080Ti FHD 360Hz",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/intake-003_aasus-rog-strix-scar-17-se-173-i7-12950hx-32g-2tb-ssd-rtx308.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 4,
+      "item": "Lenovo Legion 9i 18\" WQUXGA Intel Ultra 9 240Hz 2TB 64GB RTX5080 Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/intake-004_lenovo-legion-9i-18-wquxga-intel-ultra-9-240hz-2tb-64gb-rtx5.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 5,
+      "item": "Razer Blade Pro 17 17.3\" Intel Core i7-10875H Gaming Laptop",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/intake-005_razer-blade-pro-17-173-intel-core-i7-10875h-gaming-laptop.md",
+      "route": "Consolidated Card Store"
+    },
+    {
+      "index": 6,
+      "item": "Asus Rog Strix 17 RTX 4090 laptop QHD 240Hz display 64Gb ram DDR5",
+      "action": "overwrite",
+      "path": "/Users/okgoogle13/Projects/Computer purchase/cards/intake-006_asus-rog-strix-17-rtx-4090-laptop-qhd-240hz-display-64gb-ram.md",
+      "route": "Consolidated Card Store"
+    }
+  ]
+}

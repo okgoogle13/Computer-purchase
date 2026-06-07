@@ -27,6 +27,8 @@ Price_Value: 7
 Future_Proof: 3
 Portability: 8
 Track2_Avoidance: 0
+vram: 16.0 GB
+screen_size_in: 16.0
 ---
 
 # MSI Raider GE68 HX 13V (RTX 4090 16GB)

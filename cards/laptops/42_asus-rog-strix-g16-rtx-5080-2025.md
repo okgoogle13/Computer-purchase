@@ -12,6 +12,7 @@ Price_Value: 3
 Future_Proof: 7
 Portability: 8
 Track2_Avoidance: 7
+screen_size_in: 16.0
 ---
 
 # ASUS ROG Strix G16 (2025) — G615LW-S5165W

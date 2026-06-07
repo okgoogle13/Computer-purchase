@@ -12,6 +12,7 @@ Price_Value: 8
 Future_Proof: 5
 Portability: 5
 Track2_Avoidance: 4
+screen_size_in: 18.0
 ---
 
 # ASUS ROG Strix G18 (2024) — G814JZR / G814JZ

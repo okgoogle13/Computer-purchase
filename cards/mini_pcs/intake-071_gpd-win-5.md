@@ -13,7 +13,7 @@ price_aud: UNKNOWN
 condition: New
 au_stock: UNKNOWN
 verification: Needs Verification
-status: Active
+status: ARCHIVED
 score: UNKNOWN — pending manual review
 Performance_Headroom: 3
 Price_Value: 2

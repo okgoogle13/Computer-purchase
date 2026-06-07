@@ -21,6 +21,7 @@ Price_Value: 3
 Future_Proof: 9
 Portability: 5
 Track2_Avoidance: 9
+screen_size_in: 13.4
 ---
 
 # ASUS ROG Flow Z13 (2025) — AMD Strix Halo

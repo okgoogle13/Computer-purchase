@@ -21,6 +21,7 @@ Price_Value: 4
 Future_Proof: 7
 Portability: 5
 Track2_Avoidance: 7
+screen_size_in: 18.0
 ---
 
 # MSI Titan 18 HX A14VIG (Refurbished) — RTX 4090 Laptop GPU 16 GB

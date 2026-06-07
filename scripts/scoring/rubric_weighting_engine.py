@@ -97,7 +97,9 @@ def load_config() -> dict:
 
 
 def parse_float(value: object) -> float | None:
-    text = str(value or "").strip().replace("$", "").replace(",", "")
+    if value is None or value == "":
+        return None
+    text = str(value).strip().replace("$", "").replace(",", "")
     if not text or text.upper() in {"UNKNOWN", "N/A", "NONE", "-"}:
         return None
     try:
@@ -381,8 +383,10 @@ def score_acquisition_risk(row: dict) -> float:
         base -= 1.0
 
     # ── Warranty ─────────────────────────────────────
-    warranty = parse_int(row.get("warranty_months")) or 0
-    au_warranty = parse_bool(row.get("warranty_au_redeemable", False))
+    warranty = parse_int(row.get("warranty_months") or row.get("warranty_months_confirmed")) or 0
+    acl_val = str(row.get("acl_covered", "")).strip().lower()
+    is_acl = acl_val in ("yes", "true", "1")
+    au_warranty = parse_bool(row.get("warranty_au_redeemable", False)) or is_acl
     if warranty >= 12 and au_warranty:    base += 1.5
     elif warranty >= 6:                   base += 0.5
     elif warranty == 0:                   base -= 1.5
@@ -472,7 +476,7 @@ def compute_risk_adjusted_price(row: dict) -> float:
     if disclosure in ["none", "sold_as_is"]:
         price += 120  # estimated battery replacement risk
 
-    warranty = parse_int(row.get("warranty_months")) or 0
+    warranty = parse_int(row.get("warranty_months") or row.get("warranty_months_confirmed")) or 0
     if warranty == 0:
         price += 150  # no-warranty risk premium
 
@@ -530,7 +534,7 @@ def enrich_row(row: dict) -> dict:
     row["manufacture_year"] = manufacture_year if manufacture_year is not None else ""
 
     seller_class = str(row.get("seller_class", "unknown")).lower()
-    warranty_months = parse_int(row.get("warranty_months")) or 0
+    warranty_months = parse_int(row.get("warranty_months") or row.get("warranty_months_confirmed")) or 0
     returns_accepted = parse_bool(row.get("returns_accepted"))
     battery_disclosure_level = row.get("battery_disclosure_level", "none")
     battery_health_pct = parse_int(row.get("battery_health_pct"))
@@ -631,7 +635,22 @@ def calculate_risk_adjustment(row: dict, mcda_total: float | None) -> tuple[floa
         return None, None, None, []
 
     seller_key = normalize_risk_key(row.get("seller_class"))
+    seller_translations = {
+        "PRIVATE": "PRIVATE_SELLER",
+        "COMMERCIAL_REFURB": "REFURB_SELLER",
+        "COMMERCIAL_OEM": "MANUFACTURER_AU",
+        "COMMERCIAL_SELLER": "MAJOR_RETAILER_AU",
+    }
+    if seller_key in seller_translations:
+        seller_key = seller_translations[seller_key]
+
     source_key = normalize_risk_key(row.get("source_platform"))
+    source_translations = {
+        "PRIVATE_SELLER": "FB_MARKETPLACE", # fallback if source is listed as seller class
+    }
+    if source_key in source_translations:
+        source_key = source_translations[source_key]
+
     notes: list[str] = []
 
     seller_multiplier = SELLER_RISK_MULTIPLIERS.get(seller_key)

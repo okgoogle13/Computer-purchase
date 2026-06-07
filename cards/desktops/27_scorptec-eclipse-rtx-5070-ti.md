@@ -11,6 +11,7 @@ Price_Value: 2
 Future_Proof: 7
 Portability: 2
 Track2_Avoidance: 7
+status: ARCHIVED
 ---
 
 # Scorptec Eclipse RTX 5070 Ti

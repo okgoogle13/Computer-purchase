@@ -22,6 +22,7 @@ Price_Value: 9
 Future_Proof: 3
 Portability: 2
 Track2_Avoidance: 0
+status: ARCHIVED
 ---
 
 # Lenovo Yoga AIO 27i Gen 10 — RTX 4050 6 GB (Interim Solution)

@@ -11,6 +11,7 @@ Price_Value: 2
 Future_Proof: 9
 Portability: 5
 Track2_Avoidance: 9
+status: ARCHIVED
 ---
 
 # MSI Raider A18 HX — RTX 5090 Laptop GPU 24 GB

@@ -6,7 +6,7 @@ track: 1
 pathway: 1A
 name: Alienware 18 Area-51 18in QHD+ Ultra 9 32GB 2TB RTX 5070 Ti
 gpu: RTX 5070 Ti Laptop
-vram: UNKNOWN
+vram: 12.0 GB
 unified_memory: UNKNOWN
 screen_size_in: 18
 thermal_flag: UNKNOWN

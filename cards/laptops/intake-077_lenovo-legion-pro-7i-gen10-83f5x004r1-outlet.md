@@ -19,7 +19,7 @@ retailer: Lenovo Outlet AU
 url: https://www.lenovo.com/au/outlet/en/p/laptops/legion-laptops/legion-pro-series/legion-pro-7i-gen-10-16-inch-intel/83f5x004r1
 au_stock: Yes
 verification: Verified (full page, 2026-05-13)
-status: Active
+status: ARCHIVED
 seller_class: MANUFACTURER_AU
 source_platform: MANUFACTURER_AU
 Performance_Headroom: 9

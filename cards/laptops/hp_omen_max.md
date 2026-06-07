@@ -21,6 +21,7 @@ Price_Value: 5
 Future_Proof: 7
 Portability: 8
 Track2_Avoidance: 7
+source_platform: MANUFACTURER_AU
 ---
 # HP OMEN Max 16
 

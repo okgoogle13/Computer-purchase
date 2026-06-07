@@ -13,7 +13,7 @@ price_aud: $3079 AUD
 condition: Open Box
 au_stock: UNKNOWN
 verification: Unverified
-status: Active
+status: ARCHIVED
 score: UNKNOWN — pending manual review
 Performance_Headroom: 5
 Price_Value: 7

@@ -20,6 +20,7 @@ Price_Value: 2
 Future_Proof: 7
 Portability: 8
 Track2_Avoidance: 7
+screen_size_in: 16.0
 ---
 
 # MSI Stealth A16 5080

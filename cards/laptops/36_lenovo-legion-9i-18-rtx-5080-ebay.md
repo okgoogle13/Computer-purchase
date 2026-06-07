@@ -19,6 +19,7 @@ score: 7.3
 status: BUY_CANDIDATE
 au_stock: Yes
 verification: Verified
+screen_size_in: 18.0
 ---
 
 # Lenovo Legion 9i Gen 10 18" — RTX 5080 Laptop GPU 16 GB

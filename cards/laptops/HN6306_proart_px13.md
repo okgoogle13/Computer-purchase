@@ -30,6 +30,7 @@ Track2_Avoidance: 9
 score: 7.55
 seller_class: MAJOR_RETAILER_AU
 source_platform: MANUFACTURER_AU
+screen_size_in: 13.3
 ---
 
 # ASUS ProArt GoPro Edition PX13 HN7306EAC-LX044W (Strix Halo)

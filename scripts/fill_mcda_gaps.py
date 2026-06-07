@@ -173,9 +173,9 @@ def infer_track_pathway(row: dict) -> tuple[str, str]:
     if profile in ("Laptop",):
         return "1", "1A"
 
-    # Mini PC with unified → 1B or 2C depending on unified memory
+    # Mini PC with unified or discrete GPU → 2C or 1B
     if profile == "Mini PC":
-        if unified >= 32:
+        if unified >= 32 or vram >= 12.0:
             return "2", "C"
         return "1", "1B"
 

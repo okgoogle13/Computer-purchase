@@ -21,13 +21,15 @@ retailer: B&H Photo (US Import)
 url: https://www.bhphotovideo.com/c/product/1878908-REG/msi_raider_a18_hx_a9wig_082us_18_raider_a18_hx.html
 au_stock: No
 verification: Verified
-status: WATCHLIST
+status: ARCHIVED
 score: 6.0
 Performance_Headroom: 3
 Price_Value: 1
 Future_Proof: 3
 Portability: 5
 Track2_Avoidance: 0
+vram: 16.0 GB
+screen_size_in: 18.0
 ---
 
 # MSI Raider A18 HX A9WIG-082US

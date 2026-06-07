@@ -21,13 +21,14 @@ retailer: IT Nest / LogicalTech
 url: https://www.itnest.com.au/hardware/hp-workstation-pc/z2-mini-g1ia-ai-390-max-pro-32gb-1tbw11p-c07
 au_stock: Yes
 verification: Verified (Price matched at LogicalTech)
-status: BUY_CANDIDATE
+status: ARCHIVED
 score: 8.9
 Performance_Headroom: 3
 Price_Value: 6
 Future_Proof: 3
 Portability: 7
 Track2_Avoidance: 0
+vram: 0.0 GB
 ---
 
 # HP Z2 Mini G1a AI (Ryzen AI Max PRO 390)

@@ -13,13 +13,14 @@ price_aud: $8488 AUD
 condition: New
 au_stock: UNKNOWN
 verification: Verified
-status: Active
+status: ARCHIVED
 score: UNKNOWN — pending manual review
 Performance_Headroom: 9
 Price_Value: 0
 Future_Proof: 9
 Portability: 5
 Track2_Avoidance: 9
+screen_size_in: 18.0
 ---
 
 # MSI Raider 18 HX AI A2XWJG

@@ -70,7 +70,7 @@ async def run_search(cdp_url: str, targets: list[str], max_scrolls: int, max_pri
                     
                 print(f"\n[*] Searching for: '{target}'")
                 query = urllib.parse.quote(target)
-                url = f"https://www.facebook.com/marketplace/search/?query={query}&exact=false"
+                url = f"https://www.facebook.com/marketplace/melbourne/search/?query={query}&exact=false"
                 if max_price:
                     url += f"&maxPrice={max_price}"
                 url += "&sortBy=creation_time_descend"

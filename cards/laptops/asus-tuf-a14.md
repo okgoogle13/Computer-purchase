@@ -8,6 +8,8 @@ Price_Value: 2
 Future_Proof: 9
 Portability: 8
 Track2_Avoidance: 9
+screen_size_in: 14.0
+status: ARCHIVED
 ---
 # ASUS TUF Gaming A14
 14" Strix Halo

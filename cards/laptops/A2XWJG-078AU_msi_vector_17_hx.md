@@ -21,6 +21,8 @@ Price_Value: 2
 Future_Proof: 3
 Portability: 5
 Track2_Avoidance: 0
+vram: 24.0 GB
+screen_size_in: 17.0
 ---
 
 # Product Card: MSI Vector 17 HX AI (RTX 5090)

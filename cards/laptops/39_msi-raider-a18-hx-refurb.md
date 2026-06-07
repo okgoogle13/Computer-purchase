@@ -11,6 +11,8 @@ Price_Value: 5
 Future_Proof: 3
 Portability: 5
 Track2_Avoidance: 0
+vram: 12.0 GB
+screen_size_in: 18.0
 ---
 
 # MSI Raider A18 HX — Remanufactured (PB Tech)

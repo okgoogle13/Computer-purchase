@@ -12,6 +12,7 @@ Price_Value: 4
 Future_Proof: 5
 Portability: 8
 Track2_Avoidance: 4
+screen_size_in: 16.0
 ---
 
 # ASUS ROG Strix G16 (2025) — G615LR-S5128W

@@ -11,6 +11,8 @@ Future_Proof: 9
 Portability: 5
 Track2_Avoidance: 9
 score: 7.5
+screen_size_in: 18.0
+status: ARCHIVED
 ---
 
 # Lenovo Legion 9i Gen 10 18" — RTX 5090 Laptop GPU 24 GB

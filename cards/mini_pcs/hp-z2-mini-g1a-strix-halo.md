@@ -12,6 +12,7 @@ Price_Value: 2
 Future_Proof: 9
 Portability: 7
 Track2_Avoidance: 9
+status: ARCHIVED
 ---
 
 # HP Z2 Mini G1a — AMD Strix Halo

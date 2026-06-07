@@ -21,6 +21,7 @@ Price_Value: 8
 Future_Proof: 7
 Portability: 5
 Track2_Avoidance: 7
+screen_size_in: 17.3
 ---
 
 # MSI VECTOR GP78 HX 14V — RTX 4090 Laptop GPU 16 GB

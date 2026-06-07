@@ -11,6 +11,7 @@ Price_Value: 2
 Future_Proof: 9
 Portability: 5
 Track2_Avoidance: 9
+status: ARCHIVED
 ---
 
 # ASUS ROG Strix Scar 18 (2025) — RTX 5090 Laptop GPU 24 GB

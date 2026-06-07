@@ -28,6 +28,9 @@ Price_Value: 3
 Future_Proof: 3
 Portability: 5
 Track2_Avoidance: 0
+screen_size_in: 13.4
+source_platform: MANUFACTURER_AU
+seller_class: MANUFACTURER_AU
 ---
 
 # ASUS ROG Flow Z13 (2026) GZ302EA-RU004W

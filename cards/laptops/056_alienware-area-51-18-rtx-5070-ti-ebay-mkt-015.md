@@ -6,7 +6,7 @@ track: 1
 pathway: 1A
 name: Dell Laptop Alienware 18 Area-51 18in Ultra 9 275HX 2TB RTX 5070 Ti
 gpu: RTX 5070 Ti Laptop
-vram: UNKNOWN
+vram: 12.0 GB
 unified_memory: UNKNOWN
 screen_size_in: 18
 thermal_flag: UNKNOWN
@@ -14,7 +14,7 @@ price_aud: UNKNOWN
 condition: Brand new
 au_stock: No
 verification: Needs Verification
-status: Watchlist
+status: ARCHIVED
 score: UNKNOWN
 Performance_Headroom: 3
 Price_Value: 2

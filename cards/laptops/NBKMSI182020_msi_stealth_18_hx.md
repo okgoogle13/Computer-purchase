@@ -21,6 +21,8 @@ Price_Value: 3
 Future_Proof: 3
 Portability: 5
 Track2_Avoidance: 0
+vram: 12.0 GB
+screen_size_in: 18.0
 ---
 
 # Product Card: MSI Stealth 18 HX AI (RTX 5070 Ti)

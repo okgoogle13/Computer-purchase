@@ -20,6 +20,7 @@ Future_Proof: 7
 Portability: 5
 Track2_Avoidance: 7
 score: 6.5
+screen_size_in: 18.0
 ---
 
 # Acer Predator Helios 18 RTX 4090 refurbished

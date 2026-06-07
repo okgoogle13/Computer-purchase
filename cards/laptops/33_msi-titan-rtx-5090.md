@@ -11,6 +11,8 @@ Price_Value: 2
 Future_Proof: 9
 Portability: 5
 Track2_Avoidance: 9
+screen_size_in: 18.0
+status: ARCHIVED
 ---
 
 # MSI Titan — RTX 5090 Laptop GPU 24 GB

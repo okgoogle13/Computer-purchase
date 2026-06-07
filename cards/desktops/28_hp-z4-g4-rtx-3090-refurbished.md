@@ -11,6 +11,7 @@ Price_Value: 2
 Future_Proof: 9
 Portability: 2
 Track2_Avoidance: 9
+status: ARCHIVED
 ---
 
 # HP Z4 G4 Workstation + Used RTX 3090 24 GB

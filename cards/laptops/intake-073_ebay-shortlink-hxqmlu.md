@@ -23,6 +23,8 @@ Price_Value: 7
 Future_Proof: 3
 Portability: 5
 Track2_Avoidance: 0
+vram: 8.0 GB
+screen_size_in: 18.0
 ---
 
 # Alienware 18 Area-51 (RTX 5070 8GB)

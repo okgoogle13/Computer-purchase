@@ -9,7 +9,7 @@ item_name: Lenovo Yoga Book 9i Gen 9 13 (83FFXA01AU) - Lenovo Outlet AU
 name: Lenovo Yoga Book 9i Gen 9 13 (83FFXA01AU) - Lenovo Outlet AU
 machine: Lenovo Yoga Book 9i Gen 9 (83FFXA01AU)
 gpu: Integrated Intel Graphics
-vram: UNKNOWN
+vram: 0.0 GB
 unified_memory: UNKNOWN
 screen_size_in: 13
 thermal_flag: UNKNOWN
@@ -19,7 +19,7 @@ retailer: Lenovo Outlet AU
 url: https://www.lenovo.com/au/outlet/en/p/laptops/yoga/yoga-2-in-1-series/lenovo-yoga-book-9i-gen-9-13-inch-intel/83ffxa01au
 au_stock: Yes
 verification: Verified (full page, 2026-05-13)
-status: Active
+status: ARCHIVED
 seller_class: MANUFACTURER_AU
 source_platform: MANUFACTURER_AU
 Performance_Headroom: 3

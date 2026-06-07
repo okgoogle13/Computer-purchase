@@ -28,6 +28,10 @@ Price_Value: 3
 Future_Proof: 3
 Portability: 8
 Track2_Avoidance: 0
+vram: 16.0 GB
+screen_size_in: 16.0
+source_platform: MAJOR_RETAILER_AU
+seller_class: MAJOR_RETAILER_AU
 ---
 
 # Lenovo Legion Pro 7 16IAX10H (RTX 5080)

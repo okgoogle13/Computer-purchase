@@ -21,6 +21,11 @@ Price_Value: 5
 Future_Proof: 3
 Portability: 8
 Track2_Avoidance: 5
+gpu: Integrated Graphics
+vram: 0.0 GB
+screen_size_in: 16.0
+source_platform: MAJOR_RETAILER_AU
+seller_class: MAJOR_RETAILER_AU
 ---
 
 # Product Card: HP ZBook Ultra 14 G1a (Strix Halo)

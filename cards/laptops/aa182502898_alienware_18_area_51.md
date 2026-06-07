@@ -28,6 +28,10 @@ Price_Value: 7
 Future_Proof: 3
 Portability: 5
 Track2_Avoidance: 0
+vram: 16.0 GB
+screen_size_in: 18.0
+source_platform: MAJOR_RETAILER_AU
+seller_class: REFURB_SELLER
 ---
 
 # Alienware 18 Area-51 (Refurbished - SKU AA182502898)

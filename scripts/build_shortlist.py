@@ -330,11 +330,11 @@ def build_row(fm: dict, intake_info: dict, source_path: Path, md_text: str) -> d
     """Build a fully annotated shortlist row from a card's frontmatter."""
 
     # Raw field extraction
-    item_name        = fm.get("name", "")
+    item_name        = fm.get("name") or fm.get("item_name") or ""
     category         = fm.get("category", "UNKNOWN")
     gpu_model        = fm.get("gpu", "UNKNOWN")
-    vram_raw         = fm.get("vram", "UNKNOWN").replace("GB", "").strip()
-    unified_raw      = fm.get("unified_memory", "UNKNOWN").replace("GB", "").strip()
+    vram_raw         = str(fm.get("vram") or fm.get("vram_gb") or "UNKNOWN").replace("GB", "").strip()
+    unified_raw      = str(fm.get("unified_memory") or fm.get("unified_memory_gb") or "UNKNOWN").replace("GB", "").strip()
     price_raw        = fm.get("price_aud", "UNKNOWN").replace("$", "").replace("AUD", "").strip()
     condition        = fm.get("condition", "UNKNOWN")
     retailer         = fm.get("retailer", "UNKNOWN")
@@ -351,7 +351,7 @@ def build_row(fm: dict, intake_info: dict, source_path: Path, md_text: str) -> d
     price_float, price_unknown = parse_price(price_raw)
     vram_float     = parse_vram(vram_raw)
     unified_float  = parse_vram(unified_raw)
-    screen_raw     = fm.get("screen_size_in", "UNKNOWN").replace("in", "").strip()
+    screen_raw     = str(fm.get("screen_size_in") or fm.get("screen_inches") or fm.get("screen_size") or "UNKNOWN").replace("in", "").strip()
     screen_size    = parse_vram(screen_raw)
     if screen_size is None:
         screen_size = parse_screen_size(md_text, item_name)
@@ -360,7 +360,7 @@ def build_row(fm: dict, intake_info: dict, source_path: Path, md_text: str) -> d
 
     # Intake ID from filename
     fname = source_path.name
-    intake_id_match = re.match(r"(intake-\d+)", fname)
+    intake_id_match = re.match(r"([\w\d]+-\d+)", fname)
     intake_id = intake_id_match.group(1) if intake_id_match else fname.replace(".md", "")
 
     row = {
@@ -428,6 +428,10 @@ def scan_intake_cards(
 
             if not fm:
                 continue  # skip unparseable cards
+
+            status = fm.get("status", "Active").strip().upper()
+            if status in ("ARCHIVED", "REJECTED", "SOLD"):
+                continue
 
             row = build_row(fm, intake_info, md_path, text)
 

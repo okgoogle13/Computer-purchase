@@ -11,6 +11,7 @@ Price_Value: 2
 Future_Proof: 7
 Portability: 5
 Track2_Avoidance: 7
+status: ARCHIVED
 ---
 
 # Asus ROG Strix Scar 17 G733PY-LL021W — RTX 4090 Laptop GPU 16 GB

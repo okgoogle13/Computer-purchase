@@ -1,0 +1,8 @@
+2026/06/07-17:25:04.994 421ef2 Creating DB /Users/okgoogle13/Projects/Computer purchase/data/chrome_profile/Default/Local Storage/leveldb since it was missing.
+2026/06/07-17:25:05.014 421ef2 Reusing MANIFEST /Users/okgoogle13/Projects/Computer purchase/data/chrome_profile/Default/Local Storage/leveldb/MANIFEST-000001
+2026/06/07-18:37:18.303 421ef2 Level-0 table #5: started
+2026/06/07-18:37:18.332 421ef2 Level-0 table #5: 9697 bytes OK
+2026/06/07-18:37:18.336 421ef2 Delete type=0 #3
+2026/06/07-20:16:18.499 421ef2 Level-0 table #7: started
+2026/06/07-20:16:18.512 421ef2 Level-0 table #7: 8694 bytes OK
+2026/06/07-20:16:18.515 421ef2 Delete type=0 #4

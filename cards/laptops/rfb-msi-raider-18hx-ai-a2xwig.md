@@ -21,6 +21,7 @@ Price_Value: 3
 Future_Proof: 7
 Portability: 5
 Track2_Avoidance: 7
+screen_size_in: 18.0
 ---
 
 # MSI Raider 18HX AI A2XWIG (Refurbished) — RTX 5080 Laptop GPU 16 GB

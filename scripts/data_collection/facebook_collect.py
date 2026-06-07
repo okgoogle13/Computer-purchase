@@ -202,25 +202,29 @@ def extract_listing_candidate(node: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         or ""
     )
 
-    # FIX C3: Facebook stores price as integer cents in amount_with_offset_in_currency
+    # Parse price correctly: prefer 'amount' (dollars) over 'amount_with_offset_in_currency' (cents)
     price_obj = listing.get("listing_price") or {}
     amount: float | str = ""
     currency = "AUD"
     if isinstance(price_obj, dict):
         currency = price_obj.get("currency") or "AUD"
-        amount_raw = (
-            price_obj.get("amount_with_offset_in_currency")  # PRIMARY: integer cents
-            or price_obj.get("amount")
-            or price_obj.get("value")
-            or safe_get(price_obj, "formatted_amount")
-        )
-        if amount_raw is not None and amount_raw != "":
+        if price_obj.get("amount") is not None:
             try:
-                # amount_with_offset_in_currency is cents (e.g. 150000 = $1,500.00)
-                raw_float = float(amount_raw)
-                amount = raw_float / 100.0 if raw_float > 9999 else raw_float
+                amount = float(price_obj.get("amount"))
             except (ValueError, TypeError):
-                amount = str(amount_raw)
+                amount = str(price_obj.get("amount"))
+        elif price_obj.get("amount_with_offset_in_currency") is not None:
+            try:
+                amount = float(price_obj.get("amount_with_offset_in_currency")) / 100.0
+            except (ValueError, TypeError):
+                amount = str(price_obj.get("amount_with_offset_in_currency"))
+        elif price_obj.get("value") is not None:
+            try:
+                amount = float(price_obj.get("value"))
+            except (ValueError, TypeError):
+                amount = str(price_obj.get("value"))
+        else:
+            amount = safe_get(price_obj, "formatted_amount") or ""
 
     location: str = (
         safe_get(listing, "location", "reverse_geocode", "city_page", "display_name")

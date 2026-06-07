@@ -11,6 +11,7 @@ Price_Value: 2
 Future_Proof: 7
 Portability: 5
 Track2_Avoidance: 7
+status: ARCHIVED
 ---
 
 # MSI Stealth 16 AI Studio A1VIG — RTX 4090 Laptop GPU 16 GB

@@ -21,13 +21,15 @@ retailer: DigiDirect
 url: https://www.digidirect.com.au/razer-blade-14-3k-120hz-oled-gaming-laptop-with-ryzen-ai-9-365-16gb-1tb-ssd-rtx-5060
 au_stock: Yes
 verification: Verified
-status: WATCHLIST
+status: ARCHIVED
 score: 4.7
 Performance_Headroom: 3
 Price_Value: 7
 Future_Proof: 3
 Portability: 5
 Track2_Avoidance: 0
+vram: 8.0 GB
+screen_size_in: 14.0
 ---
 
 # Razer Blade 14 (2026) RZ09-0511
