@@ -33,7 +33,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 RAW_DIR = REPO_ROOT / "data" / "raw" / "facebook_marketplace"
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 
-async def run_search(cdp_url: str, targets: list[str], max_scrolls: int, headless: bool = False):
+async def run_search(cdp_url: str, targets: list[str], max_scrolls: int, max_price: int | None = None, headless: bool = False):
     today = datetime.today().strftime("%Y-%m-%d")
     output_file = RAW_DIR / f"targeted_search_{today}.json"
     
@@ -71,6 +71,9 @@ async def run_search(cdp_url: str, targets: list[str], max_scrolls: int, headles
                 print(f"\n[*] Searching for: '{target}'")
                 query = urllib.parse.quote(target)
                 url = f"https://www.facebook.com/marketplace/search/?query={query}&exact=false"
+                if max_price:
+                    url += f"&maxPrice={max_price}"
+                url += "&sortBy=creation_time_descend"
                 
                 print(f"  Navigating to {url}")
                 await page.goto(url, wait_until="networkidle")
@@ -103,10 +106,11 @@ def main():
     parser.add_argument("--targets", required=True, help="Comma-separated list of search targets (e.g., 'RTX 4080, Strix Halo')")
     parser.add_argument("--cdp-url", default="http://localhost:9222", help="CDP URL (default: http://localhost:9222)")
     parser.add_argument("--scrolls", type=int, default=5, help="Number of times to scroll down per search (default: 5)")
+    parser.add_argument("--max-price", type=int, default=4500, help="Maximum price in AUD (default: 4500)")
     args = parser.parse_args()
 
     targets_list = [t.strip() for t in args.targets.split(",")]
-    asyncio.run(run_search(args.cdp_url, targets_list, args.scrolls))
+    asyncio.run(run_search(args.cdp_url, targets_list, args.scrolls, args.max_price))
 
 if __name__ == "__main__":
     main()

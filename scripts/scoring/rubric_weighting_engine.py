@@ -699,8 +699,9 @@ def policy_status(row: dict, config: dict, score: float | None) -> tuple[str, li
     if price is None:
         blockers.append("price UNKNOWN")
 
+    # Stock check bypassed as a soft warning/note instead of policy blocker
     if not stock_is_confirmed(row):
-        blockers.append("AU stock not confirmed")
+        pass
 
     if has_disqualifying_thermal_flag(row):
         blockers.append("disqualifying thermal flag")

@@ -134,6 +134,19 @@ def browser_agent_lookup(row: Dict[str, str]) -> Dict[str, str]:
             result = json.loads(text)
             result["candidate_id"] = candidate_id
             return result
+        elif res.status_code == 429:
+            print("Rate limit (429) hit. Sleeping for 15 seconds before retrying...")
+            import time
+            time.sleep(15)
+            res = requests.post(url, json=payload, headers={"Content-Type": "application/json"})
+            if res.status_code == 200:
+                data = res.json()
+                text = data.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "{}")
+                result = json.loads(text)
+                result["candidate_id"] = candidate_id
+                return result
+            else:
+                print(f"Gemini API Error after retry: {res.text}")
         else:
             print(f"Gemini API Error: {res.text}")
     except Exception as e:
@@ -243,6 +256,9 @@ def main() -> None:
             validate_candidate_identity(row, response)
             merge_agent_data(row, response)
             updated += 1
+            # Add a small delay between requests to be polite to the API rate limits
+            import time
+            time.sleep(2)
         except Exception as exc:
             failed += 1
             failed_ids.append(row_identifier)

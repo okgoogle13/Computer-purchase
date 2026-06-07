@@ -13,7 +13,7 @@ price_aud: 4399.00
 retailer: hub by Triforce
 condition: Refurbished
 verification: Verified
-au_stock: Yes
+au_stock: No
 seller_class: REFURB_SELLER
 source_platform: MAJOR_RETAILER_AU
 Performance_Headroom: 7

@@ -50,19 +50,6 @@ verified_deals = {
         "acl_covered": "yes",
         "pricing_checked_at": "2026-06-07"
     },
-    "rfb-msi-titan-18hx-a14vig": {
-        "current_best_price_aud": "4399.00",
-        "effective_best_price_aud": "4399.00",
-        "current_best_retailer": "hub by Triforce",
-        "current_best_url": "https://hub.triforce.com.au/product/msi-titan-18-hx-a14vig/",
-        "in_stock_now": "yes",
-        "au_stock": "Yes",
-        "seller_class": "REFURB_SELLER",
-        "source_platform": "MAJOR_RETAILER_AU",
-        "warranty_months_confirmed": "12",
-        "acl_covered": "yes",
-        "pricing_checked_at": "2026-06-07"
-    },
     "intake-080": {
         "current_best_price_aud": "3999.00",
         "effective_best_price_aud": "3999.00",
@@ -91,6 +78,7 @@ expired_deals = {
     "36_lenovo-legion-9i-18-rtx-5080-ebay",
     "intake-075",
     "intake-079",
+    "rfb-msi-titan-18hx-a14vig",
 }
 
 # Read live CSV rows and update
