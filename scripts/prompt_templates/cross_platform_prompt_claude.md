@@ -34,6 +34,7 @@ GPU tier sweep guidance (from `search_archetypes.json` → `search_templates.all
 - RTX 3080 Laptop 16 GB
 - RTX 4070 Ti Laptop 12 GB
 - RTX 5000 Ada Laptop 16 GB
+- RTX A5500 Laptop 16 GB
 - RTX 4000 Ada Laptop 12 GB
 - RTX 3500 Ada Laptop 12 GB
 - Radeon RX 7900M 16 GB
@@ -42,10 +43,12 @@ GPU tier sweep guidance (from `search_archetypes.json` → `search_templates.all
 
 High-value pass ordering (Track 1A priority):
 1. RTX 4090 16 GB
-2. RTX 4080 12 GB
+2. RTX 5080 16 GB
 3. RTX 3080 Ti 16 GB
-4. RX 7900M 16 GB
-5. RTX 5000 Ada 16 GB
+4. RTX 5000 Ada 16 GB
+5. RTX A5500 16 GB
+6. RTX 4000 Ada 12 GB
+7. RX 7900M 16 GB
 
 ## Completion Check
 

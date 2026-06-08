@@ -193,6 +193,7 @@ Suggested target sweep list - guidance only; verify each listing live:
 - RTX 5090 Laptop 24 GB
 - RTX 5080 Laptop 16 GB
 - RTX 5000 Ada Laptop 16 GB
+- RTX A5500 Laptop 16 GB
 - RTX 4000 Ada Laptop 12 GB
 - RTX 3500 Ada Laptop 12 GB
 - Radeon RX 7900M 16 GB
@@ -205,12 +206,14 @@ High-value pass ordering:
 2) Prior ChatGPT recommendations with a card but no active shortlist row
 3) Prior ChatGPT recommendations with stale price/stock/warranty/seller data
 4) RTX 4090 16 GB laptops
-5) RTX 4080 12 GB laptops
+5) RTX 5080 16 GB laptops
 6) RTX 3080 Ti 16 GB laptops
-7) RX 7900M 16 GB laptops
-8) RTX 5000 Ada 16 GB workstation laptops
-9) Strix Halo 64 GB+ unified-memory laptops
-10) RTX 3090 24 GB single-GPU refurb desktop alternatives
+7) RTX 5000 Ada 16 GB workstation laptops
+8) RTX A5500 16 GB workstation laptops
+9) RTX 4000 Ada 12 GB workstation laptops
+10) RX 7900M 16 GB laptops
+11) Strix Halo 64 GB+ unified-memory laptops
+12) RTX 3090 24 GB single-GPU refurb desktop alternatives
 
 Search pattern hints:
 - `<gpu model> laptop used refurbished Australia`
@@ -219,6 +222,16 @@ Search pattern hints:
 - `<model name> refurbished Australia warranty`
 - `<candidate> eBay Australia sold listings`
 - `<candidate> thermal throttling review sustained load`
+- `3080ti 16gb laptop`
+- `gaming laptop 16gb gpu`
+- `creator laptop 16gb`
+- `workstation laptop 16gb`
+- `Aorus YE5`
+- `GE76 3080Ti`
+- `x17 R2 3080Ti`
+- `ThinkPad P16`
+- `ZBook Fury`
+- `Precision 7680`
 
 Do not do:
 - Do not create card content.

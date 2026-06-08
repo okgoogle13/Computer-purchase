@@ -65,7 +65,14 @@
     "defaultMode": "bypassPermissions"
   },
   "enabledPlugins": {
-    "feature-dev@claude-plugins-official": true
+    "feature-dev@claude-plugins-official": false,
+    "deep-project@piercelamb-plugins": false,
+    "deep-plan@piercelamb-plugins": false,
+    "deep-implement@piercelamb-plugins": false,
+    "andrej-karpathy-skills@karpathy-skills": false,
+    "code-simplifier@claude-plugins-official": false,
+    "claude-md-management@claude-plugins-official": false,
+    "claude-code-setup@claude-plugins-official": false
   },
   "hooks": {
     "PostToolUse": [

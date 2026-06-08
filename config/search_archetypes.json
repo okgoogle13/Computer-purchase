@@ -25,8 +25,8 @@
       "spec": {
         "min_gpu_vram_gb": 12,
         "preferred_gpu_vram_gb": 16,
-        "preferred_gpu_tiers": ["RTX 4090", "RTX 4080", "RTX 3080 Ti", "RTX 3080"],
-        "acceptable_gpu_tiers": ["RTX 4070 Ti", "RTX 3080", "RTX 3070 Ti"],
+        "preferred_gpu_tiers": ["RTX 4090", "RTX 4080", "RTX 3080 Ti", "RTX 5000 Ada", "RTX A5500"],
+        "acceptable_gpu_tiers": ["RTX 4070 Ti", "RTX 3080", "RTX 3070 Ti", "RTX 4000 Ada"],
         "min_screen_in": 16
       },
       "seller_classes": ["PRIVATE_SELLER", "GUMTREE_AU", "FB_MARKETPLACE"],
@@ -36,17 +36,30 @@
           "RTX 4080 Laptop 12 GB",
           "RTX 3080 Ti Laptop 16 GB",
           "RTX 3080 Laptop 16 GB",
+          "RTX 5000 Ada Laptop 16 GB",
+          "RTX A5500 Laptop 16 GB",
+          "RTX 4000 Ada Laptop 12 GB",
           "RTX 4070 Ti Laptop 12 GB"
         ],
         "search_pattern_hints": [
           "<gpu model> laptop used refurbished Australia Gumtree",
           "<gpu model> laptop Facebook Marketplace AU",
-          "<gpu model> 16GB used laptop <state> Australia"
+          "<gpu model> 16GB used laptop <state> Australia",
+          "3080ti 16gb laptop",
+          "gaming laptop 16gb gpu",
+          "creator laptop 16gb",
+          "workstation laptop 16gb",
+          "Aorus YE5",
+          "Legion 7i 3080Ti",
+          "MSI GE76 3080Ti",
+          "Alienware x17 R2 3080Ti"
         ],
         "high_value_pass_order": [
           "RTX 4090 16 GB — used/like-new AU",
           "RTX 4080 12 GB — used/like-new AU",
           "RTX 3080 Ti 16 GB — used/like-new AU",
+          "RTX 5000 Ada 16 GB — used/like-new AU",
+          "RTX A5500 16 GB — used/like-new AU",
           "RTX 3080 16 GB — verified config AU"
         ]
       },
@@ -76,13 +89,15 @@
           "RTX 5090",
           "RTX 5080",
           "RTX 4090",
-          "RTX 5070 Ti"
+          "RTX 5070 Ti",
+          "RTX 5000 Ada"
         ],
         "acceptable_gpu_tiers": [
           "RTX 4080",
           "RTX 5070",
           "RTX 3080 Ti",
-          "RTX 5000 Ada"
+          "RTX 4000 Ada",
+          "RTX A5500"
         ],
         "min_screen_in": 16
       },
@@ -101,6 +116,7 @@
           "RTX 4080 Laptop 12 GB",
           "RTX 5070 Laptop 12 GB",
           "RTX 5000 Ada Laptop 16 GB",
+          "RTX A5500 Laptop 16 GB",
           "RTX 4000 Ada Laptop 12 GB",
           "RTX 3500 Ada Laptop 12 GB",
           "Radeon RX 7900M 16 GB"
@@ -108,13 +124,20 @@
         "search_pattern_hints": [
           "<gpu model> laptop new Australia JB Hi-Fi Scorptec PLE",
           "<gpu model> 16GB laptop site:.au",
-          "<model name> open box clearance Australia warranty"
+          "<model name> open box clearance Australia warranty",
+          "ThinkPad P16 RTX",
+          "ZBook Fury G9 G10 RTX",
+          "Precision 7670 7680 RTX",
+          "creator laptop 16gb",
+          "workstation laptop 16gb"
         ],
         "high_value_pass_order": [
           "RTX 4090 16 GB — new AU retail",
           "RTX 5080 16 GB — new AU retail",
           "RTX 4080 12 GB — new AU retail",
           "RTX 5070 Ti 12 GB — new AU retail",
+          "RTX 5000 Ada 16 GB — workstation retail",
+          "RTX A5500 16 GB — workstation retail",
           "RTX 3080 Ti 16 GB — open box/clearance AU"
         ]
       },
@@ -239,6 +262,7 @@
       "RTX 3080 Laptop 16 GB",
       "RTX 4070 Ti Laptop 12 GB",
       "RTX 5000 Ada Laptop 16 GB",
+      "RTX A5500 Laptop 16 GB",
       "RTX 4000 Ada Laptop 12 GB",
       "RTX 3500 Ada Laptop 12 GB",
       "Radeon RX 7900M 16 GB",
