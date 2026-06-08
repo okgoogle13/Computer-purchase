@@ -31,6 +31,7 @@ import re
 import sys
 from datetime import date, datetime
 from pathlib import Path
+from typing import Optional
 
 
 # ---------------------------------------------------------------------------
@@ -47,6 +48,31 @@ def load_config() -> dict:
         sys.exit(f"Error: Config file not found at {config_path}. Please create it.")
     with open(config_path, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def load_archetype(name: str) -> dict:
+    """
+    Load a named archetype from config/search_archetypes.json.
+
+    Returns the archetype dict or exits with a helpful error listing valid names.
+    Usage: loaded via --archetype <label> in main().
+    """
+    archetypes_path = REPO_ROOT / "config" / "search_archetypes.json"
+    if not archetypes_path.exists():
+        sys.exit(
+            f"Error: search_archetypes.json not found at {archetypes_path}. "
+            "Run Step 1 of the agent.md incremental plan to create it."
+        )
+    with open(archetypes_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    archetypes = {a["label"]: a for a in data.get("archetypes", [])}
+    if name not in archetypes:
+        valid = ", ".join(sorted(archetypes.keys()))
+        sys.exit(
+            f"Error: Unknown archetype '{name}'.\n"
+            f"Valid archetype labels: {valid}"
+        )
+    return archetypes[name]
 
 # Top-level card roots (scanner recurses into category subfolders).
 INTAKE_LANES = [
@@ -463,9 +489,11 @@ SHORTLIST_FIELDNAMES = [
     "track", "pathway", "gpu_model", "vram_gb", "unified_memory_gb",
     "screen_size_in", "thermal_flag",
     "price_aud", "Over_Budget", "Price_Unknown",
-    "condition", "retailer", "verification_status", "au_stock", 
+    "condition", "retailer", "verification_status", "au_stock",
     "seller_class", "source_platform",
     "batch", "source_file", "exceptional_override", "shortlist_reason", "soft_penalty_notes",
+    # Archetype transparency columns (Step 4)
+    "archetype_used", "intent_notes",
     # Engine columns
     "Machine", "Type",
     # Score columns
@@ -534,10 +562,96 @@ After generating the shortlist, run the pricing enrichment step:
         "--dry-run", action="store_true",
         help="Preview shortlist without writing any files",
     )
+    parser.add_argument(
+        "--spec-json",
+        default=None,
+        help="JSON string or file path containing SpecRequirements output from the Spec Clarifier Agent",
+    )
+    parser.add_argument(
+        "--archetype",
+        default=None,
+        metavar="LABEL",
+        help=(
+            "Apply a named search archetype from config/search_archetypes.json. "
+            "Example: --archetype gaming_laptop_private_sale. "
+            "Overrides budget cap, VRAM floor, profile, track, and pathway filters "
+            "from the archetype definition. "
+            "Valid labels: gaming_laptop_private_sale, gaming_laptop_retailer, "
+            "strix_halo_laptop, refurb_workstation_au"
+        ),
+    )
     args = parser.parse_args()
 
     # Load machine-readable config
     config = load_config()
+
+    # ── Archetype override (--archetype) ────────────────────────────────────
+    # Loaded BEFORE --spec-json so that spec-json can further narrow/override.
+    archetype_label: Optional[str] = None
+    if args.archetype:
+        arch = load_archetype(args.archetype)
+        archetype_label = arch["label"]
+
+        price_ceil = arch.get("price", {}).get("hard_ceiling_aud")
+        if price_ceil is not None:
+            config["budget_cap_aud"] = float(price_ceil)
+
+        spec = arch.get("spec", {})
+        min_vram = spec.get("min_gpu_vram_gb")
+        if min_vram is not None:
+            config["laptop_discrete_minimum_vram_gb"] = float(min_vram)
+        min_unified = spec.get("min_unified_memory_gb")
+        if min_unified is not None:
+            config["laptop_unified_minimum_vram_gb"] = float(min_unified)
+
+        # Map track/pathway
+        track_val = arch.get("track")
+        pathway_val = arch.get("pathway")
+        if track_val and args.track is None:
+            args.track = str(track_val)
+        if pathway_val and args.pathway is None:
+            args.pathway = str(pathway_val)
+
+        # Map profile from pathway
+        if args.profile is None:
+            pathway_lower = (pathway_val or "").lower()
+            if pathway_lower in ("1a", "1b"):
+                args.profile = "laptop"
+            elif arch.get("track") == "1.5":
+                args.profile = "desktop"
+
+        print(f"✅ Loaded archetype '{archetype_label}': "
+              f"budget_cap=${config['budget_cap_aud']:,.0f} AUD, "
+              f"track={args.track}, pathway={args.pathway}, profile={args.profile}")
+
+    if args.spec_json:
+        try:
+            if args.spec_json.strip().startswith("{"):
+                spec = json.loads(args.spec_json)
+            else:
+                with open(args.spec_json, "r", encoding="utf-8") as f:
+                    spec = json.load(f)
+            
+            # Apply spec overrides to config and filters dynamically
+            if "budget_cap_aud" in spec:
+                config["budget_cap_aud"] = spec["budget_cap_aud"]
+            if "vram_floor_gb" in spec:
+                config["laptop_discrete_minimum_vram_gb"] = spec["vram_floor_gb"]
+                config["laptop_unified_minimum_vram_gb"] = spec["vram_floor_gb"]
+                config["desktop_minimum_vram_gb"] = spec["vram_floor_gb"]
+            if "track_preference" in spec and spec["track_preference"] != "Any":
+                # Maps "1A" to track="1", pathway="1A"
+                if spec["track_preference"] in ["1A", "1B"]:
+                    args.track = "1"
+                    args.pathway = spec["track_preference"]
+                else:
+                    args.track = spec["track_preference"]
+            if "portability_requirement" in spec and spec["portability_requirement"] != "Any":
+                args.profile = spec["portability_requirement"].lower()
+                
+            print(f"✅ Loaded overrides from --spec-json: {spec}")
+        except Exception as e:
+            print(f"⚠️ Failed to parse --spec-json: {e}")
 
     profile_filter = None if (args.profile in (None, "all")) else args.profile
     track_filter = None if args.track is None else args.track
@@ -553,7 +667,15 @@ After generating the shortlist, run the pricing enrichment step:
 
     for row in all_rows:
         eval_result = evaluate_policy(row, config)
-        
+
+        # ── Archetype transparency columns (Step 4) ──────────────────────
+        row["archetype_used"] = archetype_label or ""
+        if archetype_label:
+            arch_data = load_archetype(archetype_label)
+            row["intent_notes"] = arch_data.get("intent_notes_template", "")
+        else:
+            row["intent_notes"] = ""
+
         if eval_result["hard_reject_reason"]:
             row["rejection_reason"] = eval_result["hard_reject_reason"]
             rejected.append(row)

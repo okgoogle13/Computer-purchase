@@ -1,0 +1,263 @@
+{
+  "_comment": "search_archetypes.json — canonical archetype config for CareerCopilot hardware pipeline.",
+  "_authority": "AGENTS.md is ultimate policy. This file drives build_shortlist.py --archetype and prompt GPU sweep lists. When this file conflicts with AGENTS.md, follow AGENTS.md and update this file.",
+  "_version": "1.0.0",
+  "_updated": "2026-06-08",
+
+  "archetypes": [
+
+    {
+      "label": "gaming_laptop_private_sale",
+      "display_name": "Gaming Laptop — Private Sale (Track 1A)",
+      "track": "1",
+      "pathway": "1A",
+      "description": "Secondary-market gaming laptops from private sellers on Facebook Marketplace and Gumtree AU. Focus on used/like-new condition with strong VRAM at aggressive prices.",
+      "allowed_sources": ["FB_MARKETPLACE", "GUMTREE_AU"],
+      "allowed_conditions": ["used", "like_new", "refurbished"],
+      "price": {
+        "hard_ceiling_aud": 3500,
+        "note": "Lower ceiling than Track 1 standard; private-sale pricing should reflect discount from RRP."
+      },
+      "age": {
+        "max_years_old": 4,
+        "note": "Applies to manufacture year derived from CPU generation."
+      },
+      "spec": {
+        "min_gpu_vram_gb": 12,
+        "preferred_gpu_vram_gb": 16,
+        "preferred_gpu_tiers": ["RTX 4090", "RTX 4080", "RTX 3080 Ti", "RTX 3080"],
+        "acceptable_gpu_tiers": ["RTX 4070 Ti", "RTX 3080", "RTX 3070 Ti"],
+        "min_screen_in": 16
+      },
+      "seller_classes": ["PRIVATE_SELLER", "GUMTREE_AU", "FB_MARKETPLACE"],
+      "search_sweep": {
+        "gpu_tiers": [
+          "RTX 4090 Laptop 16 GB",
+          "RTX 4080 Laptop 12 GB",
+          "RTX 3080 Ti Laptop 16 GB",
+          "RTX 3080 Laptop 16 GB",
+          "RTX 4070 Ti Laptop 12 GB"
+        ],
+        "search_pattern_hints": [
+          "<gpu model> laptop used refurbished Australia Gumtree",
+          "<gpu model> laptop Facebook Marketplace AU",
+          "<gpu model> 16GB used laptop <state> Australia"
+        ],
+        "high_value_pass_order": [
+          "RTX 4090 16 GB — used/like-new AU",
+          "RTX 4080 12 GB — used/like-new AU",
+          "RTX 3080 Ti 16 GB — used/like-new AU",
+          "RTX 3080 16 GB — verified config AU"
+        ]
+      },
+      "intent_notes_template": "Scored as gaming_laptop_private_sale: sources=FB_MARKETPLACE/GUMTREE_AU, condition=used/like_new, ceiling=$3,500 AUD, GPU preferred: RTX 4090/4080/3080 Ti, max age 4yr"
+    },
+
+    {
+      "label": "gaming_laptop_retailer",
+      "display_name": "Gaming Laptop — Major Retailer New/Open Box (Track 1A)",
+      "track": "1",
+      "pathway": "1A",
+      "description": "New or open-box gaming laptops from major AU retailers (JB Hi-Fi, Scorptec, PLE, ASUS Store AU, Lenovo AU, MSI AU). Full warranty path. Preferred for GOOD ENOUGH if budget allows.",
+      "allowed_sources": ["MANUFACTURER_AU", "MAJOR_RETAILER_AU", "AMAZON_AU"],
+      "allowed_conditions": ["new", "open_box", "certified_refurbished"],
+      "price": {
+        "hard_ceiling_aud": 5000,
+        "note": "Standard Track 1 budget cap per AGENTS.md."
+      },
+      "age": {
+        "max_years_old": null,
+        "note": "No age restriction for new retail stock."
+      },
+      "spec": {
+        "min_gpu_vram_gb": 12,
+        "preferred_gpu_vram_gb": 24,
+        "preferred_gpu_tiers": [
+          "RTX 5090",
+          "RTX 5080",
+          "RTX 4090",
+          "RTX 5070 Ti"
+        ],
+        "acceptable_gpu_tiers": [
+          "RTX 4080",
+          "RTX 5070",
+          "RTX 3080 Ti",
+          "RTX 5000 Ada"
+        ],
+        "min_screen_in": 16
+      },
+      "seller_classes": [
+        "MANUFACTURER_AU",
+        "MAJOR_RETAILER_AU",
+        "AUTHORISED_RESELLER",
+        "AMAZON_AU"
+      ],
+      "search_sweep": {
+        "gpu_tiers": [
+          "RTX 5090 Laptop 24 GB",
+          "RTX 5080 Laptop 16 GB",
+          "RTX 4090 Laptop 16 GB",
+          "RTX 5070 Ti Laptop 12 GB",
+          "RTX 4080 Laptop 12 GB",
+          "RTX 5070 Laptop 12 GB",
+          "RTX 5000 Ada Laptop 16 GB",
+          "RTX 4000 Ada Laptop 12 GB",
+          "RTX 3500 Ada Laptop 12 GB",
+          "Radeon RX 7900M 16 GB"
+        ],
+        "search_pattern_hints": [
+          "<gpu model> laptop new Australia JB Hi-Fi Scorptec PLE",
+          "<gpu model> 16GB laptop site:.au",
+          "<model name> open box clearance Australia warranty"
+        ],
+        "high_value_pass_order": [
+          "RTX 4090 16 GB — new AU retail",
+          "RTX 5080 16 GB — new AU retail",
+          "RTX 4080 12 GB — new AU retail",
+          "RTX 5070 Ti 12 GB — new AU retail",
+          "RTX 3080 Ti 16 GB — open box/clearance AU"
+        ]
+      },
+      "intent_notes_template": "Scored as gaming_laptop_retailer: sources=MANUFACTURER_AU/MAJOR_RETAILER_AU, condition=new/open_box, ceiling=$5,000 AUD, GPU preferred: RTX 4090+/5080+"
+    },
+
+    {
+      "label": "strix_halo_laptop",
+      "display_name": "AMD Strix Halo Unified Memory Laptop (Track 1B)",
+      "track": "1",
+      "pathway": "1B",
+      "description": "Laptops with AMD Strix Halo / Ryzen AI Max / Ryzen AI Max+ SoC and large unified memory pool. AU retail stock only. ROCm toolchain risk must be assessed explicitly.",
+      "allowed_sources": ["MANUFACTURER_AU", "MAJOR_RETAILER_AU", "AMAZON_AU"],
+      "allowed_conditions": ["new", "open_box"],
+      "price": {
+        "hard_ceiling_aud": 5000,
+        "note": "Standard Track 1 budget cap per AGENTS.md."
+      },
+      "age": {
+        "max_years_old": null,
+        "note": "Strix Halo is current-gen (2025). Age restriction not applicable."
+      },
+      "spec": {
+        "required_soc": ["Strix Halo", "Ryzen AI Max", "Ryzen AI Max+"],
+        "min_unified_memory_gb": 16,
+        "preferred_unified_memory_gb": 64,
+        "preferred_memory_tiers": [128, 64, 32],
+        "acceptable_memory_tiers": [16],
+        "min_screen_in": 16,
+        "performance_headroom_cap": 7,
+        "track2_avoidance_caps": {"32": 6, "64": 7, "128": 8},
+        "toolchain_risk_note": "ROCm/CUDA compatibility must be confirmed for CareerCopilot workloads. Flag uncertain_rocm_or_toolchain_support if not verified."
+      },
+      "seller_classes": [
+        "MANUFACTURER_AU",
+        "MAJOR_RETAILER_AU",
+        "AUTHORISED_RESELLER"
+      ],
+      "search_sweep": {
+        "soc_targets": [
+          "ASUS ProArt Studiobook 16 Ryzen AI Max",
+          "ASUS ROG Strix Ryzen AI Max",
+          "Lenovo ThinkPad Ryzen AI Max",
+          "Minisforum HX200G Strix Halo"
+        ],
+        "search_pattern_hints": [
+          "Ryzen AI Max laptop Australia",
+          "Strix Halo laptop 64GB unified memory AU",
+          "Ryzen AI Max+ 128GB laptop site:.au"
+        ],
+        "high_value_pass_order": [
+          "Ryzen AI Max+ 128 GB unified — new AU retail",
+          "Ryzen AI Max 64 GB unified — new AU retail",
+          "Ryzen AI Max 32 GB unified — new AU retail (assess T2 avoidance)"
+        ]
+      },
+      "intent_notes_template": "Scored as strix_halo_laptop: SoC=Strix Halo/Ryzen AI Max, sources=MANUFACTURER_AU/MAJOR_RETAILER_AU, condition=new, ceiling=$5,000 AUD, unified memory preferred: 64 GB+. Performance_Headroom capped at 7. Track2_Avoidance cap: 32GB=6, 64GB=7, 128GB=8."
+    },
+
+    {
+      "label": "refurb_workstation_au",
+      "display_name": "Refurbished Single-GPU Desktop Workstation (Track 1.5)",
+      "track": "1.5",
+      "pathway": null,
+      "description": "Refurbished prebuilt desktop workstations from credible AU resellers (Scorptec, MikePC, JW Computers, eBay power sellers). Only consider under Exception A — when no viable Track 1 option exists or value clearly exceeds Track 1.",
+      "exception_gate": "Exception A only — re-check Track 1 for discounts/refurb before triggering this archetype.",
+      "allowed_sources": ["EBAY_AU", "GUMTREE_AU", "MAJOR_RETAILER_AU"],
+      "allowed_conditions": ["refurbished", "used", "certified_refurbished"],
+      "price": {
+        "hard_ceiling_aud": 4000,
+        "note": "Track 1.5 has a lower effective ceiling than Track 1 per AGENTS.md."
+      },
+      "age": {
+        "max_years_old": 6,
+        "note": "GPU age limit. RTX 3090 (2020) is at the boundary."
+      },
+      "spec": {
+        "min_gpu_vram_gb": 16,
+        "preferred_gpu_vram_gb": 24,
+        "preferred_gpu_tiers": ["RTX 3090", "RTX 4090", "RTX 4080", "RTX 3090 Ti"],
+        "acceptable_gpu_tiers": ["RTX 4070 Ti 16GB"],
+        "prebuilt_only": true,
+        "no_custom_diy": true
+      },
+      "seller_classes": [
+        "EBAY_POWER_SELLER",
+        "REFURB_SELLER",
+        "MAJOR_RETAILER_AU"
+      ],
+      "search_sweep": {
+        "gpu_tiers": [
+          "RTX 3090 24 GB desktop prebuilt refurbished Australia",
+          "RTX 4090 24 GB desktop refurbished Australia",
+          "RTX 4080 16 GB desktop refurbished Australia"
+        ],
+        "search_pattern_hints": [
+          "<gpu model> desktop refurbished Australia warranty",
+          "<gpu model> prebuilt workstation eBay Australia sold listings",
+          "RTX 3090 desktop <state> Australia gumtree"
+        ],
+        "high_value_pass_order": [
+          "RTX 3090 24 GB — refurb prebuilt, verified AU stock",
+          "RTX 4090 24 GB — refurb prebuilt, verified AU stock",
+          "RTX 4080 16 GB — refurb prebuilt, verified AU stock"
+        ]
+      },
+      "intent_notes_template": "Scored as refurb_workstation_au (Track 1.5, Exception A): sources=EBAY_AU/REFURB_SELLER, condition=refurbished, ceiling=$4,000 AUD, GPU preferred: RTX 3090 24GB / RTX 4090. Prebuilt only — no DIY."
+    }
+
+  ],
+
+  "search_templates": {
+    "_comment": "Shared search lists referenced by all archetypes. Update here; prompts and scripts read from this file.",
+    "all_tracked_gpu_tiers": [
+      "RTX 5090 Laptop 24 GB",
+      "RTX 5080 Laptop 16 GB",
+      "RTX 5070 Ti Laptop 12 GB",
+      "RTX 5070 Laptop 12 GB",
+      "RTX 4090 Laptop 16 GB",
+      "RTX 4080 Laptop 12 GB",
+      "RTX 3080 Ti Laptop 16 GB",
+      "RTX 3080 Laptop 16 GB",
+      "RTX 4070 Ti Laptop 12 GB",
+      "RTX 5000 Ada Laptop 16 GB",
+      "RTX 4000 Ada Laptop 12 GB",
+      "RTX 3500 Ada Laptop 12 GB",
+      "Radeon RX 7900M 16 GB",
+      "Ryzen AI Max Strix Halo Laptop 32 GB+",
+      "RTX 3090 24 GB Desktop Refurb"
+    ],
+    "all_tracked_soc_targets": [
+      "Ryzen AI Max",
+      "Ryzen AI Max+",
+      "Strix Halo"
+    ],
+    "source_priority_order": [
+      "MANUFACTURER_AU",
+      "MAJOR_RETAILER_AU",
+      "AMAZON_AU",
+      "EBAY_AU",
+      "GUMTREE_AU",
+      "FB_MARKETPLACE",
+      "GRAY_IMPORT"
+    ]
+  }
+}

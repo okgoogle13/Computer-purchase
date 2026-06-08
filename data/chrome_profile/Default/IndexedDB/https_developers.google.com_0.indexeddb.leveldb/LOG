@@ -1,2 +1,6 @@
 2026/06/07-20:16:35.284 421e9b Creating DB /Users/okgoogle13/Projects/Computer purchase/data/chrome_profile/Default/IndexedDB/https_developers.google.com_0.indexeddb.leveldb since it was missing.
 2026/06/07-20:16:35.289 421e9b Reusing MANIFEST /Users/okgoogle13/Projects/Computer purchase/data/chrome_profile/Default/IndexedDB/https_developers.google.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/06/08-01:16:51.885 421e98 Level-0 table #5: started
+2026/06/08-01:16:51.928 421e98 Level-0 table #5: 3249 bytes OK
+2026/06/08-01:16:51.966 421e98 Delete type=0 #3
+2026/06/08-01:16:51.967 421e98 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

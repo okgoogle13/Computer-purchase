@@ -63,5 +63,59 @@
       "Bash(grep -iE \"\\(omen|max|price|\\\\$|rtx|5090|5080|vram|stock|add to cart|16\\)\")"
     ],
     "defaultMode": "bypassPermissions"
+  },
+  "enabledPlugins": {
+    "feature-dev@claude-plugins-official": true
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Write(shortlists/**)|Edit(shortlists/**)|Write(config/**)|Edit(config/**)",
+            "command": "cd '/Users/okgoogle13/Projects/Computer purchase' && python scripts/policy_drift_check.py 2>&1 | tail -3",
+            "timeout": 30,
+            "statusMessage": "Checking policy drift..."
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"systemMessage\":\"[Pre-compact] Before summarising: state current top candidate, MCDA score, verified price, and open UNKNOWN fields — compact summary will preserve what is in the conversation.\"}'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"systemMessage\":\"[Post-compact] Reorient: read top 3 rows of shortlists/shortlist_profile-laptop_ranked.csv before proceeding.\"}'",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -e '.prompt // \"\" | test(\"(run everything|full pipeline|search all|check every|all candidates|browse all)\";\"i\")' 2>/dev/null && echo '{\"systemMessage\":\"Token tip: scope to current phase. Use phase scripts individually — full pipeline runs cost ~80K tokens.\"}' || true",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
   }
 }

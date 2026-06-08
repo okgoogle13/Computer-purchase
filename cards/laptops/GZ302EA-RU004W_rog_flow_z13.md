@@ -14,23 +14,23 @@ ram_gb: 32
 ssd_gb: 1000
 screen_inches: 13.4
 thermal_flag: Low (Vertical orientation allows unrestricted airflow)
-price_aud: 4499.00
-effective_best_price_aud: 4499.00
+price_aud: 3499.00
+effective_best_price_aud: 3499.00
 condition: New
-retailer: ASUS Australia
-url: https://au.store.asus.com/rog-flow-z13-gz302ea-ru004w.html
+retailer: PLE Computers
+url: https://www.ple.com.au/products/672657/asus-rog-flow-z13-gz302-134-180hz-ryzen-ai-max-395-32gb1tb-win-11-gaming-notebook
 au_stock: Yes
 verification: Verified
 status: BUY_CANDIDATE
-score: 6.8
-Performance_Headroom: 3
-Price_Value: 3
-Future_Proof: 3
-Portability: 5
-Track2_Avoidance: 0
+score: 7.4
+Performance_Headroom: 6
+Price_Value: 9
+Future_Proof: 6
+Portability: 10
+Track2_Avoidance: 6
 screen_size_in: 13.4
-source_platform: MANUFACTURER_AU
-seller_class: MANUFACTURER_AU
+source_platform: MAJOR_RETAILER_AU
+seller_class: MAJOR_RETAILER_AU
 ---
 
 # ASUS ROG Flow Z13 (2026) GZ302EA-RU004W
@@ -40,12 +40,12 @@ seller_class: MANUFACTURER_AU
 - **Pathway:** 1B (AMD Strix Halo)
 - **Status:** BUY_CANDIDATE
 - **AU Stock Confirmed:** Yes
-- **GOOD ENOUGH check:** PASS — Meets all gates. SoC is confirmed Ryzen AI Max+ 395. Unified memory (32GB) meets preferred floor. Price ($4,499) is under the $5,000 cap.
+- **GOOD ENOUGH check:** PASS — Meets all gates. SoC is confirmed Ryzen AI Max+ 395. Unified memory (32GB) meets preferred floor. Price ($3,499) is under the $5,000 cap.
 
 ## Overview
-- **Price (AUD):** $4,499.00
-- **Retailer:** ASUS Australia
-- **URL:** [ASUS Store Listing](https://au.store.asus.com/rog-flow-z13-gz302ea-ru004w.html)
+- **Price (AUD):** $3,499.00
+- **Retailer:** PLE Computers
+- **URL:** [PLE Computers Listing](https://www.ple.com.au/products/672657/asus-rog-flow-z13-gz302-134-180hz-ryzen-ai-max-395-32gb1tb-win-11-gaming-notebook)
 - **Condition:** New
 - **Source batch:** manual_user_submission (ingested 2026-05-08)
 
@@ -62,11 +62,11 @@ seller_class: MANUFACTURER_AU
 
 ## MCDA Scores
 - **Performance_Headroom:** 6 (Good for Track 1B, but below high-VRAM discrete tiers)
-- **Price_Value:** 6 (Fair value at current verified AU pricing)
+- **Price_Value:** 9 (Bargain exception due to special price of $3,499)
 - **Future_Proof:** 6 (Useful runway, but constrained versus 64GB/128GB options)
 - **Portability:** 10 (Lightest and most portable Strix Halo candidate)
 - **Track2_Avoidance:** 6 (32GB Strix Halo cap tier without benchmark evidence)
-- **MCDA_Total:** 6.8
+- **MCDA_Total:** 7.4
 
 ## Verification Checklist
 - [x] Resolve listing URL
@@ -74,7 +74,7 @@ seller_class: MANUFACTURER_AU
 - [x] Confirm SoC tier (Ryzen AI Max+ 395)
 - [x] Confirm Unified Memory capacity (32GB Verified)
 - [x] Confirm screen size (13.4")
-- [x] Confirm AU stock status (In stock at Amazon AU)
-- [x] Confirm seller credibility (Fulfilled by Amazon)
+- [x] Confirm AU stock status (In stock at PLE Computers)
+- [x] Confirm seller credibility (Major Retailer - PLE)
 - [x] Check thermal reputation (Vapor chamber + Liquid Metal + Vertical intake)
 - [x] Confirm AGENTS.md GOOD ENOUGH gate cleared

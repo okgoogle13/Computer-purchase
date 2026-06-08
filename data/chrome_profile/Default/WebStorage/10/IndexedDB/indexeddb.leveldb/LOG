@@ -1,0 +1,6 @@
+2026/06/08-00:56:05.369 421e9b Creating DB /Users/okgoogle13/Projects/Computer purchase/data/chrome_profile/Default/WebStorage/10/IndexedDB/indexeddb.leveldb since it was missing.
+2026/06/08-00:56:05.377 421e9b Reusing MANIFEST /Users/okgoogle13/Projects/Computer purchase/data/chrome_profile/Default/WebStorage/10/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2026/06/08-00:57:02.402 421e98 Level-0 table #5: started
+2026/06/08-00:57:02.404 421e98 Level-0 table #5: 17729 bytes OK
+2026/06/08-00:57:02.414 421e98 Delete type=0 #3
+2026/06/08-00:57:02.415 421e98 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

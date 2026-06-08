@@ -31,6 +31,7 @@ Claude must execute and maintain the system through a structured 5-phase pipelin
 
 ```mermaid
 graph TD
+    Z[Phase 0: Spec Clarifier Agent] -.->|--spec-json| A
     A[Phase 1: Intake] --> B[Phase 2: Shortlist]
     B --> C[Phase 3a: Scaffold Schema]
     C --> D[Phase 3b: Live Pricing Fill]
@@ -40,12 +41,18 @@ graph TD
 
 ### Pipeline Automation Commands:
 ```bash
+# Phase 0 (optional): interactive spec clarification
+python scripts/agents/spec_clarifier/agent.py
+# → outputs JSON blob; pass to Phase 2 with --spec-json
+
 # Phase 1: Normalize raw exports & generate product cards
 python scripts/normalize_intake.py data/raw/YYYY-MM-DD_batch.csv
 python scripts/intake_to_cards.py data/processed/YYYY-MM-DD_batch_processed.csv --overwrite
 
 # Phase 2: Build shortlist using policy thresholds
 python scripts/build_shortlist.py
+# With Phase 0 spec override:
+python scripts/build_shortlist.py --spec-json '{"track_preference":"1A","budget_cap_aud":4500}'
 
 # Phase 3a: Scaffold pricing columns (schema-only, NO live web lookup)
 python scripts/enrich_shortlist_pricing.py shortlists/YYYY-MM-DD_shortlist.csv

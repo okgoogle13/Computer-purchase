@@ -7,8 +7,13 @@ Rather than relying on ad-hoc shopping, this project uses standardized product c
 
 ## Quickstart – 5‑Phase Hardware Decision Flow
 
+0. **Spec Clarification (optional)**  
+   `python scripts/agents/spec_clarifier/agent.py`  
+   Interactively defines your requirements (track, VRAM floor, budget) and outputs a `--spec-json` blob.
+
 1. **Build shortlist**  
-   `python scripts/build_shortlist.py --batch YYYY-MM-DD_notebooklm_batchN`
+   `python scripts/build_shortlist.py --batch YYYY-MM-DD_notebooklm_batchN`  
+   Add `--spec-json '{...}'` to apply Phase 0 output as filter overrides.
 
 2. **Phase 3a scaffold pricing schema**  
    `python scripts/enrich_shortlist_pricing.py NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist.csv`
@@ -47,10 +52,11 @@ The repository is organized into distinct hardware "lanes" and a central decisio
   * `/06_Mini_PCs_and_eGPU/`
 * `/scripts/` - Contains the automation pipeline:
   * `normalize_intake.py` and `intake_to_cards.py` (Phase 1: Intake)
-  * `build_shortlist.py` (Phase 2: Shortlist)
+  * `build_shortlist.py` (Phase 2: Shortlist; accepts `--spec-json`)
   * `enrich_shortlist_pricing.py` (Phase 3a: schema scaffold only)
   * `fill_shortlist_live_pricing.py` (Phase 3b: live verification fill)
-  * `NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/Policy_Pack/expandable_workstation_scoring_policy_pack/rubric_weighting_engine.py` (Phase 5: MCDA rank, located in the Policy Pack)
+  * `scoring/rubric_weighting_engine.py` (Phase 5: MCDA rank)
+  * `agents/spec_clarifier/` (Phase 0: conversational intake agent — ADK pattern)
 * `/_Archive_Legacy_Data/` - Superseded research, raw notes, and deferred lanes (e.g., Apple Silicon).
 
 ## Getting Started

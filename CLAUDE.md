@@ -8,26 +8,60 @@ AI-assisted hardware procurement decision system for selecting hardware to ship 
 
 **Default goal:** Buy one Track 1 laptop that is outcome-enabled, AU-available, ≤5,000 AUD, and free of disqualifying thermal risk. Do not wait for Track 2.
 
+## Token Efficiency
+
+**Anti-patterns (avoid):**
+- Re-reading full CSVs when you need one row — use `grep` or `head -2` instead
+- Running `build_shortlist.py` when only pricing changed — use `fill_shortlist_live_pricing.py`
+- Browser sweeps across 20 pages when a targeted search suffices
+- Asking for "all candidates" when the question is about the top 3
+
+**Compact before:** Phase 3b browser pricing runs (context-heavy) and MCDA ranking.
+
+**Model routing:**
+
+| Task type | Tier |
+|---|---|
+| Grep, read cards, search CSVs | Haiku |
+| Shortlist filtering, policy checks | Haiku |
+| MCDA scoring, price cross-checks | Sonnet |
+| Final recommendation, escalation | Sonnet |
+
+Switch: `/model haiku` before search sweeps; `/model sonnet` before scoring.
+
 ## Pipeline Commands
 
 ```bash
+# Phase 0 — Spec Clarification (optional, interactive)
+# Outputs structured JSON to feed into --spec-json below
+python scripts/agents/spec_clarifier/agent.py
+
 # Phase 1 — Intake: normalize raw CSV and generate product cards
 python scripts/normalize_intake.py NotebookLM_Workspaces/intake/raw/YYYY-MM-DD_batch.csv
 python scripts/intake_to_cards.py NotebookLM_Workspaces/intake/processed/YYYY-MM-DD_batch_processed.csv --overwrite
 
-# Phase 2 — Shortlist
+# Phase 2 — Shortlist (accepts optional --spec-json from Phase 0 or --archetype)
 python scripts/build_shortlist.py
+python scripts/build_shortlist.py --spec-json '{"track_preference":"1A","budget_cap_aud":4500}'
+python scripts/build_shortlist.py --archetype gaming_laptop_private_sale
+python scripts/build_shortlist.py --archetype gaming_laptop_retailer
+python scripts/build_shortlist.py --archetype strix_halo_laptop
+python scripts/build_shortlist.py --archetype refurb_workstation_au
 
 # Phase 3a — Pricing schema scaffold only (no live lookup)
-python scripts/enrich_shortlist_pricing.py shortlists/YYYY-MM-DD_shortlist.csv
+# Shortlist files use profile-based names, e.g. shortlist_profile-laptop.csv
+python scripts/enrich_shortlist_pricing.py shortlists/shortlist_profile-laptop.csv
 
 # Phase 3b — Live pricing fill (AU verification)
-python scripts/fill_shortlist_live_pricing.py shortlists/YYYY-MM-DD_shortlist_pricing_enriched.csv
+python scripts/fill_shortlist_live_pricing.py shortlists/shortlist_profile-laptop_pricing_enriched.csv
+
+# Phase 4 — Fill any missing MCDA score columns
+python scripts/fill_mcda_gaps.py shortlists/shortlist_profile-laptop_pricing_enriched_live.csv
 
 # Phase 5 — MCDA ranking
 python scripts/scoring/rubric_weighting_engine.py \
-  --csv shortlists/YYYY-MM-DD_shortlist_pricing_enriched_live.csv \
-  --output-csv shortlists/YYYY-MM-DD_shortlist_ranked.csv
+  --csv shortlists/shortlist_profile-laptop_pricing_enriched_live.csv \
+  --output-csv shortlists/shortlist_profile-laptop_ranked.csv
 
 # Full orchestrated run
 python scripts/run_prompt_chain.py --batch YYYY-MM-DD_notebooklm_batchN
@@ -36,8 +70,8 @@ python scripts/run_prompt_chain.py --batch YYYY-MM-DD_notebooklm_batchN
 python scripts/policy_drift_check.py
 python scripts/validate_prompt_templates.py
 python scripts/pipeline_integrity_check.py \
-  --enriched shortlists/YYYY-MM-DD_shortlist_pricing_enriched_live.csv \
-  --ranked shortlists/YYYY-MM-DD_shortlist_ranked.csv
+  --enriched shortlists/shortlist_profile-laptop_pricing_enriched_live.csv \
+  --ranked shortlists/shortlist_profile-laptop_ranked.csv
 
 # Tests
 pytest tests/
@@ -55,14 +89,25 @@ pytest tests/
 **Key files:**
 - `AGENTS.md` — all decision rules, track gates, MCDA weights, and scoring rubrics
 - `config/procurement_policy.json` — budget caps, VRAM floors, MCDA weights (source of truth for scripts)
-- `shortlists/` — CSV working files at each pipeline stage
-- `cards/` — markdown product cards (naming: `intake-NNN_...md` or `harvest-YYYYMMDD-NNN_...md`)
+- `config/search_archetypes.json` — canonical archetype config: GPU sweep lists, price ceilings, source rules, intent notes. Update here when adding new GPU tiers or archetype rules. Referenced by `build_shortlist.py --archetype` and all cross-platform prompts.
+- `shortlists/` — CSV working files at each pipeline stage (named `shortlist_profile-<type>*.csv`)
+- `cards/` — markdown product cards, organised in subdirectories by hardware class:
+  - `cards/laptops/` — primary Track 1A/1B candidates
+  - `cards/desktops/`, `cards/apple_silicon/`, `cards/components/`, `cards/mini_pcs/`
+  - Naming prefixes: `intake-NNN_` (normalised intake), `harvest-YYYYMMDD-NNN_` (LLM harvest), `fb-NNN_` (Facebook/Gumtree sourced), numeric-only (eBay secondary-market)
 - `scripts/README_pipeline.md` — detailed per-phase workflow
+- `scripts/agents/spec_clarifier/` — Phase 0 conversational intake agent (ADK pattern; outputs `--spec-json` blob)
+- `scripts/data_collection/` — eBay/Facebook/Gumtree scraping and mapping scripts
+- `scripts/import/` — browser agent JS scripts for eBay watchlist ingestion
+- `scripts/requirements.txt` — Python dependencies (install before running pipeline)
 
 **Script ownership (strict):**
 - `enrich_shortlist_pricing.py` — schema scaffold ONLY, no web lookup, no inferred values
 - `fill_shortlist_live_pricing.py` — live AU pricing fill for queued rows only
+- `fill_mcda_gaps.py` — fills missing MCDA score columns before ranking
 - `rubric_weighting_engine.py` — MCDA weighting + risk-adjusted output columns
+- `scoring/auto_score_cards.py` — auto-scores cards from shortlist data
+- `harvest_llm_recommendations.py` — harvests LLM-sourced candidates into intake format
 
 ## Track Gates
 

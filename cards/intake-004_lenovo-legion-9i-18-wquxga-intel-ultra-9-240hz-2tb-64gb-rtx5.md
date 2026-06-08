@@ -17,7 +17,7 @@ condition: Refurbished
 au_stock: Yes
 verification: Verified
 status: Active
-seller_class: EBAY_AU
+seller_class: MAJOR_RETAILER_AU
 source_platform: EBAY_AU
 seller_risk_score: UNKNOWN
 battery_disclosure_level: UNKNOWN

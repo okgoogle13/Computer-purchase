@@ -36,17 +36,14 @@ MCDA_COLUMNS = [
     "Future_Proof",
     "Portability",
     "Track2_Avoidance",
-    "Upgrade_Ceiling",
 ]
 
-# 7-factor weight constants
-WEIGHT_PERFORMANCE_HEADROOM = 0.20
-WEIGHT_PRICE_VALUE          = 0.16
-WEIGHT_FUTURE_PROOF         = 0.16
-WEIGHT_PORTABILITY          = 0.16
-WEIGHT_TRACK2_AVOIDANCE     = 0.12
-WEIGHT_UPGRADE_CEILING      = 0.10
-WEIGHT_ACQUISITION_RISK     = 0.10
+# 5-factor weight constants — aligned with AGENTS.md and procurement_policy.json
+WEIGHT_PERFORMANCE_HEADROOM = 0.25
+WEIGHT_PRICE_VALUE          = 0.20
+WEIGHT_FUTURE_PROOF         = 0.20
+WEIGHT_PORTABILITY          = 0.20
+WEIGHT_TRACK2_AVOIDANCE     = 0.15
 
 # Assert weights sum exactly to 1.0
 assert round(
@@ -54,9 +51,7 @@ assert round(
     WEIGHT_PRICE_VALUE +
     WEIGHT_FUTURE_PROOF +
     WEIGHT_PORTABILITY +
-    WEIGHT_TRACK2_AVOIDANCE +
-    WEIGHT_UPGRADE_CEILING +
-    WEIGHT_ACQUISITION_RISK,
+    WEIGHT_TRACK2_AVOIDANCE,
     3
 ) == 1.0, "MCDA weights must sum exactly to 1.0"
 
@@ -511,16 +506,20 @@ def score_price_value(row: dict) -> float:
 
 def compute_mcda(scores: dict) -> float:
     """
-    Computes the final MCDA score using the 7-factor model and weights.
+    Computes the final MCDA score using the 5-factor model from AGENTS.md.
+
+    SCORE = Performance_Headroom * 0.25 + Price_Value * 0.20
+          + Future_Proof * 0.20 + Portability * 0.20 + Track2_Avoidance * 0.15
+
+    Acquisition_Risk and Upgrade_Ceiling are not MCDA factors; risk is applied
+    post-hoc via calculate_risk_adjustment() (seller multiplier + source penalty).
     """
     score = (
         (scores.get("performance_headroom") or 0.0) * WEIGHT_PERFORMANCE_HEADROOM +
         (scores.get("price_value")          or 0.0) * WEIGHT_PRICE_VALUE          +
         (scores.get("future_proof")         or 0.0) * WEIGHT_FUTURE_PROOF         +
         (scores.get("portability")          or 0.0) * WEIGHT_PORTABILITY          +
-        (scores.get("track2_avoidance")     or 0.0) * WEIGHT_TRACK2_AVOIDANCE     +
-        (scores.get("upgrade_ceiling")      or 0.0) * WEIGHT_UPGRADE_CEILING      +
-        (scores.get("acquisition_risk")     or 0.0) * WEIGHT_ACQUISITION_RISK
+        (scores.get("track2_avoidance")     or 0.0) * WEIGHT_TRACK2_AVOIDANCE
     )
     return round(score, 3)
 
@@ -611,7 +610,6 @@ def score_row(row: dict, weights: dict) -> tuple[float | None, list[str]]:
         "Future_Proof",
         "Portability",
         "Track2_Avoidance",
-        "Upgrade_Ceiling",
     ]
     missing = [col for col in manual_mcda_cols if parse_float(row.get(col)) is None]
     if missing:
@@ -722,9 +720,6 @@ def policy_status(row: dict, config: dict, score: float | None) -> tuple[str, li
     if not stock_is_confirmed(row):
         pass
 
-    if has_disqualifying_thermal_flag(row):
-        blockers.append("disqualifying thermal flag")
-
     if track == "1" and pathway == "1A":
         if price is not None and price > budget:
             blockers.append(f"price > Track 1 cap ({budget:.0f} AUD)")
@@ -770,15 +765,13 @@ def policy_status(row: dict, config: dict, score: float | None) -> tuple[str, li
 def rank(csv_path: Path, output_csv: Path | None = None) -> int:
     config = load_config()
     
-    # Override configuration weights with the updated 7-factor weights
+    # 5-factor weights aligned with AGENTS.md and procurement_policy.json
     weights = {
         "Performance_Headroom": WEIGHT_PERFORMANCE_HEADROOM,
         "Price_Value": WEIGHT_PRICE_VALUE,
         "Future_Proof": WEIGHT_FUTURE_PROOF,
         "Portability": WEIGHT_PORTABILITY,
         "Track2_Avoidance": WEIGHT_TRACK2_AVOIDANCE,
-        "Upgrade_Ceiling": WEIGHT_UPGRADE_CEILING,
-        "Acquisition_Risk": WEIGHT_ACQUISITION_RISK,
     }
 
     with csv_path.open(newline="", encoding="utf-8-sig") as fh:
@@ -788,16 +781,18 @@ def rank(csv_path: Path, output_csv: Path | None = None) -> int:
         rows = list(reader)
         fieldnames = list(reader.fieldnames)
 
+    # Exclude candidates marked REJECTED or INACTIVE from ranking
+    _SKIP_STATUSES = {"REJECTED", "INACTIVE", "REMOVED"}
+    active_rows = [r for r in rows if str(r.get("status", "")).strip().upper() not in _SKIP_STATUSES]
+    skipped = len(rows) - len(active_rows)
+    if skipped:
+        print(f"Note: {skipped} candidate(s) excluded (REJECTED/INACTIVE).")
+    rows = active_rows
+
     # Assert that all standard MCDA columns are in fieldnames
     for col in MCDA_COLUMNS:
         if col not in fieldnames:
-            # If Upgrade_Ceiling is missing, we add it with a default empty value
-            if col == "Upgrade_Ceiling":
-                fieldnames.append(col)
-                for r in rows:
-                    r["Upgrade_Ceiling"] = ""
-            else:
-                sys.exit(f"ERROR: Input CSV is missing MCDA column: {col}")
+            sys.exit(f"ERROR: Input CSV is missing MCDA column: {col}")
 
     # Add new output columns to fieldnames
     new_cols = [
@@ -815,6 +810,9 @@ def rank(csv_path: Path, output_csv: Path | None = None) -> int:
         "risk_adjusted_price",
         "manufacture_year",
         "risk_flags",
+        # Archetype transparency columns (written by build_shortlist.py --archetype)
+        "archetype_used",
+        "intent_notes",
     ]
     for col in new_cols:
         if col not in fieldnames:
@@ -856,8 +854,10 @@ def rank(csv_path: Path, output_csv: Path | None = None) -> int:
         track, pathway = normalize_track_pathway(row)
         score = row.get("MCDA_Total") or "NA"
         adjusted = row.get("Adjusted_MCDA_Total") or "NA"
+        archetype = row.get("archetype_used") or ""
+        archetype_tag = f"  [{archetype}]" if archetype else ""
         print(
-            f"{idx:>3}  {score:>6}  {adjusted:>6}  {row['Policy_Status']:<12}  {track:<5} {pathway:<5}  {row.get('item_name') or row.get('Machine')}"
+            f"{idx:>3}  {score:>6}  {adjusted:>6}  {row['Policy_Status']:<12}  {track:<5} {pathway:<5}  {row.get('item_name') or row.get('Machine')}{archetype_tag}"
         )
         if row["Policy_Blockers"]:
             print(f"       blockers: {row['Policy_Blockers']}")

@@ -1,6 +1,10 @@
 # Current State
 
-**Last Updated:** 2026-05-23
+**Last Updated:** 2026-06-08
+
+## Agent Tooling (New)
+
+- **`scripts/agents/spec_clarifier/`** — Phase 0 conversational intake agent (ADK pattern, `gemini-2.5-flash`). Run before `build_shortlist.py` to interactively clarify track, VRAM floor, budget, and portability requirements. Outputs structured JSON; pass to shortlist via `--spec-json`. No external services required.
 
 ## Decision Frame
 

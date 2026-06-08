@@ -1,4 +1,8 @@
-# Cross-Platform Opportunity Discovery Prompt - ChatGPT Project Variant
+# Cross-Platform Opportunity Discovery Prompt — ChatGPT Project Variant
+
+> **Shared logic and GPU sweep list:** [`cross_platform_research_core.md`](cross_platform_research_core.md) defines the canonical two-phase workflow and output contract (A–G).
+> GPU tier sweep list is maintained in `config/search_archetypes.json` → `search_templates.all_tracked_gpu_tiers`.
+> When adding new GPU tiers, update `search_archetypes.json` first — then copy to the sweep list below.
 
 Use this in a ChatGPT Project to harvest product recommendations from attached
 ChatGPT exports and reconcile them against the hardware decision repository.
