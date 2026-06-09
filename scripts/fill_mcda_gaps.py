@@ -90,9 +90,11 @@ def derive_upgrade_ceiling(row: dict) -> float:
     strix_signals = ["STRIX HALO", "RYZEN AI MAX", "RADEON 890M", "RADEON 8060S",
                      "HN6306", "PROART PX13", "HP Z2 MINI G1A", "OMEN MAX 16",
                      "TUF GAMING A14", "TUF A14", "TUF A16 STRIX"]
+    spark_signals = ["RTX SPARK", "GRACE BLACKWELL", "N1X", "N1 LAPTOP", "MEDIATEK NVIDIA"]
     is_strix = any(sig in gpu_model or sig in item_name for sig in strix_signals)
-    if unified >= 32 or is_strix:
-        # Strix Halo: upgrade ceiling is moderate — can't swap GPU
+    is_spark = any(sig in gpu_model or sig in item_name for sig in spark_signals)
+    if unified >= 32 or is_strix or is_spark:
+        # Strix Halo or RTX Spark: upgrade ceiling is moderate — can't swap GPU
         if unified >= 128:
             return 6.0
         if unified >= 64:
@@ -160,6 +162,12 @@ def infer_track_pathway(row: dict) -> tuple[str, str]:
     # Component GPUs → Track 2B (add-in card to a workstation)
     if cat_group in ("Standalone_GPU", "Workstation_GPU"):
         return "2", "B"
+
+    # RTX Spark / NVIDIA unified memory laptops → Track 1C
+    spark_signals = ["RTX SPARK", "GRACE BLACKWELL", "N1X", "N1 LAPTOP", "MEDIATEK NVIDIA"]
+    is_spark = any(sig in gpu_model or sig in item_name for sig in spark_signals)
+    if profile in ("Laptop",) and is_spark:
+        return "1", "1C"
 
     # Strix Halo laptops → Track 1B
     strix_signals = ["STRIX HALO", "RYZEN AI MAX", "RADEON 890M", "RADEON 8060S",

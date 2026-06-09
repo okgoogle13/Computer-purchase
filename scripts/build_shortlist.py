@@ -438,6 +438,7 @@ def scan_intake_cards(
     profile_filter: str | None,
     track_filter: str | None,
     pathway_filter: str | None,
+    watchlist_only: bool = False,
 ) -> list[dict]:
     """
     Walk all INTAKE_LANES and return a list of fully-built row dicts.
@@ -448,6 +449,13 @@ def scan_intake_cards(
         if not folder.exists():
             continue
         for md_path in sorted(folder.rglob("*.md")):
+            is_watchlist = "watchlist" in md_path.parts
+            if watchlist_only:
+                if not is_watchlist:
+                    continue
+            else:
+                if is_watchlist:
+                    continue
             text = md_path.read_text(encoding="utf-8", errors="replace")
             fm          = parse_frontmatter(text)
             intake_info = parse_tags_comment(text)
@@ -580,6 +588,10 @@ After generating the shortlist, run the pricing enrichment step:
             "strix_halo_laptop, refurb_workstation_au"
         ),
     )
+    parser.add_argument(
+        "--watchlist", action="store_true",
+        help="Compile only the unreleased watchlist cards from cards/watchlist/",
+    )
     args = parser.parse_args()
 
     # Load machine-readable config
@@ -615,7 +627,7 @@ After generating the shortlist, run the pricing enrichment step:
         # Map profile from pathway
         if args.profile is None:
             pathway_lower = (pathway_val or "").lower()
-            if pathway_lower in ("1a", "1b"):
+            if pathway_lower in ("1a", "1b", "1c"):
                 args.profile = "laptop"
             elif arch.get("track") == "1.5":
                 args.profile = "desktop"
@@ -657,8 +669,9 @@ After generating the shortlist, run the pricing enrichment step:
     track_filter = None if args.track is None else args.track
     pathway_filter = None if args.pathway is None else args.pathway.strip().upper()
 
-    print(f"\n🔍 Scanning intake cards in {WORKSPACE.relative_to(REPO_ROOT)} ...")
-    all_rows = scan_intake_cards(args.batch, profile_filter, track_filter, pathway_filter)
+    target_type = "watchlist" if args.watchlist else "intake"
+    print(f"\n🔍 Scanning {target_type} cards in {WORKSPACE.relative_to(REPO_ROOT)} ...")
+    all_rows = scan_intake_cards(args.batch, profile_filter, track_filter, pathway_filter, watchlist_only=args.watchlist)
     print(f"   Cards found: {len(all_rows)}")
 
     # Apply gates & policies
@@ -732,22 +745,26 @@ After generating the shortlist, run the pricing enrichment step:
         suffix_parts.append(f"pathway-{pathway_filter}")
     suffix = f"_{'_'.join(suffix_parts)}" if suffix_parts else ""
 
-    sl_path   = out_dir / f"{today}_shortlist{suffix}.csv"
-    rej_path  = out_dir / f"{today}_shortlist_rejected{suffix}.csv"
+    prefix = "watchlist_shortlist" if args.watchlist else "shortlist"
+    sl_path   = out_dir / f"{today}_{prefix}{suffix}.csv"
+    rej_path  = out_dir / f"{today}_{prefix}_rejected{suffix}.csv"
 
-    # Add 'status' column defaulting to ACTIVE if not set or if it's 'Active'
+    # Add 'status' column defaulting to ACTIVE/UNRELEASED if not set or if it's 'Active'
     for row in shortlist:
-        if "status" not in row or not row["status"] or row["status"].upper() == "ACTIVE":
+        if "status" not in row or not row["status"]:
+            row["status"] = "UNRELEASED" if args.watchlist else "ACTIVE"
+        elif row["status"].upper() == "ACTIVE":
             row["status"] = "ACTIVE"
 
     write_csv(sl_path, SHORTLIST_FIELDNAMES, shortlist)
     write_csv(rej_path, REJECTED_FIELDNAMES, rejected)
 
-    print(f"\n✅ Shortlist complete.")
+    print(f"\n✅ Watchlist complete." if args.watchlist else f"\n✅ Shortlist complete.")
     print(f"   Shortlisted : {len(shortlist)} → {sl_path.relative_to(REPO_ROOT)}")
     print(f"   Rejected    : {len(rejected)} → {rej_path.relative_to(REPO_ROOT)}")
-    print(f"\n   Next: Run the live pricing enrichment step:")
-    print(f"   python scripts/enrich_shortlist_pricing.py {sl_path.relative_to(REPO_ROOT)}\n")
+    if not args.watchlist:
+        print(f"\n   Next: Run the live pricing enrichment step:")
+        print(f"   python scripts/enrich_shortlist_pricing.py {sl_path.relative_to(REPO_ROOT)}\n")
 
 
 if __name__ == "__main__":

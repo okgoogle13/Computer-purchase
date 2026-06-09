@@ -114,11 +114,15 @@ def normalize_track_pathway(row: dict) -> tuple[str, str]:
             return "1", "1A"
         if pathway_key in {"1b", "b"}:
             return "1", "1B"
+        if pathway_key in {"1c", "c"}:
+            return "1", "1C"
         return "1", pathway
     if key in {"track1a", "1a"}:
         return "1", "1A"
     if key in {"track1b", "1b"}:
         return "1", "1B"
+    if key in {"track1c", "1c"}:
+        return "1", "1C"
     if key in {"track1.5", "1.5"}:
         return "1.5", pathway
     if key in {"track2", "2"}:
@@ -699,6 +703,29 @@ def track_1b_soc_confirmed(row: dict) -> tuple[bool, str]:
     return False, raw
 
 
+def track_1c_soc_confirmed(row: dict) -> tuple[bool, str]:
+    candidates = [
+        row.get("soc"),
+        row.get("gpu_or_soc"),
+        row.get("gpu_model"),
+        row.get("item_name"),
+    ]
+    raw = " ".join(str(v or "").strip() for v in candidates).strip()
+    if not raw:
+        return False, "UNKNOWN"
+    normalized = raw.lower()
+    indicators = (
+        "rtx spark",
+        "grace blackwell",
+        "n1x",
+        "n1 laptop",
+        "mediatek nvidia",
+    )
+    if any(indicator in normalized for indicator in indicators):
+        return True, raw
+    return False, raw
+
+
 def policy_status(row: dict, config: dict, score: float | None) -> tuple[str, list[str]]:
     track, pathway = normalize_track_pathway(row)
     price = effective_price(row)
@@ -744,6 +771,19 @@ def policy_status(row: dict, config: dict, score: float | None) -> tuple[str, li
                 blockers.append("Track 1B SoC not confirmed (requires Strix Halo / Ryzen AI Max)")
             else:
                 blockers.append("Track 1B SoC mismatch (requires Strix Halo / Ryzen AI Max)")
+    elif track == "1" and pathway == "1C":
+        if price is not None and price > budget:
+            blockers.append(f"price > Track 1 cap ({budget:.0f} AUD)")
+        if unified is None:
+            blockers.append("unified memory UNKNOWN")
+        elif unified < unified_floor:
+            blockers.append(f"unified memory below Track 1C floor ({unified_floor:.0f} GB)")
+        soc_ok, soc_text = track_1c_soc_confirmed(row)
+        if not soc_ok:
+            if not soc_text or soc_text.upper() in {"UNKNOWN", "N/A", "NONE", "-"}:
+                blockers.append("Track 1C SoC not confirmed (requires RTX Spark / N1/N1X / Grace Blackwell)")
+            else:
+                blockers.append("Track 1C SoC mismatch (requires RTX Spark / N1/N1X / Grace Blackwell)")
     elif track == "1.5":
         if vram is None or vram < desktop_floor:
             blockers.append(f"VRAM below Track 1.5 floor ({desktop_floor:.0f} GB)")

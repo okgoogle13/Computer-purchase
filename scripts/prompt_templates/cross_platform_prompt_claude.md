@@ -21,7 +21,12 @@
 
 ## Prompt
 
-Follow `cross_platform_research_core.md` exactly.
+> **Phase 1 (coverage audit) — delegate to Gemini Flash, do not load cards in Claude:**
+> Invoke the `gemini-card-audit` skill, which runs `scripts/run_gemini_card_audit.py`.
+> Read `output/card_audit_phase1.json` and use it as your Phase 1 context.
+> Do NOT `Read` or glob `cards/` directly for Phase 1 — that wastes ~50k tokens in Sonnet.
+
+Follow `cross_platform_research_core.md` exactly for Phase 2 (market discovery), using the Phase 1 JSON output as the "missed or untracked recommendation set" input.
 
 GPU tier sweep guidance (from `search_archetypes.json` → `search_templates.all_tracked_gpu_tiers`):
 - RTX 5090 Laptop 24 GB
@@ -39,6 +44,7 @@ GPU tier sweep guidance (from `search_archetypes.json` → `search_templates.all
 - RTX 3500 Ada Laptop 12 GB
 - Radeon RX 7900M 16 GB
 - Ryzen AI Max Strix Halo Laptop 32 GB+
+- RTX Spark Laptop 32 GB+
 - RTX 3090 24 GB Desktop Refurb
 
 High-value pass ordering (Track 1A priority):

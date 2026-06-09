@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""Check AGENTS.md policy constants against config/procurement_policy.json.
+"""Check/Sync AGENTS.md policy constants against config/procurement_policy.json.
 
-This is a lightweight guardrail for ranking-time drift detection.
-Human-facing recommendations should follow AGENTS.md when mismatches exist.
+This is a lightweight guardrail for ranking-time drift detection and syncing.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
+import difflib
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -18,117 +17,113 @@ AGENTS_PATH = REPO_ROOT / "AGENTS.md"
 CONFIG_PATH = REPO_ROOT / "config" / "procurement_policy.json"
 DEFAULT_LOG_PATH = REPO_ROOT / "logs" / "policy_drift_check_latest.json"
 
-
-def parse_agents_constants(text: str) -> dict[str, float]:
-    constants: dict[str, float] = {}
-
-    track1_cap = re.search(r"Track 1 budget cap:\s*\*\*(\d[\d,]*)\s*AUD\*\*", text, re.IGNORECASE)
-    if track1_cap:
-        constants["track1_budget_cap_aud"] = float(track1_cap.group(1).replace(",", ""))
-
-    track1a_vram = re.search(r"Discrete VRAM is at least\s*(\d+)\s*GB", text, re.IGNORECASE)
-    if track1a_vram:
-        constants["track1a_min_discrete_vram_gb"] = float(track1a_vram.group(1))
-
-    track1b_unified = re.search(r"Unified memory is at least\s*(\d+)\s*GB", text, re.IGNORECASE)
-    if track1b_unified:
-        constants["track1b_min_unified_memory_gb"] = float(track1b_unified.group(1))
-
-    track15_vram = re.search(r"GPU VRAM is at least\s*(\d+)\s*GB", text, re.IGNORECASE)
-    if track15_vram:
-        constants["track15_min_vram_gb"] = float(track15_vram.group(1))
-
-    cap_a = re.search(r"Total cost is at most\s*(\d[\d,]*)\s*AUD", text, re.IGNORECASE)
-    if cap_a:
-        constants["track2_a_cap_aud"] = float(cap_a.group(1).replace(",", ""))
-
-    b_match = re.search(r"Pathway B.*?Total cost is at most\s*(\d[\d,]*)\s*AUD", text, re.IGNORECASE | re.DOTALL)
-    if b_match:
-        constants["track2_b_cap_aud"] = float(b_match.group(1).replace(",", ""))
-
-    c_match = re.search(r"Pathway C.*?Total cost is at most\s*(\d[\d,]*)\s*AUD", text, re.IGNORECASE | re.DOTALL)
-    if c_match:
-        constants["track2_c_cap_aud"] = float(c_match.group(1).replace(",", ""))
-
-    return constants
-
-
-def compare(agents_values: dict[str, float], config: dict) -> list[dict[str, object]]:
+def generate_policy_markdown(config: dict) -> str:
+    budget_cap = config.get("budget_cap_aud", 5000.0)
+    laptop_discrete_vram = config.get("laptop_discrete_minimum_vram_gb", 8.0)
+    laptop_unified_memory = config.get("laptop_unified_minimum_vram_gb", 16.0)
+    desktop_vram = config.get("desktop_minimum_vram_gb", 16.0)
     track2_caps = config.get("track2_budget_caps_aud", {})
-    comparisons = [
-        ("track1_budget_cap_aud", config.get("budget_cap_aud")),
-        ("track1a_min_discrete_vram_gb", config.get("laptop_discrete_minimum_vram_gb")),
-        ("track1b_min_unified_memory_gb", config.get("laptop_unified_minimum_vram_gb")),
-        ("track15_min_vram_gb", config.get("desktop_minimum_vram_gb")),
-        ("track2_a_cap_aud", track2_caps.get("A")),
-        ("track2_b_cap_aud", track2_caps.get("B")),
-        ("track2_c_cap_aud", track2_caps.get("C")),
-    ]
+    cap_a = track2_caps.get("A", 5000.0)
+    cap_b = track2_caps.get("B", 4000.0)
+    cap_c = track2_caps.get("C", 3500.0)
 
-    result: list[dict[str, object]] = []
-    for key, config_value in comparisons:
-        agents_value = agents_values.get(key)
-        status = "MATCH"
-        if agents_value is None or config_value is None:
-            status = "UNRESOLVED"
-        elif float(agents_value) != float(config_value):
-            status = "MISMATCH"
-        result.append(
-            {
-                "field": key,
-                "agents_md": agents_value,
-                "config": config_value,
-                "status": status,
-            }
-        )
-    return result
-
+    markdown = f"""- **Track 1 (Laptop Core)**: Active choice path. Proceed immediately upon locating a baseline validation match. Target budget: ≤ {budget_cap:,.0f} AUD.
+  - **Track 1A (Discrete GPU Laptop)**: Discrete VRAM is at least {laptop_discrete_vram:.0f} GB.
+  - **Track 1B (Unified Memory Laptop)**: Unified memory is at least {laptop_unified_memory:.0f} GB.
+- **Track 1.5 (Desktop Swap)**: Enabled exclusively under Exception A parameters (Zero valid laptop configurations discovered within pricing parameters).
+  - **Track 1.5 Minimum VRAM**: GPU VRAM is at least {desktop_vram:.0f} GB.
+- **Track 2 (Secondary/Alternative Tracks)**:
+  - **Pathway A**: Total cost is at most {cap_a:,.0f} AUD.
+  - **Pathway B**: Total cost is at most {cap_b:,.0f} AUD.
+  - **Pathway C**: Total cost is at most {cap_c:,.0f} AUD."""
+    return markdown
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Check policy drift between AGENTS.md and config/procurement_policy.json")
-    parser.add_argument("--output", default=str(DEFAULT_LOG_PATH), help="Write JSON report to this file")
+    parser = argparse.ArgumentParser(
+        description="Check or sync policy drift between AGENTS.md and config/procurement_policy.json"
+    )
+    parser.add_argument(
+        "--sync",
+        action="store_true",
+        help="Update the AGENTS.md policy section in place"
+    )
+    parser.add_argument(
+        "--output",
+        default=str(DEFAULT_LOG_PATH),
+        help="Write JSON report to this file"
+    )
     args = parser.parse_args()
 
     if not AGENTS_PATH.exists() or not CONFIG_PATH.exists():
-        sys.exit("Missing AGENTS.md or config/procurement_policy.json")
+        sys.exit("Error: Missing AGENTS.md or config/procurement_policy.json")
+
+    try:
+        config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    except Exception as e:
+        sys.exit(f"Error: Failed to parse {CONFIG_PATH}: {e}")
 
     agents_text = AGENTS_PATH.read_text(encoding="utf-8")
-    config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
-    agents_values = parse_agents_constants(agents_text)
-    checks = compare(agents_values, config)
+    start_tag = "<!-- POLICY_START -->"
+    end_tag = "<!-- POLICY_END -->"
 
-    mismatches = [r for r in checks if r["status"] == "MISMATCH"]
-    unresolved = [r for r in checks if r["status"] == "UNRESOLVED"]
+    if start_tag not in agents_text or end_tag not in agents_text:
+        sys.exit(f"Error: Could not find markers {start_tag} and {end_tag} in AGENTS.md")
 
-    summary = {
-        "status": "PASS" if not mismatches else "FAIL",
-        "message": (
-            "No numeric policy drift detected."
-            if not mismatches
-            else "Policy drift detected. Follow AGENTS.md for recommendation language and update config."
-        ),
-        "checks": checks,
-    }
+    parts = agents_text.split(start_tag)
+    before_policy = parts[0]
+    after_start = parts[1]
+    parts2 = after_start.split(end_tag)
+    existing_policy_raw = parts2[0]
+    after_policy = parts2[1]
+
+    existing_policy = existing_policy_raw.strip()
+    generated_policy = generate_policy_markdown(config).strip()
 
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
 
-    print(f"Policy drift check: {summary['status']}")
-    print(summary["message"])
-    print(f"Report: {out_path}")
+    if args.sync:
+        if existing_policy == generated_policy:
+            print("AGENTS.md policy section is already in sync.")
+        else:
+            new_agents_text = f"{before_policy}{start_tag}\n{generated_policy}\n{end_tag}{after_policy}"
+            AGENTS_PATH.write_text(new_agents_text, encoding="utf-8")
+            print("AGENTS.md successfully synced with config/procurement_policy.json.")
+        
+        # Write success log
+        summary = {
+            "status": "PASS",
+            "message": "Synced successfully.",
+        }
+        out_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        sys.exit(0)
 
-    if unresolved:
-        print("Unresolved fields:")
-        for row in unresolved:
-            print(f"  - {row['field']}")
-
-    if mismatches:
-        print("Mismatches:")
-        for row in mismatches:
-            print(f"  - {row['field']}: AGENTS.md={row['agents_md']} config={row['config']}")
+    # Check mode
+    if existing_policy == generated_policy:
+        print("Policy drift check: PASS")
+        summary = {
+            "status": "PASS",
+            "message": "No numeric policy drift detected."
+        }
+        out_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        sys.exit(0)
+    else:
+        print("Policy drift check: FAIL (Mismatches detected)")
+        diff = difflib.unified_diff(
+            existing_policy.splitlines(),
+            generated_policy.splitlines(),
+            fromfile="AGENTS.md (current)",
+            tofile="procurement_policy.json (expected)",
+            lineterm=""
+        )
+        print("\n".join(diff))
+        
+        summary = {
+            "status": "FAIL",
+            "message": "Policy drift detected between AGENTS.md and config/procurement_policy.json. Run --sync to align."
+        }
+        out_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
         sys.exit(2)
-
 
 if __name__ == "__main__":
     main()

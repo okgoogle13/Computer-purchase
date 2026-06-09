@@ -123,7 +123,9 @@ def browser_agent_lookup(row: Dict[str, str]) -> Dict[str, str]:
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
         "tools": [{"google_search": {}}],
-        "generationConfig": {"temperature": 0.1, "responseMimeType": "application/json"}
+        "generationConfig": {
+            "responseMimeType": "application/json"
+        }
     }
     
     try:

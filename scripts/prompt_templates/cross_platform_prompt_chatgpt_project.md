@@ -198,6 +198,7 @@ Suggested target sweep list - guidance only; verify each listing live:
 - RTX 3500 Ada Laptop 12 GB
 - Radeon RX 7900M 16 GB
 - Ryzen AI Max / Ryzen AI Max+ Strix Halo laptops with 32 GB+ unified memory
+- NVIDIA RTX Spark (N1/N1X) unified processor laptops with 32 GB+ unified memory
 - Refurbished RTX 3090 24 GB single-GPU desktops only when Track 1 appears weak
   or value is clearly superior
 

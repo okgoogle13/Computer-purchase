@@ -245,9 +245,136 @@
         ]
       },
       "intent_notes_template": "Scored as refurb_workstation_au (Track 1.5, Exception A): sources=EBAY_AU/REFURB_SELLER, condition=refurbished, ceiling=$4,000 AUD, GPU preferred: RTX 3090 24GB / RTX 4090. Prebuilt only — no DIY."
+    },
+
+    {
+      "label": "mini_pc_au",
+      "display_name": "Compact Mini PC — Strix Halo / Discrete-GPU Mini (Track 2 Pathway C)",
+      "track": "2",
+      "pathway": "C",
+      "description": "Compact mini PCs: Strix Halo SoC units (Minisforum AI X1 Pro, HP Z2 Mini G1a) and discrete-GPU mini PCs (Minisforum DEG1/DEG2). Governed by Track 2 Pathway C: unified memory ≥32 GB OR discrete GPU ≥12 GB VRAM, total cost ≤$3,500 AUD. No screen size gate — mini PCs are screensless desktop form factor.",
+      "trigger_condition": "Track 2 Pathway C trigger: portable workstation needed and no Track 1 laptop viable, or Exception B unicorn.",
+      "exception_gate": "Confirm Track 1 and Track 1.5 have no viable candidate before evaluating this archetype.",
+      "allowed_sources": ["MANUFACTURER_AU", "MAJOR_RETAILER_AU", "AMAZON_AU", "EBAY_AU"],
+      "allowed_conditions": ["new", "open_box", "refurbished"],
+      "price": {
+        "hard_ceiling_aud": 3500,
+        "note": "Track 2 Pathway C ceiling per AGENTS.md."
+      },
+      "age": {
+        "max_years_old": 3,
+        "note": "Mini PCs age quickly. Current or previous generation only."
+      },
+      "spec": {
+        "form_factor": "mini_pc",
+        "no_screen_gate": true,
+        "strix_halo_variant": {
+          "preferred_soc": ["Ryzen AI Max+", "Ryzen AI Max", "Strix Halo"],
+          "min_unified_memory_gb": 32,
+          "preferred_unified_memory_gb": 64,
+          "toolchain_risk_note": "ROCm compatibility must be verified for CareerCopilot workloads."
+        },
+        "discrete_gpu_variant": {
+          "preferred_gpu_tiers": ["RTX 5070 Ti", "RTX 5070", "RTX 4070 Ti"],
+          "min_gpu_vram_gb": 12,
+          "preferred_gpu_vram_gb": 16,
+          "note": "Discrete GPU mini PCs (Minisforum DEG1/DEG2 class). GPU integrated into unit — not a DIY build."
+        },
+        "performance_headroom_cap": 7,
+        "portability_note": "Score 6-8 on Portability — compact and light but external display required. Not 10."
+      },
+      "seller_classes": [
+        "MANUFACTURER_AU",
+        "MAJOR_RETAILER_AU",
+        "AUTHORISED_RESELLER",
+        "AMAZON_AU",
+        "EBAY_AU"
+      ],
+      "search_sweep": {
+        "model_targets": [
+          "Minisforum AI X1 Pro Ryzen AI Max",
+          "Minisforum DEG2 RTX 5070 Ti",
+          "Minisforum DEG1 RTX 5070 Ti",
+          "HP Z2 Mini G1a Ryzen AI Max",
+          "ASUS NUC 14 Pro AI",
+          "Beelink GTR7 Pro"
+        ],
+        "search_pattern_hints": [
+          "Ryzen AI Max mini PC Australia",
+          "Strix Halo mini PC AU",
+          "Minisforum Australia site:.au",
+          "mini PC RTX 5070 Ti Australia",
+          "compact workstation 64GB unified memory AU",
+          "HP Z2 Mini G1a Australia"
+        ],
+        "high_value_pass_order": [
+          "Minisforum AI X1 Pro Ryzen AI Max+ 128GB — AU stock",
+          "Minisforum AI X1 Pro Ryzen AI Max 64GB — AU stock",
+          "HP Z2 Mini G1a Ryzen AI Max 64GB — AU stock",
+          "Minisforum DEG2 RTX 5070 Ti 16GB — AU stock",
+          "Minisforum DEG1 RTX 5070 Ti 12GB — AU stock"
+        ]
+      },
+      "intent_notes_template": "Scored as mini_pc_au (Track 2 Pathway C): form_factor=mini_pc, ceiling=$3,500 AUD, preferred: unified ≥64GB or discrete ≥16GB. No screen gate. Performance_Headroom cap: 7. Portability: 6-8. Verify ROCm if Strix Halo."
+    },
+
+    {
+      "label": "nvidia_spark_laptop",
+      "display_name": "NVIDIA RTX Spark Unified Memory Laptop (Track 1C)",
+      "track": "1",
+      "pathway": "1C",
+      "description": "Laptops powered by the NVIDIA RTX Spark (N1/N1X) unified processor, featuring Grace CPU and Blackwell-class GPU with up to 128GB unified memory. Brand new co-developed platform with MediaTek. CUDA-native (no ROCm toolchain risk).",
+      "allowed_sources": ["MANUFACTURER_AU", "MAJOR_RETAILER_AU", "AMAZON_AU"],
+      "allowed_conditions": ["new", "open_box"],
+      "price": {
+        "hard_ceiling_aud": 5000,
+        "note": "Standard Track 1 budget cap per AGENTS.md. Premium devices may exceed this, but only select ones within budget are eligible."
+      },
+      "age": {
+        "max_years_old": null,
+        "note": "RTX Spark is current-gen (2026). Age restriction not applicable."
+      },
+      "spec": {
+        "required_soc": ["RTX Spark", "Grace Blackwell", "N1X", "N1"],
+        "min_unified_memory_gb": 16,
+        "preferred_unified_memory_gb": 64,
+        "preferred_memory_tiers": [128, 64, 32],
+        "acceptable_memory_tiers": [16],
+        "min_screen_in": 16,
+        "toolchain_risk_note": "CUDA native compatibility. No toolchain risk flag."
+      },
+      "seller_classes": [
+        "MANUFACTURER_AU",
+        "MAJOR_RETAILER_AU",
+        "AUTHORISED_RESELLER"
+      ],
+      "search_sweep": {
+        "soc_targets": [
+          "Microsoft Surface Laptop Ultra RTX Spark N1X",
+          "ASUS ProArt P16 RTX Spark N1X",
+          "Lenovo Yoga Pro 9n RTX Spark N1",
+          "MSI Prestige N16 Flip RTX Spark",
+          "Dell XPS 16 RTX Spark",
+          "HP OmniBook Ultra 16 RTX Spark"
+        ],
+        "search_pattern_hints": [
+          "RTX Spark laptop Australia",
+          "NVIDIA N1X laptop unified memory AU",
+          "Surface Laptop Ultra RTX Spark price site:.au",
+          "MediaTek NVIDIA laptop Australia"
+        ],
+        "high_value_pass_order": [
+          "RTX Spark N1X 128 GB unified — new AU retail",
+          "RTX Spark N1X 64 GB unified — new AU retail",
+          "RTX Spark N1 64 GB unified — new AU retail",
+          "RTX Spark N1 32 GB unified — new AU retail"
+        ]
+      },
+      "intent_notes_template": "Scored as nvidia_spark_laptop: SoC=RTX Spark (N1/N1X), sources=MANUFACTURER_AU/MAJOR_RETAILER_AU, condition=new, ceiling=$5,000 AUD, unified memory preferred: 64 GB+. CUDA-native (no ROCm toolchain risk)."
     }
 
   ],
+
 
   "search_templates": {
     "_comment": "Shared search lists referenced by all archetypes. Update here; prompts and scripts read from this file.",
@@ -267,12 +394,28 @@
       "RTX 3500 Ada Laptop 12 GB",
       "Radeon RX 7900M 16 GB",
       "Ryzen AI Max Strix Halo Laptop 32 GB+",
-      "RTX 3090 24 GB Desktop Refurb"
+      "RTX Spark Laptop 32 GB+",
+      "RTX 3090 24 GB Desktop Refurb",
+      "Minisforum AI X1 Pro Ryzen AI Max 64 GB Mini PC",
+      "Minisforum DEG2 RTX 5070 Ti Mini PC",
+      "HP Z2 Mini G1a Ryzen AI Max 64 GB"
     ],
     "all_tracked_soc_targets": [
       "Ryzen AI Max",
       "Ryzen AI Max+",
-      "Strix Halo"
+      "Strix Halo",
+      "RTX Spark",
+      "N1",
+      "N1X",
+      "Grace Blackwell"
+    ],
+    "all_tracked_mini_pc_models": [
+      "Minisforum AI X1 Pro",
+      "Minisforum DEG2",
+      "Minisforum DEG1",
+      "HP Z2 Mini G1a",
+      "ASUS NUC 14 Pro AI",
+      "Beelink GTR7 Pro"
     ],
     "source_priority_order": [
       "MANUFACTURER_AU",

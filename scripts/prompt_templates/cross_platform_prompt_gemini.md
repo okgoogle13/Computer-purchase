@@ -38,6 +38,7 @@ GPU tier sweep guidance (from `search_archetypes.json` → `search_templates.all
 - RTX 3500 Ada Laptop 12 GB
 - Radeon RX 7900M 16 GB
 - Ryzen AI Max Strix Halo Laptop 32 GB+
+- RTX Spark Laptop 32 GB+
 - RTX 3090 24 GB Desktop Refurb
 
 Evidence source priority order (from `search_archetypes.json` → `search_templates.source_priority_order`):

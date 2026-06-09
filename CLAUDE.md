@@ -1,187 +1,62 @@
 # CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## Project Purpose
-
-AI-assisted hardware procurement decision system for selecting hardware to ship CareerCopilot MVP (Q3 2026). The system uses a 5-phase pipeline: intake → shortlist → live pricing → manual MCDA scoring → ranked recommendation.
+This file provides strict execution boundaries and guidance to Claude Code (`claude.ai/code`) when working with code in this repository.
+## Project PurposeAI-assisted hardware procurement decision system for selecting hardware to ship CareerCopilot MVP (Q3 2026). The system uses a 5-phase pipeline: intake → shortlist → live pricing → manual MCDA scoring → ranked recommendation.
 
 **Default goal:** Buy one Track 1 laptop that is outcome-enabled, AU-available, ≤5,000 AUD, and free of disqualifying thermal risk. Do not wait for Track 2.
+## Token Efficiency & Session Optimization*CRITICAL: Local usage audits reveal a major token bleed ($13.11/session) driven by nested subagent loops (98%) and heavy background planning plugins (11%). You must adhere to these strict execution rules:*
+### Anti-patterns (Avoid Costly Loops)- **NO Subagent Spawning**: You are forbidden from spawning background/nested subagents for file exploration, data cleanup, or configuration syncs. Defer these to `Antigravity CLI` via the routing matrix.
+- **NO Automatic Plan Execution**: Do not invoke `/superpowers:executing-plans` or heavy chain skills. Break work into single-step bash strings.
+- **NO Full-File Reading**: Never re-read full CSV files to inspect layout or look up single records. Use `head -n 5`, `grep`, or targeted tools.
+- **Context Boundary Threshold**: When session length reaches or exceeds 100k tokens, you MUST halt and explicitly instruct the user: *"Context size is high. Please run `/compact` or `/clear` to reset our token window before we proceed."*
+### Model Routing and Skill InvocationTo conserve Anthropic tokens, tasks are strictly categorized. If you hit a token ceiling or API rate limit, drop down to the fallback models immediately.
 
-## Token Efficiency
 
-**Anti-patterns (avoid):**
-- Re-reading full CSVs when you need one row — use `grep` or `head -2` instead
-- Running `build_shortlist.py` when only pricing changed — use `fill_shortlist_live_pricing.py`
-- Browser sweeps across 20 pages when a targeted search suffices
-- Asking for "all candidates" when the question is about the top 3
+| Task Type | Primary Model / Command | Fallback Path (Token Wall) | Skill / Tool Execution |
+| :--- | :--- | :--- | :--- |
+| Grep, structural layout, CSV row check | `[HAIKU]` — `/model haiku` | `gemini-3.5-flash` | Direct bash tools only — no skills |
+| Shortlist filtering & policy gate sweeps | `[HAIKU]` — `/model haiku` | `gemini-3.5-flash` | Direct bash tools only — no skills |
+| Phase 1 product card coverage audit | `[GEMINI-FLASH-LOW]` | `gemini-3.1-flash-lite` | `Skill("gemini-card-audit")` |
+| Opportunity gap / lost-opportunity audit | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("opportunity-audit")` |
+| Secondary-market / private-sale search | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("gaming-laptop-private-sale")` |
+| Refurb workstation AU web search | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("refurb-workstation-au")` |
+| Live AU price / stock data parsing | `[SONNET]` — `/model sonnet` | `gemini-3.1-pro` | `Skill("price-verify")` |
+| Live web browser scraping loop | `[SONNET]` — `/model sonnet` | Vercel CLI (Manual) | `Skill("agent-browser")` (Max 3 turns) |
+| Git operations / Version control | **FORBIDDEN** | GitHub Copilot CLI | Instruct user to handle via `@copilot` |
+| Final recommendation / MCDA check | `[SONNET]` — `/model sonnet` | `gemini-3.1-pro` | Direct execution — Pre-Decision Checklist |
+### Routing Constraints- **Git Interdiction**: You are banned from executing `git add`, `git commit`, `git push`, or `git diff`.- **Vercel Browser Agent Rules**: Limit automated navigation to a maximum of 3 browser action turns per interaction block to avoid high-context runaway costs.
+## Pipeline Commands```bash
+# Full Orchestrated Pipeline Run
+python3 scripts/run_automated_pipeline.py --batch YYYY-MM-DD
 
-**Compact before:** Phase 3b browser pricing runs (context-heavy) and MCDA ranking.
-
-**Model routing:**
-
-| Task type | Tier |
-|---|---|
-| Grep, read cards, search CSVs | Haiku |
-| Shortlist filtering, policy checks | Haiku |
-| MCDA scoring, price cross-checks | Sonnet |
-| Final recommendation, escalation | Sonnet |
-
-Switch: `/model haiku` before search sweeps; `/model sonnet` before scoring.
-
-## Pipeline Commands
-
-```bash
-# Phase 0 — Spec Clarification (optional, interactive)
-# Outputs structured JSON to feed into --spec-json below
+# Phase 0 — Spec Clarification (Interactive)
 python scripts/agents/spec_clarifier/agent.py
 
-# Phase 1 — Intake: normalize raw CSV and generate product cards
-python scripts/normalize_intake.py NotebookLM_Workspaces/intake/raw/YYYY-MM-DD_batch.csv
-python scripts/intake_to_cards.py NotebookLM_Workspaces/intake/processed/YYYY-MM-DD_batch_processed.csv --overwrite
+# Phase 1 — Intake normalization & card creation
+python3 scripts/run_gemini_card_audit.py
 
-# Phase 2 — Shortlist (accepts optional --spec-json from Phase 0 or --archetype)
+# Phase 2 — Shortlist Building
 python scripts/build_shortlist.py
 python scripts/build_shortlist.py --spec-json '{"track_preference":"1A","budget_cap_aud":4500}'
 python scripts/build_shortlist.py --archetype gaming_laptop_private_sale
-python scripts/build_shortlist.py --archetype gaming_laptop_retailer
-python scripts/build_shortlist.py --archetype strix_halo_laptop
-python scripts/build_shortlist.py --archetype refurb_workstation_au
+python scripts/build_shortlist.py --watchlist
 
-# Phase 3a — Pricing schema scaffold only (no live lookup)
-# Shortlist files use profile-based names, e.g. shortlist_profile-laptop.csv
+# Phase 3a — Pricing schema scaffold only (No web calls)
 python scripts/enrich_shortlist_pricing.py shortlists/shortlist_profile-laptop.csv
 
-# Phase 3b — Live pricing fill (AU verification)
+# Phase 3b — Live pricing fill (Cookie-wrapped browser search)
 python scripts/fill_shortlist_live_pricing.py shortlists/shortlist_profile-laptop_pricing_enriched.csv
 
-# Phase 4 — Fill any missing MCDA score columns
+# Phase 4 — Fill missing MCDA score data
 python scripts/fill_mcda_gaps.py shortlists/shortlist_profile-laptop_pricing_enriched_live.csv
 
-# Phase 5 — MCDA ranking
-python scripts/scoring/rubric_weighting_engine.py \
-  --csv shortlists/shortlist_profile-laptop_pricing_enriched_live.csv \
-  --output-csv shortlists/shortlist_profile-laptop_ranked.csv
-
-# Full orchestrated run
-python scripts/run_prompt_chain.py --batch YYYY-MM-DD_notebooklm_batchN
-
-# Validation
-python scripts/policy_drift_check.py
-python scripts/validate_prompt_templates.py
-python scripts/pipeline_integrity_check.py \
-  --enriched shortlists/shortlist_profile-laptop_pricing_enriched_live.csv \
-  --ranked shortlists/shortlist_profile-laptop_ranked.csv
-
-# Tests
-pytest tests/
+# Phase 5 — MCDA ranking execution
+python scripts/scoring/rubric_weighting_engine.py --csv shortlists/shortlist_profile-laptop_pricing_enriched_live.csv --output-csv shortlists/shortlist_profile-laptop_ranked.csv
 ```
-
-## Architecture
-
-**Policy authority order** (highest to lowest):
-1. `AGENTS.md` — decision rules and track definitions
-2. `config/procurement_policy.json` — hard thresholds consumed by scripts (do not hardcode these in scripts)
-3. CSV files — working candidate ledger
-4. Markdown product cards in `cards/` — per-candidate evidence and checklist state
-5. Live web sources — current AU price/stock/warranty verification
+## Architecture**Policy authority:** `AGENTS.md` > `config/procurement_policy.json` > CSV ledger > cards > live sources.
 
 **Key files:**
-- `AGENTS.md` — all decision rules, track gates, MCDA weights, and scoring rubrics
-- `config/procurement_policy.json` — budget caps, VRAM floors, MCDA weights (source of truth for scripts)
-- `config/search_archetypes.json` — canonical archetype config: GPU sweep lists, price ceilings, source rules, intent notes. Update here when adding new GPU tiers or archetype rules. Referenced by `build_shortlist.py --archetype` and all cross-platform prompts.
-- `shortlists/` — CSV working files at each pipeline stage (named `shortlist_profile-<type>*.csv`)
-- `cards/` — markdown product cards, organised in subdirectories by hardware class:
-  - `cards/laptops/` — primary Track 1A/1B candidates
-  - `cards/desktops/`, `cards/apple_silicon/`, `cards/components/`, `cards/mini_pcs/`
-  - Naming prefixes: `intake-NNN_` (normalised intake), `harvest-YYYYMMDD-NNN_` (LLM harvest), `fb-NNN_` (Facebook/Gumtree sourced), numeric-only (eBay secondary-market)
-- `scripts/README_pipeline.md` — detailed per-phase workflow
-- `scripts/agents/spec_clarifier/` — Phase 0 conversational intake agent (ADK pattern; outputs `--spec-json` blob)
-- `scripts/data_collection/` — eBay/Facebook/Gumtree scraping and mapping scripts
-- `scripts/import/` — browser agent JS scripts for eBay watchlist ingestion
-- `scripts/requirements.txt` — Python dependencies (install before running pipeline)
-
-**Script ownership (strict):**
-- `enrich_shortlist_pricing.py` — schema scaffold ONLY, no web lookup, no inferred values
-- `fill_shortlist_live_pricing.py` — live AU pricing fill for queued rows only
-- `fill_mcda_gaps.py` — fills missing MCDA score columns before ranking
-- `rubric_weighting_engine.py` — MCDA weighting + risk-adjusted output columns
-- `scoring/auto_score_cards.py` — auto-scores cards from shortlist data
-- `harvest_llm_recommendations.py` — harvests LLM-sourced candidates into intake format
-
-## Track Gates
-
-### Track 1A — NVIDIA/Discrete GPU Laptop (budget cap: 5,000 AUD)
-
-Scope: Lenovo Legion/Legion Pro, ASUS ROG, MSI high-performance, Alienware (approved exception 2026-05-09). Named exceptions require explicit user approval.
-
-Gates (all must pass):
-- [ ] Screen ≥ 16 inches
-- [ ] Discrete VRAM ≥ 8 GB
-- [ ] Price ≤ 5,000 AUD
-- [ ] No disqualifying sustained thermal throttling risk
-
-VRAM floors: 8 GB minimum eligibility · 12 GB discovery floor for secondary-market scans · 24 GB preferred for Q4/Track2-avoidance.
-
-### Track 1B — AMD Strix Halo Laptop (budget cap: 5,000 AUD)
-
-Scope: Strix Halo / Ryzen AI Max / Ryzen AI Max+ unified-memory laptops only. Exclude standard Ryzen + discrete GPU and Apple Silicon.
-
-Gates (all must pass):
-- [ ] SoC confirmed as Strix Halo / Ryzen AI Max / Ryzen AI Max+
-- [ ] Unified memory ≥ 16 GB
-- [ ] Price ≤ 5,000 AUD
-- [ ] No disqualifying sustained thermal or ROCm compatibility risk
-
-### Track 1 Tie-breakers (in order)
-1. Faster ship date
-2. Better warranty or return path
-3. Higher Track2_Avoidance score
-
-### Track Escalation
-
-**Exception A — No Viable Track 1:** Re-check Track 1 once for discounts/refurb/open-box → evaluate Track 1.5 refurbished desktop (GPU VRAM ≥ 16 GB, credible AU seller) → evaluate immediately available Track 2 → recommend highest MCDA scorer that is outcome-enabled and available now.
-
-**Exception B — Track 2 Unicorn:** May override Track 1 only when: available now in AU from a credible seller, within Track 2 budget cap, clearly stronger for CareerCopilot workloads, materially improves Track2_Avoidance, and does not add unacceptable warranty/setup/thermal/parts/support risk. Must score higher than best Track 1 under MCDA and explicitly state why Track 1 is worse.
-
-## Data Rules
-
-- Unknown values stay `UNKNOWN`; never infer price, stock, VRAM, or warranty.
-- All `current_best_price_aud` for Track 1A secondary-market (eBay/Refurb) must be verified against last-30-days "Sold" listings or confirmed clearance prices — not asking prices from international sellers.
-- Prefer AU sources: `MANUFACTURER_AU` > `MAJOR_RETAILER_AU` > `AMAZON_AU` > `EBAY_AU` > `GUMTREE_AU`/`FB_MARKETPLACE` > `GRAY_IMPORT`.
-- **Price Increase Cross-Check Rule:** When a live price check shows a previously verified price has increased on one retailer, do NOT remove a candidate or change status to over-budget based on that single retailer alone. Check at least two other AU retailers (in priority order above) before applying an over-cap gate failure. Set `current_best_price_aud` to the lowest confirmed in-stock AU price across all retailers checked.
-- Use `agent-browser` skill for live AU pricing verification.
-- Policy drift between `AGENTS.md` and `config/procurement_policy.json`: follow `AGENTS.md` for recommendations until config is updated.
-
-## Pre-Decision Checklist
-
-Before finalising any recommendation, confirm all of:
-- [ ] Current AU stock confirmed from a credible seller
-- [ ] Current price and effective best price confirmed
-- [ ] VRAM or unified memory confirmed
-- [ ] Warranty or ACL coverage confirmed
-- [ ] Sustained thermal risk assessed
-- [ ] All decision-critical `UNKNOWN` fields identified and either filled or flagged
-- [ ] MCDA score computed
-- [ ] Recommendation explains which CareerCopilot outcome (MVP / Q4 / Track2-avoidance) is supported
-
-## Recommendation Format
-
-Every purchase recommendation must include:
-- Candidate name and track/pathway
-- GOOD ENOUGH status (all gates pass, AU stock confirmed, warranty acceptable)
-- MCDA score and all five factor scores
-- Verified price, retailer, URL, stock status, and date checked
-- Remaining risks
-- Clear **buy / do-not-buy / wait** conclusion
-
-If recommending Track 2 over Track 1, state which escalation exception applies and why Track 1 is worse.
-
-## MCDA Formula
-
-```
-SCORE = (Performance_Headroom × 0.25) + (Price_Value × 0.20) +
-        (Future_Proof × 0.20) + (Portability × 0.20) + (Track2_Avoidance × 0.15)
-```
-
-Strix Halo caps: `Performance_Headroom ≤ 7` by default; `Track2_Avoidance` capped at 6/7/8 for 32/64/128 GB unified memory unless workload benchmarks show otherwise.
+- `AGENTS.md` — Canonical decision rules, weights, scoring formulas, and model matrices.
+- `config/procurement_policy.json` — Budget caps, VRAM floor configs.
+- `config/search_archetypes.json` — GPU search criteria, source query rules.
+- `shortlists/` — CSV working files across pipeline stages.
+- `cards/` — Markdown product data organized by category (`cards/laptops/`, etc., and watchlist `cards/watchlist/` for unreleased models).

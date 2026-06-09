@@ -14,11 +14,7 @@ import sys
 from pathlib import Path
 
 REQUIRED_VARS = [
-    "PARSEHUB_API_KEY",
-    "PARSEHUB_WATCHLIST_PROJECT_TOKEN",
-    "PARSEHUB_RETAILER_PROJECT_TOKEN",
     "BROWSERLESS_API_KEY",
-    "VERCEL_BROWSER_AGENT_KEY",
     "GEMINI_API_KEY",
     "GITHUB_TOKEN",
     "GITHUB_REPO",
@@ -30,11 +26,7 @@ OPTIONAL_VARS = [
 
 # Source URLs for documentation / help
 OBTAIN_SOURCES = {
-    "PARSEHUB_API_KEY": "https://www.parsehub.com/user/account",
-    "PARSEHUB_WATCHLIST_PROJECT_TOKEN": "https://www.parsehub.com/user/account",
-    "PARSEHUB_RETAILER_PROJECT_TOKEN": "https://www.parsehub.com/user/account",
     "BROWSERLESS_API_KEY": "https://www.browserless.io/",
-    "VERCEL_BROWSER_AGENT_KEY": "Vercel AI SDK Gateway key (e.g. vck_...)",
     "GEMINI_API_KEY": "https://aistudio.google.com/apikey",
     "OPENAI_API_KEY": "https://platform.openai.com/api-keys",
     "GITHUB_TOKEN": "https://github.com/settings/tokens",

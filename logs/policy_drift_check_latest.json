@@ -1,48 +1,4 @@
 {
   "status": "PASS",
-  "message": "No numeric policy drift detected.",
-  "checks": [
-    {
-      "field": "track1_budget_cap_aud",
-      "agents_md": 5000.0,
-      "config": 5000.0,
-      "status": "MATCH"
-    },
-    {
-      "field": "track1a_min_discrete_vram_gb",
-      "agents_md": 8.0,
-      "config": 8.0,
-      "status": "MATCH"
-    },
-    {
-      "field": "track1b_min_unified_memory_gb",
-      "agents_md": 16.0,
-      "config": 16.0,
-      "status": "MATCH"
-    },
-    {
-      "field": "track15_min_vram_gb",
-      "agents_md": 16.0,
-      "config": 16.0,
-      "status": "MATCH"
-    },
-    {
-      "field": "track2_a_cap_aud",
-      "agents_md": 5000.0,
-      "config": 5000.0,
-      "status": "MATCH"
-    },
-    {
-      "field": "track2_b_cap_aud",
-      "agents_md": 4000.0,
-      "config": 4000.0,
-      "status": "MATCH"
-    },
-    {
-      "field": "track2_c_cap_aud",
-      "agents_md": 3500.0,
-      "config": 3500.0,
-      "status": "MATCH"
-    }
-  ]
+  "message": "No numeric policy drift detected."
 }
