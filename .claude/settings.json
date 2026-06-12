@@ -73,18 +73,6 @@
     ],
     "defaultMode": "bypassPermissions"
   },
-  "enabledPlugins": {
-    "feature-dev@claude-plugins-official": false,
-    "deep-project@piercelamb-plugins": false,
-    "deep-plan@piercelamb-plugins": false,
-    "deep-implement@piercelamb-plugins": false,
-    "andrej-karpathy-skills@karpathy-skills": false,
-    "code-simplifier@claude-plugins-official": false,
-    "claude-md-management@claude-plugins-official": false,
-    "claude-code-setup@claude-plugins-official": false
-  },
-  "effortLevel": "medium",
-  "alwaysThinkingEnabled": false,
   "hooks": {
     "SessionStart": [
       {
@@ -103,8 +91,8 @@
         "hooks": [
           {
             "type": "command",
-            "if": "Write(shortlists/**)|Edit(shortlists/**)|Write(config/**)|Edit(config/**)",
             "command": "cd '/Users/okgoogle13/Projects/Computer purchase' && python scripts/policy_drift_check.py 2>&1 | tail -3",
+            "if": "Write(shortlists/**)|Edit(shortlists/**)|Write(config/**)|Edit(config/**)",
             "timeout": 30,
             "statusMessage": "Checking policy drift..."
           }
@@ -114,5 +102,17 @@
     "PreCompact": [],
     "PostCompact": [],
     "UserPromptSubmit": []
-  }
+  },
+  "enabledPlugins": {
+    "feature-dev@claude-plugins-official": false,
+    "deep-project@piercelamb-plugins": true,
+    "deep-plan@piercelamb-plugins": true,
+    "deep-implement@piercelamb-plugins": true,
+    "andrej-karpathy-skills@karpathy-skills": true,
+    "code-simplifier@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": false,
+  "effortLevel": "medium"
 }

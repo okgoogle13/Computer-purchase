@@ -19,11 +19,12 @@ This file provides strict execution boundaries and guidance to Claude Code (`cla
 | Opportunity gap / lost-opportunity audit | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("opportunity-audit")` |
 | Secondary-market / private-sale search | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("gaming-laptop-private-sale")` |
 | Refurb workstation AU web search | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("refurb-workstation-au")` |
-| Live AU price / stock data parsing | `[SONNET]` — `/model sonnet` | `gemini-3.1-pro` | `Skill("price-verify")` |
-| Live web browser scraping loop | `[SONNET]` — `/model sonnet` | Vercel CLI (Manual) | `Skill("agent-browser")` (Max 3 turns) |
+| Reading cards, sweeping CSVs, live pricing | `[SONNET-4.6]` — `/model sonnet` | `gemini-3.1-pro` | `Skill("price-verify")` / Workhorse tasks |
+| Live web browser scraping loop | `[SONNET-4.6]` — `/model sonnet` | Vercel CLI (Manual) | `Skill("agent-browser")` (Max 3 turns) |
 | Git operations / Version control | **FORBIDDEN** | GitHub Copilot CLI | Instruct user to handle via `@copilot` |
-| Final recommendation / MCDA check | `[SONNET]` — `/model sonnet` | `gemini-3.1-pro` | Direct execution — Pre-Decision Checklist |
+| Final review, MCDA check, architecture | `[OPUS-4.8]` — `/model opus` | `gemini-3.1-pro` | Direct execution — Pre-Decision Checklist |
 ### Routing Constraints- **Git Interdiction**: You are banned from executing `git add`, `git commit`, `git push`, or `git diff`.- **Vercel Browser Agent Rules**: Limit automated navigation to a maximum of 3 browser action turns per interaction block to avoid high-context runaway costs.
+- **Artifact-Based Baton Pass Protocol**: For multi-model task handovers, write a micro-summary to `tasks/handovers/ready_for_opus.md`, stop execution, and print: `"Phase complete. Artifact saved. Please invoke Claude 4.8 Opus to review ready_for_opus.md."`
 ## Pipeline Commands```bash
 # Full Orchestrated Pipeline Run
 python3 scripts/run_automated_pipeline.py --batch YYYY-MM-DD
@@ -55,7 +56,7 @@ python scripts/scoring/rubric_weighting_engine.py --csv shortlists/shortlist_pro
 ## Architecture**Policy authority:** `AGENTS.md` > `config/procurement_policy.json` > CSV ledger > cards > live sources.
 
 **Key files:**
-- `AGENTS.md` — Canonical decision rules, weights, scoring formulas, and model matrices.
+- `AGENTS.md` — Canonical procurement policy: decision rules, weights, and scoring formulas. (Model routing & pipeline commands live in this file, `CLAUDE.md`.)
 - `config/procurement_policy.json` — Budget caps, VRAM floor configs.
 - `config/search_archetypes.json` — GPU search criteria, source query rules.
 - `shortlists/` — CSV working files across pipeline stages.

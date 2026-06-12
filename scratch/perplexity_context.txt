@@ -1,0 +1,2228 @@
+This file is a merged representation of a subset of the codebase, containing specifically included files, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Only files matching these patterns are included: AGENTS.md, CLAUDE.md, README.md, config/procurement_policy.json, scripts/scoring/rubric_weighting_engine.py, scripts/policy_drift_check.py, scripts/build_shortlist.py
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+config/
+  procurement_policy.json
+scripts/
+  scoring/
+    rubric_weighting_engine.py
+  build_shortlist.py
+  policy_drift_check.py
+AGENTS.md
+CLAUDE.md
+README.md
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="scripts/policy_drift_check.py">
+#!/usr/bin/env python3
+"""Check/Sync AGENTS.md policy constants against config/procurement_policy.json.
+
+This is a lightweight guardrail for ranking-time drift detection and syncing.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+import difflib
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+AGENTS_PATH = REPO_ROOT / "AGENTS.md"
+CONFIG_PATH = REPO_ROOT / "config" / "procurement_policy.json"
+DEFAULT_LOG_PATH = REPO_ROOT / "logs" / "policy_drift_check_latest.json"
+
+def generate_policy_markdown(config: dict) -> str:
+    budget_cap = config.get("budget_cap_aud", 5000.0)
+    laptop_discrete_vram = config.get("laptop_discrete_minimum_vram_gb", 8.0)
+    laptop_unified_memory = config.get("laptop_unified_minimum_vram_gb", 16.0)
+    desktop_vram = config.get("desktop_minimum_vram_gb", 16.0)
+    track2_caps = config.get("track2_budget_caps_aud", {})
+    cap_a = track2_caps.get("A", 5000.0)
+    cap_b = track2_caps.get("B", 4000.0)
+    cap_c = track2_caps.get("C", 3500.0)
+
+    markdown = f"""- **Track 1 (Laptop Core)**: Active choice path. Proceed immediately upon locating a baseline validation match. Target budget: ≤ {budget_cap:,.0f} AUD.
+  - **Track 1A (Discrete GPU Laptop)**: Discrete VRAM is at least {laptop_discrete_vram:.0f} GB. Screen size is at least 16 inches (or 14–16 inches if touchscreen).
+  - **Track 1B (Unified Memory Laptop)**: Unified memory is at least {laptop_unified_memory:.0f} GB (32 GB+ preferred, 48GB/64GB+ strong for Q4). Includes Apple Silicon and other Unified Memory Architectures (UMAs) with advanced VRAM BIOS configuration options.
+- **Track 1.5 (Desktop Swap)**: Enabled exclusively under Exception A parameters (Zero valid laptop configurations discovered within pricing parameters).
+  - **Track 1.5 Minimum VRAM**: GPU VRAM is at least {desktop_vram:.0f} GB.
+- **Track 2 (Secondary/Alternative Tracks)**:
+  - **Pathway A**: Total cost is at most {cap_a:,.0f} AUD.
+  - **Pathway B**: Total cost is at most {cap_b:,.0f} AUD.
+  - **Pathway C**: Total cost is at most {cap_c:,.0f} AUD."""
+    return markdown
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Check or sync policy drift between AGENTS.md and config/procurement_policy.json"
+    )
+    parser.add_argument(
+        "--sync",
+        action="store_true",
+        help="Update the AGENTS.md policy section in place"
+    )
+    parser.add_argument(
+        "--output",
+        default=str(DEFAULT_LOG_PATH),
+        help="Write JSON report to this file"
+    )
+    args = parser.parse_args()
+
+    if not AGENTS_PATH.exists() or not CONFIG_PATH.exists():
+        sys.exit("Error: Missing AGENTS.md or config/procurement_policy.json")
+
+    try:
+        config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    except Exception as e:
+        sys.exit(f"Error: Failed to parse {CONFIG_PATH}: {e}")
+
+    agents_text = AGENTS_PATH.read_text(encoding="utf-8")
+    start_tag = "<!-- POLICY_START -->"
+    end_tag = "<!-- POLICY_END -->"
+
+    if start_tag not in agents_text or end_tag not in agents_text:
+        sys.exit(f"Error: Could not find markers {start_tag} and {end_tag} in AGENTS.md")
+
+    parts = agents_text.split(start_tag)
+    before_policy = parts[0]
+    after_start = parts[1]
+    parts2 = after_start.split(end_tag)
+    existing_policy_raw = parts2[0]
+    after_policy = parts2[1]
+
+    existing_policy = existing_policy_raw.strip()
+    generated_policy = generate_policy_markdown(config).strip()
+
+    out_path = Path(args.output)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if args.sync:
+        if existing_policy == generated_policy:
+            print("AGENTS.md policy section is already in sync.")
+        else:
+            new_agents_text = f"{before_policy}{start_tag}\n{generated_policy}\n{end_tag}{after_policy}"
+            AGENTS_PATH.write_text(new_agents_text, encoding="utf-8")
+            print("AGENTS.md successfully synced with config/procurement_policy.json.")
+        
+        # Write success log
+        summary = {
+            "status": "PASS",
+            "message": "Synced successfully.",
+        }
+        out_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        sys.exit(0)
+
+    # Check mode
+    if existing_policy == generated_policy:
+        print("Policy drift check: PASS")
+        summary = {
+            "status": "PASS",
+            "message": "No numeric policy drift detected."
+        }
+        out_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        sys.exit(0)
+    else:
+        print("Policy drift check: FAIL (Mismatches detected)")
+        diff = difflib.unified_diff(
+            existing_policy.splitlines(),
+            generated_policy.splitlines(),
+            fromfile="AGENTS.md (current)",
+            tofile="procurement_policy.json (expected)",
+            lineterm=""
+        )
+        print("\n".join(diff))
+        
+        summary = {
+            "status": "FAIL",
+            "message": "Policy drift detected between AGENTS.md and config/procurement_policy.json. Run --sync to align."
+        }
+        out_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        sys.exit(2)
+
+if __name__ == "__main__":
+    main()
+</file>
+
+<file path="config/procurement_policy.json">
+{
+  "budget_cap_aud": 5000.0,
+  "desktop_minimum_vram_gb": 16.0,
+  "laptop_discrete_minimum_vram_gb": 8.0,
+  "laptop_unified_minimum_vram_gb": 16.0,
+  "track2_budget_caps_aud": {
+    "A": 5000.0,
+    "B": 4000.0,
+    "C": 3500.0
+  },
+  "mcda_weights": {
+    "Performance_Headroom": 0.25,
+    "Price_Value": 0.2,
+    "Future_Proof": 0.2,
+    "Portability": 0.2,
+    "Track2_Avoidance": 0.15
+  },
+  "mcda_rubric_calibration": {
+    "strix_halo_performance_cap_default": 7,
+    "strix_halo_track2_avoidance_caps_by_memory": {
+      "32": 6,
+      "64": 7,
+      "128": 8
+    },
+    "review_risk_penalty_guidance": {
+      "sustained_fan_noise_or_coil_whine": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Performance_Headroom",
+          "Price_Value"
+        ]
+      },
+      "weak_display_for_class": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Price_Value",
+          "Future_Proof"
+        ]
+      },
+      "poor_battery_endurance": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Portability",
+          "Price_Value"
+        ]
+      },
+      "uncertain_rocm_or_toolchain_support": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Performance_Headroom",
+          "Track2_Avoidance"
+        ]
+      },
+      "compact_chassis_thermal_limit": {
+        "suggested_penalty_points": 2,
+        "applies_to": [
+          "Performance_Headroom",
+          "Future_Proof",
+          "Track2_Avoidance"
+        ]
+      }
+    }
+  },
+  "exceptional_overrides": {
+    "vram_threshold_gb": 24.0,
+    "gpu_tier_threshold": 8.0,
+    "max_override_budget_aud": 6000.0
+  },
+  "shortlist_behavior": {
+    "over_budget_action": "soft_penalty",
+    "unknown_price_action": "soft_penalty",
+    "out_of_stock_action": "hard_reject",
+    "below_vram_floor_action": "hard_reject"
+  }
+}
+</file>
+
+<file path="CLAUDE.md">
+# CLAUDE.md
+This file provides strict execution boundaries and guidance to Claude Code (`claude.ai/code`) when working with code in this repository.
+## Project PurposeAI-assisted hardware procurement decision system for selecting hardware to ship CareerCopilot MVP (Q3 2026). The system uses a 5-phase pipeline: intake → shortlist → live pricing → manual MCDA scoring → ranked recommendation.
+
+**Default goal:** Buy one Track 1 laptop that is outcome-enabled, AU-available, ≤5,000 AUD, and free of disqualifying thermal risk. Do not wait for Track 2.
+## Token Efficiency & Session Optimization*CRITICAL: Local usage audits reveal a major token bleed ($13.11/session) driven by nested subagent loops (98%) and heavy background planning plugins (11%). You must adhere to these strict execution rules:*
+### Anti-patterns (Avoid Costly Loops)- **NO Subagent Spawning**: You are forbidden from spawning background/nested subagents for file exploration, data cleanup, or configuration syncs. Defer these to `Antigravity CLI` via the routing matrix.
+- **NO Automatic Plan Execution**: Do not invoke `/superpowers:executing-plans` or heavy chain skills. Break work into single-step bash strings.
+- **NO Full-File Reading**: Never re-read full CSV files to inspect layout or look up single records. Use `head -n 5`, `grep`, or targeted tools.
+- **Context Boundary Threshold**: When session length reaches or exceeds 100k tokens, you MUST halt and explicitly instruct the user: *"Context size is high. Please run `/compact` or `/clear` to reset our token window before we proceed."*
+### Model Routing and Skill InvocationTo conserve Anthropic tokens, tasks are strictly categorized. If you hit a token ceiling or API rate limit, drop down to the fallback models immediately.
+
+
+| Task Type | Primary Model / Command | Fallback Path (Token Wall) | Skill / Tool Execution |
+| :--- | :--- | :--- | :--- |
+| Grep, structural layout, CSV row check | `[HAIKU]` — `/model haiku` | `gemini-3.5-flash` | Direct bash tools only — no skills |
+| Shortlist filtering & policy gate sweeps | `[HAIKU]` — `/model haiku` | `gemini-3.5-flash` | Direct bash tools only — no skills |
+| Phase 1 product card coverage audit | `[GEMINI-FLASH-LOW]` | `gemini-3.1-flash-lite` | `Skill("gemini-card-audit")` |
+| Opportunity gap / lost-opportunity audit | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("opportunity-audit")` |
+| Secondary-market / private-sale search | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("gaming-laptop-private-sale")` |
+| Refurb workstation AU web search | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("refurb-workstation-au")` |
+| Reading cards, sweeping CSVs, live pricing | `[SONNET-4.6]` — `/model sonnet` | `gemini-3.1-pro` | `Skill("price-verify")` / Workhorse tasks |
+| Live web browser scraping loop | `[SONNET-4.6]` — `/model sonnet` | Vercel CLI (Manual) | `Skill("agent-browser")` (Max 3 turns) |
+| Git operations / Version control | **FORBIDDEN** | GitHub Copilot CLI | Instruct user to handle via `@copilot` |
+| Final review, MCDA check, architecture | `[OPUS-4.8]` — `/model opus` | `gemini-3.1-pro` | Direct execution — Pre-Decision Checklist |
+### Routing Constraints- **Git Interdiction**: You are banned from executing `git add`, `git commit`, `git push`, or `git diff`.- **Vercel Browser Agent Rules**: Limit automated navigation to a maximum of 3 browser action turns per interaction block to avoid high-context runaway costs.
+- **Artifact-Based Baton Pass Protocol**: For multi-model task handovers, write a micro-summary to `tasks/handovers/ready_for_opus.md`, stop execution, and print: `"Phase complete. Artifact saved. Please invoke Claude 4.8 Opus to review ready_for_opus.md."`
+## Pipeline Commands```bash
+# Full Orchestrated Pipeline Run
+python3 scripts/run_automated_pipeline.py --batch YYYY-MM-DD
+
+# Phase 0 — Spec Clarification (Interactive)
+python scripts/agents/spec_clarifier/agent.py
+
+# Phase 1 — Intake normalization & card creation
+python3 scripts/run_gemini_card_audit.py
+
+# Phase 2 — Shortlist Building
+python scripts/build_shortlist.py
+python scripts/build_shortlist.py --spec-json '{"track_preference":"1A","budget_cap_aud":4500}'
+python scripts/build_shortlist.py --archetype gaming_laptop_private_sale
+python scripts/build_shortlist.py --watchlist
+
+# Phase 3a — Pricing schema scaffold only (No web calls)
+python scripts/enrich_shortlist_pricing.py shortlists/shortlist_profile-laptop.csv
+
+# Phase 3b — Live pricing fill (Cookie-wrapped browser search)
+python scripts/fill_shortlist_live_pricing.py shortlists/shortlist_profile-laptop_pricing_enriched.csv
+
+# Phase 4 — Fill missing MCDA score data
+python scripts/fill_mcda_gaps.py shortlists/shortlist_profile-laptop_pricing_enriched_live.csv
+
+# Phase 5 — MCDA ranking execution
+python scripts/scoring/rubric_weighting_engine.py --csv shortlists/shortlist_profile-laptop_pricing_enriched_live.csv --output-csv shortlists/shortlist_profile-laptop_ranked.csv
+```
+## Architecture**Policy authority:** `AGENTS.md` > `config/procurement_policy.json` > CSV ledger > cards > live sources.
+
+**Key files:**
+- `AGENTS.md` — Canonical procurement policy: decision rules, weights, and scoring formulas. (Model routing & pipeline commands live in this file, `CLAUDE.md`.)
+- `config/procurement_policy.json` — Budget caps, VRAM floor configs.
+- `config/search_archetypes.json` — GPU search criteria, source query rules.
+- `shortlists/` — CSV working files across pipeline stages.
+- `cards/` — Markdown product data organized by category (`cards/laptops/`, etc., and watchlist `cards/watchlist/` for unreleased models).
+</file>
+
+<file path="README.md">
+# NotebookLM Hardware Decision System
+
+## Project Overview
+This repository contains a structured, AI-assisted decision framework for evaluating, scoring, and selecting hardware for CareerCopilot development.
+
+Rather than relying on ad-hoc shopping, this project uses standardized product cards, live AU verification, and fixed-weight MCDA scoring to reach a practical purchase decision.
+
+## Quickstart – 5‑Phase Hardware Decision Flow
+
+0. **Spec Clarification (optional)**  
+   `python scripts/agents/spec_clarifier/agent.py`  
+   Interactively defines your requirements (track, VRAM floor, budget) and outputs a `--spec-json` blob.
+
+1. **Build shortlist**  
+   `python scripts/build_shortlist.py --batch YYYY-MM-DD_notebooklm_batchN`  
+   Add `--spec-json '{...}'` to apply Phase 0 output as filter overrides.
+
+2. **Phase 3a scaffold pricing schema**  
+   `python scripts/enrich_shortlist_pricing.py NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist.csv`
+
+3. **Phase 3b fill live pricing verification**  
+   `python scripts/fill_shortlist_live_pricing.py NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist_pricing_enriched.csv`
+
+4. **Manual/AI scoring (Phase 4)**  
+   Fill the five MCDA factor columns (`Performance_Headroom`, `Price_Value`, `Future_Proof`, `Portability`, `Track2_Avoidance`) on the live-enriched CSV.
+
+5. **Weighting & final decision (Phase 5)**  
+   Run `python NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/Policy_Pack/expandable_workstation_scoring_policy_pack/rubric_weighting_engine.py --csv *_shortlist_pricing_enriched_live.csv --output-csv *_shortlist_ranked.csv`.
+
+## Canonical Workflow
+The active workflow is the 5-phase pipeline defined in `AGENTS.md` and `scripts/README_pipeline.md`.
+
+Track 1 laptops are the default buying path. Track 1.5 and Track 2 are only evaluated under the escalation rules in `AGENTS.md`.
+
+Generated context bundles are support artifacts, not policy.
+
+Phase 3 is split by ownership:
+- `scripts/enrich_shortlist_pricing.py` is scaffold-only and must not perform live lookup.
+- `scripts/fill_shortlist_live_pricing.py` performs live fill for queued rows.
+- `rubric_weighting_engine.py` keeps MCDA weighting intact and adds transparent seller/source risk post-processing columns.
+
+## Repository Structure (Source of Truth)
+The repository is organized into distinct hardware "lanes" and a central decision engine:
+
+* `/NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/` - Policy packs, older research notes, and the MCDA ranking engine.
+* `/NotebookLM_Workspaces/` - **The Hardware Lanes.**
+  * `/03_New_Desktop_Systems/`
+  * `/02_Refurbished_Desktop_Towers/`
+  * `/08_Custom_Builds/`
+  * `/09_Individual_Components/`
+  * `/04_Laptops_Mainline/`
+  * `/06_Mini_PCs_and_eGPU/`
+* `/scripts/` - Contains the automation pipeline:
+  * `normalize_intake.py` and `intake_to_cards.py` (Phase 1: Intake)
+  * `build_shortlist.py` (Phase 2: Shortlist; accepts `--spec-json`)
+  * `enrich_shortlist_pricing.py` (Phase 3a: schema scaffold only)
+  * `fill_shortlist_live_pricing.py` (Phase 3b: live verification fill)
+  * `scoring/rubric_weighting_engine.py` (Phase 5: MCDA rank)
+  * `agents/spec_clarifier/` (Phase 0: conversational intake agent — ADK pattern)
+* `/_Archive_Legacy_Data/` - Superseded research, raw notes, and deferred lanes (e.g., Apple Silicon).
+
+## Getting Started
+1. Review `CURRENT_STATE.md` for the latest project milestone and immediate next actions.
+2. Read `scripts/README_pipeline.md` to understand the 5-phase workflow with Phase 3a/3b split.
+3. Do not add raw web clippings to the workspace folders. Run new hardware candidates through the Phase 1 scripts first.
+4. To execute a ranking pass, run `build_shortlist.py` to generate the CSV score sheet, fill it out, and then run `python NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/Policy_Pack/expandable_workstation_scoring_policy_pack/rubric_weighting_engine.py --csv <scored_csv>`.
+</file>
+
+<file path="scripts/scoring/rubric_weighting_engine.py">
+#!/usr/bin/env python3
+"""
+rubric_weighting_engine.py
+
+CareerCopilot hardware MCDA ranking engine.
+
+Ranks shortlist CSVs using the simplified 5-factor policy in AGENTS.md:
+
+  SCORE =
+    Performance_Headroom * 0.25 +
+    Price_Value          * 0.20 +
+    Future_Proof         * 0.20 +
+    Portability          * 0.20 +
+    Track2_Avoidance     * 0.15
+
+Input rows should come from scripts/build_shortlist.py after live pricing
+verification and manual 0-10 MCDA scoring.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import re
+import sys
+from pathlib import Path
+
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+CONFIG_PATH = REPO_ROOT / "config" / "procurement_policy.json"
+
+MCDA_COLUMNS = [
+    "Performance_Headroom",
+    "Price_Value",
+    "Future_Proof",
+    "Portability",
+    "Track2_Avoidance",
+]
+
+# 5-factor weight constants — aligned with AGENTS.md and procurement_policy.json
+WEIGHT_PERFORMANCE_HEADROOM = 0.25
+WEIGHT_PRICE_VALUE          = 0.20
+WEIGHT_FUTURE_PROOF         = 0.20
+WEIGHT_PORTABILITY          = 0.20
+WEIGHT_TRACK2_AVOIDANCE     = 0.15
+
+# Assert weights sum exactly to 1.0
+assert round(
+    WEIGHT_PERFORMANCE_HEADROOM +
+    WEIGHT_PRICE_VALUE +
+    WEIGHT_FUTURE_PROOF +
+    WEIGHT_PORTABILITY +
+    WEIGHT_TRACK2_AVOIDANCE,
+    3
+) == 1.0, "MCDA weights must sum exactly to 1.0"
+
+
+SELLER_RISK_MULTIPLIERS = {
+    "OFFICIAL_STORE": 1.00,
+    "MANUFACTURER_AU": 1.00,
+    "AUTHORISED_RESELLER": 0.98,
+    "MAJOR_RETAILER_AU": 0.98,
+    "AMAZON_AU": 0.95,
+    "EBAY_POWER_SELLER": 0.90,
+    "EBAY_AU": 0.90,
+    "REFURB_SELLER": 0.95,
+    "PRIVATE_SELLER": 0.70,
+    "GUMTREE_AU": 0.70,
+    "FB_MARKETPLACE": 0.70,
+    "GRAY_MARKET": 0.50,
+    "GRAY_IMPORT": 0.50,
+}
+
+SOURCE_PLATFORM_PENALTIES = {
+    "MANUFACTURER_AU": 0.00,
+    "MAJOR_RETAILER_AU": 0.00,
+    "AMAZON_AU": 0.20,
+    "EBAY_AU": 0.40,
+    "GUMTREE_AU": 0.80,
+    "FB_MARKETPLACE": 0.80,
+    "GRAY_IMPORT": 1.00,
+}
+# Seller/source risk mappings are intentionally engine-owned constants so
+# ranking behavior is auditable and stable across CSV batches.
+
+
+def load_config() -> dict:
+    if not CONFIG_PATH.exists():
+        sys.exit(f"ERROR: Missing config: {CONFIG_PATH}")
+    return json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+
+
+def parse_float(value: object) -> float | None:
+    if value is None or value == "":
+        return None
+    text = str(value).strip().replace("$", "").replace(",", "")
+    if not text or text.upper() in {"UNKNOWN", "N/A", "NONE", "-"}:
+        return None
+    try:
+        return float(text)
+    except ValueError:
+        return None
+
+
+def normalize_track_pathway(row: dict) -> tuple[str, str]:
+    track = str(row.get("track", "UNKNOWN")).strip()
+    pathway = str(row.get("pathway", "UNKNOWN")).strip()
+    key = track.lower().replace(" ", "")
+    pathway_key = pathway.lower().replace(" ", "")
+
+    if key in {"track1", "1"}:
+        if pathway_key in {"1a", "a"}:
+            return "1", "1A"
+        if pathway_key in {"1b", "b"}:
+            return "1", "1B"
+        if pathway_key in {"1c", "c"}:
+            return "1", "1C"
+        return "1", pathway
+    if key in {"track1a", "1a"}:
+        return "1", "1A"
+    if key in {"track1b", "1b"}:
+        return "1", "1B"
+    if key in {"track1c", "1c"}:
+        return "1", "1C"
+    if key in {"track1.5", "1.5"}:
+        return "1.5", pathway
+    if key in {"track2", "2"}:
+        if pathway_key in {"2a", "a"}:
+            return "2", "A"
+        if pathway_key in {"2b", "b"}:
+            return "2", "B"
+        if pathway_key in {"2c", "c"}:
+            return "2", "C"
+        return "2", pathway
+    if key in {"track2a", "2a"}:
+        return "2", "A"
+    if key in {"track2b", "2b"}:
+        return "2", "B"
+    if key in {"track2c", "2c"}:
+        return "2", "C"
+    return track, pathway
+
+
+def effective_price(row: dict) -> float | None:
+    return parse_float(row.get("effective_best_price_aud")) or parse_float(row.get("price_aud"))
+
+
+def stock_is_confirmed(row: dict) -> bool:
+    truthy_values = {"yes", "true", "y", "1", "in_stock", "available"}
+    stock_fields = [
+        str(row.get("in_stock_now", "")).strip().lower(),
+        str(row.get("au_stock", "")).strip().lower(),
+        str(row.get("au_stock_confirmed", "")).strip().lower(),
+    ]
+    return any(value in truthy_values for value in stock_fields)
+
+
+def has_disqualifying_thermal_flag(row: dict) -> bool:
+    values = [
+        str(row.get("thermal_flag", "")).strip().lower(),
+        str(row.get("thermal_status", "")).strip().lower(),
+        str(row.get("thermal_risk", "")).strip().lower(),
+    ]
+    return any("disqualifying" in value for value in values)
+
+
+def parse_int(value: object) -> int | None:
+    """
+    Parses an integer from a string or float, returning None if invalid/unknown.
+    """
+    if value is None:
+        return None
+    text = str(value).strip().replace(",", "")
+    if not text or text.upper() in {"UNKNOWN", "N/A", "NONE", "-"}:
+        return None
+    try:
+        return int(float(text))
+    except ValueError:
+        return None
+
+
+def parse_bool(value: object) -> bool:
+    """
+    Parses a boolean from a string or boolean value.
+    """
+    if isinstance(value, bool):
+        return value
+    if not value:
+        return False
+    return str(value).strip().lower() in ("true", "yes", "1")
+
+
+def get_manufacture_year(row: dict) -> int | None:
+    """
+    Derives manufacture year from cpu_model using CPU generation lookup rules.
+    """
+    cpu_model = str(row.get("cpu_model", "")).strip()
+    if not cpu_model or cpu_model.upper() in ("UNKNOWN", "N/A", "-"):
+        cpu_model = str(row.get("cpu", "")).strip()
+    if not cpu_model or cpu_model.upper() in ("UNKNOWN", "N/A", "-"):
+        item_name = str(row.get("item_name", "")).strip()
+        match = re.search(
+            r"\b(i[3579]-\d{4,5}[A-Z]*|Ryzen\s+[3579]\s+\d{4}[A-Z]*|Ryzen\s+AI\s+Max(?:\s*\+)?\s*\d{3})\b",
+            item_name,
+            re.IGNORECASE
+        )
+        if match:
+            cpu_model = match.group(1)
+        else:
+            return None
+
+    cpu_lower = cpu_model.lower()
+
+    if "ryzen ai max" in cpu_lower or "strix halo" in cpu_lower:
+        return 2025
+
+    if "ultra" in cpu_lower and any(x in cpu_lower for x in ["285", "265", "245", "258", "275", "268"]):
+        return 2025
+    if "ultra" in cpu_lower:
+        return 2024
+
+    intel_match = re.search(r"i[3579]-(\d+)", cpu_lower)
+    if intel_match:
+        gen_str = intel_match.group(1)
+        if len(gen_str) >= 5:
+            gen = int(gen_str[:2])
+        else:
+            gen = int(gen_str[0])
+
+        if gen == 14:
+            return 2024
+        elif gen == 13:
+            return 2023
+        elif gen == 12:
+            return 2022
+        elif gen == 11:
+            return 2021
+        elif gen == 10:
+            return 2019
+        elif gen == 9:
+            return 2018
+        elif gen == 8:
+            return 2017
+
+    amd_match = re.search(r"ryzen\s+[3579]\s+(\d)", cpu_lower)
+    if amd_match:
+        series = int(amd_match.group(1))
+        if series == 9:
+            return 2024
+        elif series == 8:
+            return 2024
+        elif series == 7:
+            return 2023
+        elif series == 6:
+            return 2022
+        elif series == 5:
+            return 2021
+        elif series == 4:
+            return 2020
+        elif series == 3:
+            return 2019
+
+    if "m4" in cpu_lower:
+        return 2024
+    if "m3" in cpu_lower:
+        return 2023
+    if "m2" in cpu_lower:
+        return 2022
+    if "m1" in cpu_lower:
+        return 2020
+
+    if "threadripper" in cpu_lower:
+        if "39" in cpu_lower:
+            return 2020
+        if "59" in cpu_lower:
+            return 2022
+        if "79" in cpu_lower:
+            return 2023
+
+    if "xeon" in cpu_lower:
+        if "w-10" in cpu_lower or "w10" in cpu_lower:
+            return 2020
+        if "w-11" in cpu_lower or "w11" in cpu_lower:
+            return 2021
+        if "w-12" in cpu_lower or "w12" in cpu_lower:
+            return 2022
+        if "w-13" in cpu_lower or "w13" in cpu_lower:
+            return 2023
+
+    year_match = re.search(r"\b(201\d|202\d)\b", cpu_lower)
+    if year_match:
+        return int(year_match.group(1))
+
+    return None
+
+
+def score_battery_disclosure(row: dict) -> float:
+    """
+    Scores the transparency of battery health disclosure in listing.
+    Returns 0.0 – 10.0. Higher = more transparent.
+    """
+    level = row.get("battery_disclosure_level", "none")
+    table = {
+        "tested_pct_cycles":  10.0,
+        "replaced":            9.0,
+        "tested_pct":          8.0,
+        "health_range_claim":  6.0,
+        "vague_claim":         3.0,
+        "none":                1.0,
+        "sold_as_is":          0.0,
+    }
+    return table.get(level, 1.0)
+
+
+def score_battery_health_value(row: dict) -> float:
+    """
+    Scores actual battery health where a quantified value exists.
+    Defaults to 3.0 (penalised, not zeroed) if no value disclosed.
+    Returns 0.0 – 10.0.
+    """
+    if parse_bool(row.get("battery_replaced")):
+        return 10.0
+    pct = parse_int(row.get("battery_health_pct"))
+    cycles = parse_int(row.get("battery_cycle_count"))
+    if pct is None and cycles is None:
+        return 3.0  # unknown, not failed
+    score = 0.0
+    if pct is not None:
+        if pct >= 95:   score = 10.0
+        elif pct >= 85: score = 8.0
+        elif pct >= 75: score = 6.0
+        elif pct >= 65: score = 4.0
+        elif pct >= 55: score = 2.0
+        else:           score = 0.0
+    if cycles is not None:
+        if cycles > 800:   score = max(0.0, score - 2.0)
+        elif cycles > 500: score = max(0.0, score - 1.0)
+    return score
+
+
+def score_battery(row: dict) -> float:
+    """
+    Combined battery score:
+      battery_score = (disclosure * 0.5) + (health_value * 0.5)
+    Returns 0.0 – 10.0.
+    """
+    d = score_battery_disclosure(row)
+    h = score_battery_health_value(row)
+    return round((d * 0.5) + (h * 0.5), 2)
+
+
+def score_acquisition_risk(row: dict) -> float:
+    """
+    Scores the overall risk of this acquisition.
+    Combines seller trust, warranty, condition, age, and battery signals.
+    Returns 0.0 – 10.0. Higher = lower risk = safer purchase.
+    """
+    base = 5.0  # neutral starting point
+
+    # ── Seller class ──────────────────────────────────
+    seller_class = row.get("seller_class", "unknown")
+    seller_class_scores = {
+        "commercial_oem":    +3.0,
+        "commercial_refurb": +2.0,
+        "commercial_seller": +1.0,
+        "private":           -1.5,
+        "unknown":           -1.0,
+    }
+    base += seller_class_scores.get(seller_class, -1.0)
+
+    # ── Seller feedback ───────────────────────────────
+    fb_count = parse_int(row.get("seller_feedback_count")) or 0
+    fb_pct   = parse_float(row.get("seller_feedback_pct")) or 0.0
+    if fb_count >= 500 and fb_pct >= 98:  base += 1.0
+    elif fb_count >= 100 and fb_pct >= 97: base += 0.5
+    elif fb_count < 50 or fb_pct < 95:    base -= 1.0
+    elif fb_count < 10:                   base -= 2.0
+
+    # ── Returns policy ───────────────────────────────
+    if not parse_bool(row.get("returns_accepted", False)):
+        base -= 1.0
+
+    # ── Warranty ─────────────────────────────────────
+    warranty = parse_int(row.get("warranty_months") or row.get("warranty_months_confirmed")) or 0
+    acl_val = str(row.get("acl_covered", "")).strip().lower()
+    is_acl = acl_val in ("yes", "true", "1")
+    au_warranty = parse_bool(row.get("warranty_au_redeemable", False)) or is_acl
+    if warranty >= 12 and au_warranty:    base += 1.5
+    elif warranty >= 6:                   base += 0.5
+    elif warranty == 0:                   base -= 1.5
+
+    # ── Age ───────────────────────────────────────────
+    year = get_manufacture_year(row)
+    if year:
+        age = 2026 - year
+        if age <= 1:    base += 0.5
+        elif age <= 3:  base += 0.0
+        elif age <= 5:  base -= 1.0
+        elif age <= 7:  base -= 2.0
+        else:           base -= 3.0
+
+    # ── Battery transparency ──────────────────────────
+    battery_s = score_battery(row)
+    if battery_s >= 9:   base += 1.0
+    elif battery_s >= 7: base += 0.5
+    elif battery_s <= 2: base -= 1.5
+    elif battery_s <= 4: base -= 0.5
+
+    # ── Listing country ───────────────────────────────
+    if row.get("listing_country", "AU") != "AU":
+        base -= 1.0
+
+    return max(0.0, min(base, 10.0))
+
+
+def score_future_proof(row: dict) -> float:
+    """
+    Scores future proofing capability based on VRAM/unified memory, adjusted for age and platform risk.
+    """
+    val = parse_float(row.get("Future_Proof"))
+    if val is not None:
+        base = val
+    else:
+        vram = parse_float(row.get("vram_gb"))
+        unified = parse_float(row.get("unified_memory_gb"))
+        max_mem = max(vram or 0.0, unified or 0.0)
+        
+        if max_mem >= 24:
+            base = 9.0
+        elif max_mem >= 16:
+            base = 7.0
+        elif max_mem >= 12:
+            base = 5.0
+        else:
+            base = 3.0
+
+    # Age modifier
+    year = get_manufacture_year(row)
+    if year:
+        age = 2026 - year
+        if age <= 1:    pass           # no penalty
+        elif age <= 3:  base -= 0.5
+        elif age <= 5:  base -= 1.5
+        elif age <= 7:  base -= 2.5
+        else:           base -= 3.5
+
+    # Platform risk modifiers
+    os_val = str(row.get("os", "")).lower()
+    if "windows 10" in os_val and "windows 11" not in os_val:
+        base -= 2.0   # Win10 EOL, no upgrade path
+    if not parse_bool(row.get("tpm2", True)):    # assume True if not listed
+        base -= 1.0
+    
+    pcie_gen_raw = row.get("pcie_gen")
+    if pcie_gen_raw is not None:
+        try:
+            if int(float(pcie_gen_raw)) < 4:
+                base -= 0.5
+        except (ValueError, TypeError):
+            pass
+
+    return max(0.0, min(base, 10.0))
+
+
+def compute_risk_adjusted_price(row: dict) -> float:
+    """
+    Adjusts listed price upward to reflect acquisition risk premiums.
+    Used as the true cost baseline for Price_Value scoring.
+    """
+    price = float(parse_float(row.get("list_price_aud") or row.get("price_aud")) or 0.0)
+    price += float(parse_float(row.get("shipping_cost_aud")) or 0.0)
+
+    disclosure = row.get("battery_disclosure_level", "none")
+    if disclosure in ["none", "sold_as_is"]:
+        price += 120  # estimated battery replacement risk
+
+    warranty = parse_int(row.get("warranty_months") or row.get("warranty_months_confirmed")) or 0
+    if warranty == 0:
+        price += 150  # no-warranty risk premium
+
+    if row.get("listing_country", "AU") != "AU":
+        price += 80   # import/warranty risk
+
+    if row.get("seller_class") == "private" and not parse_bool(row.get("returns_accepted", False)):
+        price += 100  # no-recourse risk
+
+    return round(price, 2)
+
+
+def score_price_value(row: dict) -> float:
+    """
+    Scores Price_Value against risk-adjusted price.
+    """
+    risk_price = compute_risk_adjusted_price(row)
+    row["risk_adjusted_price"] = risk_price
+
+    manual_val = parse_float(row.get("Price_Value"))
+    if manual_val is not None:
+        list_p = parse_float(row.get("list_price_aud") or row.get("price_aud")) or 0.0
+        if list_p > 0:
+            risk_increase = risk_price - list_p
+            penalty = (risk_increase / 100.0) * 0.5
+            return round(max(0.0, min(10.0, manual_val - penalty)), 2)
+        return manual_val
+
+    score = 10.0 - (risk_price - 1000.0) / 400.0
+    return round(max(0.0, min(10.0, score)), 2)
+
+
+def compute_mcda(scores: dict) -> float:
+    """
+    Computes the final MCDA score using the 5-factor model from AGENTS.md.
+
+    SCORE = Performance_Headroom * 0.25 + Price_Value * 0.20
+          + Future_Proof * 0.20 + Portability * 0.20 + Track2_Avoidance * 0.15
+
+    Acquisition_Risk and Upgrade_Ceiling are not MCDA factors; risk is applied
+    post-hoc via calculate_risk_adjustment() (seller multiplier + source penalty).
+    """
+    score = (
+        (scores.get("performance_headroom") or 0.0) * WEIGHT_PERFORMANCE_HEADROOM +
+        (scores.get("price_value")          or 0.0) * WEIGHT_PRICE_VALUE          +
+        (scores.get("future_proof")         or 0.0) * WEIGHT_FUTURE_PROOF         +
+        (scores.get("portability")          or 0.0) * WEIGHT_PORTABILITY          +
+        (scores.get("track2_avoidance")     or 0.0) * WEIGHT_TRACK2_AVOIDANCE
+    )
+    return round(score, 3)
+
+
+def enrich_row(row: dict) -> dict:
+    """
+    Enriches a shortlist row with derived battery, manufacture year,
+    risk adjusted price, and acquisition risk scores.
+    """
+    manufacture_year = get_manufacture_year(row)
+    row["manufacture_year"] = manufacture_year if manufacture_year is not None else ""
+
+    seller_class = str(row.get("seller_class", "unknown")).lower()
+    warranty_months = parse_int(row.get("warranty_months") or row.get("warranty_months_confirmed")) or 0
+    returns_accepted = parse_bool(row.get("returns_accepted"))
+    battery_disclosure_level = row.get("battery_disclosure_level", "none")
+    battery_health_pct = parse_int(row.get("battery_health_pct"))
+    listing_country = row.get("listing_country", "AU")
+    seller_feedback_count = parse_int(row.get("seller_feedback_count"))
+    
+    battery_score = score_battery(row)
+    acquisition_risk = score_acquisition_risk(row)
+    risk_adj_price = compute_risk_adjusted_price(row)
+    
+    row["risk_adjusted_price"] = risk_adj_price
+    row["battery_score"]       = battery_score
+    row["battery_disclosure_score"]    = score_battery_disclosure(row)
+    row["battery_health_value_score"]  = score_battery_health_value(row)
+    row["score_acquisition_risk"]      = acquisition_risk
+
+    existing_flags = row.get("risk_flags", "")
+    risk_flags = [f.strip() for f in existing_flags.split(";") if f.strip()]
+
+    if manufacture_year and (2026 - manufacture_year) > 4:
+        if "AGE_RISK_4YR+" not in risk_flags:
+            risk_flags.append("AGE_RISK_4YR+")
+    if seller_class == "private":
+        if "PRIVATE_SELLER" not in risk_flags:
+            risk_flags.append("PRIVATE_SELLER")
+    if warranty_months == 0:
+        if "NO_WARRANTY" not in risk_flags:
+            risk_flags.append("NO_WARRANTY")
+    if not returns_accepted:
+        if "NO_RETURNS" not in risk_flags:
+            risk_flags.append("NO_RETURNS")
+    if battery_disclosure_level in ["none", "sold_as_is"]:
+        if "BATTERY_UNDISCLOSED" not in risk_flags:
+            risk_flags.append("BATTERY_UNDISCLOSED")
+    if battery_health_pct is not None and battery_health_pct < 70:
+        if "BATTERY_DEGRADED" not in risk_flags:
+            risk_flags.append("BATTERY_DEGRADED")
+    if listing_country != "AU":
+        if "NON_AU_SELLER" not in risk_flags:
+            risk_flags.append("NON_AU_SELLER")
+    if seller_feedback_count is not None and seller_feedback_count < 10:
+        if "NEW_SELLER" not in risk_flags:
+            risk_flags.append("NEW_SELLER")
+
+    row["risk_flags"] = "; ".join(risk_flags)
+
+    scores = {
+        "performance_headroom": parse_float(row.get("Performance_Headroom")),
+        "price_value": score_price_value(row),
+        "future_proof": score_future_proof(row),
+        "portability": parse_float(row.get("Portability")),
+        "track2_avoidance": parse_float(row.get("Track2_Avoidance")),
+        "upgrade_ceiling": parse_float(row.get("Upgrade_Ceiling")),
+        "acquisition_risk": acquisition_risk,
+        "battery": battery_score,
+    }
+    
+    # Store derived scores back in row
+    row["Price_Value"] = scores["price_value"]
+    row["Future_Proof"] = scores["future_proof"]
+
+    return scores
+
+
+def score_row(row: dict, weights: dict) -> tuple[float | None, list[str]]:
+    """
+    Scores a row using the 7-factor MCDA engine.
+    """
+    scores = enrich_row(row)
+    
+    manual_mcda_cols = [
+        "Performance_Headroom",
+        "Price_Value",
+        "Future_Proof",
+        "Portability",
+        "Track2_Avoidance",
+    ]
+    missing = [col for col in manual_mcda_cols if parse_float(row.get(col)) is None]
+    if missing:
+        return None, missing
+        
+    total = compute_mcda(scores)
+    return total, []
+
+
+def normalize_risk_key(value: object) -> str:
+    return str(value or "").strip().upper().replace(" ", "_")
+
+
+
+def is_unknown_key(value: str) -> bool:
+    return value in {"", "UNKNOWN", "N/A", "NONE", "-"}
+
+
+def calculate_risk_adjustment(row: dict, mcda_total: float | None) -> tuple[float | None, float | None, float | None, list[str]]:
+    if mcda_total is None:
+        return None, None, None, []
+
+    seller_key = normalize_risk_key(row.get("seller_class"))
+    seller_translations = {
+        "PRIVATE": "PRIVATE_SELLER",
+        "COMMERCIAL_REFURB": "REFURB_SELLER",
+        "COMMERCIAL_OEM": "MANUFACTURER_AU",
+        "COMMERCIAL_SELLER": "MAJOR_RETAILER_AU",
+    }
+    if seller_key in seller_translations:
+        seller_key = seller_translations[seller_key]
+
+    source_key = normalize_risk_key(row.get("source_platform"))
+    source_translations = {
+        "PRIVATE_SELLER": "FB_MARKETPLACE", # fallback if source is listed as seller class
+    }
+    if source_key in source_translations:
+        source_key = source_translations[source_key]
+
+    notes: list[str] = []
+
+    seller_multiplier = SELLER_RISK_MULTIPLIERS.get(seller_key)
+    if seller_multiplier is None:
+        seller_multiplier = 1.0
+        if is_unknown_key(seller_key):
+            notes.append("seller_class UNKNOWN for risk adjustment")
+        else:
+            notes.append(f"seller_class unrecognized for risk adjustment ({seller_key})")
+
+    source_penalty = SOURCE_PLATFORM_PENALTIES.get(source_key)
+    if source_penalty is None:
+        source_penalty = 0.0
+        if is_unknown_key(source_key):
+            notes.append("source_platform UNKNOWN for risk adjustment")
+        else:
+            notes.append(f"source_platform unrecognized for risk adjustment ({source_key})")
+
+    adjusted_total = (mcda_total * seller_multiplier) - source_penalty
+    adjusted_total = max(0.0, min(10.0, adjusted_total))
+    risk_adjustment = adjusted_total - mcda_total
+    return (
+        round(seller_multiplier, 3),
+        round(source_penalty, 3),
+        round(risk_adjustment, 3),
+        notes,
+    )
+
+
+def track_1b_soc_confirmed(row: dict) -> tuple[bool, str]:
+    candidates = [
+        row.get("soc"),
+        row.get("gpu_or_soc"),
+        row.get("gpu_model"),
+        row.get("item_name"),
+    ]
+    raw = " ".join(str(v or "").strip() for v in candidates).strip()
+    if not raw:
+        return False, "UNKNOWN"
+    normalized = raw.lower()
+    indicators = (
+        "strix halo",
+        "ryzen ai max",
+        "ryzen ai max+",
+        "apple",
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+    )
+    if any(indicator in normalized for indicator in indicators):
+        return True, raw
+    return False, raw
+
+
+def track_1c_soc_confirmed(row: dict) -> tuple[bool, str]:
+    candidates = [
+        row.get("soc"),
+        row.get("gpu_or_soc"),
+        row.get("gpu_model"),
+        row.get("item_name"),
+    ]
+    raw = " ".join(str(v or "").strip() for v in candidates).strip()
+    if not raw:
+        return False, "UNKNOWN"
+    normalized = raw.lower()
+    indicators = (
+        "rtx spark",
+        "grace blackwell",
+        "n1x",
+        "n1 laptop",
+        "mediatek nvidia",
+    )
+    if any(indicator in normalized for indicator in indicators):
+        return True, raw
+    return False, raw
+
+
+def policy_status(row: dict, config: dict, score: float | None) -> tuple[str, list[str]]:
+    track, pathway = normalize_track_pathway(row)
+    price = effective_price(row)
+    vram = parse_float(row.get("vram_gb"))
+    unified = parse_float(row.get("unified_memory_gb"))
+    screen = parse_float(row.get("screen_size_in"))
+    budget = float(config.get("budget_cap_aud", 5000.0))
+    laptop_floor = float(config.get("laptop_discrete_minimum_vram_gb", 16.0))
+    unified_floor = float(config.get("laptop_unified_minimum_vram_gb", 16.0))
+    desktop_floor = float(config.get("desktop_minimum_vram_gb", 16.0))
+    track2_caps = config.get("track2_budget_caps_aud", {})
+
+    blockers: list[str] = []
+
+    if price is None:
+        blockers.append("price UNKNOWN")
+
+    # Stock check bypassed as a soft warning/note instead of policy blocker
+    if not stock_is_confirmed(row):
+        pass
+
+    if track == "1" and pathway == "1A":
+        if price is not None and price > budget:
+            blockers.append(f"price > Track 1 cap ({budget:.0f} AUD)")
+        if vram is None:
+            blockers.append("VRAM UNKNOWN")
+        elif vram < laptop_floor:
+            blockers.append(f"VRAM below Track 1A floor ({laptop_floor:.0f} GB)")
+        if screen is None:
+            blockers.append("screen size UNKNOWN")
+        else:
+            # Check for touchscreen keywords in name
+            item_name_lower = str(row.get("item_name") or "").lower()
+            machine_lower = str(row.get("Machine") or "").lower()
+            is_touchscreen = any(t in item_name_lower or t in machine_lower for t in ["touch", "yoga", "flip", "x360", "2-in-1", "detachable"])
+            if is_touchscreen:
+                if screen < 14.0:
+                    blockers.append("screen size below Track 1A touchscreen floor (14 in)")
+            else:
+                if screen < 16.0:
+                    blockers.append("screen size below Track 1A floor (16 in)")
+    elif track == "1" and pathway == "1B":
+        if price is not None and price > budget:
+            blockers.append(f"price > Track 1 cap ({budget:.0f} AUD)")
+        if unified is None:
+            blockers.append("unified memory UNKNOWN")
+        elif unified < unified_floor:
+            blockers.append(f"unified memory below Track 1B floor ({unified_floor:.0f} GB)")
+        soc_ok, soc_text = track_1b_soc_confirmed(row)
+        if not soc_ok:
+            if not soc_text or soc_text.upper() in {"UNKNOWN", "N/A", "NONE", "-"}:
+                blockers.append("Track 1B SoC not confirmed (requires Strix Halo / Ryzen AI Max / Apple Silicon / Approved UMA)")
+            else:
+                blockers.append("Track 1B SoC mismatch (requires Strix Halo / Ryzen AI Max / Apple Silicon / Approved UMA)")
+    elif track == "1" and pathway == "1C":
+        if price is not None and price > budget:
+            blockers.append(f"price > Track 1 cap ({budget:.0f} AUD)")
+        if unified is None:
+            blockers.append("unified memory UNKNOWN")
+        elif unified < unified_floor:
+            blockers.append(f"unified memory below Track 1C floor ({unified_floor:.0f} GB)")
+        soc_ok, soc_text = track_1c_soc_confirmed(row)
+        if not soc_ok:
+            if not soc_text or soc_text.upper() in {"UNKNOWN", "N/A", "NONE", "-"}:
+                blockers.append("Track 1C SoC not confirmed (requires RTX Spark / N1/N1X / Grace Blackwell)")
+            else:
+                blockers.append("Track 1C SoC mismatch (requires RTX Spark / N1/N1X / Grace Blackwell)")
+    elif track == "1.5":
+        if vram is None or vram < desktop_floor:
+            blockers.append(f"VRAM below Track 1.5 floor ({desktop_floor:.0f} GB)")
+    elif track == "2":
+        cap = parse_float(track2_caps.get(pathway))
+        if cap is not None and price is not None and price > cap:
+            blockers.append(f"price > Track 2 {pathway} cap ({cap:.0f} AUD)")
+    else:
+        blockers.append("track/pathway unresolved")
+
+    if score is None:
+        blockers.append("MCDA score incomplete")
+
+    if blockers:
+        return "NEEDS_REVIEW", blockers
+    return "GOOD_ENOUGH", []
+
+
+def rank(csv_path: Path, output_csv: Path | None = None) -> int:
+    config = load_config()
+    
+    # 5-factor weights aligned with AGENTS.md and procurement_policy.json
+    weights = {
+        "Performance_Headroom": WEIGHT_PERFORMANCE_HEADROOM,
+        "Price_Value": WEIGHT_PRICE_VALUE,
+        "Future_Proof": WEIGHT_FUTURE_PROOF,
+        "Portability": WEIGHT_PORTABILITY,
+        "Track2_Avoidance": WEIGHT_TRACK2_AVOIDANCE,
+    }
+
+    with csv_path.open(newline="", encoding="utf-8-sig") as fh:
+        reader = csv.DictReader(fh)
+        if not reader.fieldnames:
+            sys.exit("ERROR: Input CSV has no header.")
+        rows = list(reader)
+        fieldnames = list(reader.fieldnames)
+
+    # Exclude candidates marked REJECTED or INACTIVE from ranking
+    _SKIP_STATUSES = {"REJECTED", "INACTIVE", "REMOVED"}
+    active_rows = [r for r in rows if str(r.get("status", "")).strip().upper() not in _SKIP_STATUSES]
+    skipped = len(rows) - len(active_rows)
+    if skipped:
+        print(f"Note: {skipped} candidate(s) excluded (REJECTED/INACTIVE).")
+    rows = active_rows
+
+    # Assert that all standard MCDA columns are in fieldnames
+    for col in MCDA_COLUMNS:
+        if col not in fieldnames:
+            sys.exit(f"ERROR: Input CSV is missing MCDA column: {col}")
+
+    # Add new output columns to fieldnames
+    new_cols = [
+        "MCDA_Total",
+        "Seller_Risk_Multiplier",
+        "Source_Platform_Penalty",
+        "Risk_Adjustment",
+        "Adjusted_MCDA_Total",
+        "Policy_Status",
+        "Policy_Blockers",
+        "score_acquisition_risk",
+        "battery_score",
+        "battery_disclosure_score",
+        "battery_health_value_score",
+        "risk_adjusted_price",
+        "manufacture_year",
+        "risk_flags",
+        # Archetype transparency columns (written by build_shortlist.py --archetype)
+        "archetype_used",
+        "intent_notes",
+    ]
+    for col in new_cols:
+        if col not in fieldnames:
+            fieldnames.append(col)
+
+    ranked = []
+    for row in rows:
+        score, missing = score_row(row, weights)
+        status, blockers = policy_status(row, config, score)
+        seller_multiplier, source_penalty, risk_adjustment, risk_notes = calculate_risk_adjustment(row, score)
+        if missing:
+            blockers = [f"missing MCDA: {', '.join(missing)}", *blockers]
+        if risk_notes:
+            blockers = [*blockers, *risk_notes]
+        row["MCDA_Total"] = "" if score is None else f"{score:.3f}"
+        row["Seller_Risk_Multiplier"] = "" if seller_multiplier is None else f"{seller_multiplier:.3f}"
+        row["Source_Platform_Penalty"] = "" if source_penalty is None else f"{source_penalty:.3f}"
+        row["Risk_Adjustment"] = "" if risk_adjustment is None else f"{risk_adjustment:.3f}"
+        row["Adjusted_MCDA_Total"] = (
+            ""
+            if score is None or risk_adjustment is None
+            else f"{(score + risk_adjustment):.3f}"
+        )
+        row["Policy_Status"] = status
+        row["Policy_Blockers"] = "; ".join(dict.fromkeys(blockers))
+        ranked.append(row)
+
+    ranked.sort(key=lambda row: parse_float(row.get("Adjusted_MCDA_Total")) or -1, reverse=True)
+
+    print("\nCareerCopilot MCDA Ranking")
+    print("=" * 78)
+    print("Weights:", ", ".join(f"{col}={weights[col]:.2f}" for col in weights))
+    print("-" * 78)
+    print(
+        f"{'#':>3}  {'MCDA':>6}  {'Adj':>6}  {'Status':<12}  {'Track':<5} {'Path':<5}  Candidate"
+    )
+    print("-" * 78)
+    for idx, row in enumerate(ranked, start=1):
+        track, pathway = normalize_track_pathway(row)
+        score = row.get("MCDA_Total") or "NA"
+        adjusted = row.get("Adjusted_MCDA_Total") or "NA"
+        archetype = row.get("archetype_used") or ""
+        archetype_tag = f"  [{archetype}]" if archetype else ""
+        print(
+            f"{idx:>3}  {score:>6}  {adjusted:>6}  {row['Policy_Status']:<12}  {track:<5} {pathway:<5}  {row.get('item_name') or row.get('Machine')}{archetype_tag}"
+        )
+        if row["Policy_Blockers"]:
+            print(f"       blockers: {row['Policy_Blockers']}")
+
+    winners = [row for row in ranked if row["Policy_Status"] == "GOOD_ENOUGH"]
+    if winners:
+        winner = winners[0]
+        print("\n[GOOD ENOUGH] Highest-ranked outcome-enabled candidate:")
+        print(
+            f"  {winner.get('item_name') or winner.get('Machine')} "
+            f"(base {winner['MCDA_Total']}/10, adjusted {winner['Adjusted_MCDA_Total']}/10)"
+        )
+    else:
+        print("\nNo candidate currently clears GOOD_ENOUGH. Apply Track Escalation Rule.")
+
+    if output_csv:
+        with output_csv.open("w", newline="", encoding="utf-8") as fh:
+            writer = csv.DictWriter(fh, fieldnames=fieldnames, extrasaction="ignore")
+            writer.writeheader()
+            writer.writerows(ranked)
+        print(f"\nRanked CSV written: {output_csv}")
+
+    return 0
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Rank hardware candidates using CareerCopilot MCDA scoring.")
+    parser.add_argument("--csv", required=True, help="Path to scored shortlist CSV")
+    parser.add_argument("--output-csv", default=None, help="Optional path to write ranked CSV")
+    parser.add_argument("--profile", default="merged", help="Accepted for compatibility; MCDA scoring is profile-independent")
+    args = parser.parse_args()
+    return rank(Path(args.csv), Path(args.output_csv) if args.output_csv else None)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+</file>
+
+<file path="scripts/build_shortlist.py">
+#!/usr/bin/env python3
+"""
+build_shortlist.py — Phase 2 of the hardware procurement pipeline.
+
+Scans all intake-*.md product cards, applies AGENTS.md hard-gate filters,
+and emits two CSVs:
+
+  shortlist.csv  — candidates that passed all gates, with blank MCDA columns
+                   ready to be manually filled and fed into rubric_weighting_engine.py
+  rejected.csv   — filtered-out rows with the reason for rejection
+
+Usage:
+    python scripts/build_shortlist.py
+    python scripts/build_shortlist.py --dry-run
+    python scripts/build_shortlist.py --batch 2026-05-05_notebooklm_batch1
+    python scripts/build_shortlist.py --profile laptop
+    python scripts/build_shortlist.py --track 1 --pathway 1A
+    python scripts/build_shortlist.py --include-unknowns
+
+Output folder: NotebookLM_Workspaces/intake/shortlist/
+
+After filling in the MCDA columns (0-10), run:
+    python NotebookLM_Workspaces/01_Research_Methods_and_Decision_System/Policy_Pack/expandable_workstation_scoring_policy_pack/rubric_weighting_engine.py \\
+        --csv NotebookLM_Workspaces/intake/shortlist/YYYY-MM-DD_shortlist.csv
+"""
+
+import argparse
+import csv
+import json
+import re
+import sys
+from datetime import date, datetime
+from pathlib import Path
+from typing import Optional
+
+
+# ---------------------------------------------------------------------------
+# Constants
+# ---------------------------------------------------------------------------
+
+REPO_ROOT  = Path(__file__).resolve().parent.parent
+WORKSPACE  = REPO_ROOT / "NotebookLM_Workspaces"
+
+# Loads config
+def load_config() -> dict:
+    config_path = REPO_ROOT / "config" / "procurement_policy.json"
+    if not config_path.exists():
+        sys.exit(f"Error: Config file not found at {config_path}. Please create it.")
+    with open(config_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_archetype(name: str) -> dict:
+    """
+    Load a named archetype from config/search_archetypes.json.
+
+    Returns the archetype dict or exits with a helpful error listing valid names.
+    Usage: loaded via --archetype <label> in main().
+    """
+    archetypes_path = REPO_ROOT / "config" / "search_archetypes.json"
+    if not archetypes_path.exists():
+        sys.exit(
+            f"Error: search_archetypes.json not found at {archetypes_path}. "
+            "Run Step 1 of the agent.md incremental plan to create it."
+        )
+    with open(archetypes_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    archetypes = {a["label"]: a for a in data.get("archetypes", [])}
+    if name not in archetypes:
+        valid = ", ".join(sorted(archetypes.keys()))
+        sys.exit(
+            f"Error: Unknown archetype '{name}'.\n"
+            f"Valid archetype labels: {valid}"
+        )
+    return archetypes[name]
+
+# Top-level card roots (scanner recurses into category subfolders).
+INTAKE_LANES = [
+    "cards",
+]
+
+# GPU model substrings that indicate professional/workstation-class cards
+WORKSTATION_GPU_KEYWORDS = [
+    "RTX PRO", "RTX 6000", "RTX 5000 ADA", "RTX 4000 ADA", "RTX 3000 ADA",
+    "RTX 2000 ADA", "A6000", "A5000", "A4500", "A4000", "A2000",
+    "QUADRO", "RADEON PRO W", "ARC PRO",
+]
+
+# MCDA score columns — filled manually after live pricing verification.
+SCORE_COLUMNS = [
+    "Performance_Headroom",  # 25%: local AI capacity/headroom for MVP + Q4
+    "Price_Value",           # 20%: value against budget and alternatives
+    "Future_Proof",          # 20%: Q4 runway and resale/useful life
+    "Portability",           # 20%: laptop/field practicality; desktops score low unless Track 2 trigger applies
+    "Track2_Avoidance",      # 15%: likelihood this purchase avoids/defer Track 2
+    "MCDA_Total",            # computed by rubric_weighting_engine.py
+]
+
+
+# ---------------------------------------------------------------------------
+# Frontmatter parser
+# ---------------------------------------------------------------------------
+
+def parse_frontmatter(md_text: str) -> dict:
+    """
+    Extract YAML frontmatter from a markdown file (between first pair of ---).
+    Returns a dict of key: value pairs (all strings).
+    """
+    match = re.search(r"---\s*\n(.*?)\n---", md_text, re.DOTALL)
+    if not match:
+        return {}
+    fm = {}
+    for line in match.group(1).splitlines():
+        if ":" not in line:
+            continue
+        key, _, val = line.partition(":")
+        fm[key.strip()] = val.strip()
+    return fm
+
+
+def parse_tags_comment(md_text: str) -> dict:
+    """
+    Extract batch name from the INTAKE comment line if present.
+    <!-- INTAKE: batch=X date=Y route=Z -->
+    """
+    match = re.search(r"<!-- INTAKE: batch=(\S+)", md_text)
+    return {"batch": match.group(1)} if match else {}
+
+
+# ---------------------------------------------------------------------------
+# Classification helpers
+# ---------------------------------------------------------------------------
+
+def classify_profile(category: str) -> str:
+    """Map category string to a human-readable profile label."""
+    cat = category.lower()
+    if "laptop" in cat:
+        return "Laptop"
+    if "mini pc" in cat or "egpu" in cat:
+        return "Mini PC"
+    if "component" in cat or "gpu" in cat:
+        return "Component"
+    if "apple" in cat:
+        return "Apple Silicon"
+    # desktop / diy build / everything else
+    return "Desktop"
+
+
+def classify_category_group(profile: str, gpu_model: str) -> str:
+    """Classify into Complete_System / Standalone_GPU / Workstation_GPU."""
+    if profile == "Component":
+        gpu_upper = gpu_model.upper()
+        if any(kw in gpu_upper for kw in WORKSTATION_GPU_KEYWORDS):
+            return "Workstation_GPU"
+        return "Standalone_GPU"
+    return "Complete_System"
+
+
+# ---------------------------------------------------------------------------
+# Numeric helpers
+# ---------------------------------------------------------------------------
+
+def parse_price(price_str: str) -> tuple[float | None, bool]:
+    """
+    Return (price_float_or_None, is_unknown).
+    Strips $, AUD, commas, GB suffixes.
+    """
+    cleaned = price_str.strip().upper()
+    if not cleaned or cleaned in ("UNKNOWN", "N/A", "NONE", "-"):
+        return None, True
+    cleaned = re.sub(r"[AUD$\s]", "", cleaned).replace(",", "")
+    try:
+        return float(cleaned), False
+    except ValueError:
+        return None, True
+
+
+def parse_vram(vram_str: str) -> float | None:
+    """Return numeric VRAM GB or None if unknown."""
+    cleaned = re.sub(r"[^0-9.]", "", vram_str.strip())
+    try:
+        return float(cleaned) if cleaned else None
+    except ValueError:
+        return None
+
+
+def parse_screen_size(md_text: str, item_name: str) -> float | None:
+    """Extract a likely laptop screen size in inches from card text."""
+    patterns = [
+        r"\*\*Display:\*\*[^\n]*?(\d{2}(?:\.\d)?)\s*(?:-|–)?\s*(?:inch|in\b|\")",
+        r"\*\*Screen(?: Size)?:\*\*[^\n]*?(\d{2}(?:\.\d)?)\s*(?:-|–)?\s*(?:inch|in\b|\")",
+        r"\b(\d{2}(?:\.\d)?)\s*(?:-|–)?\s*inch\b",
+    ]
+    haystack = f"{item_name}\n{md_text}"
+    for pattern in patterns:
+        match = re.search(pattern, haystack, re.IGNORECASE)
+        if not match:
+            continue
+        value = float(match.group(1))
+        if 10 <= value <= 20:
+            return value
+    return None
+
+
+def parse_thermal_flag(md_text: str) -> str:
+    """Return Disqualifying, Flagged, Clear, or UNKNOWN from card evidence."""
+    text = md_text.lower()
+    if "no disqualifying thermal" in text or "thermals clear" in text:
+        return "Clear"
+    if "disqualifying thermal" in text or "thermal flag: disqualifying" in text:
+        return "Disqualifying"
+    if "thermal concern" in text or "thermal flag" in text or "throttl" in text:
+        return "Flagged"
+    return "UNKNOWN"
+
+
+# ---------------------------------------------------------------------------
+# Policy Evaluator
+# ---------------------------------------------------------------------------
+
+def evaluate_policy(row: dict, config: dict) -> dict:
+    """
+    Evaluate against config rules (Hard Rejects vs Soft Penalties).
+    Returns dict:
+      hard_reject_reason: str | None
+      soft_penalty_notes: list
+      exceptional_override: str | None
+      shortlist_reason: str
+      over_budget: bool
+    """
+    profile        = row["profile"]
+    status         = row["status"].lower()
+    price_unknown  = row["Price_Unknown"] == "Yes"
+    price_val      = row["_price_float"]
+    vram_val       = row["_vram_float"]
+    unified_val    = row["_unified_float"]
+
+    # Load thresholds from config
+    budget_cap        = config.get("budget_cap_aud", 5000.0)
+    behavior          = config.get("shortlist_behavior", {})
+    exc_vram          = config.get("exceptional_overrides", {}).get("vram_threshold_gb", 24.0)
+    exc_max_budget    = config.get("exceptional_overrides", {}).get("max_override_budget_aud", 6000.0)
+    bargain           = config.get("track1_bargain_exception", {})
+    bargain_vram      = float(bargain.get("minimum_vram_gb", 12.0))
+    bargain_price_cap = float(bargain.get("max_effective_price_aud", 3500.0))
+
+    hard_reject_reason = None
+    soft_penalty_notes = []
+    exceptional_override = None
+    is_over_budget = False
+
+    # Gate 1: Out of Stock
+    if "out of stock" in status:
+        if behavior.get("out_of_stock_action") == "hard_reject":
+            hard_reject_reason = "Out of Stock"
+            return {"hard_reject_reason": hard_reject_reason, "soft_penalty_notes": [], "exceptional_override": None, "shortlist_reason": "", "over_budget": False}
+
+    # Gate 2: VRAM floor (Complete Systems only)
+    if row["Category_Group"] == "Complete_System":
+        if profile in ("Laptop", "Mini PC", "Apple Silicon"):
+            floor_dis = config.get("laptop_discrete_minimum_vram_gb", 16.0)
+            floor_uni = config.get("laptop_unified_minimum_vram_gb", 16.0)
+            effective_vram = vram_val or 0
+            effective_unified = unified_val or 0
+            
+            # If both are known or partially known and fail:
+            if vram_val is not None or unified_val is not None:
+                if effective_vram < floor_dis and effective_unified < floor_uni:
+                    if profile == "Laptop" and vram_val is not None and bargain_vram <= vram_val < floor_dis:
+                        if price_val is None or price_val <= bargain_price_cap:
+                            soft_penalty_notes.append(
+                                f"Track 1A bargain exception candidate: {vram_val} GB VRAM below standard {floor_dis} GB floor; "
+                                f"requires effective price ≤${bargain_price_cap:,.0f} AUD and Price_Value ≥8"
+                            )
+                            # Keep candidate visible for live pricing and MCDA.
+                            pass
+                        else:
+                            msg = (
+                                f"Below standard VRAM floor and not a bargain: {vram_val} GB discrete "
+                                f"(need ≥{floor_dis} GB, or ≥{bargain_vram} GB at ≤${bargain_price_cap:,.0f} AUD)"
+                            )
+                            if behavior.get("below_vram_floor_action") == "hard_reject":
+                                hard_reject_reason = msg
+                                return {"hard_reject_reason": hard_reject_reason, "soft_penalty_notes": [], "exceptional_override": None, "shortlist_reason": "", "over_budget": False}
+                            soft_penalty_notes.append(msg)
+                        # Do not also apply the normal below-floor message.
+                        continue_below_floor = False
+                    else:
+                        continue_below_floor = True
+                    if not continue_below_floor:
+                        pass
+                    else:
+                        msg = f"Below VRAM floor: vram={vram_val} GB, unified={effective_unified} GB (need ≥{floor_dis} GB discrete or ≥{floor_uni} GB unified)"
+                        if behavior.get("below_vram_floor_action") == "hard_reject":
+                            hard_reject_reason = msg
+                            return {"hard_reject_reason": hard_reject_reason, "soft_penalty_notes": [], "exceptional_override": None, "shortlist_reason": "", "over_budget": False}
+                        else:
+                            soft_penalty_notes.append(msg)
+        elif profile in ("Desktop",):
+            floor_desk = config.get("desktop_minimum_vram_gb", 16.0)
+            if vram_val is not None and vram_val < floor_desk:
+                msg = f"Below VRAM floor: {vram_val} GB discrete (need ≥{floor_desk} GB)"
+                if behavior.get("below_vram_floor_action") == "hard_reject":
+                    hard_reject_reason = msg
+                    return {"hard_reject_reason": hard_reject_reason, "soft_penalty_notes": [], "exceptional_override": None, "shortlist_reason": "", "over_budget": False}
+                else:
+                    soft_penalty_notes.append(msg)
+
+    # Soft Penalties & Overrides
+    if price_unknown:
+        soft_penalty_notes.append("Price UNKNOWN — research required")
+
+    if not price_unknown and price_val is not None and price_val > budget_cap:
+        is_over_budget = True
+        msg = f"Exceeds ${budget_cap:,.0f} AUD budget (price: ${price_val:,.2f})"
+        
+        # Check if exceptional override applies
+        vram_check = vram_val if vram_val is not None else 0
+        uni_check = unified_val if unified_val is not None else 0
+        max_vram = max(vram_check, uni_check)
+        
+        if max_vram >= exc_vram and price_val <= exc_max_budget:
+            exceptional_override = f"≥ {exc_vram}GB VRAM allows budget stretch to ${exc_max_budget}"
+            soft_penalty_notes.append(f"{msg} [ALLOWED: {exceptional_override}]")
+        elif "5090" in row["gpu_model"].upper() and price_val <= exc_max_budget:
+            exceptional_override = f"RTX 5090 Tier allows budget stretch to ${exc_max_budget}"
+            soft_penalty_notes.append(f"{msg} [ALLOWED: {exceptional_override}]")
+        else:
+            # Over budget and not exceptional
+            if behavior.get("over_budget_action") == "hard_reject":
+                hard_reject_reason = msg
+                return {"hard_reject_reason": hard_reject_reason, "soft_penalty_notes": [], "exceptional_override": None, "shortlist_reason": "", "over_budget": True}
+            else:
+                soft_penalty_notes.append(msg)
+                
+    if row["verification_status"] in ("Unverified", "UNKNOWN"):
+        soft_penalty_notes.append("Unverified — confirm specs before scoring")
+        
+    if row["au_stock"] in ("UNKNOWN", "No"):
+        soft_penalty_notes.append(f"AU stock: {row['au_stock']}")
+
+    return {
+        "hard_reject_reason": hard_reject_reason,
+        "soft_penalty_notes": soft_penalty_notes,
+        "exceptional_override": exceptional_override,
+        "shortlist_reason": "Passed gates" if not exceptional_override else "Passed via exceptional override",
+        "over_budget": is_over_budget
+    }
+
+
+# ---------------------------------------------------------------------------
+# Row builder
+# ---------------------------------------------------------------------------
+
+def build_row(fm: dict, intake_info: dict, source_path: Path, md_text: str) -> dict:
+    """Build a fully annotated shortlist row from a card's frontmatter."""
+
+    # Raw field extraction
+    item_name        = fm.get("name") or fm.get("item_name") or ""
+    category         = fm.get("category", "UNKNOWN")
+    gpu_model        = fm.get("gpu", "UNKNOWN")
+    vram_raw         = str(fm.get("vram") or fm.get("vram_gb") or "UNKNOWN").replace("GB", "").strip()
+    unified_raw      = str(fm.get("unified_memory") or fm.get("unified_memory_gb") or "UNKNOWN").replace("GB", "").strip()
+    price_raw        = fm.get("price_aud", "UNKNOWN").replace("$", "").replace("AUD", "").strip()
+    condition        = fm.get("condition", "UNKNOWN")
+    retailer         = fm.get("retailer", "UNKNOWN")
+    vstatus          = fm.get("verification", "UNKNOWN")
+    au_stock         = fm.get("au_stock", "UNKNOWN")
+    status           = fm.get("status", "Active")
+    track            = fm.get("track", "UNKNOWN")
+    pathway          = fm.get("pathway", "UNKNOWN")
+    seller_class     = fm.get("seller_class", "UNKNOWN")
+    source_platform  = fm.get("source_platform", "UNKNOWN")
+
+    # Derived
+    profile        = classify_profile(category)
+    price_float, price_unknown = parse_price(price_raw)
+    vram_float     = parse_vram(vram_raw)
+    unified_float  = parse_vram(unified_raw)
+    screen_raw     = str(fm.get("screen_size_in") or fm.get("screen_inches") or fm.get("screen_size") or "UNKNOWN").replace("in", "").strip()
+    screen_size    = parse_vram(screen_raw)
+    if screen_size is None:
+        screen_size = parse_screen_size(md_text, item_name)
+    thermal_flag   = parse_thermal_flag(md_text)
+    cat_group      = classify_category_group(profile, gpu_model)
+
+    # Intake ID from filename
+    fname = source_path.name
+    intake_id_match = re.match(r"([\w\d]+-\d+)", fname)
+    intake_id = intake_id_match.group(1) if intake_id_match else fname.replace(".md", "")
+
+    row = {
+        # Identity
+        "intake_id":            intake_id,
+        "item_name":            item_name,
+        "source_file":          str(source_path.relative_to(REPO_ROOT)),
+        "batch":                intake_info.get("batch", "UNKNOWN"),
+        # Classification
+        "profile":              profile,
+        "category":             category,
+        "Category_Group":       cat_group,
+        "track":                track,
+        "pathway":              pathway,
+        # Specs
+        "gpu_model":            gpu_model,
+        "vram_gb":              vram_float if vram_float is not None else "UNKNOWN",
+        "unified_memory_gb":    unified_float if unified_float is not None else "UNKNOWN",
+        "screen_size_in":       screen_size if screen_size is not None else "UNKNOWN",
+        "thermal_flag":         thermal_flag,
+        "price_aud":            price_float if price_float is not None else "UNKNOWN",
+        "Price_Unknown":        "Yes" if price_unknown else "",
+        "condition":            condition,
+        "retailer":             retailer,
+        "verification_status":  vstatus,
+        "au_stock":             au_stock,
+        "status":               status,
+        "seller_class":         seller_class,
+        "source_platform":      source_platform,
+        # Engine metadata
+        "Machine":              intake_id,   # rubric_weighting_engine.py expects this
+        "Type":                 "Candidate", # default; user can change to Preferred/NeverBuy
+        # Score columns — pull from frontmatter if present, else blank
+        **{col: fm.get(col, "") for col in SCORE_COLUMNS},
+        # Internal helpers (stripped before CSV output)
+        "_price_float":         price_float,
+        "_vram_float":          vram_float,
+        "_unified_float":       unified_float,
+    }
+    return row
+
+
+# ---------------------------------------------------------------------------
+# Card scanner
+# ---------------------------------------------------------------------------
+
+def scan_intake_cards(
+    batch_filter: str | None,
+    profile_filter: str | None,
+    track_filter: str | None,
+    pathway_filter: str | None,
+    watchlist_only: bool = False,
+) -> list[dict]:
+    """
+    Walk all INTAKE_LANES and return a list of fully-built row dicts.
+    """
+    rows = []
+    for lane in INTAKE_LANES:
+        folder = REPO_ROOT / lane
+        if not folder.exists():
+            continue
+        for md_path in sorted(folder.rglob("*.md")):
+            is_watchlist = "watchlist" in md_path.parts
+            if watchlist_only:
+                if not is_watchlist:
+                    continue
+            else:
+                if is_watchlist:
+                    continue
+            text = md_path.read_text(encoding="utf-8", errors="replace")
+            fm          = parse_frontmatter(text)
+            intake_info = parse_tags_comment(text)
+
+            if not fm:
+                continue  # skip unparseable cards
+
+            status = fm.get("status", "Active").strip().upper()
+            if status in ("ARCHIVED", "REJECTED", "SOLD"):
+                continue
+
+            row = build_row(fm, intake_info, md_path, text)
+
+            # Batch filter
+            if batch_filter and batch_filter not in row["batch"]:
+                continue
+
+            # Profile filter
+            if profile_filter and row["profile"].lower() != profile_filter.lower():
+                continue
+
+            # Track/pathway filters
+            if track_filter and str(row["track"]).strip() != track_filter:
+                continue
+            if pathway_filter and str(row["pathway"]).strip().upper() != pathway_filter:
+                continue
+
+            rows.append(row)
+
+    return rows
+
+
+# ---------------------------------------------------------------------------
+# CSV writers
+# ---------------------------------------------------------------------------
+
+SHORTLIST_FIELDNAMES = [
+    "intake_id", "item_name", "status", "profile", "category", "Category_Group",
+    "track", "pathway", "gpu_model", "vram_gb", "unified_memory_gb",
+    "screen_size_in", "thermal_flag",
+    "price_aud", "Over_Budget", "Price_Unknown",
+    "condition", "retailer", "verification_status", "au_stock",
+    "seller_class", "source_platform",
+    "batch", "source_file", "exceptional_override", "shortlist_reason", "soft_penalty_notes",
+    # Archetype transparency columns (Step 4)
+    "archetype_used", "intent_notes",
+    # Engine columns
+    "Machine", "Type",
+    # Score columns
+    *SCORE_COLUMNS,
+]
+
+REJECTED_FIELDNAMES = [col for col in SHORTLIST_FIELDNAMES if col not in ("Machine", "Type", *SCORE_COLUMNS)] + ["rejection_reason"]
+
+
+def strip_internals(row: dict) -> dict:
+    return {k: v for k, v in row.items() if not k.startswith("_")}
+
+
+def write_csv(path: Path, fieldnames: list, rows: list) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows([strip_internals(r) for r in rows])
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Phase 2 of the hardware procurement pipeline.\n\n"
+            "Scans intake-*.md cards, applies policy from config/procurement_policy.json\n"
+            "(handling hard rejects vs soft penalties), and emits a CSV ready for scoring."
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python scripts/build_shortlist.py
+  python scripts/build_shortlist.py --dry-run
+  python scripts/build_shortlist.py --profile laptop
+  python scripts/build_shortlist.py --track 1 --pathway 1A
+
+After generating the shortlist, run the pricing enrichment step:
+  python scripts/enrich_shortlist_pricing.py
+        """,
+    )
+    parser.add_argument(
+        "--batch", default=None, metavar="STEM",
+        help="Filter to a specific intake batch stem",
+    )
+    parser.add_argument(
+        "--profile", default=None,
+        choices=["laptop", "desktop", "mini pc", "component", "apple silicon", "all"],
+        help="Filter by device profile (default: all profiles)",
+    )
+    parser.add_argument(
+        "--track",
+        default=None,
+        choices=["1", "1.5", "2", "UNKNOWN"],
+        help="Filter by track value (1, 1.5, 2, UNKNOWN)",
+    )
+    parser.add_argument(
+        "--pathway",
+        default=None,
+        help="Filter by pathway value (1A, 1B, A, B, C, UNKNOWN)",
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true",
+        help="Preview shortlist without writing any files",
+    )
+    parser.add_argument(
+        "--spec-json",
+        default=None,
+        help="JSON string or file path containing SpecRequirements output from the Spec Clarifier Agent",
+    )
+    parser.add_argument(
+        "--archetype",
+        default=None,
+        metavar="LABEL",
+        help=(
+            "Apply a named search archetype from config/search_archetypes.json. "
+            "Example: --archetype gaming_laptop_private_sale. "
+            "Overrides budget cap, VRAM floor, profile, track, and pathway filters "
+            "from the archetype definition. "
+            "Valid labels: gaming_laptop_private_sale, gaming_laptop_retailer, "
+            "strix_halo_laptop, refurb_workstation_au"
+        ),
+    )
+    parser.add_argument(
+        "--watchlist", action="store_true",
+        help="Compile only the unreleased watchlist cards from cards/watchlist/",
+    )
+    args = parser.parse_args()
+
+    # Load machine-readable config
+    config = load_config()
+
+    # ── Archetype override (--archetype) ────────────────────────────────────
+    # Loaded BEFORE --spec-json so that spec-json can further narrow/override.
+    archetype_label: Optional[str] = None
+    if args.archetype:
+        arch = load_archetype(args.archetype)
+        archetype_label = arch["label"]
+
+        price_ceil = arch.get("price", {}).get("hard_ceiling_aud")
+        if price_ceil is not None:
+            config["budget_cap_aud"] = float(price_ceil)
+
+        spec = arch.get("spec", {})
+        min_vram = spec.get("min_gpu_vram_gb")
+        if min_vram is not None:
+            config["laptop_discrete_minimum_vram_gb"] = float(min_vram)
+        min_unified = spec.get("min_unified_memory_gb")
+        if min_unified is not None:
+            config["laptop_unified_minimum_vram_gb"] = float(min_unified)
+
+        # Map track/pathway
+        track_val = arch.get("track")
+        pathway_val = arch.get("pathway")
+        if track_val and args.track is None:
+            args.track = str(track_val)
+        if pathway_val and args.pathway is None:
+            args.pathway = str(pathway_val)
+
+        # Map profile from pathway
+        if args.profile is None:
+            pathway_lower = (pathway_val or "").lower()
+            if pathway_lower in ("1a", "1b", "1c"):
+                args.profile = "laptop"
+            elif arch.get("track") == "1.5":
+                args.profile = "desktop"
+
+        print(f"✅ Loaded archetype '{archetype_label}': "
+              f"budget_cap=${config['budget_cap_aud']:,.0f} AUD, "
+              f"track={args.track}, pathway={args.pathway}, profile={args.profile}")
+
+    if args.spec_json:
+        try:
+            if args.spec_json.strip().startswith("{"):
+                spec = json.loads(args.spec_json)
+            else:
+                with open(args.spec_json, "r", encoding="utf-8") as f:
+                    spec = json.load(f)
+            
+            # Apply spec overrides to config and filters dynamically
+            if "budget_cap_aud" in spec:
+                config["budget_cap_aud"] = spec["budget_cap_aud"]
+            if "vram_floor_gb" in spec:
+                config["laptop_discrete_minimum_vram_gb"] = spec["vram_floor_gb"]
+                config["laptop_unified_minimum_vram_gb"] = spec["vram_floor_gb"]
+                config["desktop_minimum_vram_gb"] = spec["vram_floor_gb"]
+            if "track_preference" in spec and spec["track_preference"] != "Any":
+                # Maps "1A" to track="1", pathway="1A"
+                if spec["track_preference"] in ["1A", "1B"]:
+                    args.track = "1"
+                    args.pathway = spec["track_preference"]
+                else:
+                    args.track = spec["track_preference"]
+            if "portability_requirement" in spec and spec["portability_requirement"] != "Any":
+                args.profile = spec["portability_requirement"].lower()
+                
+            print(f"✅ Loaded overrides from --spec-json: {spec}")
+        except Exception as e:
+            print(f"⚠️ Failed to parse --spec-json: {e}")
+
+    profile_filter = None if (args.profile in (None, "all")) else args.profile
+    track_filter = None if args.track is None else args.track
+    pathway_filter = None if args.pathway is None else args.pathway.strip().upper()
+
+    target_type = "watchlist" if args.watchlist else "intake"
+    print(f"\n🔍 Scanning {target_type} cards in {WORKSPACE.relative_to(REPO_ROOT)} ...")
+    all_rows = scan_intake_cards(args.batch, profile_filter, track_filter, pathway_filter, watchlist_only=args.watchlist)
+    print(f"   Cards found: {len(all_rows)}")
+
+    # Apply gates & policies
+    shortlist = []
+    rejected  = []
+
+    for row in all_rows:
+        eval_result = evaluate_policy(row, config)
+
+        # ── Archetype transparency columns (Step 4) ──────────────────────
+        row["archetype_used"] = archetype_label or ""
+        if archetype_label:
+            arch_data = load_archetype(archetype_label)
+            row["intent_notes"] = arch_data.get("intent_notes_template", "")
+        else:
+            row["intent_notes"] = ""
+
+        if eval_result["hard_reject_reason"]:
+            row["rejection_reason"] = eval_result["hard_reject_reason"]
+            rejected.append(row)
+        else:
+            row["Over_Budget"] = "Yes" if eval_result["over_budget"] else "No"
+            row["exceptional_override"] = eval_result["exceptional_override"] or ""
+            row["shortlist_reason"] = eval_result["shortlist_reason"]
+            row["soft_penalty_notes"] = "; ".join(eval_result["soft_penalty_notes"])
+            shortlist.append(row)
+
+    # Sort: Complete_System first, then Standalone_GPU, then Workstation_GPU
+    group_order = {"Complete_System": 0, "Standalone_GPU": 1, "Workstation_GPU": 2}
+    shortlist.sort(key=lambda r: (
+        group_order.get(r["Category_Group"], 9),
+        r["profile"],
+        str(r["vram_gb"]) if r["vram_gb"] != "UNKNOWN" else "0",
+    ), reverse=False)
+
+    # Print preview
+    print(f"\n{'─'*70}")
+    print(f"  SHORTLIST ({len(shortlist)} candidates):")
+    print(f"{'─'*70}")
+    for r in shortlist:
+        flags = []
+        if r["Price_Unknown"] == "Yes": flags.append("[PRICE UNKNOWN]")
+        if r["Over_Budget"] == "Yes": flags.append("[OVER BUDGET]")
+        if r["exceptional_override"]: flags.append("[EXCEPTIONAL]")
+        flag_str = " ".join(flags)
+        
+        print(f"  {r['intake_id']:12s}  {r['profile']:12s}  {r['Category_Group']:18s}  "
+              f"{str(r['vram_gb']):>6} GB  ${str(r['price_aud']):>8} {flag_str}  "
+              f"{r['item_name'][:30]}")
+
+    print(f"\n{'─'*70}")
+    print(f"  REJECTED ({len(rejected)} candidates):")
+    print(f"{'─'*70}")
+    for r in rejected:
+        print(f"  {r['intake_id']:12s}  {r['profile']:12s}  {r['item_name'][:40]:40s}  "
+              f"→ {r.get('rejection_reason', '?')}")
+
+    if args.dry_run:
+        print(f"\n  [DRY RUN] — no files written.\n")
+        return
+
+    # Write outputs
+    today     = date.today().isoformat()
+    out_dir   = REPO_ROOT / "shortlists"
+    suffix_parts = []
+    if profile_filter:
+        suffix_parts.append(f"profile-{profile_filter.replace(' ', '-')}")
+    if track_filter:
+        suffix_parts.append(f"track-{track_filter}")
+    if pathway_filter:
+        suffix_parts.append(f"pathway-{pathway_filter}")
+    suffix = f"_{'_'.join(suffix_parts)}" if suffix_parts else ""
+
+    prefix = "watchlist_shortlist" if args.watchlist else "shortlist"
+    sl_path   = out_dir / f"{today}_{prefix}{suffix}.csv"
+    rej_path  = out_dir / f"{today}_{prefix}_rejected{suffix}.csv"
+
+    # Add 'status' column defaulting to ACTIVE/UNRELEASED if not set or if it's 'Active'
+    for row in shortlist:
+        if "status" not in row or not row["status"]:
+            row["status"] = "UNRELEASED" if args.watchlist else "ACTIVE"
+        elif row["status"].upper() == "ACTIVE":
+            row["status"] = "ACTIVE"
+
+    write_csv(sl_path, SHORTLIST_FIELDNAMES, shortlist)
+    write_csv(rej_path, REJECTED_FIELDNAMES, rejected)
+
+    print(f"\n✅ Watchlist complete." if args.watchlist else f"\n✅ Shortlist complete.")
+    print(f"   Shortlisted : {len(shortlist)} → {sl_path.relative_to(REPO_ROOT)}")
+    print(f"   Rejected    : {len(rejected)} → {rej_path.relative_to(REPO_ROOT)}")
+    if not args.watchlist:
+        print(f"\n   Next: Run the live pricing enrichment step:")
+        print(f"   python scripts/enrich_shortlist_pricing.py {sl_path.relative_to(REPO_ROOT)}\n")
+
+
+if __name__ == "__main__":
+    main()
+</file>
+
+<file path="AGENTS.md">
+# AGENTS.md> **Execution Layer Authority Notice**: This file acts as the primary policy authority for procurement decisions and model selection routing. For specific model commands, tool inputs, script syntax, and pipeline terminal flags, refer directly to `CLAUDE.md`.
+## Role & Project OutcomesYou are the hardware research, orchestration, and decision-support routing layer. Your primary mandate is to process the selection of hardware to ship the CareerCopilot MVP (Q3 2026), maximize capital savings, and tightly govern token consumption across all engineering workflows.
+## System Authority Hierarchy1. `AGENTS.md` (Decision policy and tool distribution bounds)
+2. `config/procurement_policy.json` (Hard performance/financial constraints)3. Workspace CSV files (Working data ledger)4. Markdown product cards (Verified product evidence profiles)5. Live web instances (Context grounding via MCP or web wrappers)
+## Core Procurement LogicSecure one Track 1 laptop immediately if it is outcome-enabled, available in the Australian marketplace, under budget (≤5,000 AUD), and passes thermal validation rules. Good enough equals outcome-enabled; do not stall execution loops chasing optimal builds.
+> **Model routing & token-containment rules live in `CLAUDE.md`** (routing matrix, subagent lockout, git interdiction, baton-pass protocol). This file is procurement policy only.
+
+## Decision Tracks & Threshold Gates
+<!-- POLICY_START -->
+- **Track 1 (Laptop Core)**: Active choice path. Proceed immediately upon locating a baseline validation match. Target budget: ≤ 5,000 AUD.
+  - **Track 1A (Discrete GPU Laptop)**: Discrete VRAM is at least 8 GB. Screen size is at least 16 inches (or 14–16 inches if touchscreen).
+  - **Track 1B (Unified Memory Laptop)**: Unified memory is at least 16 GB (32 GB+ preferred, 48GB/64GB+ strong for Q4). Includes Apple Silicon and other Unified Memory Architectures (UMAs) with advanced VRAM BIOS configuration options.
+- **Track 1.5 (Desktop Swap)**: Enabled exclusively under Exception A parameters (Zero valid laptop configurations discovered within pricing parameters).
+  - **Track 1.5 Minimum VRAM**: GPU VRAM is at least 16 GB.
+- **Track 2 (Secondary/Alternative Tracks)**:
+  - **Pathway A**: Total cost is at most 5,000 AUD.
+  - **Pathway B**: Total cost is at most 4,000 AUD.
+  - **Pathway C**: Total cost is at most 3,500 AUD.
+<!-- POLICY_END -->
+
+---
+
+## The 5-Phase Hardware Decision Pipeline
+
+The procurement process is orchestrated through a structured 5-phase pipeline:
+
+```mermaid
+graph TD
+    Z[Phase 0: Spec Clarifier Agent] -.->|--spec-json| A
+    A[Phase 1: Intake] --> B[Phase 2: Shortlist]
+    B --> C[Phase 3a: Scaffold Schema]
+    C --> D[Phase 3b: Live Pricing Fill]
+    D --> E[Phase 4: Manual Scoring]
+    E --> F[Phase 5: Rank & Decide]
+```
+
+> **Pipeline commands live in `CLAUDE.md` ("Pipeline Commands").** This diagram is the phase shape; the runnable command list is maintained there.
+
+---
+
+## Multi-Criteria Decision Analysis (MCDA) Scoring
+
+All viable candidates must be scored out of 10 for five distinct factors:
+
+$$\text{MCDA Score} = (\text{Performance\_Headroom} \times 0.25) + (\text{Price\_Value} \times 0.20) + (\text{Future\_Proof} \times 0.20) + (\text{Portability} \times 0.20) + (\text{Track2\_Avoidance} \times 0.15)$$
+
+### Factor Rubrics:
+- **Performance_Headroom (25%):**
+  - `2-3`: 8 GB VRAM discrete GPU (entry-level).
+  - `4-5`: 12 GB VRAM discrete GPU (moderate constraints).
+  - `6-7`: 16 GB VRAM discrete GPU OR default cap for Strix Halo / Radeon 8060S / Apple M-series Pro or Max (e.g. 48GB unified).
+  - `8-10`: 24 GB+ VRAM discrete GPU tier OR 64GB-128GB+ unified memory tier.
+- **Price_Value (20%):** Score 10 for excellent value/discounts relative to alternatives, 5 for fair market, 0 at budget cap with weak differentiation.
+- **Future_Proof (20%):** Measures runtime headroom for Q4 features. `2-3` for 8GB, `6-7` for 16GB, `8-10` for strong Q4 runway (64GB-128GB unified or 24GB+ VRAM).
+- **Portability (20%):** `10` for ultraportables/thin-and-lights, `7-8` for typical 14"–16" creator laptops, `4-6` for heavy desktop-replacements, `0-3` for desktops.
+- **Track2_Avoidance (15%):** Likelihood to fully avoid enterprise workstations in Q4.
+  - Strix Halo / Apple Silicon Caps: 32 GB/48GB unified = `5-6`, 64 GB unified = `7`, 128 GB unified = `8`.
+
+---
+
+## Strict Data & Pricing Verification Rules
+
+- **Zero Inference:** Never guess or infer price, stock, VRAM, RAM, or warranty. Unknown parameters must be kept as `UNKNOWN` until live-verified.
+- **Secondary Market Audit Rule (Track 1A Refurb/eBay):** `current_best_price_aud` must be cross-checked against last-30-days "Sold" listings or verified clearance prices, not speculative international "Buy It Now" asking prices.
+- **Price Increase Cross-Check Rule:** Do not immediately reject a candidate if a single retailer shows a price hike over the cap. Verify at least two other AU retailers in this safe priority hierarchy:
+  1. `MANUFACTURER_AU`
+  2. `MAJOR_RETAILER_AU`
+  3. `AMAZON_AU`
+  4. `EBAY_AU`
+  5. `GUMTREE_AU` / `FB_MARKETPLACE` (fallback only)
+  6. `GRAY_IMPORT` (high risk, fallback only)
+- **Review Penalties:** Apply `-1` to `-2` scoring penalties on factors if reviews confirm: sustained loud fan behavior, poor display quality, weak battery endurance, or macOS/ROCm/toolchain setup complexities for local AI work.
+
+---
+
+## Recommendation Go-Live Checklist
+
+Before proposing a purchase recommendation to the user, verify and format the output as follows:
+
+### Checklist:
+- [ ] Confirm active AU stock.
+- [ ] Confirm final price and effective best price.
+- [ ] Confirm exact GPU VRAM or Unified Memory.
+- [ ] Confirm warranty details and ACL (Australian Consumer Law) coverage.
+- [ ] Verify there is no disqualifying sustained thermal throttling risk.
+- [ ] Calculate the final MCDA score and fill all factor columns.
+
+### Required Output Format:
+1. **Candidate Name & Track/Pathway**
+2. **GOOD ENOUGH Status:** Explicit confirmation that all gates are cleared.
+3. **MCDA Scores:** Breakdown of overall score and the five individual factor scores.
+4. **Source Evidence:** Price, retailer name, live URL, stock status, and the date checked.
+5. **Remaining Risks:** Thermal, compatibility, or seller risks.
+6. **Final Recommendation:** Clear **buy / do-not-buy / wait** decision.
+</file>
+
+</files>

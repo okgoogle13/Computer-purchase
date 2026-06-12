@@ -28,8 +28,8 @@ def generate_policy_markdown(config: dict) -> str:
     cap_c = track2_caps.get("C", 3500.0)
 
     markdown = f"""- **Track 1 (Laptop Core)**: Active choice path. Proceed immediately upon locating a baseline validation match. Target budget: ≤ {budget_cap:,.0f} AUD.
-  - **Track 1A (Discrete GPU Laptop)**: Discrete VRAM is at least {laptop_discrete_vram:.0f} GB.
-  - **Track 1B (Unified Memory Laptop)**: Unified memory is at least {laptop_unified_memory:.0f} GB.
+  - **Track 1A (Discrete GPU Laptop)**: Discrete VRAM is at least {laptop_discrete_vram:.0f} GB. Screen size is at least 16 inches (or 14–16 inches if touchscreen).
+  - **Track 1B (Unified Memory Laptop)**: Unified memory is at least {laptop_unified_memory:.0f} GB (32 GB+ preferred, 48GB/64GB+ strong for Q4). Includes Apple Silicon and other Unified Memory Architectures (UMAs) with advanced VRAM BIOS configuration options.
 - **Track 1.5 (Desktop Swap)**: Enabled exclusively under Exception A parameters (Zero valid laptop configurations discovered within pricing parameters).
   - **Track 1.5 Minimum VRAM**: GPU VRAM is at least {desktop_vram:.0f} GB.
 - **Track 2 (Secondary/Alternative Tracks)**:

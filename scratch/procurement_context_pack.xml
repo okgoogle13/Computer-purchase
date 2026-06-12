@@ -1,3 +1,336 @@
+This file is a merged representation of a subset of the codebase, containing specifically included files, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Only files matching these patterns are included: AGENTS.md, CLAUDE.md, config/procurement_policy.json, scripts/scoring/rubric_weighting_engine.py, scripts/policy_drift_check.py
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+config/
+  procurement_policy.json
+scripts/
+  scoring/
+    rubric_weighting_engine.py
+  policy_drift_check.py
+AGENTS.md
+CLAUDE.md
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="scripts/policy_drift_check.py">
+#!/usr/bin/env python3
+"""Check/Sync AGENTS.md policy constants against config/procurement_policy.json.
+
+This is a lightweight guardrail for ranking-time drift detection and syncing.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+import difflib
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+AGENTS_PATH = REPO_ROOT / "AGENTS.md"
+CONFIG_PATH = REPO_ROOT / "config" / "procurement_policy.json"
+DEFAULT_LOG_PATH = REPO_ROOT / "logs" / "policy_drift_check_latest.json"
+
+def generate_policy_markdown(config: dict) -> str:
+    budget_cap = config.get("budget_cap_aud", 5000.0)
+    laptop_discrete_vram = config.get("laptop_discrete_minimum_vram_gb", 8.0)
+    laptop_unified_memory = config.get("laptop_unified_minimum_vram_gb", 16.0)
+    desktop_vram = config.get("desktop_minimum_vram_gb", 16.0)
+    track2_caps = config.get("track2_budget_caps_aud", {})
+    cap_a = track2_caps.get("A", 5000.0)
+    cap_b = track2_caps.get("B", 4000.0)
+    cap_c = track2_caps.get("C", 3500.0)
+
+    markdown = f"""- **Track 1 (Laptop Core)**: Active choice path. Proceed immediately upon locating a baseline validation match. Target budget: ≤ {budget_cap:,.0f} AUD.
+  - **Track 1A (Discrete GPU Laptop)**: Discrete VRAM is at least {laptop_discrete_vram:.0f} GB. Screen size is at least 16 inches (or 14–16 inches if touchscreen).
+  - **Track 1B (Unified Memory Laptop)**: Unified memory is at least {laptop_unified_memory:.0f} GB (32 GB+ preferred, 48GB/64GB+ strong for Q4). Includes Apple Silicon and other Unified Memory Architectures (UMAs) with advanced VRAM BIOS configuration options.
+- **Track 1.5 (Desktop Swap)**: Enabled exclusively under Exception A parameters (Zero valid laptop configurations discovered within pricing parameters).
+  - **Track 1.5 Minimum VRAM**: GPU VRAM is at least {desktop_vram:.0f} GB.
+- **Track 2 (Secondary/Alternative Tracks)**:
+  - **Pathway A**: Total cost is at most {cap_a:,.0f} AUD.
+  - **Pathway B**: Total cost is at most {cap_b:,.0f} AUD.
+  - **Pathway C**: Total cost is at most {cap_c:,.0f} AUD."""
+    return markdown
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Check or sync policy drift between AGENTS.md and config/procurement_policy.json"
+    )
+    parser.add_argument(
+        "--sync",
+        action="store_true",
+        help="Update the AGENTS.md policy section in place"
+    )
+    parser.add_argument(
+        "--output",
+        default=str(DEFAULT_LOG_PATH),
+        help="Write JSON report to this file"
+    )
+    args = parser.parse_args()
+
+    if not AGENTS_PATH.exists() or not CONFIG_PATH.exists():
+        sys.exit("Error: Missing AGENTS.md or config/procurement_policy.json")
+
+    try:
+        config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    except Exception as e:
+        sys.exit(f"Error: Failed to parse {CONFIG_PATH}: {e}")
+
+    agents_text = AGENTS_PATH.read_text(encoding="utf-8")
+    start_tag = "<!-- POLICY_START -->"
+    end_tag = "<!-- POLICY_END -->"
+
+    if start_tag not in agents_text or end_tag not in agents_text:
+        sys.exit(f"Error: Could not find markers {start_tag} and {end_tag} in AGENTS.md")
+
+    parts = agents_text.split(start_tag)
+    before_policy = parts[0]
+    after_start = parts[1]
+    parts2 = after_start.split(end_tag)
+    existing_policy_raw = parts2[0]
+    after_policy = parts2[1]
+
+    existing_policy = existing_policy_raw.strip()
+    generated_policy = generate_policy_markdown(config).strip()
+
+    out_path = Path(args.output)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if args.sync:
+        if existing_policy == generated_policy:
+            print("AGENTS.md policy section is already in sync.")
+        else:
+            new_agents_text = f"{before_policy}{start_tag}\n{generated_policy}\n{end_tag}{after_policy}"
+            AGENTS_PATH.write_text(new_agents_text, encoding="utf-8")
+            print("AGENTS.md successfully synced with config/procurement_policy.json.")
+        
+        # Write success log
+        summary = {
+            "status": "PASS",
+            "message": "Synced successfully.",
+        }
+        out_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        sys.exit(0)
+
+    # Check mode
+    if existing_policy == generated_policy:
+        print("Policy drift check: PASS")
+        summary = {
+            "status": "PASS",
+            "message": "No numeric policy drift detected."
+        }
+        out_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        sys.exit(0)
+    else:
+        print("Policy drift check: FAIL (Mismatches detected)")
+        diff = difflib.unified_diff(
+            existing_policy.splitlines(),
+            generated_policy.splitlines(),
+            fromfile="AGENTS.md (current)",
+            tofile="procurement_policy.json (expected)",
+            lineterm=""
+        )
+        print("\n".join(diff))
+        
+        summary = {
+            "status": "FAIL",
+            "message": "Policy drift detected between AGENTS.md and config/procurement_policy.json. Run --sync to align."
+        }
+        out_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        sys.exit(2)
+
+if __name__ == "__main__":
+    main()
+</file>
+
+<file path="config/procurement_policy.json">
+{
+  "budget_cap_aud": 5000.0,
+  "desktop_minimum_vram_gb": 16.0,
+  "laptop_discrete_minimum_vram_gb": 8.0,
+  "laptop_unified_minimum_vram_gb": 16.0,
+  "track2_budget_caps_aud": {
+    "A": 5000.0,
+    "B": 4000.0,
+    "C": 3500.0
+  },
+  "mcda_weights": {
+    "Performance_Headroom": 0.25,
+    "Price_Value": 0.2,
+    "Future_Proof": 0.2,
+    "Portability": 0.2,
+    "Track2_Avoidance": 0.15
+  },
+  "mcda_rubric_calibration": {
+    "strix_halo_performance_cap_default": 7,
+    "strix_halo_track2_avoidance_caps_by_memory": {
+      "32": 6,
+      "64": 7,
+      "128": 8
+    },
+    "review_risk_penalty_guidance": {
+      "sustained_fan_noise_or_coil_whine": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Performance_Headroom",
+          "Price_Value"
+        ]
+      },
+      "weak_display_for_class": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Price_Value",
+          "Future_Proof"
+        ]
+      },
+      "poor_battery_endurance": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Portability",
+          "Price_Value"
+        ]
+      },
+      "uncertain_rocm_or_toolchain_support": {
+        "suggested_penalty_points": 1,
+        "applies_to": [
+          "Performance_Headroom",
+          "Track2_Avoidance"
+        ]
+      },
+      "compact_chassis_thermal_limit": {
+        "suggested_penalty_points": 2,
+        "applies_to": [
+          "Performance_Headroom",
+          "Future_Proof",
+          "Track2_Avoidance"
+        ]
+      }
+    }
+  },
+  "exceptional_overrides": {
+    "vram_threshold_gb": 24.0,
+    "gpu_tier_threshold": 8.0,
+    "max_override_budget_aud": 6000.0
+  },
+  "shortlist_behavior": {
+    "over_budget_action": "soft_penalty",
+    "unknown_price_action": "soft_penalty",
+    "out_of_stock_action": "hard_reject",
+    "below_vram_floor_action": "hard_reject"
+  }
+}
+</file>
+
+<file path="CLAUDE.md">
+# CLAUDE.md
+This file provides strict execution boundaries and guidance to Claude Code (`claude.ai/code`) when working with code in this repository.
+## Project PurposeAI-assisted hardware procurement decision system for selecting hardware to ship CareerCopilot MVP (Q3 2026). The system uses a 5-phase pipeline: intake → shortlist → live pricing → manual MCDA scoring → ranked recommendation.
+
+**Default goal:** Buy one Track 1 laptop that is outcome-enabled, AU-available, ≤5,000 AUD, and free of disqualifying thermal risk. Do not wait for Track 2.
+## Token Efficiency & Session Optimization*CRITICAL: Local usage audits reveal a major token bleed ($13.11/session) driven by nested subagent loops (98%) and heavy background planning plugins (11%). You must adhere to these strict execution rules:*
+### Anti-patterns (Avoid Costly Loops)- **NO Subagent Spawning**: You are forbidden from spawning background/nested subagents for file exploration, data cleanup, or configuration syncs. Defer these to `Antigravity CLI` via the routing matrix.
+- **NO Automatic Plan Execution**: Do not invoke `/superpowers:executing-plans` or heavy chain skills. Break work into single-step bash strings.
+- **NO Full-File Reading**: Never re-read full CSV files to inspect layout or look up single records. Use `head -n 5`, `grep`, or targeted tools.
+- **Context Boundary Threshold**: When session length reaches or exceeds 100k tokens, you MUST halt and explicitly instruct the user: *"Context size is high. Please run `/compact` or `/clear` to reset our token window before we proceed."*
+### Model Routing and Skill InvocationTo conserve Anthropic tokens, tasks are strictly categorized. If you hit a token ceiling or API rate limit, drop down to the fallback models immediately.
+
+
+| Task Type | Primary Model / Command | Fallback Path (Token Wall) | Skill / Tool Execution |
+| :--- | :--- | :--- | :--- |
+| Grep, structural layout, CSV row check | `[HAIKU]` — `/model haiku` | `gemini-3.5-flash` | Direct bash tools only — no skills |
+| Shortlist filtering & policy gate sweeps | `[HAIKU]` — `/model haiku` | `gemini-3.5-flash` | Direct bash tools only — no skills |
+| Phase 1 product card coverage audit | `[GEMINI-FLASH-LOW]` | `gemini-3.1-flash-lite` | `Skill("gemini-card-audit")` |
+| Opportunity gap / lost-opportunity audit | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("opportunity-audit")` |
+| Secondary-market / private-sale search | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("gaming-laptop-private-sale")` |
+| Refurb workstation AU web search | `[GEMINI-FLASH-MEDIUM]` | `gemini-3.1-pro` | `Skill("refurb-workstation-au")` |
+| Reading cards, sweeping CSVs, live pricing | `[SONNET-4.6]` — `/model sonnet` | `gemini-3.1-pro` | `Skill("price-verify")` / Workhorse tasks |
+| Live web browser scraping loop | `[SONNET-4.6]` — `/model sonnet` | Vercel CLI (Manual) | `Skill("agent-browser")` (Max 3 turns) |
+| Git operations / Version control | **FORBIDDEN** | GitHub Copilot CLI | Instruct user to handle via `@copilot` |
+| Final review, MCDA check, architecture | `[OPUS-4.8]` — `/model opus` | `gemini-3.1-pro` | Direct execution — Pre-Decision Checklist |
+### Routing Constraints- **Git Interdiction**: You are banned from executing `git add`, `git commit`, `git push`, or `git diff`.- **Vercel Browser Agent Rules**: Limit automated navigation to a maximum of 3 browser action turns per interaction block to avoid high-context runaway costs.
+- **Artifact-Based Baton Pass Protocol**: For multi-model task handovers, write a micro-summary to `tasks/handovers/ready_for_opus.md`, stop execution, and print: `"Phase complete. Artifact saved. Please invoke Claude 4.8 Opus to review ready_for_opus.md."`
+## Pipeline Commands```bash
+# Full Orchestrated Pipeline Run
+python3 scripts/run_automated_pipeline.py --batch YYYY-MM-DD
+
+# Phase 0 — Spec Clarification (Interactive)
+python scripts/agents/spec_clarifier/agent.py
+
+# Phase 1 — Intake normalization & card creation
+python3 scripts/run_gemini_card_audit.py
+
+# Phase 2 — Shortlist Building
+python scripts/build_shortlist.py
+python scripts/build_shortlist.py --spec-json '{"track_preference":"1A","budget_cap_aud":4500}'
+python scripts/build_shortlist.py --archetype gaming_laptop_private_sale
+python scripts/build_shortlist.py --watchlist
+
+# Phase 3a — Pricing schema scaffold only (No web calls)
+python scripts/enrich_shortlist_pricing.py shortlists/shortlist_profile-laptop.csv
+
+# Phase 3b — Live pricing fill (Cookie-wrapped browser search)
+python scripts/fill_shortlist_live_pricing.py shortlists/shortlist_profile-laptop_pricing_enriched.csv
+
+# Phase 4 — Fill missing MCDA score data
+python scripts/fill_mcda_gaps.py shortlists/shortlist_profile-laptop_pricing_enriched_live.csv
+
+# Phase 5 — MCDA ranking execution
+python scripts/scoring/rubric_weighting_engine.py --csv shortlists/shortlist_profile-laptop_pricing_enriched_live.csv --output-csv shortlists/shortlist_profile-laptop_ranked.csv
+```
+## Architecture**Policy authority:** `AGENTS.md` > `config/procurement_policy.json` > CSV ledger > cards > live sources.
+
+**Key files:**
+- `AGENTS.md` — Canonical decision rules, weights, scoring formulas, and model matrices.
+- `config/procurement_policy.json` — Budget caps, VRAM floor configs.
+- `config/search_archetypes.json` — GPU search criteria, source query rules.
+- `shortlists/` — CSV working files across pipeline stages.
+- `cards/` — Markdown product data organized by category (`cards/laptops/`, etc., and watchlist `cards/watchlist/` for unreleased models).
+</file>
+
+<file path="scripts/scoring/rubric_weighting_engine.py">
 #!/usr/bin/env python3
 """
 rubric_weighting_engine.py
@@ -948,3 +1281,154 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+</file>
+
+<file path="AGENTS.md">
+# AGENTS.md> **Execution Layer Authority Notice**: This file acts as the primary policy authority for procurement decisions and model selection routing. For specific model commands, tool inputs, script syntax, and pipeline terminal flags, refer directly to `CLAUDE.md`.
+## Role & Project OutcomesYou are the hardware research, orchestration, and decision-support routing layer. Your primary mandate is to process the selection of hardware to ship the CareerCopilot MVP (Q3 2026), maximize capital savings, and tightly govern token consumption across all engineering workflows.
+## System Authority Hierarchy1. `AGENTS.md` (Decision policy and tool distribution bounds)
+2. `config/procurement_policy.json` (Hard performance/financial constraints)3. Workspace CSV files (Working data ledger)4. Markdown product cards (Verified product evidence profiles)5. Live web instances (Context grounding via MCP or web wrappers)
+## Core Procurement LogicSecure one Track 1 laptop immediately if it is outcome-enabled, available in the Australian marketplace, under budget (≤5,000 AUD), and passes thermal validation rules. Good enough equals outcome-enabled; do not stall execution loops chasing optimal builds.
+## Model Assignment & Router MatrixTo eliminate high financial compute overhead, tasks must be handled exclusively by the lowest capability tier that can successfully process the data.
+
+
+| Task Description | Primary Agent Core | Secondary Fallback | Hard Token Limit Action |
+| :--- | :--- | :--- | :--- |
+| **High Reasoning Architecture**<br>Architectural critique, budget approvals, MCDA final reviews | **Claude Code**<br>(Claude 4.8 Opus) | **Gemini 3.1 Pro** | Halt session at 100k context;<br>Force user `/compact` or `/clear` |
+| **Context Engine / Workhorse**<br>Reading cards/ folder, sweeping CSVs, live pricing | **Claude Code**<br>(Claude 4.6 Sonnet) | **Gemini 3.1 Pro** | Halt session at 100k context;<br>Force user `/compact` or `/clear` |
+| **Agentic Coding / Multi-turn Execution**<br>Pipeline scripting, script adjustments, large sweeps | **Antigravity IDE / CLI**<br>(Gemini 3.5 Flash) | **Gemini 3.1 Flash Lite** | Use local session;<br>Maintain multi-turn reasoning context |
+| **Git Reprepositories & Version Control**<br>Staging, diffing, repository pushes | **GitHub Copilot CLI**<br>(or `@copilot` tool) | **Codex CLI** | Interdict Claude Code from running operations |
+| **Market Research & Part Scraping**<br>Live inventory scans, part pricing, reviews | **Perplexity Pro**<br>(Local Browser MCP) | **Gemini 3.5 Flash**<br>(With Search Grounding) | Route via cookie session wrapper;<br>Bypass raw API consumption fees |
+| **Audit Workflows**<br>Grep, structural layout, CSV checks, card audits | **Antigravity CLI** | **Claude Haiku** | Never spin up nested Claude subagents |
+## Systemic Token Containment Regulations- **Subagent Lockout**: Any task evaluated as structural or discovery-based must be rejected by Claude Code and translated into an active `antigravity /go` task string.
+- **Deprecated Parameter Erasure**: Gemini 3.5 routing profiles must never include outdated engine arguments (`temperature`, `top_p`, `top_k`). High-frequency interaction cycles must target modern token control settings:
+  ```json
+  "thinking_level": "medium",
+  "thought_preservation": true
+  ```- **Git Containment Boundary**: All repository management operations are offloaded to Copilot engines or direct bash operations. AI code systems are blocked from checking repo statuses using cognitive layers.
+- **Artifact-Based Baton Pass Protocol**: Because nested subagents are forbidden, multi-model execution follows this handoff loop:
+  1. **Write Summary**: Upon completing a phase, the active engine writes a micro-summary to `tasks/handovers/ready_for_opus.md`.
+  2. **Explicit Stop**: The engine must stop and print: `"Phase complete. Artifact saved. Please invoke Claude 4.8 Opus to review ready_for_opus.md."`
+  3. **Human Invocation**: The user manually switches models (e.g. `/model opus`) and directs the new session to the handoff artifact.
+## Decision Tracks & Threshold Gates
+<!-- POLICY_START -->
+- **Track 1 (Laptop Core)**: Active choice path. Proceed immediately upon locating a baseline validation match. Target budget: ≤ 5,000 AUD.
+  - **Track 1A (Discrete GPU Laptop)**: Discrete VRAM is at least 8 GB. Screen size is at least 16 inches (or 14–16 inches if touchscreen).
+  - **Track 1B (Unified Memory Laptop)**: Unified memory is at least 16 GB (32 GB+ preferred, 48GB/64GB+ strong for Q4). Includes Apple Silicon and other Unified Memory Architectures (UMAs) with advanced VRAM BIOS configuration options.
+- **Track 1.5 (Desktop Swap)**: Enabled exclusively under Exception A parameters (Zero valid laptop configurations discovered within pricing parameters).
+  - **Track 1.5 Minimum VRAM**: GPU VRAM is at least 16 GB.
+- **Track 2 (Secondary/Alternative Tracks)**:
+  - **Pathway A**: Total cost is at most 5,000 AUD.
+  - **Pathway B**: Total cost is at most 4,000 AUD.
+  - **Pathway C**: Total cost is at most 3,500 AUD.
+<!-- POLICY_END -->
+
+---
+
+## The 5-Phase Hardware Decision Pipeline
+
+The procurement process is orchestrated through a structured 5-phase pipeline:
+
+```mermaid
+graph TD
+    Z[Phase 0: Spec Clarifier Agent] -.->|--spec-json| A
+    A[Phase 1: Intake] --> B[Phase 2: Shortlist]
+    B --> C[Phase 3a: Scaffold Schema]
+    C --> D[Phase 3b: Live Pricing Fill]
+    D --> E[Phase 4: Manual Scoring]
+    E --> F[Phase 5: Rank & Decide]
+```
+
+### Pipeline Automation Commands:
+```bash
+# Phase 0 (optional): interactive spec clarification
+python scripts/agents/spec_clarifier/agent.py
+# → outputs JSON blob; pass to Phase 2 with --spec-json
+
+# Phase 1: Normalize raw exports & generate product cards
+python scripts/normalize_intake.py data/raw/YYYY-MM-DD_batch.csv
+python scripts/intake_to_cards.py data/processed/YYYY-MM-DD_batch_processed.csv --overwrite
+
+# Phase 2: Build shortlist using policy thresholds
+python scripts/build_shortlist.py
+# With Phase 0 spec override:
+python scripts/build_shortlist.py --spec-json '{"track_preference":"1A","budget_cap_aud":4500}'
+
+# Phase 3a: Scaffold pricing columns (schema-only, NO live web lookup)
+python scripts/enrich_shortlist_pricing.py shortlists/YYYY-MM-DD_shortlist.csv
+
+# Phase 3b: Fill live pricing and seller evidence via web lookup
+python scripts/fill_shortlist_live_pricing.py shortlists/YYYY-MM-DD_shortlist_pricing_enriched.csv
+
+# Phase 5: Weighting, MCDA scoring, and ranking
+python scripts/scoring/rubric_weighting_engine.py \
+  --csv shortlists/YYYY-MM-DD_shortlist_pricing_enriched_live.csv \
+  --output-csv shortlists/YYYY-MM-DD_shortlist_ranked.csv
+
+# System Integrity & Policy Validation Checks
+python scripts/policy_drift_check.py
+python scripts/validate_prompt_templates.py
+python scripts/pipeline_integrity_check.py \
+  --enriched shortlists/YYYY-MM-DD_shortlist_pricing_enriched_live.csv \
+  --ranked shortlists/YYYY-MM-DD_shortlist_ranked.csv
+```
+
+---
+
+## Multi-Criteria Decision Analysis (MCDA) Scoring
+
+All viable candidates must be scored out of 10 for five distinct factors:
+
+$$\text{MCDA Score} = (\text{Performance\_Headroom} \times 0.25) + (\text{Price\_Value} \times 0.20) + (\text{Future\_Proof} \times 0.20) + (\text{Portability} \times 0.20) + (\text{Track2\_Avoidance} \times 0.15)$$
+
+### Factor Rubrics:
+- **Performance_Headroom (25%):**
+  - `2-3`: 8 GB VRAM discrete GPU (entry-level).
+  - `4-5`: 12 GB VRAM discrete GPU (moderate constraints).
+  - `6-7`: 16 GB VRAM discrete GPU OR default cap for Strix Halo / Radeon 8060S / Apple M-series Pro or Max (e.g. 48GB unified).
+  - `8-10`: 24 GB+ VRAM discrete GPU tier OR 64GB-128GB+ unified memory tier.
+- **Price_Value (20%):** Score 10 for excellent value/discounts relative to alternatives, 5 for fair market, 0 at budget cap with weak differentiation.
+- **Future_Proof (20%):** Measures runtime headroom for Q4 features. `2-3` for 8GB, `6-7` for 16GB, `8-10` for strong Q4 runway (64GB-128GB unified or 24GB+ VRAM).
+- **Portability (20%):** `10` for ultraportables/thin-and-lights, `7-8` for typical 14"–16" creator laptops, `4-6` for heavy desktop-replacements, `0-3` for desktops.
+- **Track2_Avoidance (15%):** Likelihood to fully avoid enterprise workstations in Q4.
+  - Strix Halo / Apple Silicon Caps: 32 GB/48GB unified = `5-6`, 64 GB unified = `7`, 128 GB unified = `8`.
+
+---
+
+## Strict Data & Pricing Verification Rules
+
+- **Zero Inference:** Never guess or infer price, stock, VRAM, RAM, or warranty. Unknown parameters must be kept as `UNKNOWN` until live-verified.
+- **Secondary Market Audit Rule (Track 1A Refurb/eBay):** `current_best_price_aud` must be cross-checked against last-30-days "Sold" listings or verified clearance prices, not speculative international "Buy It Now" asking prices.
+- **Price Increase Cross-Check Rule:** Do not immediately reject a candidate if a single retailer shows a price hike over the cap. Verify at least two other AU retailers in this safe priority hierarchy:
+  1. `MANUFACTURER_AU`
+  2. `MAJOR_RETAILER_AU`
+  3. `AMAZON_AU`
+  4. `EBAY_AU`
+  5. `GUMTREE_AU` / `FB_MARKETPLACE` (fallback only)
+  6. `GRAY_IMPORT` (high risk, fallback only)
+- **Review Penalties:** Apply `-1` to `-2` scoring penalties on factors if reviews confirm: sustained loud fan behavior, poor display quality, weak battery endurance, or macOS/ROCm/toolchain setup complexities for local AI work.
+
+---
+
+## Recommendation Go-Live Checklist
+
+Before proposing a purchase recommendation to the user, verify and format the output as follows:
+
+### Checklist:
+- [ ] Confirm active AU stock.
+- [ ] Confirm final price and effective best price.
+- [ ] Confirm exact GPU VRAM or Unified Memory.
+- [ ] Confirm warranty details and ACL (Australian Consumer Law) coverage.
+- [ ] Verify there is no disqualifying sustained thermal throttling risk.
+- [ ] Calculate the final MCDA score and fill all factor columns.
+
+### Required Output Format:
+1. **Candidate Name & Track/Pathway**
+2. **GOOD ENOUGH Status:** Explicit confirmation that all gates are cleared.
+3. **MCDA Scores:** Breakdown of overall score and the five individual factor scores.
+4. **Source Evidence:** Price, retailer name, live URL, stock status, and the date checked.
+5. **Remaining Risks:** Thermal, compatibility, or seller risks.
+6. **Final Recommendation:** Clear **buy / do-not-buy / wait** decision.
+</file>
+
+</files>
